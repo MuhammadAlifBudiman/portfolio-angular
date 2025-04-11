@@ -1,0 +1,82 @@
+name: 🐞 Bug Fix
+description: Report a bug that needs to be fixed
+title: "[BUG]: <title>"
+labels: ["bug"]
+
+body:
+  - type: dropdown
+    id: scopes
+    attributes:
+      label: Where does this bug occur?
+      description: Select the scope of this bug
+      options:
+        - animations
+        - api
+        - auth
+        - changelog
+        - common
+        - config
+        - core
+        - forms
+        - http
+        - language-service
+        - localization
+        - migration
+        - packaging
+        - router
+        - service-worker
+        - upgrade
+        - user
+      multiple: true
+    validations:
+      required: true
+
+  - type: dropdown
+    id: is-regression
+    attributes:
+      label: Is this a regression?
+      description: Did this bug appear after an update?
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+
+  - type: input
+    id: version-bug-was-not-present
+    attributes:
+      label: The previous version where this bug was not present is
+    validations:
+      required: false
+
+  - type: textarea
+    id: bug-description
+    attributes:
+      label: Bug Description
+      description: Describe the bug you found
+      placeholder: "Example: Error handler does not display messages from the server"
+    validations:
+      required: true
+
+  - type: input
+    id: reproduction-steps
+    attributes:
+      label: Please provide a link to a minimal reproduction of the bug
+      placeholder: https://github.com/username/repo
+
+  - type: textarea
+    id: exception-or-error
+    attributes:
+      label: Please provide the exception or error you encountered
+      render: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Please provide the environment where you found this bug
+      render: true
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Please provide any other relevant information

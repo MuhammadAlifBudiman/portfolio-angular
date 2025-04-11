@@ -1,0 +1,56 @@
+name: ✨ New Feature
+description: Add a new feature to the application
+title: "[FEAT]: <title>"
+labels: ["feature", "enhancement"]
+
+body:
+  - type: dropdown
+    id: scopes
+    attributes:
+      label: Select the scope of this feature
+      options:
+        - animations
+        - api
+        - auth
+        - changelog
+        - common
+        - config
+        - core
+        - forms
+        - http
+        - language-service
+        - localization
+        - migration
+        - packaging
+        - router
+        - service-worker
+        - upgrade
+        - user
+      multiple: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: Describe the feature you want to add
+      placeholder: "Example: Add login authentication with OTP"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Explain how the feature will be implemented
+      placeholder: "Example: Use Firebase for OTP authentication"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives-considered
+    attributes:
+      label: Alternatives Considered
+      description: Mention other alternatives considered
+      placeholder: "Example: Using token-based authentication"
+    validations:
+      required: true

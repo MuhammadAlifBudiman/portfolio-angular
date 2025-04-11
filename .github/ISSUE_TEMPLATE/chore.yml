@@ -1,0 +1,10 @@
+name: 🔧 Routine Task
+description: Maintenance tasks such as dependency updates
+title: "[CHORE]: <title>"
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: "Example: Update Tailwind to version 3.4.1"
