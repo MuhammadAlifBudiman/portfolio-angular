@@ -29,7 +29,7 @@ jobs:
 
       - name: Build & Deploy
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }} # ✅ this is the right var
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           export NG_CLI_ANALYTICS=false
           git config --global user.email "actions@github.com"
