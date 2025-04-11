@@ -29,9 +29,9 @@ jobs:
 
       - name: Build & Deploy
         env:
-          NG_DEPLOY_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }} # ✅ this is the right var
         run: |
           export NG_CLI_ANALYTICS=false
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          ng deploy --base-href=/portfolio-angular/ --no-silent --access-token="$NG_DEPLOY_TOKEN"
+          ng deploy --base-href=/portfolio-angular/ --no-silent
