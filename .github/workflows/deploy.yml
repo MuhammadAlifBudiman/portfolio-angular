@@ -5,12 +5,15 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write # ✅ allow pushing to gh-pages branch
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -21,12 +24,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build Angular app
         run: npm run build -- --base-href=/portfolio-angular/
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/portfolio
+          folder: dist/portfolio-angular
           token: ${{ secrets.GITHUB_TOKEN }}
