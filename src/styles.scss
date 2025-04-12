@@ -7,14 +7,15 @@
   box-sizing: border-box;
 }
 
-:root  {
-    --highlight-color: #65ffd1;
-    --hover-color: #007bff;
-    --secondary-text-color: #c6c6c6;
-    --logo-hover-filter: brightness(0) saturate(100%) invert(40%) sepia(99%)
-        saturate(2000%) hue-rotate(200deg) brightness(90%) contrast(100%);
-    --main-text-color: white;
-    --body-background-color: linear-gradient(to bottom, black, darkblue);
+:root {
+  --highlight-color: #65ffd1;
+  --hover-color: #007bff;
+  --secondary-text-color: #c6c6c6;
+  --logo-hover-filter: brightness(0) saturate(100%) invert(40%) sepia(99%)
+    saturate(2000%) hue-rotate(200deg) brightness(90%) contrast(100%);
+  --main-text-color: white;
+  --body-background-color: linear-gradient(to bottom, black, darkblue);
+  --hover-background-color: rgba(255, 255, 255, 0.1);
 }
 
 body {
