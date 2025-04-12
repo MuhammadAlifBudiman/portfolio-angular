@@ -1,0 +1,28 @@
+.btn {
+  position: relative;
+  background: transparent;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  overflow: hidden;
+  border: 2px solid var(--highlight-color);
+  min-width: 130px;
+  padding: 15px 50px;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 0;
+}
+
+.btn span {
+  user-select: none;
+}
+
+.btn-size-1 {
+  width: 230px;
+  height: 64px;
+  cursor: pointer;
+}
