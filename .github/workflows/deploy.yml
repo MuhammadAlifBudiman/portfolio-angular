@@ -29,6 +29,7 @@ jobs:
 
       - name: Inject environment variables
         run: |
+          cp src/environments/example.environment.ts src/environments/environment.ts
           echo "export const environment = { production: true, emailService: { serviceId: '$ENV_SERVICE_ID', templateId: '$ENV_TEMPLATE_ID', publicKey: '$ENV_PUBLIC_KEY' } };" > src/environments/environment.prod.ts
         env:
           ENV_SERVICE_ID: ${{ secrets.ENV_SERVICE_ID }}
