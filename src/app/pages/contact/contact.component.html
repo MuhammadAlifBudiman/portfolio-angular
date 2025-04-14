@@ -18,6 +18,10 @@
         </p>
       </div>
     </div>
+    <div *ngIf="isLoading" class="loading-indicator">Sending...</div>
+    <div *ngIf="alertMessage" class="alert" [ngClass]="alertType">
+      {{ alertMessage }}
+    </div>
     <form class="contact-form" #contactForm>
       <input type="hidden" name="time" [value]="time" />
       <div class="form-group-contact">
@@ -41,10 +45,6 @@
           [buttonText]="'Send'"
           [buttonAction]="sendData"
         ></app-button>
-      </div>
-      <div *ngIf="isLoading" class="loading-indicator">Sending...</div>
-      <div *ngIf="alertMessage" class="alert" [ngClass]="alertType">
-        {{ alertMessage }}
       </div>
     </form>
   </div>
