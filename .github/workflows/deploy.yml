@@ -27,6 +27,14 @@ jobs:
       - name: Install angular-cli-ghpages
         run: npm install -g angular-cli-ghpages
 
+      - name: Inject environment variables
+        run: |
+          echo "export const environment = { production: true, emailService: { serviceId: '$ENV_SERVICE_ID', templateId: '$ENV_TEMPLATE_ID', publicKey: '$ENV_PUBLIC_KEY' } };" > src/environments/environment.prod.ts
+        env:
+          ENV_SERVICE_ID: ${{ secrets.ENV_SERVICE_ID }}
+          ENV_TEMPLATE_ID: ${{ secrets.ENV_TEMPLATE_ID }}
+          ENV_PUBLIC_KEY: ${{ secrets.ENV_PUBLIC_KEY }}
+
       - name: Build & Deploy
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
