@@ -23,7 +23,10 @@ export class ContactComponent {
   sendData = (): void => {
     this.isLoading = true;
 
-    if (!this.contactForm?.nativeElement) return;
+    if (!this.contactForm?.nativeElement) {
+      this.isLoading = false;
+      return;
+    }
 
     const form = this.contactForm.nativeElement as HTMLFormElement;
 
