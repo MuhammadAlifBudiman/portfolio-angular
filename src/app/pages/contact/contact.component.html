@@ -1,1 +1,51 @@
-<p>contact works!</p>
+<div class="wrapper">
+  <div class="contact-section">
+    <div class="contact-details">
+      <p id="section-contact" class="small-paragraph">Get in touch</p>
+      <h1 class="section-title">Contact</h1>
+      <div class="contact-info">
+        <p class="contact-description">
+          If you have any questions or would like to discuss a project, feel
+          free to reach out!
+        </p>
+        <p class="contact-details">
+          Whatsapp:
+          <a [href]="'https://wa.me/' + phoneNumber" target="_blank">{{
+            phoneNumber
+          }}</a>
+          <br />
+          Email: <a [href]="'mailto:' + email">{{ email }}</a>
+        </p>
+      </div>
+    </div>
+    <form class="contact-form" #contactForm>
+      <input type="hidden" name="time" [value]="time" />
+      <div class="form-group-contact">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div class="form-group-contact">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <div class="form-group-contact">
+        <label for="title">Subject</label>
+        <input type="text" id="title" name="title" required />
+      </div>
+      <div class="form-group-contact">
+        <label for="message">Message</label>
+        <textarea name="message" id="message" rows="5" required></textarea>
+      </div>
+      <div class="btn-container">
+        <app-button
+          [buttonText]="'Send'"
+          [buttonAction]="sendData"
+        ></app-button>
+      </div>
+      <div *ngIf="isLoading" class="loading-indicator">Sending...</div>
+      <div *ngIf="alertMessage" class="alert" [ngClass]="alertType">
+        {{ alertMessage }}
+      </div>
+    </form>
+  </div>
+</div>
