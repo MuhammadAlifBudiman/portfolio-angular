@@ -1,58 +1,26 @@
-.main-header {
-  width: 100%;
-  z-index: 2;
+// .logo:hover svg {
+//   transform: translayeY(-3px);
+//   filter: var(--logo-hover-filter);
+// }
+@reference "tailwindcss";
+@reference "../../../styles.scss";
+
+.navbar-fixed {
+  @apply inset-shadow-[0_-1px_0_0_rgba(0,123,255,0.5)] fixed z-[9999] bg-transparent/70 backdrop-blur-sm;
 }
 
-.header-menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  padding-top: 15px;
-  padding-left: 20px;
-  padding-right: 40px;
+.hamburger-line {
+  @apply bg-button-accent my-2 block h-[2px] w-[30px];
 }
 
-.menu-items {
-  font-family: "Roboto Mono", sans-serif;
-  font-size: 17px;
-  display: flex;
-  gap: 30px;
+.hamburger-active > span:nth-child(1) {
+  @apply rotate-45;
 }
 
-.menu-items a {
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: transform 0.3s ease, color 0.3s ease;
+.hamburger-active > span:nth-child(2) {
+  @apply scale-0;
 }
 
-.menu-items span {
-  font-weight: bold;
-  color: var(--highlight-color);
-}
-
-.menu-items a:hover {
-  color: var(--hover-color);
-  transform: translateY(-2px);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo svg {
-  height: 70px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.logo svg g {
-  fill: var(--main-text-color);
-}
-
-.logo:hover svg {
-  transform: translayeY(-3px);
-  filter: var(--logo-hover-filter);
+.hamburger-active > span:nth-child(3) {
+  @apply -rotate-45;
 }
