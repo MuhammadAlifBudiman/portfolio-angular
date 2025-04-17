@@ -1,4 +1,6 @@
-<div class="btn btn-size-1" (click)="onButtonClick()">
-  <div class="hover"></div>
-  <span> {{ buttonText }}</span>
+<div
+  class="border-button-accent-hover relative z-0 mt-2.5 inline-flex h-[64px] w-[230px] min-w-[130px] cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-solid bg-transparent px-[50px] py-[15px] text-center text-base font-bold uppercase"
+  (click)="onButtonClick()"
+>
+  <span class="select-none"> {{ buttonText }}</span>
 </div>

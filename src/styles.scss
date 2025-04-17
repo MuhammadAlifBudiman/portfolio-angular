@@ -8,10 +8,14 @@
   --color-button-accent-hover: #65ffd1;
   --color-button-muted: #c6c6c6;
   --color-fill: #000;
-  --color-fill-gradient: #162456;
+  --color-fill-gradient: #00008b;
   --color-fill-hover: rgba(255, 255, 255, 0.1);
   --font-primary: "Open Sans", sans-serif;
   --font-mono: "Roboto Mono", monospace;
   --logo-hover-filter: brightness(0) saturate(100%) invert(40%) sepia(99%)
     saturate(2000%) hue-rotate(200deg) brightness(90%) contrast(100%);
+}
+
+@utility wrapper {
+  @apply flex min-h-[100vh] w-full flex-col items-center justify-center;
 }
