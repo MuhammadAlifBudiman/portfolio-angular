@@ -13,7 +13,7 @@ export class ContactComponent {
   phoneNumber = '+6281295837271';
   email = 'alifm2101@gmail.com';
   alertMessage: string | null = null;
-  alertType: 'success' | 'error' | null = null;
+  alertType: string | null = null;
   time: string = '';
   isLoading: boolean = false;
 
@@ -37,7 +37,7 @@ export class ContactComponent {
     });
 
     const timeInput = form.querySelector(
-      'input[name="time"]'
+      'input[name="time"]',
     ) as HTMLInputElement;
     if (timeInput) {
       timeInput.value = currentTime;
@@ -47,12 +47,14 @@ export class ContactComponent {
       .sendEmail(this.contactForm.nativeElement)
       .then(() => {
         this.alertMessage = 'Your message has been sent successfully!';
-        this.alertType = 'success';
+        this.alertType =
+          'bg-fill-success text-text-success border border-solid border-border-success';
         this.contactForm.nativeElement.reset();
       })
       .catch(() => {
         this.alertMessage = 'Failed to send your message. Please try again.';
-        this.alertType = 'error';
+        this.alertType =
+          'bg-fill-error text-text-error border border-solid border-border-error';
       })
       .finally(() => {
         this.isLoading = false;
