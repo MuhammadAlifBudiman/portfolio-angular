@@ -26,7 +26,12 @@
             >{{ phoneNumber }}</a
           >
           <br />
-          Email: <a [href]="'mailto:' + email">{{ email }}</a>
+          Email:
+          <a
+            [href]="'mailto:' + email"
+            class="text-button-accent-hover hover:underline"
+            >{{ email }}</a
+          >
         </p>
       </div>
     </div>
