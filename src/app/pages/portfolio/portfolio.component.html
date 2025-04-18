@@ -1,264 +1,363 @@
-<div class="wrapper">
-  <div class="portfolio-section section">
-    <div class="portfolio-content">
-      <div class="portfolio-text">
-        <p id="section-portfolio" class="small-paragraph">Discover my work</p>
-        <h1 class="section-title">Portfolio</h1>
+<div class="wrapper pt-36">
+  <div class="container">
+    <div class="w-full px-4">
+      <div class="mx-auto mb-16 max-w-xl text-center">
+        <div>
+          <p
+            id="section-portfolio"
+            class="text-button-accent-hover font-mono text-base md:text-xl"
+          >
+            Discover my work
+          </p>
+          <h1
+            class="text-text-base text-3xl font-bold md:text-4xl lg:min-w-[610px] lg:text-6xl"
+          >
+            Portfolio
+          </h1>
+        </div>
       </div>
-    </div>
-    <div class="portfolio-container" id="klinik-google">
-      <div class="photo-container">
-        <img src="projects/klinikgoogle.png" alt="klinik-google.glitch.me" />
-      </div>
-      <div class="project-container">
-        <p class="project-name">Team Project</p>
-        <h2 class="project-title">Klinik Google</h2>
-        <p class="project-description">
-          This Patient Management System utilizes Flask and MongoDB to enhance
-          patient registration efficiency, healthcare service quality, and
-          patient data management.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="openWebsite('https://klinik-google.glitch.me/')"
-        ></app-button>
-      </div>
-    </div>
-    <!--  -->
-    <div class="portfolio-container" id="numble">
-      <div class="project-container">
-        <p class="project-name">Team Project</p>
-        <h2 class="project-title">Numble</h2>
-        <p class="project-description">
-          Numble is an engaging and addictive web-based number puzzle game that
-          challenges players to use their mathematical skills.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="openWebsite('https://numble-xi.vercel.app/')"
-        ></app-button>
-      </div>
-      <div class="photo-container">
-        <img src="projects/numble.png" alt="numble-xi.vercel.app" />
-      </div>
-    </div>
 
-    <div class="portfolio-container" id="bemy">
-      <div class="photo-container">
-        <img src="projects/bemy.png" alt="muhammadalifbudiman.github.io/BeMy" />
-      </div>
-      <div class="project-container">
-        <p class="project-name">Team Project</p>
-        <h2 class="project-title">BeMy</h2>
-        <p class="project-description">
-          Platform for individuals to find chat friends and engage in virtual
-          conversations.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="
-            openWebsite('https://muhammadalifbudiman.github.io/BeMy/')
-          "
-        ></app-button>
-      </div>
-    </div>
-    <!--  -->
-    <div class="portfolio-container" id="stock-data">
-      <div class="project-container">
-        <p class="project-name">Team Project</p>
-        <h2 class="project-title">StockData</h2>
-        <p class="project-description">
-          An Inventory Control website to facilitate stock management and ensure
-          product availability across various marketplaces.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="openWebsite('https://stockdata.great-site.net/')"
-        ></app-button>
-      </div>
-      <div class="photo-container">
-        <img src="projects/stockdata.png" alt="stockdata.great-site.net" />
-      </div>
-    </div>
+      <div class="flex w-full flex-wrap justify-center xl:mx-auto xl:w-10/12">
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="klinik-google">
+          <div class="shadow-md">
+            <img
+              src="projects/klinikgoogle.png"
+              alt="klinik-google.glitch.me"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Team Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Klinik Google</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              This Patient Management System utilizes Flask and MongoDB to
+              enhance patient registration efficiency, healthcare service
+              quality, and patient data management.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="openWebsite('https://klinik-google.glitch.me/')"
+            ></app-button>
+          </div>
+        </div>
 
-    <div class="portfolio-container" id="task-master">
-      <div class="photo-container">
-        <img src="projects/taskmaster.png" alt="alif.pythonanywhere.com" />
-      </div>
-      <div class="project-container">
-        <p class="project-name">Personal Project</p>
-        <h2 class="project-title">Task Master</h2>
-        <p class="project-description">
-          Task Master is a feature-rich web application that empowers users to
-          efficiently manage their daily, weekly, and monthly tasks.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="openWebsite('https://alif.pythonanywhere.com/')"
-        ></app-button>
-      </div>
-    </div>
-    <!--  -->
-    <div class="portfolio-container" id="color-tap">
-      <div class="project-container">
-        <p class="project-name">Personal Project</p>
-        <h2 class="project-title">Color Tap</h2>
-        <p class="project-description">
-          This addictive web-based game is designed to test your reflexes and
-          color recognition skills in a fun and engaging way.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="
-            openWebsite('https://muhammadalifbudiman.github.io/ColorTap/')
-          "
-        ></app-button>
-      </div>
-      <div class="photo-container">
-        <img
-          src="projects/colortap.png"
-          alt="muhammadalifbudiman.github.io/ColorTap"
-        />
-      </div>
-    </div>
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="numble">
+          <div class="shadow-md">
+            <img
+              src="projects/numble.png"
+              alt="numble-xi.vercel.app"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Team Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Numble</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              Numble is an engaging and addictive web-based number puzzle game
+              that challenges players to use their mathematical skills.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="openWebsite('https://numble-xi.vercel.app/')"
+            ></app-button>
+          </div>
+        </div>
 
-    <div class="portfolio-container" id="coffee-shop">
-      <div class="photo-container">
-        <img src="projects/coffeeshop.png" alt="coffeeshop.free.nf" />
-      </div>
-      <div class="project-container">
-        <p class="project-name">Personal Project</p>
-        <h2 class="project-title">Coffee Shop</h2>
-        <p class="project-description">
-          The CoffeeShop website is your one-stop destination for a delightful
-          coffee experience.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="openWebsite('https://coffeeshop.free.nf/')"
-        ></app-button>
-      </div>
-    </div>
-    <!--  -->
-    <div class="portfolio-container" id="checkers">
-      <div class="project-container">
-        <p class="project-name">Personal Project</p>
-        <h2 class="project-title">Checkers</h2>
-        <p class="project-description">
-          A web-based Checkers game built with Angular, featuring turn-based
-          gameplay, piece movement, capturing, king promotion, and game-over
-          conditions. It enforces Checkers rules and has a modular structure for
-          scalability.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="
-            openWebsite('https://muhammadalifbudiman.github.io/checkers/')
-          "
-        ></app-button>
-      </div>
-      <div class="photo-container">
-        <img
-          src="projects/checkers.jpeg"
-          alt="muhammadalifbudiman.github.io/checkers"
-        />
-      </div>
-    </div>
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="bemy">
+          <div class="shadow-md">
+            <img
+              src="projects/bemy.png"
+              alt="muhammadalifbudiman.github.io/BeMy"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Team Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">BeMy</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              Platform for individuals to find chat friends and engage in
+              virtual conversations.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="
+                openWebsite('https://muhammadalifbudiman.github.io/BeMy/')
+              "
+            ></app-button>
+          </div>
+        </div>
 
-    <div class="portfolio-container" id="minesweeper">
-      <div class="photo-container">
-        <img
-          src="projects/minesweeper.png"
-          alt="muhammadalifbudiman.github.io/minesweeper"
-        />
-      </div>
-      <div class="project-container">
-        <p class="project-name">Personal Project</p>
-        <h2 class="project-title">Minesweeper</h2>
-        <p class="project-description">
-          A web-based implementation of the classic Minesweeper game built with
-          Angular. Players uncover cells on a grid to avoid hidden mines and
-          reveal numbers indicating adjacent mines.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="
-            openWebsite('https://muhammadalifbudiman.github.io/minesweeper/')
-          "
-        ></app-button>
-      </div>
-    </div>
-    <!--  -->
-    <div class="portfolio-container" id="resume-builder">
-      <div class="project-container">
-        <p class="project-name">Personal Project</p>
-        <h2 class="project-title">Resume Builder</h2>
-        <p class="project-description">
-          ResumeBuilder is an Angular-based web application that helps users
-          create, edit, and download professional resumes. It features an
-          editable form for inputting details, a live preview of the resume, and
-          PDF generation.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="
-            openWebsite('https://muhammadalifbudiman.github.io/resume-builder/')
-          "
-        ></app-button>
-      </div>
-      <div class="photo-container">
-        <img
-          src="projects/resumebuilder.png"
-          alt="muhammadalifbudiman.github.io/resume-builder"
-        />
-      </div>
-    </div>
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="stock-data">
+          <div class="shadow-md">
+            <img
+              src="projects/stockdata.png"
+              alt="stockdata.great-site.net"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Team Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">StockData</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              An Inventory Control website to facilitate stock management and
+              ensure product availability across various marketplaces.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="openWebsite('https://stockdata.great-site.net/')"
+            ></app-button>
+          </div>
+        </div>
 
-    <div class="portfolio-container" id="quiz-app">
-      <div class="photo-container">
-        <img
-          src="projects/quizapp.png"
-          alt="muhammadalifbudiman.github.io/quiz-app"
-        />
-      </div>
-      <div class="project-container">
-        <p class="project-name">Personal Project</p>
-        <h2 class="project-title">Quiz App</h2>
-        <p class="project-description">
-          QuizzApp is a web-based quiz application built with Angular. It allows
-          users to take quizzes, create custom quizzes, and view their quiz
-          history.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="
-            openWebsite('https://muhammadalifbudiman.github.io/quiz-app/')
-          "
-        ></app-button>
-      </div>
-    </div>
-    <!--  -->
-    <div class="portfolio-container" id="typing-game">
-      <div class="project-container">
-        <p class="project-name">Personal Project</p>
-        <h2 class="project-title">Typing Game</h2>
-        <p class="project-description">
-          TypingGame is a web-based app that helps users improve typing speed
-          and accuracy through interactive tests. It features typing challenges,
-          a leaderboard, customizable themes, and detailed performance stats.
-        </p>
-        <app-button
-          [buttonText]="'View Project'"
-          [buttonAction]="
-            openWebsite('https://muhammadalifbudiman.github.io/typing-game/')
-          "
-        ></app-button>
-      </div>
-      <div class="photo-container">
-        <img
-          src="projects/typinggame.jpeg"
-          alt="muhammadalifbudiman.github.io/typing-game"
-        />
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="task-master">
+          <div class="shadow-md">
+            <img
+              src="projects/taskmaster.png"
+              alt="alif.pythonanywhere.com"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Personal Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Task Master</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              Task Master is a feature-rich web application that empowers users
+              to efficiently manage their daily, weekly, and monthly tasks.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="openWebsite('https://alif.pythonanywhere.com/')"
+            ></app-button>
+          </div>
+        </div>
+
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="color-tap">
+          <div class="shadow-md">
+            <img
+              src="projects/colortap.png"
+              alt="muhammadalifbudiman.github.io/ColorTap"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Personal Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Color Tap</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              This addictive web-based game is designed to test your reflexes
+              and color recognition skills in a fun and engaging way.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="
+                openWebsite('https://muhammadalifbudiman.github.io/ColorTap/')
+              "
+            ></app-button>
+          </div>
+        </div>
+
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="coffee-shop">
+          <div class="shadow-md">
+            <img
+              src="projects/coffeeshop.png"
+              alt="coffeeshop.free.nf"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Personal Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Coffee Shop</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              The CoffeeShop website is your one-stop destination for a
+              delightful coffee experience.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="openWebsite('https://coffeeshop.free.nf/')"
+            ></app-button>
+          </div>
+        </div>
+
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="checkers">
+          <div class="shadow-md">
+            <img
+              src="projects/checkers.jpeg"
+              alt="muhammadalifbudiman.github.io/checkers"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Personal Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Checkers</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              A web-based Checkers game built with Angular, featuring turn-based
+              gameplay, piece movement, capturing, king promotion, and game-over
+              conditions. It enforces Checkers rules and has a modular structure
+              for scalability.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="
+                openWebsite('https://muhammadalifbudiman.github.io/checkers/')
+              "
+            ></app-button>
+          </div>
+        </div>
+
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="minesweeper">
+          <div class="shadow-md">
+            <img
+              src="projects/minesweeper.png"
+              alt="muhammadalifbudiman.github.io/minesweeper"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Personal Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Minesweeper</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              A web-based implementation of the classic Minesweeper game built
+              with Angular. Players uncover cells on a grid to avoid hidden
+              mines and reveal numbers indicating adjacent mines.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="
+                openWebsite(
+                  'https://muhammadalifbudiman.github.io/minesweeper/'
+                )
+              "
+            ></app-button>
+          </div>
+        </div>
+
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="resume-builder">
+          <div class="shadow-md">
+            <img
+              src="projects/resumebuilder.png"
+              alt="muhammadalifbudiman.github.io/resume-builder"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Personal Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Resume Builder</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              ResumeBuilder is an Angular-based web application that helps users
+              create, edit, and download professional resumes. It features an
+              editable form for inputting details, a live preview of the resume,
+              and PDF generation.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="
+                openWebsite(
+                  'https://muhammadalifbudiman.github.io/resume-builder/'
+                )
+              "
+            ></app-button>
+          </div>
+        </div>
+
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="quiz-app">
+          <div class="shadow-md">
+            <img
+              src="projects/quizapp.png"
+              alt="muhammadalifbudiman.github.io/quiz-app"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Personal Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Quiz App</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              QuizzApp is a web-based quiz application built with Angular. It
+              allows users to take quizzes, create custom quizzes, and view
+              their quiz history.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="
+                openWebsite('https://muhammadalifbudiman.github.io/quiz-app/')
+              "
+            ></app-button>
+          </div>
+        </div>
+
+        <div class="mb-12 flex flex-col p-4 md:w-1/2" id="typing-game">
+          <div class="shadow-md">
+            <img
+              src="projects/typinggame.jpeg"
+              alt="muhammadalifbudiman.github.io/typing-game"
+              class="z-2 border-text-base hover:border-button-accent hover:bg-fill-hover h-[222px] rounded-lg border-2"
+            />
+          </div>
+          <div class="flex h-full flex-col">
+            <p
+              class="text-button-accent-hover mt-2 font-mono text-base md:text-xl"
+            >
+              Personal Project
+            </p>
+            <h2 class="text-text-base mb-2.5 text-4xl">Typing Game</h2>
+            <p class="text-text-muted mb-2.5 block flex-1 text-lg">
+              TypingGame is a web-based app that helps users improve typing
+              speed and accuracy through interactive tests. It features typing
+              challenges, a leaderboard, customizable themes, and detailed
+              performance stats.
+            </p>
+            <app-button
+              [buttonText]="'View Project'"
+              [buttonAction]="
+                openWebsite(
+                  'https://muhammadalifbudiman.github.io/typing-game/'
+                )
+              "
+            ></app-button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

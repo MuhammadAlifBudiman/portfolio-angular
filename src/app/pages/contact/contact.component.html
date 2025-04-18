@@ -1,46 +1,105 @@
-<div class="wrapper">
-  <div class="contact-section">
-    <div class="contact-details">
-      <p id="section-contact" class="small-paragraph">Get in touch</p>
-      <h1 class="section-title">Contact</h1>
-      <div class="contact-info">
-        <p class="contact-description">
+<div class="wrapper pt-36">
+  <div class="mx-auto flex flex-col items-center justify-center px-4">
+    <div class="text-text-muted mb-5 text-center text-base">
+      <p
+        id="section-contact"
+        class="text-button-accent-hover mb-1.5 w-full font-mono text-base md:text-xl"
+      >
+        Get in touch
+      </p>
+      <h1
+        class="text-text-base mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
+      >
+        Contact
+      </h1>
+      <div class="mt-[4%] flex flex-col items-center justify-center">
+        <p class="text-text-muted mb-[1%] max-w-[500px] text-base">
           If you have any questions or would like to discuss a project, feel
           free to reach out!
         </p>
-        <p class="contact-details">
+        <p class="text-text-muted mb-5 text-center text-base">
           Whatsapp:
-          <a [href]="'https://wa.me/' + phoneNumber" target="_blank">{{
-            phoneNumber
-          }}</a>
+          <a
+            [href]="'https://wa.me/' + phoneNumber"
+            target="_blank"
+            class="text-button-accent-hover hover:underline"
+            >{{ phoneNumber }}</a
+          >
           <br />
-          Email: <a [href]="'mailto:' + email">{{ email }}</a>
+          Email:
+          <a
+            [href]="'mailto:' + email"
+            class="text-button-accent-hover hover:underline"
+            >{{ email }}</a
+          >
         </p>
       </div>
     </div>
-    <div *ngIf="isLoading" class="loading-indicator">Sending...</div>
-    <div *ngIf="alertMessage" class="alert" [ngClass]="alertType">
-      {{ alertMessage }}
-    </div>
-    <form class="contact-form" #contactForm>
+
+    <form class="w-full" #contactForm>
       <input type="hidden" name="time" [value]="time" />
-      <div class="form-group-contact">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
+      <div class="mb-5">
+        <label class="text-text-muted mb-[5%] block text-base" for="name"
+          >Name</label
+        >
+        <input
+          class="bg-fill-hover hover:border-button-accent border-button-accent-hover text-text-muted w-full rounded-lg border border-solid p-2.5 text-base focus:outline-0"
+          type="text"
+          id="name"
+          name="name"
+          required
+        />
       </div>
-      <div class="form-group-contact">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
+      <div class="mb-5">
+        <label class="text-text-muted mb-[5%] block text-base" for="email"
+          >Email</label
+        >
+        <input
+          class="bg-fill-hover hover:border-button-accent border-button-accent-hover text-text-muted w-full rounded-lg border border-solid p-2.5 text-base focus:outline-0"
+          type="email"
+          id="email"
+          name="email"
+          required
+        />
       </div>
-      <div class="form-group-contact">
-        <label for="title">Subject</label>
-        <input type="text" id="title" name="title" required />
+      <div class="mb-5">
+        <label class="text-text-muted mb-[5%] block text-base" for="title"
+          >Subject</label
+        >
+        <input
+          class="bg-fill-hover hover:border-button-accent border-button-accent-hover text-text-muted w-full rounded-lg border border-solid p-2.5 text-base focus:outline-0"
+          type="text"
+          id="title"
+          name="title"
+          required
+        />
       </div>
-      <div class="form-group-contact">
-        <label for="message">Message</label>
-        <textarea name="message" id="message" rows="5" required></textarea>
+      <div class="mb-5">
+        <label class="text-text-muted mb-[5%] block text-base" for="message"
+          >Message</label
+        >
+        <textarea
+          class="bg-fill-hover hover:border-button-accent border-button-accent-hover text-text-muted h-[150px] w-full rounded-lg border border-solid p-2.5 text-base focus:outline-0"
+          name="message"
+          id="message"
+          rows="5"
+          required
+        ></textarea>
       </div>
-      <div class="btn-container">
+      <div
+        *ngIf="isLoading"
+        class="text-button-accent-hover mt-5 text-center text-base"
+      >
+        Sending...
+      </div>
+      <div
+        *ngIf="alertMessage"
+        class="mt-5 rounded-md p-2.5 text-center text-base"
+        [ngClass]="alertType"
+      >
+        {{ alertMessage }}
+      </div>
+      <div class="mb-4 flex w-full justify-center text-center">
         <app-button
           [buttonText]="'Send'"
           [buttonAction]="sendData"
