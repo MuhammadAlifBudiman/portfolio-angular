@@ -47,4 +47,5 @@
 
 @utility big-cursor {
   @apply border-text-base before:bg-fill-hover before:border-text-base pointer-events-none fixed left-0 top-0 z-[999999] h-[50px] w-[50px] rounded-full border-2 mix-blend-screen before:absolute before:left-0 before:top-0 before:block before:h-full before:w-full before:rounded-full before:border-2 before:mix-blend-screen before:blur-[11px] before:content-[""];
+  transform: translate3d(-100%, -100%, 0);
 }
