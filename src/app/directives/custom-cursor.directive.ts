@@ -5,6 +5,8 @@ import { Directive, Renderer2, OnInit, OnDestroy } from '@angular/core';
 })
 export class CustomCursorDirective implements OnInit, OnDestroy {
   private cursorBig!: HTMLElement;
+  private translation = { x: 0, y: 0 };
+  private scaling = 1;
 
   constructor(private renderer: Renderer2) {}
 
@@ -39,25 +41,21 @@ export class CustomCursorDirective implements OnInit, OnDestroy {
     const mouseY = event.clientY - 20;
     const mouseX = event.clientX - 20;
 
-    const prevTransform = this.cursorBig.style.transform;
-    const newTransform = prevTransform.replace(/translate3d\([^)]+\)/, '');
-
-    this.cursorBig.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) ${newTransform}`;
+    this.translation = { x: mouseX, y: mouseY };
+    this.cursorBig.style.transform = `translate3d(${this.translation.x}px, ${this.translation.y}px, 0) scale(${this.scaling})`;
     this.cursorBig.style.transition = '';
   };
 
   private enlargeCursor = (): void => {
-    if (this.cursorBig.style.transform.includes('scale(1.3)')) return;
-    this.cursorBig.style.transform += 'scale(1.3)';
+    if (this.scaling === 1.3) return;
+    this.scaling = 1.3;
+    this.cursorBig.style.transform = `translate3d(${this.translation.x}px, ${this.translation.y}px, 0) scale(${this.scaling})`;
     this.cursorBig.style.transition = 'transform 0.08s ease';
   };
 
   private shrinkCursor = (): void => {
-    this.cursorBig.style.transform = this.cursorBig.style.transform.replace(
-      'scale(1.3)',
-      'scale(1)',
-    );
-    this.cursorBig.style.transition = 'transform 0.08s ease';
+    this.scaling = 1;
+    this.cursorBig.style.transform = `translate3d(${this.translation.x}px, ${this.translation.y}px, 0) scale(${this.scaling})`;
   };
 
   ngOnDestroy(): void {
