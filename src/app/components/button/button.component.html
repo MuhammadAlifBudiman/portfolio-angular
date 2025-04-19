@@ -1,6 +1,11 @@
 <div
-  class="border-button-accent-hover relative z-0 mt-2.5 inline-flex h-[64px] w-[230px] min-w-[130px] cursor-pointer items-center justify-center overflow-hidden rounded-lg border-2 border-solid bg-transparent px-[50px] py-[15px] text-center text-base font-bold uppercase"
+  class="border-button-accent-hover group relative z-0 mt-2.5 inline-flex h-[64px] w-[230px] min-w-[130px] items-center justify-center overflow-hidden rounded-lg border-2 border-solid bg-transparent px-[50px] py-[15px] text-center text-base font-bold uppercase"
   (click)="onButtonClick()"
 >
-  <span class="select-none"> {{ buttonText }}</span>
+  <div
+    class="text-fill bg-button-accent-hover absolute left-0 top-0 -z-[1] h-full w-full translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"
+  ></div>
+  <span class="text-button-accent-hover select-none group-hover:text-black">
+    {{ buttonText }}</span
+  >
 </div>
