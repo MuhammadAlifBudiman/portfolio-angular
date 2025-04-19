@@ -1,16 +1,13 @@
-// .logo:hover svg {
-//   transform: translayeY(-3px);
-//   filter: var(--logo-hover-filter);
-// }
 @reference "tailwindcss";
 @reference "../../../styles.scss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 .navbar-fixed {
-  @apply inset-shadow-[0_-1px_0_0_rgba(0,123,255,0.5)] fixed z-[9999] bg-transparent/70 backdrop-blur-sm;
+  @apply inset-shadow-[0_-1px_0_0] dark:inset-shadow-dark-border-primary inset-shadow-light-border-primary fixed z-[9999] bg-transparent/70 backdrop-blur-sm;
 }
 
 .hamburger-line {
-  @apply bg-button-accent my-2 block h-[2px] w-[30px];
+  @apply dark:bg-dark-accent-hover bg-light-accent-hover my-2 block h-[2px] w-[30px];
 }
 
 .hamburger-active > span:nth-child(1) {
@@ -23,4 +20,8 @@
 
 .hamburger-active > span:nth-child(3) {
   @apply -rotate-45;
+}
+
+#dark-toggle:checked ~ label div.toggle-circle {
+  @apply translate-x-3;
 }

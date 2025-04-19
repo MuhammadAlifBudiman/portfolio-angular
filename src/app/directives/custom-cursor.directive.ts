@@ -12,7 +12,6 @@ export class CustomCursorDirective implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initCursor();
-    console.log('Custom cursor initialized');
   }
 
   private isMobile(): boolean {

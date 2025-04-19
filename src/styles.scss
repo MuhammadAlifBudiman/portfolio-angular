@@ -2,23 +2,47 @@
 @use "./tailwind";
 
 @theme {
-  --color-text-base: #fff;
-  --color-text-muted: #c6c6c6;
-  --color-button-accent: #007bff;
-  --color-button-accent-hover: #65ffd1;
-  --color-text-success: #65ffd1;
-  --color-fill-success: rgba(101, 255, 209, 0.1);
-  --color-border-success: #4ecba3;
-  --color-fill-error: rgba(255, 99, 132, 0.1);
-  --color-text-error: #ff6384;
-  --color-border-error: #cc516a;
-  --color-fill: #000;
-  --color-fill-gradient: #00008b;
-  --color-fill-hover: rgba(255, 255, 255, 0.1);
+  /* Colors */
+  --color-dark-text-primary: #fff;
+  --color-dark-text-secondary: #c6c6c6;
+  --color-dark-accent-primary: #007bff;
+  --color-dark-accent-hover: #65ffd1;
+  --color-dark-success-text: #65ffd1;
+  --color-dark-success-background: rgba(101, 255, 209, 0.1);
+  --color-dark-success-border: #4ecba3;
+  --color-dark-error-background: rgba(255, 99, 132, 0.1);
+  --color-dark-error-text: #ff6384;
+  --color-dark-error-border: #cc516a;
+  --color-dark-background-primary: #000;
+  --color-dark-background-gradient: #00008b;
+  --color-dark-background-hover: rgba(255, 255, 255, 0.1);
+  --color-dark-border-primary: rgba(0, 123, 255, 0.5);
+  --dark-filter-logo-hover: brightness(0) saturate(100%) invert(40%) sepia(99%)
+    saturate(2000%) hue-rotate(200deg) brightness(90%) contrast(100%);
+
+  /* Colors */
+  --color-light-text-primary: #000;
+  --color-light-text-secondary: #4d4d4d;
+  --color-light-accent-primary: #4ecba3;
+  --color-light-accent-hover: #0056b3;
+  --color-light-success-text: #007bff;
+  --color-light-success-background: rgba(0, 123, 255, 0.1);
+  --color-light-success-border: #0056b3;
+  --color-light-error-background: rgba(255, 99, 132, 0.1);
+  --color-light-error-text: #cc516a;
+  --color-light-error-border: #a03d4f;
+  --color-light-background-primary: #fff;
+  --color-light-background-gradient: #dfe7ef;
+  --color-light-background-hover: rgba(0, 0, 0, 0.1);
+  --color-light-border-primary: rgba(0, 123, 255, 0.5);
+  --light-filter-logo-hover: brightness(0) saturate(100%) invert(60%) sepia(20%)
+    saturate(500%) hue-rotate(180deg) brightness(90%) contrast(90%);
+
+  /* Typography */
   --font-primary: "Open Sans", sans-serif;
   --font-mono: "Roboto Mono", monospace;
-  --logo-hover-filter: brightness(0) saturate(100%) invert(40%) sepia(99%)
-    saturate(2000%) hue-rotate(200deg) brightness(90%) contrast(100%);
+
+  /* Animation */
   --animate-fadein: fadein 0.6s ease-in;
 
   @keyframes fadein {
@@ -46,6 +70,6 @@
 }
 
 @utility big-cursor {
-  @apply border-text-base before:bg-fill-hover before:border-text-base pointer-events-none fixed left-0 top-0 z-[999999] h-[50px] w-[50px] rounded-full border-2 mix-blend-screen before:absolute before:left-0 before:top-0 before:block before:h-full before:w-full before:rounded-full before:border-2 before:mix-blend-screen before:blur-[11px] before:content-[""];
+  @apply dark:border-dark-text-primary border-light-text-primary dark:before:bg-dark-background-hover before:bg-light-background-hover dark:before:border-dark-text-primary before:border-light-text-primary pointer-events-none fixed left-0 top-0 z-[999999] h-[50px] w-[50px] rounded-full border-2 mix-blend-multiply before:absolute before:left-0 before:top-0 before:block before:h-full before:w-full before:rounded-full before:border-2 before:mix-blend-multiply before:blur-[11px] before:content-[""] dark:mix-blend-screen dark:before:mix-blend-screen;
   transform: translate3d(-100%, -100%, 0);
 }
