@@ -127,6 +127,28 @@
               >Contact</a
             >
           </li>
+          <li class="mb-3 mt-3 flex items-center pl-8 lg:mb-0 lg:mt-0">
+            <div class="flex">
+              <span class="mr-2 text-sm">light</span>
+              <input
+                type="checkbox"
+                class="peer sr-only"
+                id="dark-toggle"
+                [checked]="isDarkMode"
+                (change)="onToggleDarkMode($event)"
+              />
+              <label for="dark-toggle">
+                <div
+                  class="bg-light-accent-hover dark:bg-dark-accent-hover flex h-5 w-9 items-center rounded-full p-1"
+                >
+                  <div
+                    class="toggle-circle bg-light-background-primary dark:bg-dark-background-primary h-4 w-4 rounded-full transition duration-500 ease-in-out"
+                  ></div>
+                </div>
+              </label>
+              <span class="ml-2 text-sm">dark</span>
+            </div>
+          </li>
         </ul>
       </nav>
     </div>
