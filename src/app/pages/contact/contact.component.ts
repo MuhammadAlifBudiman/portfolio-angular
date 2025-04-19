@@ -48,13 +48,13 @@ export class ContactComponent {
       .then(() => {
         this.alertMessage = 'Your message has been sent successfully!';
         this.alertType =
-          'bg-fill-success text-text-success border border-solid border-border-success';
+          'dark:bg-dark-success-background bg-light-success-background dark:text-dark-success-text text-light-success-text border border-solid dark:border-dark-success-border border-light-success-border';
         this.contactForm.nativeElement.reset();
       })
       .catch(() => {
         this.alertMessage = 'Failed to send your message. Please try again.';
         this.alertType =
-          'bg-fill-error text-text-error border border-solid border-border-error';
+          'dark:bg-dark-error-background bg-light-error-background dark:text-dark-error-text text-light-error-text border border-solid dark:border-dark-error-border border-light-error-border';
       })
       .finally(() => {
         this.isLoading = false;
