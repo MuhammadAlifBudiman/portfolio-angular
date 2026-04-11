@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -33,9 +36,26 @@ jobs:
 
       - name: Build & Deploy
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           export NG_CLI_ANALYTICS=false
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           npx ng deploy --cname=muhammadalifbudiman.my.id
+
+      - name: Verify gh-pages was updated
+        run: |
+          git fetch --depth=1 origin gh-pages
+          LAST_COMMIT_MESSAGE="$(git log -1 origin/gh-pages --pretty=%B)"
+
+          case "$LAST_COMMIT_MESSAGE" in
+            *"$GITHUB_SHA"*)
+              echo "Verified gh-pages update for $GITHUB_SHA"
+              ;;
+            *)
+              echo "::error::gh-pages was not updated for commit $GITHUB_SHA"
+              echo "Latest gh-pages commit message:"
+              echo "$LAST_COMMIT_MESSAGE"
+              exit 1
+              ;;
+          esac
