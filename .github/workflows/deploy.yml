@@ -14,18 +14,13 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 20.19.5
+          cache: npm
 
       - name: Install dependencies
-        run: npm ci
-
-      - name: Install Angular CLI
-        run: npm install -g @angular/cli
-
-      - name: Install angular-cli-ghpages
-        run: npm install -g angular-cli-ghpages
+        run: npm ci --include=optional
 
       - name: Inject environment variables
         run: |
@@ -43,4 +38,4 @@ jobs:
           export NG_CLI_ANALYTICS=false
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          ng deploy --cname=muhammadalifbudiman.my.id
+          npx ng deploy --cname=muhammadalifbudiman.my.id
