@@ -1,0 +1,9 @@
+description = "Run the final pre-PR portfolio review gate."
+prompt = """
+Use the `portfolio-review-gate` workflow on the current diff.
+
+Additional context:
+{{args}}
+
+Report verdict, commands run, blocking findings, non-blocking findings, and PR summary.
+"""

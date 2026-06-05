@@ -1,0 +1,9 @@
+description = "Create a spec-first, issue-tracked plan for a portfolio request."
+prompt = """
+Use the `start-portfolio-issue` workflow for this request.
+
+User request:
+{{args}}
+
+Return the Feature ID, issue/draft issue, affected files, verification plan, and risks. Do not edit source code.
+"""

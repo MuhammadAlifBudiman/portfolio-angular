@@ -1,10 +1,29 @@
 name: 🔧 Routine Task
-description: Maintenance tasks such as dependency updates
+description: Maintenance, dependency, documentation, or tooling task
 title: "[CHORE]: <title>"
-
+labels: ["chore"]
 body:
   - type: textarea
     id: description
     attributes:
       label: Description
-      description: "Example: Update Tailwind to version 3.4.1"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: verification-plan
+    attributes:
+      label: Verification plan
+    validations:
+      required: true

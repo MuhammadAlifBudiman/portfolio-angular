@@ -1,0 +1,100 @@
+name: Portfolio Feature / UX Task
+description: Issue-first workflow for portfolio design, frontend, SEO, security, or QA work
+title: "[FEAT]: <title>"
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for Agent-driven work. Keep scope small enough for one pull request.
+
+  - type: input
+    id: feature-id
+    attributes:
+      label: Feature ID
+      description: Matching ID from docs/product/FEATURE_SPEC.md (e.g. F001). Add to spec first if none fits.
+      placeholder: "F001"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Primary area
+      options:
+        - Design
+        - Frontend
+        - Content
+        - Test
+        - Security
+        - SEO
+        - Deployment
+        - Documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What concrete problem should be solved?
+      placeholder: "Example: The portfolio cards are hard to scan and do not show stack/role consistently."
+    validations:
+      required: true
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What should be true when this issue is complete?
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: List affected routes/components and explicitly state what is out of scope.
+      value: |
+        Affected:
+        -
+
+        Out of scope:
+        -
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      value: |
+        - [ ] Requirement 1
+        - [ ] Requirement 2
+        - [ ] `npm run build` passes
+        - [ ] Relevant tests pass or are added
+        - [ ] Accessibility checklist reviewed
+        - [ ] Security checklist reviewed
+        - [ ] Design reviewed against DESIGN.md
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed solution
+      description: Describe implementation idea, alternatives, and risks.
+    validations:
+      required: true
+
+  - type: textarea
+    id: verification-plan
+    attributes:
+      label: Verification plan
+      value: |
+        ```bash
+        npm run build
+        npm test -- --watch=false --browsers=ChromeHeadless
+        ```
+    validations:
+      required: true

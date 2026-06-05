@@ -1,0 +1,9 @@
+description = "Implement one existing portfolio issue using gated phases."
+prompt = """
+Use the `implement-portfolio-issue` workflow.
+
+Issue or task context:
+{{args}}
+
+Before source edits, confirm Feature ID, issue context, files likely to change, and verification commands.
+"""
