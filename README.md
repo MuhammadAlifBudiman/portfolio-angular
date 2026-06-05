@@ -1,6 +1,6 @@
 # Portfolio
 
-This is a personal portfolio web application built with [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6. The project showcases your work, skills, and contact information in a modern, responsive design.
+This is a personal portfolio web application built with [Angular CLI](https://github.com/angular/angular-cli) version 20.3.x. The project showcases your work, skills, and contact information in a modern, responsive design.
 
 ## Features
 

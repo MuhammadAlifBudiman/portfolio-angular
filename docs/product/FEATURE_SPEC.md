@@ -67,5 +67,9 @@
 - FR-F00E-1: README Angular CLI version corrected to match `package.json` (`20.3.x`).
 - FR-F00E-2: `cz-customizable` discrepancy resolved or documented.
 
+## F00F — Accessibility & Link-Safety Hygiene (cross-cutting)
+- FR-F00F-1: The shared `app-button` renders a native, focusable, keyboard-operable control (Enter/Space) with a visible focus indicator.
+- FR-F00F-2: All `target="_blank"` links and `window.open` calls use `rel="noopener noreferrer"` / `noopener,noreferrer` to prevent reverse tabnabbing.
+
 ## Out of Scope (all features)
 Backend, DB, auth, analytics that track individuals, fabricated content, heavy dependencies for trivial UI.

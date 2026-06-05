@@ -9,6 +9,6 @@ import { ButtonComponent } from '../../components/button/button.component';
 })
 export class PortfolioComponent {
   openWebsite(url: string): () => void {
-    return () => window.open(url, '_blank');
+    return () => window.open(url, '_blank', 'noopener,noreferrer');
   }
 }
