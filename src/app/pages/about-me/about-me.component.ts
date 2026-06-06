@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { Router } from '@angular/router';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-about-me',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss',
 })
-export class AboutMeComponent {
+export class AboutMeComponent implements OnInit {
   sectionTitle: string = 'About Me';
   introductionText: string = 'Learn more';
   aboutMeParagraph1: string =
@@ -23,7 +24,12 @@ export class AboutMeComponent {
   resumeDownloadName: string = 'Muhammad-Alif-Budiman-Resume.pdf';
   resumeButtonText: string = 'Download Resume';
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private titleService: Title, private metaService: Meta) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('About — Muhammad Alif Budiman');
+    this.metaService.updateTag({ name: 'description', content: 'Learn about Muhammad Alif Budiman — web developer, background, skills, and experience.' });
+  }
 
   navigate(): void {
     this.router.navigate(['/portfolio']);

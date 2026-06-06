@@ -1,7 +1,8 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { EmailService } from '../../services/email.service';
+import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +10,7 @@ import { EmailService } from '../../services/email.service';
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   phoneNumber = '+6281295837271';
   email = 'alifm2101@gmail.com';
   alertMessage: string | null = null;
@@ -18,7 +19,13 @@ export class ContactComponent {
   isLoading: boolean = false;
 
   @ViewChild('contactForm') contactForm!: ElementRef<HTMLFormElement>;
-  constructor(private emailService: EmailService) {}
+
+  constructor(private emailService: EmailService, private titleService: Title, private metaService: Meta) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('Contact — Muhammad Alif Budiman');
+    this.metaService.updateTag({ name: 'description', content: 'Get in touch with Muhammad Alif Budiman via email, WhatsApp, or the contact form.' });
+  }
 
   sendData = (): void => {
     this.isLoading = true;
