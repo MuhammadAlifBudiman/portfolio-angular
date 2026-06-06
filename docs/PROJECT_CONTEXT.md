@@ -23,8 +23,8 @@
 | #11 | `[FEAT]: Sistem Pemilihan Tema (Theme Selector)` | Add multiple visual themes with light/dark variants. |
 
 ## Technical Debt Candidates
-- README version mismatch: README references Angular CLI 19.0.6 while `package.json` uses Angular 20.3.x.
-- Commitizen config references `cz-customizable`, but the dependency is missing from `package-lock.json`.
+- ~~README version mismatch~~ — resolved (F00E #26); README now reads 20.3.x.
+- ~~Commitizen `cz-customizable` missing~~ — resolved (F00E #26); migrated to husky + commitlint.
 - Portfolio data is embedded directly in `portfolio.component.html`; a typed data model would simplify i18n, filtering, testing, and future project additions.
 - `app-button` is currently a clickable `div`; audit keyboard accessibility and semantics before expanding use.
 - External project/social links should be audited for `rel="noopener noreferrer"` when opened in a new tab.

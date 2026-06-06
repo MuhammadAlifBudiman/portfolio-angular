@@ -12,7 +12,7 @@
 
 ## Phase 1 — Spec & Hygiene (current)
 - [ ] Spec layer adopted (PRD, FEATURE_SPEC, USER_STORIES, ACCEPTANCE_CRITERIA, ARCHITECTURE, UAT)
-- [ ] F00E README version + `cz-customizable` correction (docs task)
+- [x] F00E README version + commit-tooling correction (shipped: README=20.3.x; migrated to husky+commitlint, cz-customizable removed)
 - [ ] F00B refactor: extract portfolio cards to typed data model (prerequisite for F002)
 - [ ] `app-button` accessibility audit (clickable `div` → semantic button/link)
 - [ ] External-link `rel="noopener noreferrer"` audit

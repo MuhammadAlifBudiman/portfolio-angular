@@ -88,8 +88,7 @@ When dedicated subagents are unavailable, use `docs/AGENTS.md` as a role checkli
 - Store only non-sensitive preferences in `localStorage`.
 
 ## Known Repository Issues
-- README says Angular CLI `19.0.6`, while `package.json` uses Angular/CLI `20.3.x`.
-- `package.json` references `cz-customizable`, but the dependency is not present in `package-lock.json`.
+- Portfolio cards are hard-coded in HTML; data extraction is a planned refactor (F00B debt, blocks F002).
 - Portfolio cards are currently hard-coded in HTML; data extraction is a planned refactor, not incidental cleanup.
 - Open issues #8, #10, and #11 are linked to the `Portfolio V1.0` GitHub Project board.
 
