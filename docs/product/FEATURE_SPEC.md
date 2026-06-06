@@ -63,9 +63,9 @@
 - FR-F003-4: Theme preference persisted in `localStorage` (non-sensitive).
 - FR-F003-5: Selector is keyboard-operable; focus visible in all themes.
 
-## F00E — README/Docs Correction (planned · debt)
-- FR-F00E-1: README Angular CLI version corrected to match `package.json` (`20.3.x`).
-- FR-F00E-2: `cz-customizable` discrepancy resolved or documented.
+## F00E — README/Docs Correction (shipped · #26)
+- FR-F00E-1: README Angular CLI version corrected to match `package.json` (`20.3.x`). ✓ README:3 reads "version 20.3.x".
+- FR-F00E-2: `cz-customizable` discrepancy resolved. ✓ Migrated to husky + `@commitlint/config-conventional`; `cz-customizable` removed.
 
 ## F00F — Accessibility & Link-Safety Hygiene (cross-cutting)
 - FR-F00F-1: The shared `app-button` renders a native, focusable, keyboard-operable control (Enter/Space) with a visible focus indicator.

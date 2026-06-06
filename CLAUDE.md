@@ -75,9 +75,7 @@ Every non-trivial change must pass:
 - A visual-only copy/style change may skip test additions, but build must still pass.
 
 ## Known Repository Issues To Respect
-- README says Angular CLI `19.0.6`, while `package.json` uses Angular/CLI `20.3.x`; update README in a docs task.
-- `package.json` references `cz-customizable`, but the dependency is not present in `package-lock.json`; verify before relying on `npm run commit`.
-- Portfolio cards are currently hard-coded in HTML; data extraction can be a future refactor, not an incidental change.
+- Portfolio cards are currently hard-coded in HTML; data extraction can be a future refactor, not an incidental change (F00B debt, blocks F002).
 - Public GitHub repository currently shows open issues #8, #10, and #11 linked to the `Portfolio V1.0` GitHub Project board.
 
 ## Specialist Agents

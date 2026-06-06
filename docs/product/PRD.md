@@ -53,8 +53,8 @@ A single-page personal portfolio for **Muhammad Alif Budiman** built with Angula
 | F003 | #11 | Theme selector (multiple visual themes, light/dark variants) |
 
 ## Known Risks / Debt (carried from `PROJECT_CONTEXT.md`)
-- README references Angular CLI `19.0.6` while `package.json` uses `20.3.x` (docs task).
-- `cz-customizable` referenced by commit config but missing from `package-lock.json`.
+- ~~README references Angular CLI `19.0.6` while `package.json` uses `20.3.x`~~ — resolved (F00E #26).
+- ~~`cz-customizable` referenced by commit config but missing from `package-lock.json`~~ — resolved; migrated to husky + commitlint (F00E #26).
 - Portfolio cards hard-coded in `portfolio.component.html`; typed data model needed before i18n/filtering.
 - `app-button` is a clickable `div`; accessibility audit required before reuse.
 - External links must enforce `rel="noopener noreferrer"` on new-tab open.
