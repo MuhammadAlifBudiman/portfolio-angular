@@ -103,6 +103,9 @@
           <li class="group">
             <a
               routerLink="/about-me"
+              routerLinkActive #rlaAbout="routerLinkActive"
+              [routerLinkActiveOptions]="{exact: true}"
+              [attr.aria-current]="rlaAbout.isActive ? 'page' : null"
               class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
@@ -113,6 +116,9 @@
           <li class="group">
             <a
               routerLink="/portfolio"
+              routerLinkActive #rlaPortfolio="routerLinkActive"
+              [routerLinkActiveOptions]="{exact: true}"
+              [attr.aria-current]="rlaPortfolio.isActive ? 'page' : null"
               class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
@@ -123,6 +129,9 @@
           <li class="group">
             <a
               routerLink="/contact"
+              routerLinkActive #rlaContact="routerLinkActive"
+              [routerLinkActiveOptions]="{exact: true}"
+              [attr.aria-current]="rlaContact.isActive ? 'page' : null"
               class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
