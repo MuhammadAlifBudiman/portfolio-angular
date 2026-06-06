@@ -6,12 +6,11 @@
     <button
       id="theme-selector-btn"
       type="button"
-      role="combobox"
+      role="button"
       aria-haspopup="listbox"
       aria-label="Select colour theme"
       aria-controls="theme-listbox"
       [attr.aria-expanded]="isOpen()"
-      [attr.aria-activedescendant]="'theme-option-' + selectedTheme"
       class="theme-trigger"
       (click)="toggleOpen()"
       (keydown)="onButtonKeydown($event)"

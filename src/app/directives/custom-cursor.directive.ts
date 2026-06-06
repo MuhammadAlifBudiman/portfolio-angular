@@ -11,6 +11,7 @@ export class CustomCursorDirective implements OnInit, OnDestroy {
   constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     this.initCursor();
   }
 

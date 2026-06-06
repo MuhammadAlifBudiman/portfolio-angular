@@ -87,7 +87,8 @@
 
   &--active {
     font-weight: 700;
-    @apply text-light-accent-primary dark:text-dark-accent-primary;
+    /* Use accent-hover (#0056b3) instead of accent-primary for sufficient contrast on light backgrounds */
+    @apply text-light-accent-hover dark:text-dark-accent-primary;
   }
 }
 

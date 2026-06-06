@@ -103,6 +103,8 @@
       </div>
       <div
         *ngIf="isLoading"
+        role="status"
+        aria-live="polite"
         class="dark:text-dark-accent-hover text-light-accent-hover mt-5 text-center text-base"
       >
         Sending...

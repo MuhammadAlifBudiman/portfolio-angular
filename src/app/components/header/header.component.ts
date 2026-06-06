@@ -34,6 +34,11 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.fixedNavOffsetTop = this.headerRef.nativeElement.offsetTop;
   }
 
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.isMenuOpen) this.toggleMenu();
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const offset = window.pageYOffset;
