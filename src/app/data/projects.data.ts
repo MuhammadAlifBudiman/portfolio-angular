@@ -8,8 +8,11 @@ export const PROJECTS: readonly Project[] = [
     description:
       'This Patient Management System utilizes Flask and MongoDB to enhance patient registration efficiency, healthcare service quality, and patient data management.',
     imageSrc: 'projects/klinikgoogle.png',
-    imageAlt: 'klinik-google.glitch.me',
+    imageAlt: 'Screenshot of Klinik Google patient management dashboard',
     url: 'https://klinik-google.glitch.me/',
+    stack: ['Python', 'Flask', 'MongoDB', 'HTML', 'CSS'],
+    role: 'Full-stack developer — backend API and database design',
+    linkStatus: 'live',
   },
   {
     id: 'numble',
@@ -18,8 +21,11 @@ export const PROJECTS: readonly Project[] = [
     description:
       'Numble is an engaging and addictive web-based number puzzle game that challenges players to use their mathematical skills.',
     imageSrc: 'projects/numble.png',
-    imageAlt: 'numble-xi.vercel.app',
+    imageAlt: 'Screenshot of Numble math word-guessing game interface',
     url: 'https://numble-xi.vercel.app/',
+    stack: ['JavaScript', 'HTML', 'CSS'],
+    role: 'Frontend developer — game logic and UI',
+    linkStatus: 'live',
   },
   {
     id: 'bemy',
@@ -28,8 +34,11 @@ export const PROJECTS: readonly Project[] = [
     description:
       'Platform for individuals to find chat friends and engage in virtual conversations.',
     imageSrc: 'projects/bemy.png',
-    imageAlt: 'muhammadalifbudiman.github.io/BeMy',
+    imageAlt: 'Screenshot of BeMy friend chat matching application',
     url: 'https://muhammadalifbudiman.github.io/BeMy/',
+    stack: ['JavaScript', 'HTML', 'CSS'],
+    role: 'Frontend developer — matching interface and chat UI',
+    linkStatus: 'live',
   },
   {
     id: 'stock-data',
@@ -38,8 +47,11 @@ export const PROJECTS: readonly Project[] = [
     description:
       'An Inventory Control website to facilitate stock management and ensure product availability across various marketplaces.',
     imageSrc: 'projects/stockdata.png',
-    imageAlt: 'stockdata.great-site.net',
+    imageAlt: 'Screenshot of StockData inventory management system',
     url: 'https://stockdata.great-site.net/',
+    stack: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    role: 'Full-stack developer — inventory logic and marketplace sync',
+    linkStatus: 'live',
   },
   {
     id: 'task-master',
@@ -48,8 +60,10 @@ export const PROJECTS: readonly Project[] = [
     description:
       'Task Master is a feature-rich web application that empowers users to efficiently manage their daily, weekly, and monthly tasks.',
     imageSrc: 'projects/taskmaster.png',
-    imageAlt: 'alif.pythonanywhere.com',
+    imageAlt: 'Screenshot of Task Master task management application',
     url: 'https://alif.pythonanywhere.com/',
+    stack: ['Python', 'Flask', 'SQLite', 'HTML', 'CSS', 'JavaScript'],
+    linkStatus: 'live',
   },
   {
     id: 'color-tap',
@@ -58,8 +72,10 @@ export const PROJECTS: readonly Project[] = [
     description:
       'This addictive web-based game is designed to test your reflexes and color recognition skills in a fun and engaging way.',
     imageSrc: 'projects/colortap.png',
-    imageAlt: 'muhammadalifbudiman.github.io/ColorTap',
+    imageAlt: 'Screenshot of Color Tap browser tapping game',
     url: 'https://muhammadalifbudiman.github.io/ColorTap/',
+    stack: ['JavaScript', 'HTML', 'CSS'],
+    linkStatus: 'live',
   },
   {
     id: 'coffee-shop',
@@ -68,8 +84,10 @@ export const PROJECTS: readonly Project[] = [
     description:
       'The CoffeeShop website is your one-stop destination for a delightful coffee experience.',
     imageSrc: 'projects/coffeeshop.png',
-    imageAlt: 'coffeeshop.free.nf',
+    imageAlt: 'Screenshot of Coffee Shop web application',
     url: 'https://coffeeshop.free.nf/',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    linkStatus: 'live',
   },
   {
     id: 'checkers',
@@ -78,8 +96,10 @@ export const PROJECTS: readonly Project[] = [
     description:
       'A web-based Checkers game built with Angular, featuring turn-based gameplay, piece movement, capturing, king promotion, and game-over conditions. It enforces Checkers rules and has a modular structure for scalability.',
     imageSrc: 'projects/checkers.jpeg',
-    imageAlt: 'muhammadalifbudiman.github.io/checkers',
+    imageAlt: 'Screenshot of Checkers board game in Angular',
     url: 'https://muhammadalifbudiman.github.io/checkers/',
+    stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+    linkStatus: 'live',
   },
   {
     id: 'minesweeper',
@@ -88,8 +108,10 @@ export const PROJECTS: readonly Project[] = [
     description:
       'A web-based implementation of the classic Minesweeper game built with Angular. Players uncover cells on a grid to avoid hidden mines and reveal numbers indicating adjacent mines.',
     imageSrc: 'projects/minesweeper.png',
-    imageAlt: 'muhammadalifbudiman.github.io/minesweeper',
+    imageAlt: 'Screenshot of Minesweeper game grid interface',
     url: 'https://muhammadalifbudiman.github.io/minesweeper/',
+    stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+    linkStatus: 'live',
   },
   {
     id: 'resume-builder',
@@ -98,8 +120,10 @@ export const PROJECTS: readonly Project[] = [
     description:
       'ResumeBuilder is an Angular-based web application that helps users create, edit, and download professional resumes. It features an editable form for inputting details, a live preview of the resume, and PDF generation.',
     imageSrc: 'projects/resumebuilder.png',
-    imageAlt: 'muhammadalifbudiman.github.io/resume-builder',
+    imageAlt: 'Screenshot of Resume Builder with live preview and PDF export',
     url: 'https://muhammadalifbudiman.github.io/resume-builder/',
+    stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+    linkStatus: 'live',
   },
   {
     id: 'quiz-app',
@@ -108,8 +132,10 @@ export const PROJECTS: readonly Project[] = [
     description:
       'QuizzApp is a web-based quiz application built with Angular. It allows users to take quizzes, create custom quizzes, and view their quiz history.',
     imageSrc: 'projects/quizapp.png',
-    imageAlt: 'muhammadalifbudiman.github.io/quiz-app',
+    imageAlt: 'Screenshot of Quiz App showing quiz creation and history',
     url: 'https://muhammadalifbudiman.github.io/quiz-app/',
+    stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+    linkStatus: 'live',
   },
   {
     id: 'typing-game',
@@ -118,7 +144,9 @@ export const PROJECTS: readonly Project[] = [
     description:
       'TypingGame is a web-based app that helps users improve typing speed and accuracy through interactive tests. It features typing challenges, a leaderboard, customizable themes, and detailed performance stats.',
     imageSrc: 'projects/typinggame.jpeg',
-    imageAlt: 'muhammadalifbudiman.github.io/typing-game',
+    imageAlt: 'Screenshot of Typing Game speed test interface',
     url: 'https://muhammadalifbudiman.github.io/typing-game/',
+    stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+    linkStatus: 'live',
   },
 ];

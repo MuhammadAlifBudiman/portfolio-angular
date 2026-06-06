@@ -13,7 +13,7 @@ export class IntroductionComponent implements OnInit {
   greetingText: string = 'Hello! My name is';
   fullName: string = 'Muhammad Alif Budiman';
   roleText: string = 'Web Developer';
-  introductionText: string = `I am a web developer with a passion for creating dynamic and responsive web applications. I have experience in various front-end and back-end technologies, and I am always eager to learn new skills and improve my craft.`;
+  introductionText: string = `I build web applications with Angular, Python, and Flask — from patient management systems and inventory tools to word-guessing games. Currently studying Informatics and open to collaboration.`;
 
   aboutMeButtonText: string = 'About Me';
 
