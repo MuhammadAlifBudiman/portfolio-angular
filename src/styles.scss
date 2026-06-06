@@ -55,6 +55,50 @@
   }
 }
 
+/* ============================================================
+   Style-theme token sets — F003
+   Override the actual Tailwind CSS custom properties so that
+   existing utility classes (text-light-accent-primary etc.)
+   pick up the new palette automatically.
+   ============================================================ */
+
+/* Default — mirrors the @theme baseline; explicit so ThemeService
+   can always set data-style-theme and get predictable results. */
+html[data-style-theme='default'] {
+  --color-light-accent-primary: #4ecba3;
+  --color-light-accent-hover: #0056b3;
+  --color-dark-accent-primary: #007bff;
+  --color-dark-accent-hover: #65ffd1;
+  --color-light-background-gradient: #dfe7ef;
+  --color-dark-background-gradient: #00008b;
+  --color-dark-border-primary: rgba(0, 123, 255, 0.5);
+  --color-light-border-primary: rgba(0, 123, 255, 0.5);
+}
+
+/* Ocean — navy / cyan */
+html[data-style-theme='ocean'] {
+  --color-light-accent-primary: #0097a7;
+  --color-light-accent-hover: #006064;
+  --color-dark-accent-primary: #00e5ff;
+  --color-dark-accent-hover: #80deea;
+  --color-light-background-gradient: #e0f7fa;
+  --color-dark-background-gradient: #002030;
+  --color-dark-border-primary: rgba(0, 229, 255, 0.4);
+  --color-light-border-primary: rgba(0, 151, 167, 0.5);
+}
+
+/* Ember — warm amber / rust */
+html[data-style-theme='ember'] {
+  --color-light-accent-primary: #e64a19;
+  --color-light-accent-hover: #bf360c;
+  --color-dark-accent-primary: #ff8a65;
+  --color-dark-accent-hover: #ffccbc;
+  --color-light-background-gradient: #fbe9e7;
+  --color-dark-background-gradient: #3e1a10;
+  --color-dark-border-primary: rgba(255, 138, 101, 0.5);
+  --color-light-border-primary: rgba(230, 74, 25, 0.5);
+}
+
 * {
   @apply cursor-none;
   -ms-overflow-style: none; /* IE and Edge */

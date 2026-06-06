@@ -1,0 +1,51 @@
+<div class="theme-selector-wrapper">
+  <span class="theme-label" id="theme-selector-label">Theme</span>
+
+  <div class="theme-dropdown" [class.theme-dropdown--open]="isOpen()">
+    <!-- Trigger button -->
+    <button
+      id="theme-selector-btn"
+      type="button"
+      role="combobox"
+      aria-haspopup="listbox"
+      aria-label="Select colour theme"
+      aria-controls="theme-listbox"
+      [attr.aria-expanded]="isOpen()"
+      [attr.aria-activedescendant]="'theme-option-' + selectedTheme"
+      class="theme-trigger"
+      (click)="toggleOpen()"
+      (keydown)="onButtonKeydown($event)"
+    >
+      <span class="theme-trigger__label">{{ selectedLabel }}</span>
+      <svg class="theme-trigger__chevron" aria-hidden="true" width="10" height="10" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Listbox -->
+    @if (isOpen()) {
+      <ul
+        id="theme-listbox"
+        role="listbox"
+        aria-labelledby="theme-selector-label"
+        class="theme-listbox"
+      >
+        @for (theme of themes; track theme.id; let i = $index) {
+          <li
+            [id]="'theme-option-' + theme.id"
+            role="option"
+            [attr.aria-selected]="theme.id === selectedTheme"
+            class="theme-option"
+            [class.theme-option--active]="theme.id === selectedTheme"
+            tabindex="0"
+            (click)="selectTheme(theme.id)"
+            (keydown)="onOptionKeydown($event, theme.id, i)"
+          >
+            <span class="theme-option__swatch theme-option__swatch--{{ theme.id }}" aria-hidden="true"></span>
+            {{ theme.label }}
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</div>
