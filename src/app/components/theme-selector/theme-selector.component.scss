@@ -1,0 +1,103 @@
+@reference "tailwindcss";
+@reference "../../../styles.scss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Layout in plain CSS (cheap). Colour tokens via @apply dark: only where
+   :where(.dark) plain-CSS would break under Angular view encapsulation. */
+
+.theme-selector-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.theme-label {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  user-select: none;
+  @apply text-light-text-secondary dark:text-dark-text-secondary;
+}
+
+.theme-dropdown {
+  position: relative;
+}
+
+.theme-trigger {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  background: transparent;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  border: 1px solid;
+  @apply text-light-text-primary dark:text-dark-text-primary
+         border-light-border-primary dark:border-dark-border-primary;
+
+  &:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-light-accent-hover);
+    @apply dark:[box-shadow:0_0_0_2px_var(--color-dark-accent-hover)];
+  }
+}
+
+.theme-trigger__chevron {
+  display: block;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.theme-dropdown--open .theme-trigger__chevron {
+  transform: rotate(180deg);
+}
+
+.theme-listbox {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.25rem;
+  z-index: 99999;
+  min-width: 100%;
+  border-radius: 0.375rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 0.25rem 0;
+  list-style: none;
+  margin-left: 0;
+  border: 1px solid;
+  @apply bg-light-background-gradient dark:bg-dark-background-primary
+         border-light-border-primary dark:border-dark-border-primary;
+}
+
+.theme-option {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  user-select: none;
+  @apply text-light-text-primary dark:text-dark-text-primary;
+
+  &:hover, &:focus-visible {
+    outline: none;
+    @apply bg-light-background-hover dark:bg-dark-background-hover;
+  }
+
+  &--active {
+    font-weight: 700;
+    @apply text-light-accent-primary dark:text-dark-accent-primary;
+  }
+}
+
+.theme-option__swatch {
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
+}
+.theme-option__swatch--default { background: #4ecba3; @apply dark:bg-[#007bff]; }
+.theme-option__swatch--ocean   { background: #0097a7; @apply dark:bg-[#00e5ff]; }
+.theme-option__swatch--ember   { background: #e64a19; @apply dark:bg-[#ff8a65]; }

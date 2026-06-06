@@ -5,16 +5,20 @@ import {
   ViewChild,
   AfterViewInit,
   OnInit,
+  inject,
 } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
+import { ThemeSelectorComponent } from '../theme-selector/theme-selector.component';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterModule],
+  imports: [RouterModule, ThemeSelectorComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
+  private themeService = inject(ThemeService);
   @ViewChild('headerElement') headerRef!: ElementRef;
   isNavbarFixed = false;
   fixedNavOffsetTop = 0;
@@ -23,6 +27,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.loadThemePreference();
+    this.themeService.loadThemePreference();
   }
 
   ngAfterViewInit() {
