@@ -16,6 +16,8 @@ export class ButtonComponent {
   @Input() download?: string;
   /** Accessible label override — only used when href is set. */
   @Input() ariaLabel?: string;
+  /** Disables the button and sets aria-disabled. Only applies to the <button> variant. */
+  @Input() disabled: boolean = false;
 
   constructor(public router: Router) {}
 

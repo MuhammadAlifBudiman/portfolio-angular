@@ -17,6 +17,10 @@ export class ContactComponent implements OnInit {
   alertType: string | null = null;
   time: string = '';
   isLoading: boolean = false;
+  private lastSentAt: number | null = null;
+
+  private readonly errorClass =
+    'dark:bg-dark-error-background bg-light-error-background dark:text-dark-error-text text-light-error-text border border-solid dark:border-dark-error-border border-light-error-border';
 
   @ViewChild('contactForm') contactForm!: ElementRef<HTMLFormElement>;
 
@@ -28,6 +32,13 @@ export class ContactComponent implements OnInit {
   }
 
   sendData = (): void => {
+    if (this.isLoading) return;
+    if (this.lastSentAt !== null && Date.now() - this.lastSentAt < 30_000) {
+      this.alertMessage = 'Please wait 30 seconds before sending again.';
+      this.alertType = this.errorClass;
+      return;
+    }
+
     this.isLoading = true;
 
     if (!this.contactForm?.nativeElement) {
@@ -50,12 +61,22 @@ export class ContactComponent implements OnInit {
       timeInput.value = currentTime;
     }
 
+    const formData = new FormData(this.contactForm.nativeElement);
+    const email = (formData.get('email') as string ?? '').trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      this.alertMessage = 'Please enter a valid email address.';
+      this.alertType = this.errorClass;
+      this.isLoading = false;
+      return;
+    }
+
     this.emailService
       .sendEmail(this.contactForm.nativeElement)
       .then(() => {
         this.alertMessage = 'Your message has been sent successfully!';
         this.alertType =
           'dark:bg-dark-success-background bg-light-success-background dark:text-dark-success-text text-light-success-text border border-solid dark:border-dark-success-border border-light-success-border';
+        this.lastSentAt = Date.now();
         this.contactForm.nativeElement.reset();
       })
       .catch(() => {
