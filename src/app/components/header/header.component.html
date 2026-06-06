@@ -76,7 +76,9 @@
           name="hamburger"
           type="button"
           class="absolute right-4 block lg:hidden"
-          type="button"
+          aria-label="Toggle navigation menu"
+          aria-controls="nav-menu"
+          [attr.aria-expanded]="isMenuOpen"
           (click)="toggleMenu()"
         >
           <span

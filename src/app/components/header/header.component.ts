@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   isNavbarFixed = false;
   fixedNavOffsetTop = 0;
   isDarkMode = false;
+  isMenuOpen = false;
 
   ngOnInit() {
     this.loadThemePreference();
@@ -35,6 +36,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
     const hamburger = document.querySelector('#hamburger');
     const navMenu = document.querySelector('#nav-menu');
 
