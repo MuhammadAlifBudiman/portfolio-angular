@@ -19,6 +19,10 @@ export class AboutMeComponent {
     'In my journey as a developer, I have worked on various projects that have honed my problem-solving skills and technical expertise. I am always eager to learn new technologies and contribute to meaningful projects.';
 
   buttonText: string = 'View Projects';
+  resumeHref: string = 'resume.pdf';
+  resumeDownloadName: string = 'Muhammad-Alif-Budiman-Resume.pdf';
+  resumeButtonText: string = 'Download Resume';
+
   constructor(public router: Router) {}
 
   navigate(): void {

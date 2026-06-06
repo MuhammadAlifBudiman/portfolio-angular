@@ -22,10 +22,18 @@
         <p class="mb-1.5 mt-[2.25%] w-full lg:max-w-[550px]">
           {{ aboutMeParagraph3 }}
         </p>
-        <app-button
-          [buttonText]="buttonText"
-          [buttonAction]="navigate"
-        ></app-button>
+        <div class="flex flex-wrap gap-x-4 gap-y-2">
+          <app-button
+            [buttonText]="buttonText"
+            [buttonAction]="navigate"
+          ></app-button>
+          <app-button
+            [buttonText]="resumeButtonText"
+            [href]="resumeHref"
+            [download]="resumeDownloadName"
+            [ariaLabel]="resumeButtonText"
+          ></app-button>
+        </div>
       </div>
       <div class="relative mt-10 px-4 lg:right-0 lg:mt-9">
         <img
