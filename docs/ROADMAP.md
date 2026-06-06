@@ -13,12 +13,12 @@
 ## Phase 1 — Spec & Hygiene (current)
 - [ ] Spec layer adopted (PRD, FEATURE_SPEC, USER_STORIES, ACCEPTANCE_CRITERIA, ARCHITECTURE, UAT)
 - [x] F00E README version + commit-tooling correction (shipped: README=20.3.x; migrated to husky+commitlint, cz-customizable removed)
-- [ ] F00B refactor: extract portfolio cards to typed data model (prerequisite for F002)
+- [x] F00B refactor: extract portfolio cards to typed data model (prerequisite for F002) — PR #30
 - [ ] `app-button` accessibility audit (clickable `div` → semantic button/link)
 - [ ] External-link `rel="noopener noreferrer"` audit
 
 ## Phase 2 — Backlog Features
-- [ ] F001 Resume PDF (#8)
+- [ ] F001 Resume PDF (#8) — in progress
 - [ ] F003 Theme selector (#11)
 - [ ] F002 i18n EN/ID (#10) — after F00B data extraction
 

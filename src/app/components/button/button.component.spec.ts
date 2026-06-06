@@ -46,4 +46,58 @@ describe('ButtonComponent', () => {
     button.click();
     expect(action).toHaveBeenCalledTimes(1);
   });
+
+  describe('anchor mode (href provided)', () => {
+    beforeEach(() => {
+      component.href = 'resume.pdf';
+      component.download = 'Muhammad-Alif-Budiman-Resume.pdf';
+      component.ariaLabel = 'Download Resume';
+      component.buttonText = 'Download Resume';
+      fixture.detectChanges();
+    });
+
+    it('renders an <a> element, not a <button>', () => {
+      const anchor: HTMLAnchorElement | null =
+        fixture.nativeElement.querySelector('a');
+      const button: HTMLButtonElement | null =
+        fixture.nativeElement.querySelector('button');
+      expect(anchor).toBeTruthy();
+      expect(button).toBeNull();
+    });
+
+    it('sets href attribute on the anchor', () => {
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.getAttribute('href')).toBe('resume.pdf');
+    });
+
+    it('sets download attribute on the anchor', () => {
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.getAttribute('download')).toBe(
+        'Muhammad-Alif-Budiman-Resume.pdf'
+      );
+    });
+
+    it('sets aria-label on the anchor', () => {
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.getAttribute('aria-label')).toBe('Download Resume');
+    });
+
+    it('displays buttonText inside the anchor', () => {
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.textContent?.trim()).toBe('Download Resume');
+    });
+  });
+
+  describe('button mode (no href)', () => {
+    it('does not render an <a> element when href is absent', () => {
+      fixture.detectChanges();
+      const anchor: HTMLAnchorElement | null =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor).toBeNull();
+    });
+  });
 });

@@ -10,6 +10,12 @@ import { Router } from '@angular/router';
 export class ButtonComponent {
   @Input() buttonText: string = '';
   @Input() buttonAction: () => void = () => {};
+  /** When set, renders a semantic <a> element instead of <button>. */
+  @Input() href?: string;
+  /** Download filename hint — only used when href is set. */
+  @Input() download?: string;
+  /** Accessible label override — only used when href is set. */
+  @Input() ariaLabel?: string;
 
   constructor(public router: Router) {}
 
