@@ -6,7 +6,7 @@ This file is the control table for requirement traceability. Update it whenever 
 |---|---|---|---|---|---|---|---|---|---|
 | F000 | Core Portfolio Shell | FR-F000-* | US-01, US-07 | AC-X-* | `docs/product/FEATURE_SPEC.md` | N/A | TBD | UAT + build | Done |
 | F00A | About / Identity | FR-F00A-* | US-01 | AC-X-* | `docs/product/FEATURE_SPEC.md` | N/A | TBD | UAT + build | Done |
-| F00B | Portfolio Showcase (data extraction) | FR-F00B-* | US-02 | AC-X-* | `docs/specs/F00B-portfolio-data/` | #29 | TBD | build + unit tests + visual diff | In Progress |
+| F00B | Portfolio Showcase (data extraction) | FR-F00B-* | US-02 | AC-X-* | `docs/specs/F00B-portfolio-data/` | #29 | #30 | build + unit tests + visual diff | Done |
 | F00C | Contact / EmailJS | FR-F00C-* | US-04 | AC-X-* | `docs/product/FEATURE_SPEC.md` | N/A | TBD | UAT + form check | Done |
 | F00D | Theming Baseline | FR-F00D-* | US-07 | AC-X-* | `docs/product/FEATURE_SPEC.md` | N/A | TBD | UAT + contrast check | Done |
 | F001 | Resume PDF | FR-F001-* | US-03 | AC-F001-* | `docs/specs/F008-resume-pdf/` (draft intake) | #8 | TBD | UAT + file verification | Draft |
