@@ -2,6 +2,32 @@ import { Project } from '../models/project.model';
 
 export const PROJECTS: readonly Project[] = [
   {
+    id: 'bkn-internal-workflow-api',
+    title: 'Internal Workflow Backend API',
+    ownership: 'internal',
+    description:
+      'Developed and refined Go backend endpoints for internal workflow modules, including list/detail retrieval, filtering, sorting, pagination, workflow transitions, multipart file handling, and OpenAPI documentation.',
+    imageSrc: 'projects/bkn-backend-api.png',
+    imageAlt: 'Backend API architecture illustration for internal workflow system with Go, RBAC, file upload, and OpenAPI documentation',
+    url: '#',
+    stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC'],
+    role: 'Backend developer — Go API implementation and Swagger/OpenAPI documentation',
+    linkStatus: 'restricted',
+  },
+  {
+    id: 'blog-api-server',
+    title: 'Blog API Server',
+    ownership: 'personal',
+    description:
+      'A TypeScript-based REST API for a blog platform with authentication, validation, PostgreSQL integration, email notifications, logging, and API documentation.',
+    imageSrc: 'projects/blog-api-server.png',
+    imageAlt: 'Backend architecture diagram for Blog API Server with Express API, authentication, Sequelize ORM, PostgreSQL, email notifications, and logging',
+    url: '#',
+    stack: ['Node.js', 'Express', 'TypeScript', 'Sequelize', 'PostgreSQL', 'JWT'],
+    role: 'Backend developer — REST API, authentication, validation, database integration, and documentation',
+    linkStatus: 'unavailable',
+  },
+  {
     id: 'klinik-google',
     title: 'Klinik Google',
     ownership: 'team',
