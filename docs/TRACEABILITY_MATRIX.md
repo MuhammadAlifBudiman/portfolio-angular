@@ -11,14 +11,14 @@ This file is the control table for requirement traceability. Update it whenever 
 | F00D | Theming Baseline | FR-F00D-* | US-07 | AC-X-* | `docs/product/FEATURE_SPEC.md` | N/A | TBD | UAT + contrast check | Done |
 | F001 | Resume PDF | FR-F001-* | US-03 | AC-F001-* | `docs/specs/F001-resume-pdf/` | #8 | #31 | build + unit tests + UAT | Done |
 | F002 | i18n English / Indonesian | FR-F002-* | US-05 | AC-F002-* | `docs/specs/F010-i18n/` (draft intake) | #10 | TBD | UAT + language fallback | Draft |
-| F003 | Theme Selector | FR-F003-* | US-06 | AC-F003-* | `docs/specs/F011-theme-selector/` | #11 | #34 | UAT + persistence test | Review |
+| F003 | Theme Selector | FR-F003-* | US-06 | AC-F003-* | `docs/specs/F011-theme-selector/` | #11 | #34 | UAT + persistence test | Done |
 | F00E | README / Docs Correction | FR-F00E-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #26 | TBD | docs review + build | Done |
 | F00F | Accessibility & Link-Safety Hygiene | FR-F00F-* | US-01, US-02, US-04 | N/A | `docs/product/FEATURE_SPEC.md` | #26 | TBD | build + unit tests + a11y review | Done |
 | F00G | Dev Environment & CI Quality | FR-F00G-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #35 | TBD | npm run build + npm test green | Draft |
-| F00H | WCAG 2.1 AA Accessibility Remediation | FR-F00H-* | US-01, US-02, US-04, US-06 | N/A | `docs/product/FEATURE_SPEC.md` | #36 | TBD | a11y auditor re-run + keyboard pass | Draft |
-| F00I | SEO, Performance & Social Metadata | FR-F00I-* | US-07 | N/A | `docs/product/FEATURE_SPEC.md` | #37 | TBD | Lighthouse ≥ 90 + rich-results test | Draft |
-| F00J | Security Hardening | FR-F00J-* | US-04 | N/A | `docs/product/FEATURE_SPEC.md` | #38 | TBD | security auditor re-run + npm audit | Draft |
-| F00K | Content Quality & UI Correctness | FR-F00K-* | US-01, US-02, US-03 | N/A | `docs/product/FEATURE_SPEC.md` | #39 | TBD | ui-ux reviewer re-run + mobile check | Draft |
+| F00H | WCAG 2.1 AA Accessibility Remediation | FR-F00H-* | US-01, US-02, US-04, US-06 | N/A | `docs/product/FEATURE_SPEC.md` | #36 | #41 | a11y auditor re-run + keyboard pass | Done |
+| F00I | SEO, Performance & Social Metadata | FR-F00I-* | US-07 | N/A | `docs/product/FEATURE_SPEC.md` | #37 | #41 | Lighthouse ≥ 90 + rich-results test | Done |
+| F00J | Security Hardening | FR-F00J-* | US-04 | N/A | `docs/product/FEATURE_SPEC.md` | #38 | #41 | security auditor re-run + npm audit | Done |
+| F00K | Content Quality & UI Correctness | FR-F00K-* | US-01, US-02, US-03 | N/A | `docs/product/FEATURE_SPEC.md` | #39 | #41 | ui-ux reviewer re-run + mobile check | Done |
 | F00L | Test Coverage Baseline | FR-F00L-* | N/A | AC-X-2, AC-X-3 | `docs/product/FEATURE_SPEC.md` | #40 | TBD | npm test 100% new specs passing | Draft |
 
 Status values: `Draft`, `Ready`, `In Progress`, `Review`, `Done`, `Blocked`.

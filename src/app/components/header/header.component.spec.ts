@@ -1,18 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { provideRouter } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, provideRouter } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
+
+@Component({ template: '' })
+class StubComponent {}
 
 describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
   let component: HeaderComponent;
+  let router: Router;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeaderComponent],
-      providers: [provideRouter([])],
+      providers: [
+        provideRouter([
+          { path: '', component: StubComponent },
+          { path: 'about-me', component: StubComponent },
+          { path: 'portfolio', component: StubComponent },
+        ]),
+      ],
     }).compileComponents();
 
+    router = TestBed.inject(Router);
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -65,6 +77,44 @@ describe('HeaderComponent', () => {
       component.toggleMenu();
       fixture.detectChanges();
       expect(hamburger.getAttribute('aria-expanded')).toBe('true');
+    });
+  });
+
+  describe('closes menu on navigation', () => {
+    it('closeMenu() collapses an open menu and hides the nav', () => {
+      component.toggleMenu();
+      expect(component.isMenuOpen).toBeTrue();
+
+      component.closeMenu();
+
+      expect(component.isMenuOpen).toBeFalse();
+      const navMenu = fixture.nativeElement.querySelector('#nav-menu');
+      expect(navMenu.classList.contains('hidden')).toBeTrue();
+    });
+
+    it('closeMenu() is a no-op when the menu is already closed', () => {
+      expect(component.isMenuOpen).toBeFalse();
+      expect(() => component.closeMenu()).not.toThrow();
+      expect(component.isMenuOpen).toBeFalse();
+    });
+
+    it('closes the menu after a route change completes', async () => {
+      component.toggleMenu();
+      expect(component.isMenuOpen).toBeTrue();
+
+      await router.navigateByUrl('/about-me');
+      fixture.detectChanges();
+
+      expect(component.isMenuOpen).toBeFalse();
+    });
+
+    it('Escape keypress closes an open menu', () => {
+      component.toggleMenu();
+      expect(component.isMenuOpen).toBeTrue();
+
+      component.onEscape();
+
+      expect(component.isMenuOpen).toBeFalse();
     });
   });
 });
