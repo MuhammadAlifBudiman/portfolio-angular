@@ -23,13 +23,13 @@
   /* Colors */
   --color-light-text-primary: #000;
   --color-light-text-secondary: #4d4d4d;
-  --color-light-accent-primary: #4ecba3;
+  --color-light-accent-primary: #1a8a6e;
   --color-light-accent-hover: #0056b3;
-  --color-light-success-text: #007bff;
+  --color-light-success-text: #0055b3;
   --color-light-success-background: rgba(0, 123, 255, 0.1);
   --color-light-success-border: #0056b3;
   --color-light-error-background: rgba(255, 99, 132, 0.1);
-  --color-light-error-text: #cc516a;
+  --color-light-error-text: #8b2a3a;
   --color-light-error-border: #a03d4f;
   --color-light-background-primary: #fff;
   --color-light-background-gradient: #dfe7ef;
@@ -65,7 +65,7 @@
 /* Default — mirrors the @theme baseline; explicit so ThemeService
    can always set data-style-theme and get predictable results. */
 html[data-style-theme='default'] {
-  --color-light-accent-primary: #4ecba3;
+  --color-light-accent-primary: #1a8a6e;
   --color-light-accent-hover: #0056b3;
   --color-dark-accent-primary: #007bff;
   --color-dark-accent-hover: #65ffd1;
@@ -77,7 +77,7 @@ html[data-style-theme='default'] {
 
 /* Ocean — navy / cyan */
 html[data-style-theme='ocean'] {
-  --color-light-accent-primary: #0097a7;
+  --color-light-accent-primary: #006f7d;
   --color-light-accent-hover: #006064;
   --color-dark-accent-primary: #00e5ff;
   --color-dark-accent-hover: #80deea;
@@ -100,13 +100,18 @@ html[data-style-theme='ember'] {
 }
 
 * {
-  @apply cursor-none;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
   &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
+}
+
+@media (pointer: fine) {
+  * { cursor: none; }
+  input, textarea, select { cursor: text; }
+  a, button, [role="button"], [tabindex] { cursor: pointer; }
 }
 
 @utility wrapper {

@@ -22,16 +22,24 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('headerElement') headerRef!: ElementRef;
   isNavbarFixed = false;
   fixedNavOffsetTop = 0;
-  isDarkMode = false;
   isMenuOpen = false;
 
+  get isDarkMode(): boolean {
+    return this.themeService.isDarkMode();
+  }
+
   ngOnInit() {
-    this.loadThemePreference();
+    this.themeService.loadDarkMode();
     this.themeService.loadThemePreference();
   }
 
   ngAfterViewInit() {
     this.fixedNavOffsetTop = this.headerRef.nativeElement.offsetTop;
+  }
+
+  @HostListener('document:keydown.escape')
+  onEscape(): void {
+    if (this.isMenuOpen) this.toggleMenu();
   }
 
   @HostListener('window:scroll', [])
@@ -51,32 +59,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     }
   }
 
-  loadThemePreference(): void {
-    const html = document.documentElement;
-    const storedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)',
-    ).matches;
-
-    if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
-      html.classList.add('dark');
-      this.isDarkMode = true;
-    } else {
-      html.classList.remove('dark');
-      this.isDarkMode = false;
-    }
-  }
-
   onToggleDarkMode(event: Event) {
     const checked = (event.target as HTMLInputElement).checked;
-    this.isDarkMode = checked;
-
-    if (checked) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
+    this.themeService.toggleDarkMode(checked);
   }
 }

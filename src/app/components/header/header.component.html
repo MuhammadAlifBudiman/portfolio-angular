@@ -6,14 +6,14 @@
   <div class="container">
     <div class="relative flex items-center justify-between pl-[20px] pr-[40px]">
       <div class="flex items-center px-4">
-        <a routerLink="/" class="block">
+        <a routerLink="/" class="block" aria-label="Muhammad Alif Budiman — home">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             width="108"
             viewBox="0 0 810 540.000001"
             height="70"
-            class="hover:filter-(--light-filter-logo-hover) dark:hover:filter-(--dark-filter-logo-hover) transition-[transform, filter] duration-300 ease-in-out hover:translate-y-[-3px]"
+            class="hover:filter-(--light-filter-logo-hover) dark:hover:filter-(--dark-filter-logo-hover) transition-all duration-300 ease-in-out hover:translate-y-[-3px]"
           >
             <g
               fill="#000000"
@@ -94,6 +94,7 @@
       </div>
       <nav
         id="nav-menu"
+        [attr.aria-hidden]="!isMenuOpen"
         class="bg-light-background-gradient/30 dark:bg-dark-background-gradient/30 absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:bg-transparent"
       >
         <ul
@@ -102,7 +103,10 @@
           <li class="group">
             <a
               routerLink="/about-me"
-              class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-[colors, transform] mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
+              routerLinkActive #rlaAbout="routerLinkActive"
+              [routerLinkActiveOptions]="{exact: true}"
+              [attr.aria-current]="rlaAbout.isActive ? 'page' : null"
+              class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
                 >01.</span
@@ -112,7 +116,10 @@
           <li class="group">
             <a
               routerLink="/portfolio"
-              class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-[colors, transform] mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
+              routerLinkActive #rlaPortfolio="routerLinkActive"
+              [routerLinkActiveOptions]="{exact: true}"
+              [attr.aria-current]="rlaPortfolio.isActive ? 'page' : null"
+              class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
                 >02.</span
@@ -122,7 +129,10 @@
           <li class="group">
             <a
               routerLink="/contact"
-              class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-[colors, transform] mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
+              routerLinkActive #rlaContact="routerLinkActive"
+              [routerLinkActiveOptions]="{exact: true}"
+              [attr.aria-current]="rlaContact.isActive ? 'page' : null"
+              class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
                 >03.</span
@@ -137,6 +147,7 @@
                   type="checkbox"
                   class="peer sr-only"
                   id="dark-toggle"
+                  aria-label="Toggle dark mode"
                   [checked]="isDarkMode"
                   (change)="onToggleDarkMode($event)"
                 />

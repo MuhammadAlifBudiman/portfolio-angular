@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { environment } from '../../environments/environment';
 
 @Injectable({

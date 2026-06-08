@@ -1,5 +1,5 @@
 <div class="wrapper pt-36">
-  <div class="mx-auto flex flex-col items-center justify-center px-4">
+  <div class="mx-auto flex max-w-2xl flex-col items-center justify-center px-4">
     <div
       class="dark:text-dark-text-secondary text-light-text-secondary mb-5 text-center text-base"
     >
@@ -14,9 +14,9 @@
       >
         Contact
       </h1>
-      <div class="mt-[4%] flex flex-col items-center justify-center">
+      <div class="mt-4 flex flex-col items-center justify-center">
         <p
-          class="dark:text-dark-text-secondary text-light-text-secondary mb-[1%] max-w-[500px] text-base"
+          class="dark:text-dark-text-secondary text-light-text-secondary mb-1 max-w-[500px] text-base"
         >
           If you have any questions or would like to discuss a project, feel
           free to reach out!
@@ -47,7 +47,7 @@
       <input type="hidden" name="time" [value]="time" />
       <div class="mb-5">
         <label
-          class="dark:text-dark-text-secondary text-light-text-secondary mb-[5%] block text-base"
+          class="dark:text-dark-text-secondary text-light-text-secondary mb-2 block text-base"
           for="name"
           >Name</label
         >
@@ -56,12 +56,13 @@
           type="text"
           id="name"
           name="name"
+          maxlength="100"
           required
         />
       </div>
       <div class="mb-5">
         <label
-          class="dark:text-dark-text-secondary text-light-text-secondary mb-[5%] block text-base"
+          class="dark:text-dark-text-secondary text-light-text-secondary mb-2 block text-base"
           for="email"
           >Email</label
         >
@@ -70,12 +71,13 @@
           type="email"
           id="email"
           name="email"
+          maxlength="100"
           required
         />
       </div>
       <div class="mb-5">
         <label
-          class="dark:text-dark-text-secondary text-light-text-secondary mb-[5%] block text-base"
+          class="dark:text-dark-text-secondary text-light-text-secondary mb-2 block text-base"
           for="title"
           >Subject</label
         >
@@ -84,12 +86,13 @@
           type="text"
           id="title"
           name="title"
+          maxlength="100"
           required
         />
       </div>
       <div class="mb-5">
         <label
-          class="dark:text-dark-text-secondary text-light-text-secondary mb-[5%] block text-base"
+          class="dark:text-dark-text-secondary text-light-text-secondary mb-2 block text-base"
           for="message"
           >Message</label
         >
@@ -98,11 +101,14 @@
           name="message"
           id="message"
           rows="5"
+          maxlength="2000"
           required
         ></textarea>
       </div>
       <div
         *ngIf="isLoading"
+        role="status"
+        aria-live="polite"
         class="dark:text-dark-accent-hover text-light-accent-hover mt-5 text-center text-base"
       >
         Sending...
@@ -119,6 +125,7 @@
         <app-button
           [buttonText]="'Send'"
           [buttonAction]="sendData"
+          [disabled]="isLoading"
         ></app-button>
       </div>
     </form>

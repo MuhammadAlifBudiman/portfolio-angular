@@ -7,6 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
+    "setup:env": "cp src/environments/example.environment.ts src/environments/environment.ts && node -e \"require('fs').writeFileSync('src/environments/environment.prod.ts', 'export const environment = { production: true, emailService: { serviceId: \\'\\', templateId: \\'\\', publicKey: \\'\\'} };')\" && echo 'Local env files created. Set real EmailJS values in environment.prod.ts for a local prod build.'",
     "prepare": "husky"
   },
   "private": true,
@@ -20,7 +22,7 @@
     "@angular/platform-browser-dynamic": "^20.3.24",
     "@angular/router": "^20.3.24",
     "@tailwindcss/postcss": "^4.1.4",
-    "emailjs-com": "^3.2.0",
+    "@emailjs/browser": "^4.4.1",
     "postcss": "^8.5.15",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.1.4",
