@@ -150,8 +150,10 @@ describe('HeaderComponent', () => {
 
       const freshFixture = TestBed.createComponent(HeaderComponent);
       freshFixture.detectChanges();
+      const isDark = freshFixture.componentInstance.isDarkMode;
+      freshFixture.destroy();
 
-      expect(freshFixture.componentInstance.isDarkMode).toBeTrue();
+      expect(isDark).toBeTrue();
     });
 
     it('falls back to the system preference when nothing is stored', () => {
@@ -162,8 +164,10 @@ describe('HeaderComponent', () => {
 
       const freshFixture = TestBed.createComponent(HeaderComponent);
       freshFixture.detectChanges();
+      const isDark = freshFixture.componentInstance.isDarkMode;
+      freshFixture.destroy();
 
-      expect(freshFixture.componentInstance.isDarkMode).toBeTrue();
+      expect(isDark).toBeTrue();
     });
 
     it('isDarkMode reflects the ThemeService signal', () => {
