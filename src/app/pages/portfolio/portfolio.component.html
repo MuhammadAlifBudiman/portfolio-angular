@@ -19,7 +19,11 @@
 
       <div class="flex w-full flex-wrap justify-center xl:mx-auto xl:w-10/12">
         @for (project of projects; track project.id) {
-          <div class="mb-12 flex flex-col p-4 md:w-1/2" [id]="project.id">
+          <div
+            class="mb-12 flex flex-col p-4 md:w-1/2"
+            [id]="project.id"
+            data-testid="project-card"
+          >
             <div class="shadow-md">
               <img
                 [src]="project.imageSrc"

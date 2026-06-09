@@ -19,6 +19,6 @@ This file is the control table for requirement traceability. Update it whenever 
 | F00I | SEO, Performance & Social Metadata | FR-F00I-* | US-07 | N/A | `docs/product/FEATURE_SPEC.md` | #37 | #41 | Lighthouse ≥ 90 + rich-results test | Done |
 | F00J | Security Hardening | FR-F00J-* | US-04 | N/A | `docs/product/FEATURE_SPEC.md` | #38 | #41 | security auditor re-run + npm audit | Done |
 | F00K | Content Quality & UI Correctness | FR-F00K-* | US-01, US-02, US-03 | N/A | `docs/product/FEATURE_SPEC.md` | #39 | #41 | ui-ux reviewer re-run + mobile check | Done |
-| F00L | Test Coverage Baseline | FR-F00L-* | N/A | AC-X-2, AC-X-3 | `docs/product/FEATURE_SPEC.md` | #40 | TBD | npm test 100% new specs passing | Draft |
+| F00L | Test Coverage Baseline | FR-F00L-* | N/A | AC-X-2, AC-X-3 | `docs/specs/F00L-test-coverage/` | #40 | TBD | npm test green (85 specs) + build | Done |
 
 Status values: `Draft`, `Ready`, `In Progress`, `Review`, `Done`, `Blocked`.

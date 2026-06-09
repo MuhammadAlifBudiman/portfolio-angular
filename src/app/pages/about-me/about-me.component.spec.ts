@@ -42,4 +42,10 @@ describe('AboutMeComponent', () => {
       fixture.nativeElement.querySelector('a[download]');
     expect(anchor?.getAttribute('aria-label')).toBe('Download Resume');
   });
+
+  it('navigate() routes to /portfolio (FR-F00L-10)', () => {
+    const navigateSpy = spyOn(component.router, 'navigate');
+    component.navigate();
+    expect(navigateSpy).toHaveBeenCalledWith(['/portfolio']);
+  });
 });
