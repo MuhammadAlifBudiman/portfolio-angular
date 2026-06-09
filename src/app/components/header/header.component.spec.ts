@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Router, provideRouter } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({ template: '' })
 class StubComponent {}
@@ -115,6 +116,83 @@ describe('HeaderComponent', () => {
       component.onEscape();
 
       expect(component.isMenuOpen).toBeFalse();
+    });
+  });
+
+  describe('dark mode toggle (FR-F00L-7)', () => {
+    beforeEach(() => {
+      localStorage.clear();
+    });
+
+    it('onToggleDarkMode(checked=true) enables and persists dark mode', () => {
+      component.onToggleDarkMode({
+        target: { checked: true },
+      } as unknown as Event);
+
+      expect(component.isDarkMode).toBeTrue();
+      expect(localStorage.getItem('dark-mode')).toBe('dark');
+    });
+
+    it('onToggleDarkMode(checked=false) disables and persists dark mode', () => {
+      component.onToggleDarkMode({
+        target: { checked: false },
+      } as unknown as Event);
+
+      expect(component.isDarkMode).toBeFalse();
+      expect(localStorage.getItem('dark-mode')).toBe('light');
+    });
+
+    it('restores a stored dark-mode preference on init', () => {
+      localStorage.setItem('dark-mode', 'dark');
+      spyOn(window, 'matchMedia').and.returnValue({
+        matches: false,
+      } as MediaQueryList);
+
+      const freshFixture = TestBed.createComponent(HeaderComponent);
+      freshFixture.detectChanges();
+      const isDark = freshFixture.componentInstance.isDarkMode;
+      freshFixture.destroy();
+
+      expect(isDark).toBeTrue();
+    });
+
+    it('falls back to the system preference when nothing is stored', () => {
+      localStorage.removeItem('dark-mode');
+      spyOn(window, 'matchMedia').and.returnValue({
+        matches: true,
+      } as MediaQueryList);
+
+      const freshFixture = TestBed.createComponent(HeaderComponent);
+      freshFixture.detectChanges();
+      const isDark = freshFixture.componentInstance.isDarkMode;
+      freshFixture.destroy();
+
+      expect(isDark).toBeTrue();
+    });
+
+    it('isDarkMode reflects the ThemeService signal', () => {
+      TestBed.inject(ThemeService).toggleDarkMode(true);
+      expect(component.isDarkMode).toBeTrue();
+    });
+  });
+
+  describe('sticky navbar on scroll (FR-F00L-7)', () => {
+    it('sets isNavbarFixed once scrolled past the header offset', () => {
+      component.fixedNavOffsetTop = 10;
+      spyOnProperty(window, 'pageYOffset', 'get').and.returnValue(50);
+
+      component.onWindowScroll();
+
+      expect(component.isNavbarFixed).toBeTrue();
+    });
+
+    it('clears isNavbarFixed at the top of the page', () => {
+      component.fixedNavOffsetTop = 10;
+      spyOnProperty(window, 'pageYOffset', 'get').and.returnValue(0);
+
+      component.onWindowScroll();
+
+      expect(component.isNavbarFixed).toBeFalse();
     });
   });
 });

@@ -8,6 +8,11 @@ describe('PortfolioComponent', () => {
   let fixture: ComponentFixture<PortfolioComponent>;
   let component: PortfolioComponent;
 
+  /** Stable, non-presentational selector for project cards (FR-F00L-9). */
+  function cards(): NodeListOf<HTMLElement> {
+    return fixture.nativeElement.querySelectorAll('[data-testid="project-card"]');
+  }
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PortfolioComponent],
@@ -23,30 +28,28 @@ describe('PortfolioComponent', () => {
   });
 
   it(`renders exactly ${PROJECTS.length} project cards`, () => {
-    const cards: NodeListOf<HTMLElement> =
-      fixture.nativeElement.querySelectorAll('.mb-12.flex.flex-col');
-    expect(cards.length).toBe(PROJECTS.length);
+    expect(cards().length).toBe(PROJECTS.length);
   });
 
   it('first card title matches PROJECTS[0].title', () => {
-    const heading: HTMLElement =
-      fixture.nativeElement.querySelector('.mb-12.flex.flex-col h2');
+    const heading = cards()[0].querySelector('h2') as HTMLElement;
     expect(heading.textContent?.trim()).toBe(PROJECTS[0].title);
   });
 
   it('first card img alt matches PROJECTS[0].imageAlt', () => {
-    const img: HTMLImageElement =
-      fixture.nativeElement.querySelector('.mb-12.flex.flex-col img');
+    const img = cards()[0].querySelector('img') as HTMLImageElement;
     expect(img.getAttribute('alt')).toBe(PROJECTS[0].imageAlt);
   });
 
   it('first card ownership label renders the correct display text', () => {
-    const label: HTMLElement = fixture.nativeElement.querySelector(
-      '.mb-12.flex.flex-col p'
-    );
+    const label = cards()[0].querySelector('p') as HTMLElement;
     expect(label.textContent?.trim()).toBe(
       OWNERSHIP_LABEL[PROJECTS[0].ownership]
     );
+  });
+
+  it('each card is keyed by its project id', () => {
+    expect(cards()[0].id).toBe(PROJECTS[0].id);
   });
 
   it('openWebsite calls window.open with noopener,noreferrer', () => {
