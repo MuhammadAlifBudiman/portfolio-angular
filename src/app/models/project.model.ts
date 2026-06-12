@@ -1,24 +1,20 @@
 export type ProjectOwnership = 'team' | 'personal' | 'client' | 'internal' | 'restricted';
 
 export interface Project {
-  /** Stable id — reused as card element id and @for track key. */
+  /** Stable id — reused as card element id, @for track key, and i18n key prefix. */
   id: string;
   title: string;
   ownership: ProjectOwnership;
-  description: string;
   imageSrc: string;
-  imageAlt: string;
   url: string;
   stack: string[];
-  role?: string;
   linkStatus: 'live' | 'restricted' | 'unavailable';
+  /**
+   * Localised fields moved to i18n resources (`src/app/i18n/en.ts` / `id.ts`).
+   * Kept optional here so existing tests that construct Project objects directly
+   * do not need to be rewritten.
+   */
+  description?: string;
+  imageAlt?: string;
+  role?: string;
 }
-
-/** Display label for the ownership tag — preserves current rendered text. */
-export const OWNERSHIP_LABEL: Record<ProjectOwnership, string> = {
-  team: 'Team Project',
-  personal: 'Personal Project',
-  client: 'Client Project',
-  internal: 'Internal Project',
-  restricted: 'Restricted Project',
-};

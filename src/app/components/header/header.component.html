@@ -110,7 +110,7 @@
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
                 >01.</span
-              >About Me</a
+              >{{ t('nav.aboutMe') }}</a
             >
           </li>
           <li class="group">
@@ -123,7 +123,7 @@
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
                 >02.</span
-              >Portfolio</a
+              >{{ t('nav.portfolio') }}</a
             >
           </li>
           <li class="group">
@@ -136,13 +136,13 @@
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
                 >03.</span
-              >Contact</a
+              >{{ t('nav.contact') }}</a
             >
           </li>
           <li class="mb-3 mt-3 flex items-start pl-8 lg:mb-0 lg:mt-0 lg:items-center">
             <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-4">
               <div class="flex items-center">
-                <span class="mr-2 text-sm">light</span>
+                <span class="mr-2 text-sm">{{ t('header.lightLabel') }}</span>
                 <input
                   type="checkbox"
                   class="peer sr-only"
@@ -160,9 +160,22 @@
                     ></div>
                   </div>
                 </label>
-                <span class="ml-2 text-sm">dark</span>
+                <span class="ml-2 text-sm">{{ t('header.darkLabel') }}</span>
               </div>
               <app-theme-selector></app-theme-selector>
+              <!-- Language selector -->
+              <div class="lang-selector" [attr.aria-label]="t('header.langAriaLabel')">
+                @for (lang of supportedLanguages; track lang) {
+                  <button
+                    type="button"
+                    class="lang-btn"
+                    [class.lang-btn--active]="currentLang === lang"
+                    [attr.aria-pressed]="currentLang === lang"
+                    [attr.aria-label]="languageLabels[lang]"
+                    (click)="switchLanguage(lang)"
+                  >{{ languageLabels[lang] }}</button>
+                }
+              </div>
             </div>
           </li>
         </ul>

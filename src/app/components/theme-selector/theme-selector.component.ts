@@ -6,6 +6,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { ThemeService, STYLE_THEMES, StyleTheme } from '../../services/theme.service';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-theme-selector',
@@ -14,6 +15,7 @@ import { ThemeService, STYLE_THEMES, StyleTheme } from '../../services/theme.ser
 })
 export class ThemeSelectorComponent {
   private themeService = inject(ThemeService);
+  private lang = inject(LanguageService);
   private el = inject(ElementRef);
 
   readonly themes = STYLE_THEMES;
@@ -24,8 +26,11 @@ export class ThemeSelectorComponent {
   }
 
   get selectedLabel(): string {
-    return this.themes.find((t) => t.id === this.selectedTheme)?.label ?? 'Theme';
+    return this.themes.find((t) => t.id === this.selectedTheme)?.label ?? this.lang.t('header.themeLabel');
   }
+
+  get themeLabel(): string { return this.lang.t('header.themeLabel'); }
+  get themeAriaLabel(): string { return this.lang.t('header.themeAriaLabel'); }
 
   toggleOpen(): void {
     this.isOpen.set(!this.isOpen());
