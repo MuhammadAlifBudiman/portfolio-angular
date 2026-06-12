@@ -7,24 +7,23 @@
         id="section-contact"
         class="dark:text-dark-accent-hover text-light-accent-hover mb-1.5 w-full font-mono text-base md:text-xl"
       >
-        Get in touch
+        {{ contactEyebrow }}
       </p>
       <h1
         class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
       >
-        Contact
+        {{ contactTitle }}
       </h1>
       <div class="mt-4 flex flex-col items-center justify-center">
         <p
           class="dark:text-dark-text-secondary text-light-text-secondary mb-1 max-w-[500px] text-base"
         >
-          If you have any questions or would like to discuss a project, feel
-          free to reach out!
+          {{ contactDescription }}
         </p>
         <p
           class="dark:text-dark-text-secondary text-light-text-secondary mb-5 text-center text-base"
         >
-          Whatsapp:
+          {{ whatsappLabel }}
           <a
             [href]="'https://wa.me/' + phoneNumber"
             target="_blank"
@@ -33,7 +32,7 @@
             >{{ phoneNumber }}</a
           >
           <br />
-          Email:
+          {{ emailLabel }}
           <a
             [href]="'mailto:' + email"
             class="dark:text-dark-accent-hover text-light-accent-hover hover:underline"
@@ -49,7 +48,7 @@
         <label
           class="dark:text-dark-text-secondary text-light-text-secondary mb-2 block text-base"
           for="name"
-          >Name</label
+          >{{ formNameLabel }}</label
         >
         <input
           class="dark:bg-dark-background-hover bg-light-background-hover dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:border-dark-accent-hover border-light-accent-hover dark:text-dark-text-secondary text-light-text-secondary w-full rounded-lg border border-solid p-2.5 text-base focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-accent-hover dark:focus-visible:outline-dark-accent-hover"
@@ -64,7 +63,7 @@
         <label
           class="dark:text-dark-text-secondary text-light-text-secondary mb-2 block text-base"
           for="email"
-          >Email</label
+          >{{ formEmailLabel }}</label
         >
         <input
           class="dark:bg-dark-background-hover bg-light-background-hover dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:border-dark-accent-hover border-light-accent-hover dark:text-dark-text-secondary text-light-text-secondary w-full rounded-lg border border-solid p-2.5 text-base focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-accent-hover dark:focus-visible:outline-dark-accent-hover"
@@ -79,7 +78,7 @@
         <label
           class="dark:text-dark-text-secondary text-light-text-secondary mb-2 block text-base"
           for="title"
-          >Subject</label
+          >{{ formSubjectLabel }}</label
         >
         <input
           class="dark:bg-dark-background-hover bg-light-background-hover dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:border-dark-accent-hover border-light-accent-hover dark:text-dark-text-secondary text-light-text-secondary w-full rounded-lg border border-solid p-2.5 text-base focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-accent-hover dark:focus-visible:outline-dark-accent-hover"
@@ -94,7 +93,7 @@
         <label
           class="dark:text-dark-text-secondary text-light-text-secondary mb-2 block text-base"
           for="message"
-          >Message</label
+          >{{ formMessageLabel }}</label
         >
         <textarea
           class="dark:bg-dark-background-hover bg-light-background-hover dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:border-dark-accent-hover border-light-accent-hover dark:text-dark-text-secondary text-light-text-secondary h-[150px] w-full rounded-lg border border-solid p-2.5 text-base focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-accent-hover dark:focus-visible:outline-dark-accent-hover"
@@ -111,7 +110,7 @@
         aria-live="polite"
         class="dark:text-dark-accent-hover text-light-accent-hover mt-5 text-center text-base"
       >
-        Sending...
+        {{ formSendingLabel }}
       </div>
       <div
         *ngIf="alertMessage"
@@ -123,7 +122,7 @@
       </div>
       <div class="mb-4 flex w-full justify-center text-center">
         <app-button
-          [buttonText]="'Send'"
+          [buttonText]="formSendLabel"
           [buttonAction]="sendData"
           [disabled]="isLoading"
         ></app-button>

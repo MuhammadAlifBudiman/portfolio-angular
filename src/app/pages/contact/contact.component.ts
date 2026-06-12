@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { EmailService } from '../../services/email.service';
 import { Title, Meta } from '@angular/platform-browser';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,6 +12,11 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent implements OnInit {
+  private lang = inject(LanguageService);
+  private emailService = inject(EmailService);
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+
   phoneNumber = '+6281295837271';
   email = 'alifm2101@gmail.com';
   alertMessage: string | null = null;
@@ -24,17 +30,28 @@ export class ContactComponent implements OnInit {
 
   @ViewChild('contactForm') contactForm!: ElementRef<HTMLFormElement>;
 
-  constructor(private emailService: EmailService, private titleService: Title, private metaService: Meta) {}
+  // Template getters
+  get contactEyebrow(): string { return this.lang.t('contact.eyebrow'); }
+  get contactTitle(): string { return this.lang.t('contact.title'); }
+  get contactDescription(): string { return this.lang.t('contact.description'); }
+  get whatsappLabel(): string { return this.lang.t('contact.whatsappLabel'); }
+  get emailLabel(): string { return this.lang.t('contact.emailLabel'); }
+  get formNameLabel(): string { return this.lang.t('contact.form.name'); }
+  get formEmailLabel(): string { return this.lang.t('contact.form.email'); }
+  get formSubjectLabel(): string { return this.lang.t('contact.form.subject'); }
+  get formMessageLabel(): string { return this.lang.t('contact.form.message'); }
+  get formSendLabel(): string { return this.lang.t('contact.form.send'); }
+  get formSendingLabel(): string { return this.lang.t('contact.form.sending'); }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Contact — Muhammad Alif Budiman');
-    this.metaService.updateTag({ name: 'description', content: 'Get in touch with Muhammad Alif Budiman via email, WhatsApp, or the contact form.' });
+    this.titleService.setTitle(this.lang.t('seo.contact.title'));
+    this.metaService.updateTag({ name: 'description', content: this.lang.t('seo.contact.description') });
   }
 
   sendData = (): void => {
     if (this.isLoading) return;
     if (this.lastSentAt !== null && Date.now() - this.lastSentAt < 30_000) {
-      this.alertMessage = 'Please wait 30 seconds before sending again.';
+      this.alertMessage = this.lang.t('contact.form.rateLimitMsg');
       this.alertType = this.errorClass;
       return;
     }
@@ -64,7 +81,7 @@ export class ContactComponent implements OnInit {
     const formData = new FormData(this.contactForm.nativeElement);
     const email = (formData.get('email') as string ?? '').trim();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      this.alertMessage = 'Please enter a valid email address.';
+      this.alertMessage = this.lang.t('contact.form.invalidEmailMsg');
       this.alertType = this.errorClass;
       this.isLoading = false;
       return;
@@ -73,14 +90,14 @@ export class ContactComponent implements OnInit {
     this.emailService
       .sendEmail(this.contactForm.nativeElement)
       .then(() => {
-        this.alertMessage = 'Your message has been sent successfully!';
+        this.alertMessage = this.lang.t('contact.form.successMsg');
         this.alertType =
           'dark:bg-dark-success-background bg-light-success-background dark:text-dark-success-text text-light-success-text border border-solid dark:border-dark-success-border border-light-success-border';
         this.lastSentAt = Date.now();
         this.contactForm.nativeElement.reset();
       })
       .catch(() => {
-        this.alertMessage = 'Failed to send your message. Please try again.';
+        this.alertMessage = this.lang.t('contact.form.errorMsg');
         this.alertType =
           'dark:bg-dark-error-background bg-light-error-background dark:text-dark-error-text text-light-error-text border border-solid dark:border-dark-error-border border-light-error-border';
       })

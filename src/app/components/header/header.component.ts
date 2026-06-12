@@ -12,6 +12,8 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
 import { ThemeSelectorComponent } from '../theme-selector/theme-selector.component';
+import { LanguageService } from '../../services/language.service';
+import { Language, LANGUAGE_LABELS, SUPPORTED_LANGUAGES } from '../../models/language.model';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +23,7 @@ import { ThemeSelectorComponent } from '../theme-selector/theme-selector.compone
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   private themeService = inject(ThemeService);
+  private langService = inject(LanguageService);
   private router = inject(Router);
   private routerSub?: Subscription;
   @ViewChild('headerElement') headerRef!: ElementRef;
@@ -28,13 +31,25 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   fixedNavOffsetTop = 0;
   isMenuOpen = false;
 
+  readonly supportedLanguages = SUPPORTED_LANGUAGES;
+  readonly languageLabels = LANGUAGE_LABELS;
+
   get isDarkMode(): boolean {
     return this.themeService.isDarkMode();
+  }
+
+  get currentLang(): Language {
+    return this.langService.currentLang();
+  }
+
+  t(key: string): string {
+    return this.langService.t(key);
   }
 
   ngOnInit() {
     this.themeService.loadDarkMode();
     this.themeService.loadThemePreference();
+    this.langService.loadLanguage();
 
     // Collapse the mobile nav whenever a route change completes so the
     // dropdown does not stay open after selecting a destination.
@@ -68,6 +83,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   closeMenu(): void {
     if (this.isMenuOpen) this.setMenuState(false);
+  }
+
+  switchLanguage(lang: Language): void {
+    this.langService.setLanguage(lang);
   }
 
   private setMenuState(open: boolean): void {

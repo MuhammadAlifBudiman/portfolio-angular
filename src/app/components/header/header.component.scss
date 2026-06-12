@@ -25,3 +25,44 @@
 #dark-toggle:checked ~ label div.toggle-circle {
   @apply translate-x-3;
 }
+
+/* Language selector pill */
+.lang-selector {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid var(--color-light-accent-hover);
+
+  @dark {
+    border-color: var(--color-dark-accent-hover);
+  }
+}
+
+.lang-btn {
+  padding: 0.125rem 0.625rem;
+  font-size: 0.875rem;
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  cursor: none;
+  transition: background-color 0.2s, color 0.2s;
+  background: transparent;
+  border: none;
+  color: var(--color-light-text-secondary);
+
+  @dark {
+    color: var(--color-dark-text-secondary);
+  }
+}
+
+.lang-btn--active {
+  background-color: var(--color-light-accent-hover);
+  color: var(--color-light-background-primary);
+
+  @dark {
+    background-color: var(--color-dark-accent-hover);
+    color: var(--color-dark-background-primary);
+  }
+}
+
+

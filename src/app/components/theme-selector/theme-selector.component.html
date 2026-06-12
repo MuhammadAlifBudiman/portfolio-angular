@@ -1,5 +1,5 @@
 <div class="theme-selector-wrapper">
-  <span class="theme-label" id="theme-selector-label">Theme</span>
+  <span class="theme-label" id="theme-selector-label">{{ themeLabel }}</span>
 
   <div class="theme-dropdown" [class.theme-dropdown--open]="isOpen()">
     <!-- Trigger button -->
@@ -8,7 +8,7 @@
       type="button"
       role="button"
       aria-haspopup="listbox"
-      aria-label="Select colour theme"
+      [attr.aria-label]="themeAriaLabel"
       aria-controls="theme-listbox"
       [attr.aria-expanded]="isOpen()"
       class="theme-trigger"

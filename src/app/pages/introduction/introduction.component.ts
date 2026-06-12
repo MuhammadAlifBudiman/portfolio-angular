@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { Router } from '@angular/router';
 import { Title, Meta } from '@angular/platform-browser';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-introduction',
@@ -10,21 +11,23 @@ import { Title, Meta } from '@angular/platform-browser';
   styleUrl: './introduction.component.scss',
 })
 export class IntroductionComponent implements OnInit {
-  greetingText: string = 'Hello! My name is';
-  fullName: string = 'Muhammad Alif Budiman';
-  roleText: string = 'Web Developer';
-  introductionText: string = `I build web applications with Angular, Python, and Flask — from patient management systems and inventory tools to word-guessing games. Currently studying Informatics and open to collaboration.`;
+  private lang = inject(LanguageService);
+  private titleService = inject(Title);
+  private metaService = inject(Meta);
+  public router = inject(Router);
 
-  aboutMeButtonText: string = 'About Me';
-
-  constructor(public router: Router, private titleService: Title, private metaService: Meta) {}
+  get greetingText(): string { return this.lang.t('intro.greeting'); }
+  get fullName(): string { return 'Muhammad Alif Budiman'; }
+  get roleText(): string { return this.lang.t('intro.role'); }
+  get introductionText(): string { return this.lang.t('intro.body'); }
+  get aboutMeButtonText(): string { return this.lang.t('intro.aboutMeBtn'); }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Muhammad Alif Budiman — Web Developer | Portfolio');
-    this.metaService.updateTag({ name: 'description', content: 'Web developer specializing in Angular and full-stack applications. View my projects and get in touch.' });
+    this.titleService.setTitle(this.lang.t('seo.home.title'));
+    this.metaService.updateTag({ name: 'description', content: this.lang.t('seo.home.description') });
   }
 
-  navigate(): void {
+  navigate = (): void => {
     this.router.navigate(['/about-me']);
-  }
+  };
 }

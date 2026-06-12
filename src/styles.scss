@@ -111,7 +111,7 @@ html[data-style-theme='ember'] {
 @media (pointer: fine) {
   * { cursor: none; }
   input, textarea, select { cursor: text; }
-  a, button, [role="button"], [tabindex] { cursor: pointer; }
+  a, button, [role="button"], [tabindex] { cursor: none; }
 }
 
 @utility wrapper {

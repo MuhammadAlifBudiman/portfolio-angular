@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PortfolioComponent } from './portfolio.component';
 import { PROJECTS } from '../../data/projects.data';
-import { OWNERSHIP_LABEL } from '../../models/project.model';
+import { LanguageService } from '../../services/language.service';
 
 describe('PortfolioComponent', () => {
   let fixture: ComponentFixture<PortfolioComponent>;
@@ -36,16 +36,16 @@ describe('PortfolioComponent', () => {
     expect(heading.textContent?.trim()).toBe(PROJECTS[0].title);
   });
 
-  it('first card img alt matches PROJECTS[0].imageAlt', () => {
+  it('first card img alt matches translated PROJECTS[0].imageAlt', () => {
     const img = cards()[0].querySelector('img') as HTMLImageElement;
-    expect(img.getAttribute('alt')).toBe(PROJECTS[0].imageAlt);
+    const lang = TestBed.inject(LanguageService);
+    expect(img.getAttribute('alt')).toBe(lang.t(`projects.${PROJECTS[0].id}.imageAlt`));
   });
 
   it('first card ownership label renders the correct display text', () => {
     const label = cards()[0].querySelector('p') as HTMLElement;
-    expect(label.textContent?.trim()).toBe(
-      OWNERSHIP_LABEL[PROJECTS[0].ownership]
-    );
+    const lang = TestBed.inject(LanguageService);
+    expect(label.textContent?.trim()).toBe(lang.t(`ownership.${PROJECTS[0].ownership}`));
   });
 
   it('each card is keyed by its project id', () => {

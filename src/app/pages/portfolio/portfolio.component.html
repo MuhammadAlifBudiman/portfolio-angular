@@ -7,12 +7,12 @@
             id="section-portfolio"
             class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-base md:text-xl"
           >
-            Discover my work
+            {{ portfolioEyebrow }}
           </p>
           <h1
             class="dark:text-dark-text-primary text-light-text-primary text-3xl font-bold md:text-4xl lg:min-w-[610px] lg:text-6xl"
           >
-            Portfolio
+            {{ portfolioTitle }}
           </h1>
         </div>
       </div>
@@ -27,7 +27,7 @@
             <div class="shadow-md">
               <img
                 [src]="project.imageSrc"
-                [alt]="project.imageAlt"
+                [alt]="projectImageAlt(project.id)"
                 loading="lazy"
                 width="560"
                 height="222"
@@ -38,7 +38,7 @@
               <p
                 class="dark:text-dark-accent-hover text-light-accent-hover mt-2 font-mono text-base md:text-xl"
               >
-                {{ ownershipLabel[project.ownership] }}
+                {{ ownershipLabel(project.ownership) }}
               </p>
               <h2
                 class="dark:text-dark-text-primary text-light-text-primary mb-2.5 text-4xl"
@@ -48,10 +48,10 @@
               <p
                 class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-lg"
               >
-                {{ project.description }}
+                {{ projectDescription(project.id) }}
               </p>
               <app-button
-                [buttonText]="'View Project'"
+                [buttonText]="viewProjectBtn"
                 [buttonAction]="openWebsite(project.url)"
               ></app-button>
             </div>

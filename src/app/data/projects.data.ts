@@ -1,92 +1,70 @@
 import { Project } from '../models/project.model';
 
+/**
+ * Language-neutral project data.
+ * Localised fields (description, imageAlt, role) live in src/app/i18n/en.ts and id.ts,
+ * keyed under `projects.<id>.*`.
+ */
 export const PROJECTS: readonly Project[] = [
   {
     id: 'bkn-internal-workflow-api',
     title: 'Internal Workflow Backend API',
     ownership: 'internal',
-    description:
-      'Developed and refined Go backend endpoints for internal workflow modules, including list/detail retrieval, filtering, sorting, pagination, workflow transitions, multipart file handling, and OpenAPI documentation.',
     imageSrc: 'projects/bkn-backend-api.png',
-    imageAlt: 'Backend API architecture illustration for internal workflow system with Go, RBAC, file upload, and OpenAPI documentation',
     url: '#',
     stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC'],
-    role: 'Backend developer — Go API implementation and Swagger/OpenAPI documentation',
     linkStatus: 'restricted',
   },
   {
     id: 'blog-api-server',
     title: 'Blog API Server',
     ownership: 'personal',
-    description:
-      'A TypeScript-based REST API for a blog platform with authentication, validation, PostgreSQL integration, email notifications, logging, and API documentation.',
     imageSrc: 'projects/blog-api-server.png',
-    imageAlt: 'Backend architecture diagram for Blog API Server with Express API, authentication, Sequelize ORM, PostgreSQL, email notifications, and logging',
     url: '#',
     stack: ['Node.js', 'Express', 'TypeScript', 'Sequelize', 'PostgreSQL', 'JWT'],
-    role: 'Backend developer — REST API, authentication, validation, database integration, and documentation',
     linkStatus: 'unavailable',
   },
   {
     id: 'klinik-google',
     title: 'Klinik Google',
     ownership: 'team',
-    description:
-      'This Patient Management System utilizes Flask and MongoDB to enhance patient registration efficiency, healthcare service quality, and patient data management.',
     imageSrc: 'projects/klinikgoogle.png',
-    imageAlt: 'Screenshot of Klinik Google patient management dashboard',
     url: 'https://klinik-google.glitch.me/',
     stack: ['Python', 'Flask', 'MongoDB', 'HTML', 'CSS'],
-    role: 'Full-stack developer — backend API and database design',
     linkStatus: 'live',
   },
   {
     id: 'numble',
     title: 'Numble',
     ownership: 'team',
-    description:
-      'Numble is an engaging and addictive web-based number puzzle game that challenges players to use their mathematical skills.',
     imageSrc: 'projects/numble.png',
-    imageAlt: 'Screenshot of Numble math word-guessing game interface',
     url: 'https://numble-xi.vercel.app/',
     stack: ['JavaScript', 'HTML', 'CSS'],
-    role: 'Frontend developer — game logic and UI',
     linkStatus: 'live',
   },
   {
     id: 'bemy',
     title: 'BeMy',
     ownership: 'team',
-    description:
-      'Platform for individuals to find chat friends and engage in virtual conversations.',
     imageSrc: 'projects/bemy.png',
-    imageAlt: 'Screenshot of BeMy friend chat matching application',
     url: 'https://muhammadalifbudiman.github.io/BeMy/',
     stack: ['JavaScript', 'HTML', 'CSS'],
-    role: 'Frontend developer — matching interface and chat UI',
     linkStatus: 'live',
   },
   {
     id: 'stock-data',
     title: 'StockData',
     ownership: 'team',
-    description:
-      'An Inventory Control website to facilitate stock management and ensure product availability across various marketplaces.',
     imageSrc: 'projects/stockdata.png',
-    imageAlt: 'Screenshot of StockData inventory management system',
     url: 'https://stockdata.great-site.net/',
     stack: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
-    role: 'Full-stack developer — inventory logic and marketplace sync',
     linkStatus: 'live',
   },
   {
     id: 'task-master',
     title: 'Task Master',
     ownership: 'personal',
-    description:
-      'Task Master is a feature-rich web application that empowers users to efficiently manage their daily, weekly, and monthly tasks.',
     imageSrc: 'projects/taskmaster.png',
-    imageAlt: 'Screenshot of Task Master task management application',
     url: 'https://alif.pythonanywhere.com/',
     stack: ['Python', 'Flask', 'SQLite', 'HTML', 'CSS', 'JavaScript'],
     linkStatus: 'live',
@@ -95,10 +73,7 @@ export const PROJECTS: readonly Project[] = [
     id: 'color-tap',
     title: 'Color Tap',
     ownership: 'personal',
-    description:
-      'This addictive web-based game is designed to test your reflexes and color recognition skills in a fun and engaging way.',
     imageSrc: 'projects/colortap.png',
-    imageAlt: 'Screenshot of Color Tap browser tapping game',
     url: 'https://muhammadalifbudiman.github.io/ColorTap/',
     stack: ['JavaScript', 'HTML', 'CSS'],
     linkStatus: 'live',
@@ -107,10 +82,7 @@ export const PROJECTS: readonly Project[] = [
     id: 'coffee-shop',
     title: 'Coffee Shop',
     ownership: 'personal',
-    description:
-      'The CoffeeShop website is your one-stop destination for a delightful coffee experience.',
     imageSrc: 'projects/coffeeshop.png',
-    imageAlt: 'Screenshot of Coffee Shop web application',
     url: 'https://coffeeshop.free.nf/',
     stack: ['HTML', 'CSS', 'JavaScript'],
     linkStatus: 'live',
@@ -119,10 +91,7 @@ export const PROJECTS: readonly Project[] = [
     id: 'checkers',
     title: 'Checkers',
     ownership: 'personal',
-    description:
-      'A web-based Checkers game built with Angular, featuring turn-based gameplay, piece movement, capturing, king promotion, and game-over conditions. It enforces Checkers rules and has a modular structure for scalability.',
     imageSrc: 'projects/checkers.jpeg',
-    imageAlt: 'Screenshot of Checkers board game in Angular',
     url: 'https://muhammadalifbudiman.github.io/checkers/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
@@ -131,10 +100,7 @@ export const PROJECTS: readonly Project[] = [
     id: 'minesweeper',
     title: 'Minesweeper',
     ownership: 'personal',
-    description:
-      'A web-based implementation of the classic Minesweeper game built with Angular. Players uncover cells on a grid to avoid hidden mines and reveal numbers indicating adjacent mines.',
     imageSrc: 'projects/minesweeper.png',
-    imageAlt: 'Screenshot of Minesweeper game grid interface',
     url: 'https://muhammadalifbudiman.github.io/minesweeper/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
@@ -143,10 +109,7 @@ export const PROJECTS: readonly Project[] = [
     id: 'resume-builder',
     title: 'Resume Builder',
     ownership: 'personal',
-    description:
-      'ResumeBuilder is an Angular-based web application that helps users create, edit, and download professional resumes. It features an editable form for inputting details, a live preview of the resume, and PDF generation.',
     imageSrc: 'projects/resumebuilder.png',
-    imageAlt: 'Screenshot of Resume Builder with live preview and PDF export',
     url: 'https://muhammadalifbudiman.github.io/resume-builder/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
@@ -155,10 +118,7 @@ export const PROJECTS: readonly Project[] = [
     id: 'quiz-app',
     title: 'Quiz App',
     ownership: 'personal',
-    description:
-      'QuizzApp is a web-based quiz application built with Angular. It allows users to take quizzes, create custom quizzes, and view their quiz history.',
     imageSrc: 'projects/quizapp.png',
-    imageAlt: 'Screenshot of Quiz App showing quiz creation and history',
     url: 'https://muhammadalifbudiman.github.io/quiz-app/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
@@ -167,10 +127,7 @@ export const PROJECTS: readonly Project[] = [
     id: 'typing-game',
     title: 'Typing Game',
     ownership: 'personal',
-    description:
-      'TypingGame is a web-based app that helps users improve typing speed and accuracy through interactive tests. It features typing challenges, a leaderboard, customizable themes, and detailed performance stats.',
     imageSrc: 'projects/typinggame.jpeg',
-    imageAlt: 'Screenshot of Typing Game speed test interface',
     url: 'https://muhammadalifbudiman.github.io/typing-game/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
