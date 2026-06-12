@@ -3,7 +3,7 @@
 **Feature ID:** F003  
 **GitHub Issue:** #11  
 **Branch:** feat/11-theme-selector  
-**Status:** In Progress
+**Status:** Done
 
 ---
 
@@ -54,7 +54,13 @@ Visitors can select a named visual theme ("Default", "Ocean", "Ember"). Style-th
 
 ## Clarifications
 
-All `[NEEDS CLARIFICATION]` items resolved:
-- Selector widget: `<select>` dropdown with visible title-cased labels.
+All clarification items resolved:
+- Selector widget: button-triggered listbox with visible title-cased labels.
 - Token extension point: `data-style-theme` attribute on `<html>` (confirmed).
 - UI placement: in nav header, next to dark/light toggle.
+
+## Delivery
+
+- GitHub Issue: #11
+- PR: #34
+- Status reflected in `docs/TRACEABILITY_MATRIX.md` as Done.

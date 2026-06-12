@@ -1,5 +1,7 @@
 # F00B — Portfolio Data Model: Implementation Plan
 
+Status: Done (#29 / PR #30)
+
 ## Files to create
 | File | Purpose |
 |---|---|
@@ -12,15 +14,15 @@
 |---|---|
 | `src/app/pages/portfolio/portfolio.component.ts` | Import data; expose `projects` + `ownershipLabel` |
 | `src/app/pages/portfolio/portfolio.component.html` | Replace 12 blocks with one `@for` loop |
-| `docs/TRACEABILITY_MATRIX.md` | F00B in progress, F00F → Done |
+| `docs/TRACEABILITY_MATRIX.md` | F00B marked Done |
 
 ## Step order
-1. Write `project.model.ts`
-2. Write `projects.data.ts`
-3. Modify component `.ts`
-4. Rewrite component `.html`
-5. Write component `.spec.ts`
-6. Run `npm run build` — fix if red
-7. Run `npm test` — fix if red
-8. Update TRACEABILITY_MATRIX
-9. Commit + PR
+1. [x] Write `project.model.ts`
+2. [x] Write `projects.data.ts`
+3. [x] Modify component `.ts`
+4. [x] Rewrite component `.html`
+5. [x] Write component `.spec.ts`
+6. [x] Run `npm run build`
+7. [x] Run `npm test`
+8. [x] Update TRACEABILITY_MATRIX
+9. [x] Open PR

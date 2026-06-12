@@ -20,11 +20,11 @@
 - FR-F00A-2: Photo has descriptive `alt`; treatment is restrained and accessible.
 - FR-F00A-3: No fabricated credentials or metrics.
 
-## F00B — Portfolio Showcase (shipped, debt: hard-coded)
+## F00B — Portfolio Showcase (shipped)
 - FR-F00B-1: Each project card shows name; ownership type (team/personal/client/internal/restricted); role; stack; one-sentence problem/solution; link status.
 - FR-F00B-2: Restricted/unavailable links are labeled honestly.
 - FR-F00B-3: Cards are keyboard-scannable and readable on mobile.
-- Debt: data is embedded in `portfolio.component.html`; extract to a typed model before F002.
+- Data is extracted to a typed model in `src/app/data/projects.data.ts`, unblocking F002.
 
 ## F00C — Contact (shipped)
 - FR-F00C-1: Form validates required fields.
@@ -38,7 +38,7 @@
 
 ---
 
-## F001 — Resume PDF (planned · issue #8)
+## F001 — Resume PDF (shipped · issue #8 · PR #31)
 **Goal:** Visitor can view/download the resume as PDF.
 - FR-F001-1: A discoverable control downloads/opens the resume PDF.
 - FR-F001-2: Prefer a static PDF in `public/`; generate client-side only if content must be dynamic.
@@ -55,7 +55,7 @@
 - FR-F002-5: Language preference persisted in `localStorage` (non-sensitive).
 - Dependency: requires F00B data extraction to a typed model.
 
-## F003 — Theme Selector (planned · issue #11)
+## F003 — Theme Selector (shipped · issue #11 · PR #34)
 **Goal:** Multiple visual themes, each with light/dark variants.
 - FR-F003-1: A theme-token object/SCSS token map exists before UI implementation.
 - FR-F003-2: Style-theme selection is orthogonal to light/dark mode.
@@ -71,7 +71,7 @@
 - FR-F00F-1: The shared `app-button` renders a native, focusable, keyboard-operable control (Enter/Space) with a visible focus indicator.
 - FR-F00F-2: All `target="_blank"` links and `window.open` calls use `rel="noopener noreferrer"` / `noopener,noreferrer` to prevent reverse tabnabbing.
 
-## F00G — Dev Environment & CI Quality (planned)
+## F00G — Dev Environment & CI Quality (shipped · #35 · PR #41)
 **Goal:** Local build + test commands work without manual workarounds; CI hygiene verified.
 - FR-F00G-1: `npm run build` succeeds locally with a documented env bootstrap (`npm run setup:env` or equivalent).
 - FR-F00G-2: `npm test -- --watch=false --browsers=ChromeHeadless` passes without manual env-var overrides (requires `karma.conf.js` with `ChromeHeadlessNoSandbox` launcher).
@@ -79,7 +79,7 @@
 - FR-F00G-4: CI workflow uses `contents: write` only at job scope; top-level permission is `read`.
 - FR-F00G-5: `setup-node` action version is verified or pinned to a known SHA.
 
-## F00H — WCAG 2.1 AA Accessibility Remediation (planned)
+## F00H — WCAG 2.1 AA Accessibility Remediation (shipped · #36 · PR #41)
 **Goal:** All pages and components meet WCAG 2.1 AA across keyboard, contrast, semantics, and motion.
 - FR-F00H-1: A `<main id="main-content">` landmark wraps page content; a skip-navigation link is the first focusable element.
 - FR-F00H-2: Each page has a single logical `<h1>`; section titles on the composite `/` route are `<h2>`.
@@ -92,7 +92,7 @@
 - FR-F00H-9: Social icon SVGs use `aria-labelledby` pointing to `<title id>`, or links carry `aria-label` and SVG is `aria-hidden`.
 - FR-F00H-10: Theme-selector trigger uses `role="button"` with `aria-haspopup="listbox"` and `aria-expanded`; `role="combobox"` is removed.
 
-## F00I — SEO, Performance & Social Metadata (planned)
+## F00I — SEO, Performance & Social Metadata (shipped · #37 · PR #41)
 **Goal:** All pages are crawlable, social-preview-ready, and performant on initial load.
 - FR-F00I-1: `src/index.html` contains `<meta name="description">`, canonical, OG, Twitter Card, and `<meta name="author">` with truthful values.
 - FR-F00I-2: `<title>` includes a keyword descriptor (e.g. "Muhammad Alif Budiman — Web Developer | Portfolio").
@@ -105,7 +105,7 @@
 - FR-F00I-9: `<link rel="preconnect">` hints exist for both Google Fonts origins; Roboto Mono import is narrowed to used weights only.
 - FR-F00I-10: Favicon set includes apple-touch-icon (180×180) and `manifest.json` with `theme-color`.
 
-## F00J — Security Hardening (planned)
+## F00J — Security Hardening (shipped · #38 · PR #41)
 **Goal:** Contact form and CI/CD pipeline are hardened against abuse and supply-chain risk.
 - FR-F00J-1: `ButtonComponent` exposes a `disabled` input; the contact form submit button is bound to `[disabled]="isLoading"` to prevent double-submit.
 - FR-F00J-2: A 30-second client-side cooldown is enforced after a successful send; state is in component memory (not `localStorage`).
@@ -117,7 +117,7 @@
 - FR-F00J-8: Dark/light theme storage is consolidated into `ThemeService` using a single `localStorage` key; `HeaderComponent` delegates to the service.
 - FR-F00J-9: EmailJS domain allowlist requirement is documented in `docs/security/EMAILJS.md`.
 
-## F00K — Content Quality & UI Correctness (planned)
+## F00K — Content Quality & UI Correctness (shipped · #39 · PR #41)
 **Goal:** All copy is specific and evidence-based; layout is correct at all viewports; project cards satisfy FR-F00B-1.
 - FR-F00K-1: Hero `introductionText` names the current tech stack and references at least one project type; "eager to learn" phrase is removed.
 - FR-F00K-2: About-Me paragraphs name specific tools/frameworks; "eager to learn" and other generic filler are removed; photo `alt` is descriptive and capitalised.
@@ -130,7 +130,7 @@
 - FR-F00K-9: `transition-[colors, transform]` Tailwind v4 syntax is corrected to a valid form.
 - FR-F00K-10: Dark-mode toggle `<input>` has `aria-label="Toggle dark mode"`; `<label>` has a visible focus ring.
 
-## F00L — Test Coverage Baseline (planned)
+## F00L — Test Coverage Baseline (shipped · #40)
 **Goal:** All behaviorally significant components, services, and directives have a Karma/Jasmine spec; tests are deterministic.
 - FR-F00L-1: `EmailService` has a spec that mocks `emailjs.sendForm` and covers resolve and reject branches.
 - FR-F00L-2: `ContactComponent` has a spec covering: loading state, success/error alert, form reset, time input, and the early-return guard; EmailJS and `Date` are mocked.

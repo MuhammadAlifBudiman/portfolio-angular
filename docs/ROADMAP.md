@@ -5,13 +5,13 @@
 ## Phase 0 — Baseline (shipped · `v1.0.1`, 2026-04-11)
 - [x] F000 Core portfolio shell (routes + single-page composition)
 - [x] F00A About / identity
-- [x] F00B Portfolio showcase (hard-coded — debt)
+- [x] F00B Portfolio showcase (typed data model)
 - [x] F00C Contact form (EmailJS)
 - [x] F00D Dark/light theming baseline
 - [x] Automated GitHub Pages deploy
 
-## Phase 1 — Spec & Hygiene (current)
-- [ ] Spec layer adopted (PRD, FEATURE_SPEC, USER_STORIES, ACCEPTANCE_CRITERIA, ARCHITECTURE, UAT)
+## Phase 1 — Spec & Hygiene
+- [x] Spec layer adopted (PRD, FEATURE_SPEC, USER_STORIES, ACCEPTANCE_CRITERIA, ARCHITECTURE, UAT)
 - [x] F00E README version + commit-tooling correction (shipped: README=20.3.x; migrated to husky+commitlint, cz-customizable removed)
 - [x] F00B refactor: extract portfolio cards to typed data model (prerequisite for F002) — PR #30
 - [x] `app-button` accessibility audit (semantic `<a>`/`<button>` confirmed; spec covers both modes)
@@ -19,7 +19,7 @@
 
 ## Phase 2 — Backlog Features
 - [x] F001 Resume PDF (#8) — shipped PR #31
-- [ ] F003 Theme selector (#11)
+- [x] F003 Theme selector (#11) — shipped PR #34
 - [ ] F002 i18n EN/ID (#10) — after F00B data extraction
 
 ## Phase 3 — Quality Pass
@@ -36,6 +36,6 @@
 - [x] F00L Test coverage baseline (#40) — EmailService, ContactComponent, ThemeSelector, directives · PR #40
 
 ## Dependency Notes
-- F002 depends on F00B data extraction.
-- F003 depends on a theme-token map existing before UI work (`DESIGN.md`).
+- F002 dependency on F00B data extraction is satisfied.
+- F003 dependency on a theme-token map is satisfied.
 - No deploy/secret change proceeds without explicit owner approval.

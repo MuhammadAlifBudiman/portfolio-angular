@@ -26,9 +26,10 @@ EmailJS API  ──►  Owner inbox
 - Styling: `src/styles.scss`, `src/tailwind.css`, `src/fonts.scss`; tokens per `DESIGN.md`.
 - Static assets: `public/`, `public/projects/`.
 
-## Data Model (current + target)
-- **Current:** project data is embedded in `portfolio.component.html` (debt).
-- **Target:** typed `Project` model (name, ownershipType, role, stack[], summary, links[], status) consumed by the portfolio page. Required before i18n (F002) and filtering.
+## Data Model
+- Portfolio cards are rendered from typed project data in `src/app/data/projects.data.ts`.
+- `Project` metadata includes stable IDs, ownership, role, stack, link status, image metadata, and project descriptions.
+- This model is the content source to externalize for i18n (F002).
 
 ## Configuration & Secrets
 - EmailJS values injected via generated env files from CI secrets: `ENV_SERVICE_ID`, `ENV_TEMPLATE_ID`, `ENV_PUBLIC_KEY`.
