@@ -27,13 +27,13 @@
 - [ ] Open Graph/Twitter metadata verified truthful in `src/index.html`
 - [ ] UAT pass on all Phase 2 features (`docs/UAT.md`)
 
-## Phase 4 — Audit Remediation (audit 2026-06-06)
-- [ ] F00G Dev environment & CI quality (#35) — karma.conf, local env bootstrap, CI permissions
-- [ ] F00H WCAG 2.1 AA accessibility remediation (#36) — contrast, landmarks, headings, cursor, ARIA
-- [ ] F00I SEO, performance & social metadata (#37) — meta tags, prerender, image optimisation
-- [ ] F00J Security hardening (#38) — contact form spam guard, dependency updates, CI permissions
-- [ ] F00K Content quality & UI correctness (#39) — copy, project cards, layout, mobile nav
-- [ ] F00L Test coverage baseline (#40) — EmailService, ContactComponent, ThemeSelector, directives
+## Phase 4 — Audit Remediation (audit 2026-06-06) · shipped
+- [x] F00G Dev environment & CI quality (#35) — karma.conf, local env bootstrap, CI permissions · PR #41
+- [x] F00H WCAG 2.1 AA accessibility remediation (#36) — contrast, landmarks, headings, cursor, ARIA · PR #41
+- [x] F00I SEO, performance & social metadata (#37) — meta tags, structured data, per-route title · PR #41 (image WebP + prerender + manifest deferred)
+- [x] F00J Security hardening (#38) — contact form spam guard, dependency updates, CI permissions · PR #41
+- [x] F00K Content quality & UI correctness (#39) — copy, project cards, layout, mobile nav · PR #41 + commit e43d1dc
+- [x] F00L Test coverage baseline (#40) — EmailService, ContactComponent, ThemeSelector, directives · PR #40
 
 ## Dependency Notes
 - F002 depends on F00B data extraction.

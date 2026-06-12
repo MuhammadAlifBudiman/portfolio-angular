@@ -14,7 +14,7 @@ This file is the control table for requirement traceability. Update it whenever 
 | F003 | Theme Selector | FR-F003-* | US-06 | AC-F003-* | `docs/specs/F011-theme-selector/` | #11 | #34 | UAT + persistence test | Done |
 | F00E | README / Docs Correction | FR-F00E-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #26 | TBD | docs review + build | Done |
 | F00F | Accessibility & Link-Safety Hygiene | FR-F00F-* | US-01, US-02, US-04 | N/A | `docs/product/FEATURE_SPEC.md` | #26 | TBD | build + unit tests + a11y review | Done |
-| F00G | Dev Environment & CI Quality | FR-F00G-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #35 | TBD | npm run build + npm test green | Draft |
+| F00G | Dev Environment & CI Quality | FR-F00G-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #35 | #41 | npm run build + npm test green | Done |
 | F00H | WCAG 2.1 AA Accessibility Remediation | FR-F00H-* | US-01, US-02, US-04, US-06 | N/A | `docs/product/FEATURE_SPEC.md` | #36 | #41 | a11y auditor re-run + keyboard pass | Done |
 | F00I | SEO, Performance & Social Metadata | FR-F00I-* | US-07 | N/A | `docs/product/FEATURE_SPEC.md` | #37 | #41 | Lighthouse ≥ 90 + rich-results test | Done |
 | F00J | Security Hardening | FR-F00J-* | US-04 | N/A | `docs/product/FEATURE_SPEC.md` | #38 | #41 | security auditor re-run + npm audit | Done |
