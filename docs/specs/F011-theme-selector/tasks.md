@@ -1,14 +1,17 @@
-# Task Breakdown Template
+# Task Breakdown: F003 — Theme Selector
 
-Feature ID: `Fxxx`
-GitHub Issue: `#x`
+Feature ID: `F003`
+GitHub Issue: `#11`
+Status: Done
 
 ## Tasks
 
-- [ ] Confirm spec has no `[NEEDS CLARIFICATION]` markers.
-- [ ] Create implementation branch from `main`.
-- [ ] Implement code changes.
-- [ ] Update or add tests where relevant.
-- [ ] Run verification commands.
-- [ ] Update traceability matrix.
-- [ ] Open PR linked to the issue.
+- [x] Confirm spec has no unresolved clarification markers.
+- [x] Create implementation branch from `main`.
+- [x] Add theme-token map.
+- [x] Implement `ThemeService` persistence, fallback, and dark/light separation.
+- [x] Implement header selector UI.
+- [x] Add or update unit tests.
+- [x] Run verification commands.
+- [x] Update traceability matrix.
+- [x] Open PR linked to the issue.

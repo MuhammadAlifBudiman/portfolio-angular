@@ -1,14 +1,14 @@
 # ADR-003 — i18n Approach (F002)
 
 ## Status
-Proposed.
+Accepted. F00B data extraction is complete; F002 remains planned.
 
 ## Decision
-Externalize content into translation resources and introduce a typed `Project` data model before adding any language UI. Persist language preference in `localStorage`; fall back to a default language on missing keys.
+Externalize content into translation resources before adding any language UI. Use the existing typed `Project` data model as the source for portfolio translations. Persist language preference in `localStorage`; fall back to a default language on missing keys.
 
 ## Reason
-Portfolio data is currently hard-coded in `portfolio.component.html`, which blocks clean translation. Data extraction is a prerequisite (see ROADMAP Phase 1).
+Portfolio data now lives in typed project data, which makes project descriptions, roles, ownership labels, link statuses, and alt text practical to translate. Runtime language switching is still required because F002 must update copy without a page reload.
 
 ## Consequences
-- F002 is sequenced after F00B data extraction.
+- F002 is unblocked by F00B data extraction.
 - Proper nouns preserved unless an intentional localized form is defined.

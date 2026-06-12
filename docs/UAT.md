@@ -58,4 +58,4 @@
 - Never commit real env files; deploy only on explicit owner approval.
 
 ### Debt tracking
-- Carry `FEATURE_SPEC.md` debt items (F00B hard-coding, `app-button` a11y) as open issues until closed. F00E README/`cz-customizable` — closed (#26).
+- Carry only active `FEATURE_SPEC.md` debt items as open issues until closed. F00B hard-coding, `app-button` a11y, and F00E README/`cz-customizable` are closed.

@@ -2,6 +2,7 @@
 
 Feature ID: F001  
 GitHub Issue: #8
+Status: Done (#8 / PR #31)
 
 ## Problem
 

@@ -5,7 +5,7 @@ GitHub Issue: #8
 
 ## Tasks
 
-- [x] Confirm spec has no `[NEEDS CLARIFICATION]` markers.
+- [x] Confirm spec has no unresolved clarification markers.
 - [x] Create implementation branch `feat/8-resume-pdf` from `main`.
 - [x] Rename spec folder from `F008-resume-pdf` to `F001-resume-pdf`.
 - [x] Rewrite spec.md, plan.md, tasks.md, test-matrix.md with FR-F001-* content.

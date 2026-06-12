@@ -6,42 +6,43 @@ F00B (debt clearance)
 ## GitHub Issue
 #29
 
-## Problem
-`portfolio.component.html` embeds 12 hard-coded project card blocks (436 lines). The 12 cards share
-identical markup; only 7 values differ per card. This prevents F002 (i18n) from externalising
-translatable strings and makes the component unmaintainable.
+## Status
+Done (#29 / PR #30). Later F00K content work enriched the model with role, stack, link status, and expanded ownership values.
 
-Recorded in `FEATURE_SPEC.md`:
-> *data is embedded in `portfolio.component.html`; extract to a typed model before F002.*
+## Problem
+`portfolio.component.html` embedded repeated hard-coded project card blocks. The cards shared identical markup with only data values changing. This prevented F002 (i18n) from externalising translatable strings and made the component unmaintainable.
+
+This debt has been cleared: portfolio cards now render from `src/app/data/projects.data.ts`.
 
 ## Goals
-- Extract card data into a typed, version-controlled data source.
-- Render all cards from a single `@for` loop.
-- Add a portfolio component spec (none exists today).
-- Preserve visual output exactly — this is an internal refactor.
+- [x] Extract card data into a typed, version-controlled data source.
+- [x] Render all cards from a single `@for` loop.
+- [x] Add a portfolio component spec.
+- [x] Preserve visual output for the data extraction refactor.
 
 ## Non-Goals
-- No new projects.
-- No enrichment fields (role, stack, linkStatus) — those require real data, deferred.
-- No i18n wiring — that is F002.
+- No i18n wiring — that remains F002.
 
 ## Data Shape (faithful-minimal)
 
 ```ts
 interface Project {
-  id: string;           // stable, used as DOM id + track key
+  id: string;
   title: string;
-  ownership: 'team' | 'personal';
+  ownership: 'team' | 'personal' | 'client' | 'internal' | 'restricted';
   description: string;
   imageSrc: string;
   imageAlt: string;
   url: string;
+  stack: string[];
+  role?: string;
+  linkStatus: 'live' | 'restricted' | 'unavailable';
 }
 ```
 
 ## Functional Requirements
-- FR-F00B-D1: All 12 projects in typed array; data verbatim from current HTML.
+- FR-F00B-D1: All projects in typed array.
 - FR-F00B-D2: Template renders exactly `PROJECTS.length` cards in declared order.
 - FR-F00B-D3: Each card element keeps its `id` attribute (section-link compatibility).
-- FR-F00B-D4: Visual output identical to pre-refactor.
+- FR-F00B-D4: Visual output remains scannable and consistent after data extraction.
 - FR-F00B-D5: `openWebsite` continues to use `noopener,noreferrer`.
