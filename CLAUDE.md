@@ -99,3 +99,13 @@ Use subagents when their focused context prevents main-session bloat:
 - Before editing source code, map the issue to a Feature ID and ensure the relevant spec has no `[NEEDS CLARIFICATION]` markers.
 - For implementation work, create or update `spec.md`, `plan.md`, `tasks.md`, and `test-matrix.md` under `docs/specs/<feature-id-name>/`.
 - Update `docs/TRACEABILITY_MATRIX.md` when feature status, issue, PR, or verification changes.
+
+## graphify
+
+This project has a knowledge graph at graphify-out/ with god nodes, community structure, and cross-file relationships.
+
+Rules:
+- For codebase questions, first run `graphify query "<question>"` when graphify-out/graph.json exists. Use `graphify path "<A>" "<B>"` for relationships and `graphify explain "<concept>"` for focused concepts. These return a scoped subgraph, usually much smaller than GRAPH_REPORT.md or raw grep output.
+- If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
+- Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
+- After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
