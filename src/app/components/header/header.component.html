@@ -115,6 +115,17 @@
           </li>
           <li class="group">
             <a
+              [routerLink]="['/']"
+              [fragment]="'section-experience'"
+              class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
+              ><span
+                class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
+                >02.</span
+              >{{ t('nav.experience') }}</a
+            >
+          </li>
+          <li class="group">
+            <a
               routerLink="/portfolio"
               routerLinkActive #rlaPortfolio="routerLinkActive"
               [routerLinkActiveOptions]="{exact: true}"
@@ -122,8 +133,19 @@
               class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
-                >02.</span
+                >03.</span
               >{{ t('nav.portfolio') }}</a
+            >
+          </li>
+          <li class="group">
+            <a
+              [routerLink]="['/']"
+              [fragment]="'section-certifications'"
+              class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
+              ><span
+                class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
+                >04.</span
+              >{{ t('nav.certifications') }}</a
             >
           </li>
           <li class="group">
@@ -135,7 +157,7 @@
               class="group-hover:text-light-accent-primary dark:group-hover:text-dark-accent-primary transition-all mx-8 flex items-center gap-[10px] py-2 duration-300 ease-in-out group-hover:translate-y-[-2px]"
               ><span
                 class="text-light-accent-hover dark:text-dark-accent-hover font-bold"
-                >03.</span
+                >05.</span
               >{{ t('nav.contact') }}</a
             >
           </li>

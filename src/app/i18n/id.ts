@@ -3,8 +3,14 @@ import { PartialTranslation } from '../models/language.model';
 export const ID: PartialTranslation = {
   nav: {
     aboutMe: 'Tentang Saya',
+    experience: 'Pengalaman',
     portfolio: 'Portofolio',
+    certifications: 'Sertifikasi',
     contact: 'Kontak',
+  },
+  footer: {
+    copyright: '© 2025 Muhammad Alif Budiman',
+    backToTop: 'Kembali ke atas',
   },
   header: {
     lightLabel: 'terang',
