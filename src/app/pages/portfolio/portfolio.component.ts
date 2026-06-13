@@ -46,6 +46,8 @@ export class PortfolioComponent implements OnInit {
 
   ownershipLabel(key: string): string { return this.lang.t(`ownership.${key}`); }
 
+  projectContextLabel(contextId: string): string { return this.lang.t(`projectContext.${contextId}`); }
+
   projectDescription(id: string): string { return this.lang.t(`projects.${id}.description`); }
 
   projectImageAlt(id: string): string { return this.lang.t(`projects.${id}.imageAlt`); }

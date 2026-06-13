@@ -19,6 +19,7 @@ export const PROJECTS: readonly Project[] = [
     imageSrc: 'projects/bkn-backend-api.png',
     stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC', 'Multipart File Upload', 'Workflow System'],
     linkStatus: 'restricted',
+    context: { type: 'professional', id: 'bkn-professional', relatedExperienceId: 'bkn' },
     links: [],
   },
   {
@@ -27,13 +28,15 @@ export const PROJECTS: readonly Project[] = [
     ownership: 'personal',
     featured: true,
     categories: ['backend'],
+    year: '2023',
     imageSrc: 'projects/blog-api-server.png',
     stack: ['Node.js', 'Express', 'TypeScript', 'Sequelize', 'PostgreSQL', 'JWT', 'Validation', 'Logging', 'Email Notification', 'Postman Documentation'],
-    linkStatus: 'unavailable',
-    links: [],
+    linkStatus: 'live',
+    context: { type: 'bootcamp', id: 'mknows-bootcamp' },
+    links: [{ type: 'github', url: 'https://github.com/MuhammadAlifBudiman/be-mknows-4' }],
   },
   {
-    id: 'klinik-google',
+    id: 'patient-management-system',
     title: 'Patient Management System',
     ownership: 'team',
     featured: true,
@@ -43,7 +46,11 @@ export const PROJECTS: readonly Project[] = [
     url: 'https://klinik-google.glitch.me/',
     stack: ['Python', 'Flask', 'MongoDB', 'HTML', 'CSS', 'JavaScript', 'AJAX'],
     linkStatus: 'live',
-    links: [{ type: 'demo', url: 'https://klinik-google.glitch.me/' }],
+    context: { type: 'program', id: 'learningx-msib-capstone', relatedExperienceId: 'learningx-msib' },
+    links: [
+      { type: 'demo', url: 'https://klinik-google.glitch.me/' },
+      { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/Sistem-Pengelolaan-Pasien' },
+    ],
   },
   {
     id: 'task-master',
@@ -51,12 +58,16 @@ export const PROJECTS: readonly Project[] = [
     ownership: 'personal',
     featured: true,
     categories: ['fullstack', 'backend'],
-    year: '2024',
+    year: '2023',
     imageSrc: 'projects/taskmaster.png',
     url: 'https://alif.pythonanywhere.com/',
     stack: ['Django', 'Django REST Framework', 'PostgreSQL', 'JWT', 'Swagger', 'DataTables', 'Excel Export', 'Scheduled Task Reset'],
     linkStatus: 'live',
-    links: [{ type: 'demo', url: 'https://alif.pythonanywhere.com/' }],
+    context: { type: 'course', id: 'cs50w-capstone' },
+    links: [
+      { type: 'demo', url: 'https://alif.pythonanywhere.com/' },
+      { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/TaskMaster' },
+    ],
   },
   {
     id: 'portfolio-website',
@@ -69,6 +80,7 @@ export const PROJECTS: readonly Project[] = [
     url: 'https://muhammadalifbudiman.my.id/',
     stack: ['Angular', 'TypeScript', 'SCSS', 'Tailwind CSS', 'i18n', 'Responsive UI'],
     linkStatus: 'live',
+    context: { type: 'independent', id: 'independent' },
     links: [
       { type: 'demo', url: 'https://muhammadalifbudiman.my.id/' },
       { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/portfolio-angular' },
@@ -148,6 +160,7 @@ export const PROJECTS: readonly Project[] = [
     url: 'https://muhammadalifbudiman.github.io/checkers/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
+    context: { type: 'course', id: 'udemy-angular' },
     links: [{ type: 'demo', url: 'https://muhammadalifbudiman.github.io/checkers/' }],
   },
   {
@@ -160,6 +173,7 @@ export const PROJECTS: readonly Project[] = [
     url: 'https://muhammadalifbudiman.github.io/minesweeper/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
+    context: { type: 'course', id: 'udemy-angular' },
     links: [{ type: 'demo', url: 'https://muhammadalifbudiman.github.io/minesweeper/' }],
   },
   {
@@ -172,6 +186,7 @@ export const PROJECTS: readonly Project[] = [
     url: 'https://muhammadalifbudiman.github.io/resume-builder/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
+    context: { type: 'course', id: 'udemy-angular' },
     links: [{ type: 'demo', url: 'https://muhammadalifbudiman.github.io/resume-builder/' }],
   },
   {
@@ -184,6 +199,7 @@ export const PROJECTS: readonly Project[] = [
     url: 'https://muhammadalifbudiman.github.io/quiz-app/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
+    context: { type: 'course', id: 'udemy-angular' },
     links: [{ type: 'demo', url: 'https://muhammadalifbudiman.github.io/quiz-app/' }],
   },
   {
@@ -196,6 +212,7 @@ export const PROJECTS: readonly Project[] = [
     url: 'https://muhammadalifbudiman.github.io/typing-game/',
     stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
     linkStatus: 'live',
+    context: { type: 'course', id: 'udemy-angular' },
     links: [{ type: 'demo', url: 'https://muhammadalifbudiman.github.io/typing-game/' }],
   },
 ];

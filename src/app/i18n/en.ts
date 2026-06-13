@@ -35,6 +35,7 @@ export const EN: Translation = {
     viewProjectBtn: 'View Project',
     featuredTitle: 'Featured Projects',
     otherTitle: 'Other Projects',
+    filterAriaLabel: 'Filter projects',
     filters: {
       all: 'All',
       featured: 'Featured',
@@ -158,7 +159,7 @@ export const EN: Translation = {
       imageAlt: 'Backend architecture diagram for Blog API Server with Express API, authentication, Sequelize ORM, PostgreSQL, email notifications, and logging',
       role: 'Backend developer — REST API, authentication, validation, database integration, and documentation',
     },
-    'klinik-google': {
+    'patient-management-system': {
       description: 'Patient Management System built with Flask and MongoDB for patient registration, queue handling, scheduling, medical records, admin workflows, CSV export, and real-time interface updates.',
       imageAlt: 'Screenshot of Patient Management System application dashboard',
       role: 'Full-stack developer — backend API and database design',
@@ -216,5 +217,13 @@ export const EN: Translation = {
       description: 'TypingGame is a web-based app that helps users improve typing speed and accuracy through interactive tests. It features typing challenges, a leaderboard, customizable themes, and detailed performance stats.',
       imageAlt: 'Screenshot of Typing Game speed test interface',
     },
+  },
+  projectContext: {
+    'bkn-professional': 'Professional Experience · BKN RI',
+    'learningx-msib-capstone': 'MSIB Capstone · LearningX',
+    'cs50w-capstone': 'Course Capstone · CS50W',
+    'mknows-bootcamp': 'Bootcamp Project · M-Knows Consulting',
+    'independent': 'Independent Project',
+    'udemy-angular': 'Course Exercise · Udemy',
   },
 };

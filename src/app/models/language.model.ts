@@ -53,6 +53,7 @@ export interface Translation {
     viewProjectBtn: string;
     featuredTitle: string;
     otherTitle: string;
+    filterAriaLabel: string;
     filters: {
       all: string;
       featured: string;
@@ -137,6 +138,7 @@ export interface Translation {
     >;
   };
   projects: Record<string, ProjectTranslation>;
+  projectContext: Record<string, string>;
 }
 
 /** Partial translation — used for non-default language resources. */

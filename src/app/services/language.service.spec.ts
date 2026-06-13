@@ -97,13 +97,13 @@ describe('LanguageService', () => {
 
     it('resolves project translation keys', () => {
       service.setLanguage('en');
-      const desc = service.t('projects.klinik-google.description');
+      const desc = service.t('projects.patient-management-system.description');
       expect(desc).toContain('Flask');
     });
 
     it('resolves Indonesian project translation keys', () => {
       service.setLanguage('id');
-      const desc = service.t('projects.klinik-google.description');
+      const desc = service.t('projects.patient-management-system.description');
       expect(desc).toContain('Flask');
       // Indonesian text should not be the same as English
       expect(desc).not.toContain('Patient Management System utilizes');

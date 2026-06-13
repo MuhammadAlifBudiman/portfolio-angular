@@ -112,17 +112,6 @@ describe('PortfolioComponent', () => {
       expect(chip.tagName.toLowerCase()).toBe('span');
     });
 
-    it('unavailable card (blog-api-server) renders a disabled button and no anchor', () => {
-      const card = cardById('blog-api-server');
-      expect(card).withContext('blog-api-server card should render').not.toBeNull();
-      expect(card!.querySelector('a')).toBeNull();
-
-      const btn = card!.querySelector('button[disabled]') as HTMLButtonElement;
-      expect(btn).withContext('disabled CTA button present').not.toBeNull();
-      expect(btn.disabled).toBeTrue();
-      expect(btn.getAttribute('aria-disabled')).toBe('true');
-    });
-
     it('live card with two links (portfolio-website) renders demo and github anchors', () => {
       const project = PROJECTS.find((p) => p.id === 'portfolio-website')!;
       expect(project.links.length).toBe(2);
@@ -131,6 +120,28 @@ describe('PortfolioComponent', () => {
       expect(card).not.toBeNull();
       const anchors = card!.querySelectorAll('a[href]');
       expect(anchors.length).toBe(2);
+    });
+  });
+
+  describe('project context display', () => {
+    it('displays context metadata when present', () => {
+      const card = cardById('bkn-internal-workflow-api')!;
+      // Find the second font-mono text-sm (first is ownership)
+      const monoParagraphs = card.querySelectorAll('p.font-mono.text-sm');
+      expect(monoParagraphs.length).toBeGreaterThanOrEqual(2);
+      expect(monoParagraphs[1].textContent?.trim()).toBe('Professional Experience · BKN RI');
+    });
+
+    it('does not display context metadata when absent', () => {
+      const card = cardById('numble')!; // Numble has no context
+      const monoParagraphs = card.querySelectorAll('p.font-mono.text-sm');
+      expect(monoParagraphs.length).toBe(1); // Only ownership
+    });
+
+    it('task-master year is 2023', () => {
+      const card = cardById('task-master')!;
+      const yearSpan = card.querySelector('span.rounded-full.px-2');
+      expect(yearSpan?.textContent?.trim()).toBe('2023');
     });
   });
 

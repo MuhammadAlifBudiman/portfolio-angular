@@ -7,6 +7,21 @@ export interface ProjectLink {
   url: string;
 }
 
+export type ProjectContextType =
+  | 'professional'
+  | 'program'
+  | 'bootcamp'
+  | 'course'
+  | 'independent';
+
+export interface ProjectContext {
+  type: ProjectContextType;
+  /** i18n key suffix under `projectContext.<id>` */
+  id: string;
+  /** Links to an Experience entry */
+  relatedExperienceId?: string;
+}
+
 export interface Project {
   /** Stable id — reused as card element id, @for track key, and i18n key prefix. */
   id: string;
@@ -31,4 +46,5 @@ export interface Project {
   description?: string;
   imageAlt?: string;
   role?: string;
+  context?: ProjectContext;
 }

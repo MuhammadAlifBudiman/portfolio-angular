@@ -35,6 +35,7 @@ export const ID: PartialTranslation = {
     viewProjectBtn: 'Lihat Proyek',
     featuredTitle: 'Proyek Unggulan',
     otherTitle: 'Proyek Lainnya',
+    filterAriaLabel: 'Filter proyek',
     filters: {
       all: 'Semua',
       featured: 'Unggulan',
@@ -158,7 +159,7 @@ export const ID: PartialTranslation = {
       imageAlt: 'Diagram arsitektur backend Blog API Server dengan Express API, autentikasi, Sequelize ORM, PostgreSQL, notifikasi email, dan logging',
       role: 'Backend developer — REST API, autentikasi, validasi, integrasi database, dan dokumentasi',
     },
-    'klinik-google': {
+    'patient-management-system': {
       description: 'Sistem Manajemen Pasien berbasis Flask dan MongoDB untuk pendaftaran pasien, pengelolaan antrian, penjadwalan, rekam medis, alur kerja admin, ekspor CSV, dan pembaruan antarmuka real-time.',
       imageAlt: 'Tangkapan layar dasbor aplikasi Sistem Manajemen Pasien',
       role: 'Full-stack developer — backend API dan desain database',
@@ -216,5 +217,13 @@ export const ID: PartialTranslation = {
       description: 'TypingGame adalah aplikasi berbasis web yang membantu pengguna meningkatkan kecepatan dan akurasi mengetik melalui tes interaktif. Dilengkapi tantangan mengetik, papan peringkat, tema yang dapat dikustomisasi, dan statistik performa terperinci.',
       imageAlt: 'Tangkapan layar antarmuka tes kecepatan mengetik Typing Game',
     },
+  },
+  projectContext: {
+    'bkn-professional': 'Pengalaman Profesional · BKN RI',
+    'learningx-msib-capstone': 'Proyek Akhir MSIB · LearningX',
+    'cs50w-capstone': 'Proyek Akhir Kursus · CS50W',
+    'mknows-bootcamp': 'Proyek Bootcamp · M-Knows Consulting',
+    'independent': 'Proyek Mandiri',
+    'udemy-angular': 'Latihan Kursus · Udemy',
   },
 };

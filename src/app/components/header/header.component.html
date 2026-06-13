@@ -95,7 +95,7 @@
       <nav
         id="nav-menu"
         [attr.aria-hidden]="!isMenuOpen"
-        class="bg-light-background-gradient/30 dark:bg-dark-background-gradient/30 absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:bg-transparent"
+        class="absolute right-4 top-full hidden w-[calc(100vw-2rem)] max-w-[320px] rounded-xl border shadow-xl backdrop-blur-md bg-light-background-primary/95 dark:bg-dark-background-primary/95 border-light-border-primary dark:border-dark-border-primary lg:static lg:block lg:w-auto lg:max-w-none lg:border-0 lg:bg-transparent lg:shadow-none dark:lg:bg-transparent"
       >
         <ul
           class="block font-mono text-base font-bold lg:flex lg:justify-end lg:gap-[30px]"
@@ -140,7 +140,7 @@
             >
           </li>
           <li class="mb-3 mt-3 flex items-start pl-8 lg:mb-0 lg:mt-0 lg:items-center">
-            <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-4">
+            <div class="flex flex-col items-start gap-3 lg:flex-row lg:items-center lg:gap-4">
               <div class="flex items-center">
                 <span class="mr-2 text-sm">{{ t('header.lightLabel') }}</span>
                 <input

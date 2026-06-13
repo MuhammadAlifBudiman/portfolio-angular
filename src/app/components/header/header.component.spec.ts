@@ -195,4 +195,29 @@ describe('HeaderComponent', () => {
       expect(component.isNavbarFixed).toBeFalse();
     });
   });
+
+  describe('language selector', () => {
+    function langButtons(): NodeListOf<HTMLButtonElement> {
+      return fixture.nativeElement.querySelectorAll('.lang-btn');
+    }
+
+    it('renders a button for each supported language', () => {
+      expect(langButtons().length).toBe(component.supportedLanguages.length);
+    });
+
+    it('marks the current language button with aria-pressed="true"', () => {
+      const activeBtn = fixture.nativeElement.querySelector('.lang-btn--active');
+      expect(activeBtn).not.toBeNull();
+      expect(activeBtn.getAttribute('aria-pressed')).toBe('true');
+    });
+
+    it('calls switchLanguage when a language button is clicked', () => {
+      spyOn(component, 'switchLanguage');
+      const btns = langButtons();
+      if (btns.length > 1) {
+        btns[1].click();
+        expect(component.switchLanguage).toHaveBeenCalledWith(component.supportedLanguages[1]);
+      }
+    });
+  });
 });
