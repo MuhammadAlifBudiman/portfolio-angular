@@ -15,16 +15,16 @@ export const EN: Translation = {
   },
   intro: {
     greeting: 'Hello! My name is',
-    role: 'Web Developer',
-    body: 'I build web applications with Angular, Python, and Flask — from patient management systems and inventory tools to word-guessing games. Currently studying Informatics and open to collaboration.',
+    role: 'Full-Stack Web Developer',
+    body: 'Computer Science graduate focused on backend API development, workflow systems, and responsive web applications using Go, TypeScript, Angular, Python, Flask, Django, PostgreSQL, and MongoDB.',
     aboutMeBtn: 'About Me',
   },
   about: {
     eyebrow: 'Learn more',
     title: 'About Me',
-    p1: 'Hello, my name is Muhammad Alif Budiman. I am studying Informatics and work as a web developer with skills in both frontend and backend development.',
-    p2: 'I started learning programming with Python as my first language. Working across projects I have built with Angular, TypeScript, JavaScript, Flask, and MongoDB — covering everything from UI components to REST APIs and database design.',
-    p3: 'One of the more involved projects I have worked on is Klinik Google, a patient management system built with Flask and MongoDB that handles patient registration and healthcare data. That project required thinking carefully about data integrity and multi-user workflows, which shaped how I approach backend design.',
+    p1: 'Hello, my name is Muhammad Alif Budiman. I graduated with a Bachelor of Science in Computer Science from Universitas Negeri Jakarta and work as a full-stack web developer with a focus on backend API development.',
+    p2: 'My technical experience spans Go, Node.js, TypeScript, Angular, Python, Flask, Django, PostgreSQL, and MongoDB. I have contributed to internal workflow systems, REST API development, OpenAPI documentation, and project-based full-stack programs.',
+    p3: 'Projects I have worked on include an internal public-sector backend API at BKN RI, a Patient Management System, a task management application with Django REST Framework, and this portfolio site. I value evidence-based engineering and maintainable, well-documented code.',
     viewProjectsBtn: 'View Projects',
     downloadResumeBtn: 'Download Resume',
     photoAlt: 'Photo of Muhammad Alif Budiman',
@@ -33,6 +33,30 @@ export const EN: Translation = {
     eyebrow: 'Discover my work',
     title: 'Portfolio',
     viewProjectBtn: 'View Project',
+    featuredTitle: 'Featured Projects',
+    otherTitle: 'Other Projects',
+    filters: {
+      all: 'All',
+      featured: 'Featured',
+      backend: 'Backend / API',
+      fullstack: 'Full-Stack',
+      frontend: 'Frontend',
+      learning: 'Learning',
+      restricted: 'Restricted',
+    },
+    cta: {
+      demo: 'Live Demo',
+      github: 'GitHub',
+      apiDocs: 'API Docs',
+      caseStudy: 'Case Study',
+      restricted: 'Restricted / Internal',
+      unavailable: 'Repository unavailable',
+    },
+    status: {
+      live: 'Live',
+      restricted: 'Restricted',
+      unavailable: 'Unavailable',
+    },
   },
   contact: {
     eyebrow: 'Get in touch',
@@ -62,20 +86,65 @@ export const EN: Translation = {
   },
   seo: {
     home: {
-      title: 'Muhammad Alif Budiman — Web Developer | Portfolio',
-      description: 'Web developer specializing in Angular and full-stack applications. View my projects and get in touch.',
+      title: 'Muhammad Alif Budiman — Full-Stack Web Developer',
+      description: 'Computer Science graduate and full-stack web developer specializing in backend APIs, Angular, Go, TypeScript, Python, and Django. View projects and get in touch.',
     },
     about: {
-      title: 'About — Muhammad Alif Budiman',
-      description: 'Learn about Muhammad Alif Budiman — web developer, background, skills, and experience.',
+      title: 'About — Muhammad Alif Budiman | Computer Science Graduate',
+      description: 'Learn about Muhammad Alif Budiman — Computer Science graduate, full-stack web developer, backend API experience with Go, TypeScript, Angular, Python, and Django.',
     },
     portfolio: {
-      title: 'Portfolio — Muhammad Alif Budiman',
-      description: 'Selected web development projects by Muhammad Alif Budiman including Angular apps, full-stack systems, and browser games.',
+      title: 'Portfolio — Muhammad Alif Budiman | Backend API & Full-Stack Projects',
+      description: 'Backend API, full-stack, and web development projects by Muhammad Alif Budiman including Go APIs, Angular apps, Django systems, and more.',
     },
     contact: {
       title: 'Contact — Muhammad Alif Budiman',
-      description: 'Get in touch with Muhammad Alif Budiman via email, WhatsApp, or the contact form.',
+      description: 'Get in touch with Muhammad Alif Budiman — full-stack web developer. Contact via email, WhatsApp, or the contact form.',
+    },
+  },
+  experience: {
+    eyebrow: 'Work Experience',
+    title: 'Experience',
+    items: {
+      bkn: {
+        role: 'Programmer Intern — Digital Systems & Applications',
+        period: 'Nov 2025 – May 2026',
+        location: 'East Jakarta, Indonesia',
+        description:
+          'Supported backend development, digital application workflows, and API documentation for internal public-sector systems.',
+        contributions: [
+          'Developed and refined Go backend endpoints for internal workflow modules, including list/detail retrieval, filtering, sorting, and pagination.',
+          'Implemented role-based access control, workflow transitions, and multipart file handling with OpenAPI/Swagger documentation.',
+          'Worked on scheduling-related data, document handling, and administrative data management.',
+        ],
+      },
+      'learningx-msib': {
+        role: 'Certified Independent Study — Full-Stack Web Development',
+        period: 'Aug 2023 – Dec 2023',
+        location: 'Remote',
+        description:
+          'Completed a project-based full-stack web development program covering frontend, backend, database, and deployment practice.',
+        contributions: [
+          'Completed modules in HTML, CSS, JavaScript, Python, Flask, MongoDB, AJAX, CRUD workflows, web scraping, and deployment.',
+          'Contributed to a team-based Patient Management System as full-stack developer.',
+        ],
+      },
+    },
+  },
+  certifications: {
+    eyebrow: 'Certifications',
+    title: 'Certifications',
+    items: {
+      'learningx-msib': {
+        name: 'Full-Stack Web Development',
+        issuer: 'LearningX MSIB',
+        period: '2023',
+      },
+      'bkn-internship': {
+        name: 'Internship Certificate',
+        issuer: 'BKN RI (National Civil Service Agency)',
+        period: '2026',
+      },
     },
   },
   projects: {
@@ -90,8 +159,8 @@ export const EN: Translation = {
       role: 'Backend developer — REST API, authentication, validation, database integration, and documentation',
     },
     'klinik-google': {
-      description: 'This Patient Management System utilizes Flask and MongoDB to enhance patient registration efficiency, healthcare service quality, and patient data management.',
-      imageAlt: 'Screenshot of Klinik Google patient management dashboard',
+      description: 'Patient Management System built with Flask and MongoDB for patient registration, queue handling, scheduling, medical records, admin workflows, CSV export, and real-time interface updates.',
+      imageAlt: 'Screenshot of Patient Management System application dashboard',
       role: 'Full-stack developer — backend API and database design',
     },
     'numble': {
@@ -110,8 +179,14 @@ export const EN: Translation = {
       role: 'Full-stack developer — inventory logic and marketplace sync',
     },
     'task-master': {
-      description: 'Task Master is a feature-rich web application that empowers users to efficiently manage their daily, weekly, and monthly tasks.',
+      description: 'Task management web application with recurring daily, weekly, and monthly workflows, JWT-secured REST API, task history, timezone-based automatic resets, Swagger API documentation, interactive data tables, and Excel export.',
       imageAlt: 'Screenshot of Task Master task management application',
+      role: 'Full-stack developer — Django REST API, scheduled task resets, and data tables',
+    },
+    'portfolio-website': {
+      description: 'Responsive Angular portfolio website with bilingual content (EN/ID), reusable standalone components, custom directives, dark/light theme support, project showcase, and EmailJS contact form.',
+      imageAlt: 'Screenshot of Muhammad Alif Budiman portfolio website',
+      role: 'Developer — Angular, TypeScript, SCSS, Tailwind CSS, i18n',
     },
     'color-tap': {
       description: 'This addictive web-based game is designed to test your reflexes and color recognition skills in a fun and engaging way.',

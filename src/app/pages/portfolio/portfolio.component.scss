@@ -1,0 +1,5 @@
+// Filter bar scroll on very narrow screens
+.filter-bar-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}

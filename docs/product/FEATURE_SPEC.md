@@ -151,5 +151,44 @@
 - FR-F00M-4: F002 row in `docs/TRACEABILITY_MATRIX.md` updated to status `Done` with PR #48.
 - FR-F00M-5: Three Phase 3 checkboxes in `docs/ROADMAP.md` are ticked once all audits pass.
 
+## F004 — Professional Experience Section (in-progress)
+**Goal:** Display professional work experience (internship + MSIB) in a dedicated section above portfolio.
+- FR-F004-1: Experience section renders on the homepage between About Me and Portfolio.
+- FR-F004-2: Each entry shows role, period, location, description, and contributions list.
+- FR-F004-3: All text is bilingual (EN/ID) via the existing LanguageService.
+- FR-F004-4: Section is accessible: semantic heading hierarchy, readable contrast, keyboard scannable.
+
+## F005 — Project Taxonomy, Featured Hierarchy & Filtering (in-progress)
+**Goal:** Separate featured backend/full-stack projects from learning projects; add accessible filter bar.
+- FR-F005-1: Projects tagged with `featured`, `categories[]`, `year?`, `links[]` in the data model.
+- FR-F005-2: Portfolio renders Featured Projects and Other Projects groups separately.
+- FR-F005-3: Filter bar (All / Featured / Backend / Full-Stack / Frontend / Learning / Restricted) updates visible cards without page reload.
+- FR-F005-4: Filter buttons have `aria-pressed` state; active filter is visually distinct.
+- FR-F005-5: Cards show role, year, category, access-status chip, stack badges, and multi-CTA links.
+- FR-F005-6: Restricted/unavailable links render as disabled (no `#` hrefs).
+
+## F006 — Certifications Section (in-progress)
+**Goal:** Display verified certifications (LearningX MSIB + BKN internship) after the Portfolio section.
+- FR-F006-1: Certifications section renders two entries: LearningX MSIB Full-Stack Web Development (2023) and BKN Internship (2026).
+- FR-F006-2: Only verified certificates are shown — no fabricated credential IDs or metrics.
+- FR-F006-3: If no credential URL is available, the credential link is absent or disabled.
+- FR-F006-4: All copy is bilingual via LanguageService.
+
+## F007 — Professional Positioning & Copy Refresh (in-progress)
+**Goal:** Replace student wording ("studying Informatics") with graduate + full-stack/backend positioning throughout hero, about, and SEO metadata.
+- FR-F007-1: `intro.role` changed to "Full-Stack Web Developer" in EN and ID.
+- FR-F007-2: `intro.body` removed "studying Informatics"; reflects CS graduate, backend API and workflow systems experience.
+- FR-F007-3: `about.p1/p2/p3` rewritten as graduate with real project/internship evidence; no fabricated claims.
+- FR-F007-4: All `seo.*` titles/descriptions updated to match the new positioning.
+- FR-F007-5: `src/index.html` static title, meta description, OG/Twitter tags, and JSON-LD jobTitle updated.
+
+## F008 — Project Detail / Case-Study Route (planned · deferred)
+**Goal:** Add /portfolio/:id detail pages with problem/context/contribution/technical-implementation sections.
+- Status: planned — deferred to Phase 6; NOT implemented in the current branch.
+- FR-F008-1: Route /portfolio/:id resolves a project by id.
+- FR-F008-2: Detail page shows title, role, year, summary, problem, contribution, stack, links.
+- FR-F008-3: BKN detail page uses only anonymized, non-confidential content.
+- FR-F008-4: All content bilingual via LanguageService.
+
 ## Out of Scope (all features)
 Backend, DB, auth, analytics that track individuals, fabricated content, heavy dependencies for trivial UI.

@@ -35,7 +35,17 @@
 - [x] F00K Content quality & UI correctness (#39) — copy, project cards, layout, mobile nav · PR #41 + commit e43d1dc
 - [x] F00L Test coverage baseline (#40) — EmailService, ContactComponent, ThemeSelector, directives · PR #40
 
+## Phase 5 — Positioning & Experience
+- [ ] F007 Positioning & copy refresh
+- [ ] F004 Experience section
+- [ ] F005 Project taxonomy & filtering
+- [ ] F006 Certifications section
+- F008 Project detail route — planned (deferred to Phase 6)
+
 ## Dependency Notes
 - F002 dependency on F00B data extraction is satisfied.
 - F003 dependency on a theme-token map is satisfied.
+- F005 depends on F00B data extraction (satisfied).
+- F004/F006 are independent of each other and can land in any order within Phase 5.
+- F008 depends on F005 data model being stable.
 - No deploy/secret change proceeds without explicit owner approval.

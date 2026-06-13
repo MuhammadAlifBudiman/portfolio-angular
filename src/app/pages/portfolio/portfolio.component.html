@@ -1,62 +1,249 @@
 <div class="wrapper pt-36">
   <div class="container">
     <div class="w-full px-4">
-      <div class="mx-auto mb-16 max-w-xl text-center">
-        <div>
-          <p
-            id="section-portfolio"
-            class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-base md:text-xl"
-          >
-            {{ portfolioEyebrow }}
-          </p>
-          <h1
-            class="dark:text-dark-text-primary text-light-text-primary text-3xl font-bold md:text-4xl lg:min-w-[610px] lg:text-6xl"
-          >
-            {{ portfolioTitle }}
-          </h1>
-        </div>
+      <!-- Section header -->
+      <div class="mx-auto mb-8 max-w-xl text-center">
+        <p
+          id="section-portfolio"
+          class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-base md:text-xl"
+        >
+          {{ portfolioEyebrow }}
+        </p>
+        <h1
+          class="dark:text-dark-text-primary text-light-text-primary text-3xl font-bold md:text-4xl lg:min-w-[610px] lg:text-6xl"
+        >
+          {{ portfolioTitle }}
+        </h1>
       </div>
 
-      <div class="flex w-full flex-wrap justify-center xl:mx-auto xl:w-10/12">
-        @for (project of projects; track project.id) {
-          <div
-            class="mb-12 flex flex-col p-4 md:w-1/2"
-            [id]="project.id"
-            data-testid="project-card"
+      <!-- Filter bar -->
+      <div
+        class="filter-bar-scroll mb-10 flex flex-wrap justify-center gap-2"
+        role="group"
+        aria-label="Filter projects"
+      >
+        @for (f of filters; track f) {
+          <button
+            type="button"
+            class="rounded-full px-4 py-1.5 text-sm font-medium transition-colors"
+            [class]="
+              activeFilter() === f
+                ? 'dark:bg-dark-accent-primary bg-light-accent-primary text-white'
+                : 'dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary hover:dark:text-dark-text-primary hover:text-light-text-primary'
+            "
+            [attr.aria-pressed]="activeFilter() === f"
+            (click)="setFilter(f)"
           >
-            <div class="shadow-md">
-              <img
-                [src]="project.imageSrc"
-                [alt]="projectImageAlt(project.id)"
-                loading="lazy"
-                height="222"
-                class="z-2 dark:border-dark-text-primary border-light-text-primary dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:hover:bg-dark-background-hover hover:bg-light-background-hover h-[222px] w-full rounded-lg border-2 object-cover"
-              />
-            </div>
-            <div class="flex h-full flex-col">
-              <p
-                class="dark:text-dark-accent-hover text-light-accent-hover mt-2 font-mono text-base md:text-xl"
-              >
-                {{ ownershipLabel(project.ownership) }}
-              </p>
-              <h2
-                class="dark:text-dark-text-primary text-light-text-primary mb-2.5 text-4xl"
-              >
-                {{ project.title }}
-              </h2>
-              <p
-                class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-lg"
-              >
-                {{ projectDescription(project.id) }}
-              </p>
-              <app-button
-                [buttonText]="viewProjectBtn"
-                [buttonAction]="openWebsite(project.url)"
-              ></app-button>
-            </div>
-          </div>
+            {{ filterLabel(f) }}
+          </button>
         }
       </div>
+
+      <!-- Featured Projects group -->
+      @if (featuredProjects().length > 0) {
+        <div class="mb-12">
+          <h2
+            class="dark:text-dark-text-primary text-light-text-primary mb-6 text-2xl font-bold"
+          >
+            {{ featuredTitle }}
+          </h2>
+          <div class="flex w-full flex-wrap xl:mx-auto xl:w-10/12">
+            @for (project of featuredProjects(); track project.id) {
+              <div
+                class="mb-12 flex flex-col p-4 md:w-1/2"
+                [id]="project.id"
+                data-testid="project-card"
+              >
+                <div class="shadow-md">
+                  <img
+                    [src]="project.imageSrc"
+                    [alt]="projectImageAlt(project.id)"
+                    loading="lazy"
+                    height="222"
+                    class="z-2 dark:border-dark-text-primary border-light-text-primary dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:hover:bg-dark-background-hover hover:bg-light-background-hover h-[222px] w-full rounded-lg border-2 object-cover"
+                  />
+                </div>
+                <div class="flex h-full flex-col">
+                  <div class="mt-2 flex flex-wrap items-center gap-2">
+                    <p
+                      class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm"
+                    >
+                      {{ ownershipLabel(project.ownership) }}
+                    </p>
+                    @if (project.year) {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 text-xs"
+                      >
+                        {{ project.year }}
+                      </span>
+                    }
+                  </div>
+                  <h3
+                    class="dark:text-dark-text-primary text-light-text-primary mb-1 text-3xl"
+                  >
+                    {{ project.title }}
+                  </h3>
+                  @if (
+                    projectRole(project.id) &&
+                    !projectRole(project.id).startsWith('projects.')
+                  ) {
+                    <p
+                      class="dark:text-dark-text-secondary text-light-text-secondary mb-1 text-sm italic"
+                    >
+                      {{ projectRole(project.id) }}
+                    </p>
+                  }
+                  <p
+                    class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-lg"
+                  >
+                    {{ projectDescription(project.id) }}
+                  </p>
+                  <div class="mb-3 flex flex-wrap gap-1">
+                    @for (tech of project.stack; track tech) {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 font-mono text-xs"
+                      >
+                        {{ tech }}
+                      </span>
+                    }
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    @if (project.links.length > 0) {
+                      @for (link of project.links; track link.type) {
+                        <app-button
+                          [href]="link.url"
+                          [buttonText]="ctaLabel(link.type)"
+                          [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+                        ></app-button>
+                      }
+                    } @else if (project.linkStatus === 'restricted') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="
+                          ctaLabel('restricted') + ': ' + project.title
+                        "
+                        >{{ ctaLabel('restricted') }}</span
+                      >
+                    } @else if (project.linkStatus === 'unavailable') {
+                      <app-button
+                        [disabled]="true"
+                        [buttonText]="ctaLabel('unavailable')"
+                        [ariaLabel]="
+                          ctaLabel('unavailable') + ': ' + project.title
+                        "
+                      ></app-button>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+
+      <!-- Other Projects group -->
+      @if (otherProjects().length > 0) {
+        <div class="mb-12">
+          <h2
+            class="dark:text-dark-text-primary text-light-text-primary mb-6 text-2xl font-bold"
+          >
+            {{ otherTitle }}
+          </h2>
+          <div class="flex w-full flex-wrap xl:mx-auto xl:w-10/12">
+            @for (project of otherProjects(); track project.id) {
+              <div
+                class="mb-12 flex flex-col p-4 md:w-1/2"
+                [id]="project.id"
+                data-testid="project-card"
+              >
+                <div class="shadow-md">
+                  <img
+                    [src]="project.imageSrc"
+                    [alt]="projectImageAlt(project.id)"
+                    loading="lazy"
+                    height="222"
+                    class="z-2 dark:border-dark-text-primary border-light-text-primary dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:hover:bg-dark-background-hover hover:bg-light-background-hover h-[222px] w-full rounded-lg border-2 object-cover"
+                  />
+                </div>
+                <div class="flex h-full flex-col">
+                  <div class="mt-2 flex flex-wrap items-center gap-2">
+                    <p
+                      class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm"
+                    >
+                      {{ ownershipLabel(project.ownership) }}
+                    </p>
+                    @if (project.year) {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 text-xs"
+                      >
+                        {{ project.year }}
+                      </span>
+                    }
+                  </div>
+                  <h4
+                    class="dark:text-dark-text-primary text-light-text-primary mb-1 text-3xl"
+                  >
+                    {{ project.title }}
+                  </h4>
+                  @if (
+                    projectRole(project.id) &&
+                    !projectRole(project.id).startsWith('projects.')
+                  ) {
+                    <p
+                      class="dark:text-dark-text-secondary text-light-text-secondary mb-1 text-sm italic"
+                    >
+                      {{ projectRole(project.id) }}
+                    </p>
+                  }
+                  <p
+                    class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-lg"
+                  >
+                    {{ projectDescription(project.id) }}
+                  </p>
+                  <div class="mb-3 flex flex-wrap gap-1">
+                    @for (tech of project.stack; track tech) {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 font-mono text-xs"
+                      >
+                        {{ tech }}
+                      </span>
+                    }
+                  </div>
+                  <div class="flex flex-wrap gap-2">
+                    @if (project.links.length > 0) {
+                      @for (link of project.links; track link.type) {
+                        <app-button
+                          [href]="link.url"
+                          [buttonText]="ctaLabel(link.type)"
+                          [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+                        ></app-button>
+                      }
+                    } @else if (project.linkStatus === 'restricted') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="
+                          ctaLabel('restricted') + ': ' + project.title
+                        "
+                        >{{ ctaLabel('restricted') }}</span
+                      >
+                    } @else if (project.linkStatus === 'unavailable') {
+                      <app-button
+                        [disabled]="true"
+                        [buttonText]="ctaLabel('unavailable')"
+                        [ariaLabel]="
+                          ctaLabel('unavailable') + ': ' + project.title
+                        "
+                      ></app-button>
+                    }
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
     </div>
   </div>
 </div>

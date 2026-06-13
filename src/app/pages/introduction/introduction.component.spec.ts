@@ -25,7 +25,7 @@ describe('IntroductionComponent — FR-F00L-3', () => {
 
   it('sets the document title on init', () => {
     expect(TestBed.inject(Title).getTitle()).toBe(
-      'Muhammad Alif Budiman — Web Developer | Portfolio'
+      'Muhammad Alif Budiman — Full-Stack Web Developer'
     );
   });
 
