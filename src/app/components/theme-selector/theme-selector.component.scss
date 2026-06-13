@@ -29,7 +29,7 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  border-radius: 0.375rem;
+  border-radius: var(--radius-dropdown);
   padding: 0.25rem 0.5rem;
   background: transparent;
   transition: border-color 0.2s, box-shadow 0.2s;
@@ -60,8 +60,8 @@
   margin-top: 0.25rem;
   z-index: 99999;
   min-width: 100%;
-  border-radius: 0.375rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-dropdown);
+  box-shadow: var(--shadow-dropdown);
   padding: 0.25rem 0;
   list-style: none;
   margin-left: 0;
@@ -99,6 +99,6 @@
   border-radius: 9999px;
   flex-shrink: 0;
 }
-.theme-option__swatch--default { background: #4ecba3; @apply dark:bg-[#007bff]; }
-.theme-option__swatch--ocean   { background: #0097a7; @apply dark:bg-[#00e5ff]; }
-.theme-option__swatch--ember   { background: #e64a19; @apply dark:bg-[#ff8a65]; }
+.theme-option__swatch--default { background: var(--color-swatch-default-light); @apply dark:bg-swatch-default-dark; }
+.theme-option__swatch--ocean   { background: var(--color-swatch-ocean-light);   @apply dark:bg-swatch-ocean-dark; }
+.theme-option__swatch--ember   { background: var(--color-swatch-ember-light);   @apply dark:bg-swatch-ember-dark; }

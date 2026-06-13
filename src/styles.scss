@@ -42,6 +42,24 @@
   --font-primary: "Open Sans", sans-serif;
   --font-mono: "Roboto Mono", monospace;
 
+  /* Radius */
+  --radius-dropdown: 0.375rem;
+  --radius-card: 0.5rem;
+  --radius-pill: 9999px;
+
+  /* Shadow */
+  --shadow-dropdown: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  /* Swatch colors — one entry per theme × mode; used only by theme-selector swatches.
+     Values must stay in sync with the data-style-theme token blocks below. */
+  --color-swatch-default-light: #1a8a6e;
+  --color-swatch-default-dark: #007bff;
+  --color-swatch-ocean-light: #006f7d;
+  --color-swatch-ocean-dark: #00e5ff;
+  --color-swatch-ember-light: #e64a19;
+  --color-swatch-ember-dark: #ff8a65;
+
   /* Animation */
   --animate-fadein: fadein 0.6s ease-in;
 
