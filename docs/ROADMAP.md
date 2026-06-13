@@ -20,12 +20,12 @@
 ## Phase 2 — Backlog Features
 - [x] F001 Resume PDF (#8) — shipped PR #31
 - [x] F003 Theme selector (#11) — shipped PR #34
-- [ ] F002 i18n EN/ID (#10) — after F00B data extraction
+- [x] F002 i18n EN/ID (#10) — after F00B data extraction · PR #48
 
-## Phase 3 — Quality Pass
-- [ ] Lighthouse audit (A11y/BP/SEO ≥ 90) recorded
-- [ ] Open Graph/Twitter metadata verified truthful in `src/index.html`
-- [ ] UAT pass on all Phase 2 features (`docs/UAT.md`)
+## Phase 3 — Quality Pass (F00M · issue #49)
+- [x] Lighthouse audit (A11y/BP/SEO ≥ 90) recorded — `docs/audits/2026-06-lighthouse.md` · A11y 100 / BP 100 / SEO 100 all routes
+- [x] Open Graph/Twitter metadata verified truthful in `src/index.html` — `docs/audits/2026-06-social-metadata.md`
+- [ ] UAT pass on all Phase 2 features (`docs/UAT.md`) — `docs/audits/2026-06-uat.md` (execution TODO)
 
 ## Phase 4 — Audit Remediation (audit 2026-06-06) · shipped
 - [x] F00G Dev environment & CI quality (#35) — karma.conf, local env bootstrap, CI permissions · PR #41

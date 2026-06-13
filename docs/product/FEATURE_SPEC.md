@@ -143,5 +143,13 @@
 - FR-F00L-9: `PortfolioComponent` spec uses `[id]` or `data-testid` selectors instead of Tailwind class selectors.
 - FR-F00L-10: `AboutMeComponent` spec covers `navigate()`.
 
+## F00M — Phase 3 Quality Pass (in-progress)
+**Goal:** Evidence-backed close-out of v1.0 — Lighthouse scores recorded, social metadata verified truthful, UAT passed for all Phase 2 features.
+- FR-F00M-1: Lighthouse runs on `/`, `/about-me`, `/portfolio`, `/contact` (desktop + mobile); A11y, Best Practices, and SEO each ≥ 90; results recorded in `docs/audits/2026-06-lighthouse.md`.
+- FR-F00M-2: OG/Twitter metadata values in `src/index.html` are verified truthful (image resolves, description matches content, canonical matches origin, JSON-LD sameAs URLs resolve); results recorded in `docs/audits/2026-06-social-metadata.md`.
+- FR-F00M-3: All UAT cases in `docs/UAT.md` (baseline UAT-B1..6, F001-1..3, F002-1..3, F003-1..4) are executed and Pass/Fail recorded in `docs/audits/2026-06-uat.md`.
+- FR-F00M-4: F002 row in `docs/TRACEABILITY_MATRIX.md` updated to status `Done` with PR #48.
+- FR-F00M-5: Three Phase 3 checkboxes in `docs/ROADMAP.md` are ticked once all audits pass.
+
 ## Out of Scope (all features)
 Backend, DB, auth, analytics that track individuals, fabricated content, heavy dependencies for trivial UI.

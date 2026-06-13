@@ -44,3 +44,9 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Local audit reports
+reports/
+
+# Lighthouse Chrome temp dirs (WSL2 Chrome creates these in CWD)
+C:\Users\

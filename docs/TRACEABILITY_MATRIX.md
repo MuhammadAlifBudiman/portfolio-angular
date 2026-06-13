@@ -10,7 +10,7 @@ This file is the control table for requirement traceability. Update it whenever 
 | F00C | Contact / EmailJS | FR-F00C-* | US-04 | AC-X-* | `docs/product/FEATURE_SPEC.md` | N/A | TBD | UAT + form check | Done |
 | F00D | Theming Baseline | FR-F00D-* | US-07 | AC-X-* | `docs/product/FEATURE_SPEC.md` | N/A | TBD | UAT + contrast check | Done |
 | F001 | Resume PDF | FR-F001-* | US-03 | AC-F001-* | `docs/specs/F001-resume-pdf/` | #8 | #31 | build + unit tests + UAT | Done |
-| F002 | i18n English / Indonesian | FR-F002-* | US-05 | AC-F002-* | `docs/specs/F002-i18n/` | #10 | TBD | UAT + language fallback | Ready |
+| F002 | i18n English / Indonesian | FR-F002-* | US-05 | AC-F002-* | `docs/specs/F002-i18n/` | #10 | #48 | UAT + language fallback (docs/audits/2026-06-uat.md) | Done |
 | F003 | Theme Selector | FR-F003-* | US-06 | AC-F003-* | `docs/specs/F011-theme-selector/` | #11 | #34 | UAT + persistence test | Done |
 | F00E | README / Docs Correction | FR-F00E-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #26 | TBD | docs review + build | Done |
 | F00F | Accessibility & Link-Safety Hygiene | FR-F00F-* | US-01, US-02, US-04 | N/A | `docs/product/FEATURE_SPEC.md` | #26 | TBD | build + unit tests + a11y review | Done |
@@ -19,6 +19,7 @@ This file is the control table for requirement traceability. Update it whenever 
 | F00I | SEO, Performance & Social Metadata | FR-F00I-* | US-07 | N/A | `docs/product/FEATURE_SPEC.md` | #37 | #41 | Lighthouse ≥ 90 + rich-results test | Done |
 | F00J | Security Hardening | FR-F00J-* | US-04 | N/A | `docs/product/FEATURE_SPEC.md` | #38 | #41 | security auditor re-run + npm audit | Done |
 | F00K | Content Quality & UI Correctness | FR-F00K-* | US-01, US-02, US-03 | N/A | `docs/product/FEATURE_SPEC.md` | #39 | #41 | ui-ux reviewer re-run + mobile check | Done |
-| F00L | Test Coverage Baseline | FR-F00L-* | N/A | AC-X-2, AC-X-3 | `docs/specs/F00L-test-coverage/` | #40 | TBD | npm test green (85 specs) + build | Done |
+| F00L | Test Coverage Baseline | FR-F00L-* | N/A | AC-X-2, AC-X-3 | `docs/specs/F00L-test-coverage/` | #40 | TBD | npm test green (100 specs) + build | Done |
+| F00M | Phase 3 Quality Pass | FR-F00M-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #49 | TBD | Lighthouse ≥ 90 + social metadata verified + UAT 0 Fail | In Progress |
 
 Status values: `Draft`, `Ready`, `In Progress`, `Review`, `Done`, `Blocked`.
