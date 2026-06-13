@@ -51,6 +51,30 @@ export interface Translation {
     eyebrow: string;
     title: string;
     viewProjectBtn: string;
+    featuredTitle: string;
+    otherTitle: string;
+    filters: {
+      all: string;
+      featured: string;
+      backend: string;
+      fullstack: string;
+      frontend: string;
+      learning: string;
+      restricted: string;
+    };
+    cta: {
+      demo: string;
+      github: string;
+      apiDocs: string;
+      caseStudy: string;
+      restricted: string;
+      unavailable: string;
+    };
+    status: {
+      live: string;
+      restricted: string;
+      unavailable: string;
+    };
   };
   contact: {
     eyebrow: string;
@@ -83,6 +107,34 @@ export interface Translation {
     about: { title: string; description: string };
     portfolio: { title: string; description: string };
     contact: { title: string; description: string };
+  };
+  experience: {
+    eyebrow: string;
+    title: string;
+    items: Record<
+      string,
+      {
+        role: string;
+        period: string;
+        location: string;
+        description: string;
+        contributions: string[];
+      }
+    >;
+  };
+  certifications: {
+    eyebrow: string;
+    title: string;
+    items: Record<
+      string,
+      {
+        name: string;
+        issuer: string;
+        period: string;
+        note?: string;
+        credentialLabel?: string;
+      }
+    >;
   };
   projects: Record<string, ProjectTranslation>;
 }

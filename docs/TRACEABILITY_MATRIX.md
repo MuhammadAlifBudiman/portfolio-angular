@@ -21,5 +21,10 @@ This file is the control table for requirement traceability. Update it whenever 
 | F00K | Content Quality & UI Correctness | FR-F00K-* | US-01, US-02, US-03 | N/A | `docs/product/FEATURE_SPEC.md` | #39 | #41 | ui-ux reviewer re-run + mobile check | Done |
 | F00L | Test Coverage Baseline | FR-F00L-* | N/A | AC-X-2, AC-X-3 | `docs/specs/F00L-test-coverage/` | #40 | TBD | npm test green (100 specs) + build | Done |
 | F00M | Phase 3 Quality Pass | FR-F00M-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #49 | TBD | Lighthouse ≥ 90 + social metadata verified + UAT 0 Fail | In Progress |
+| F004 | Professional Experience Section | FR-F004-1, FR-F004-2, FR-F004-3, FR-F004-4 | N/A | AC-F004-* | `docs/specs/F004-experience/` | TBD | TBD | npm run build; npm test | In Progress |
+| F005 | Project Taxonomy, Featured Hierarchy & Filtering | FR-F005-1, FR-F005-2, FR-F005-3, FR-F005-4, FR-F005-5, FR-F005-6 | N/A | AC-F005-* | `docs/specs/F005-project-taxonomy/` | TBD | TBD | npm run build; npm test | In Progress |
+| F006 | Certifications Section | FR-F006-1, FR-F006-2, FR-F006-3, FR-F006-4 | N/A | AC-F006-* | `docs/specs/F006-certifications/` | TBD | TBD | npm run build; npm test | In Progress |
+| F007 | Professional Positioning & Copy Refresh | FR-F007-1, FR-F007-2, FR-F007-3, FR-F007-4, FR-F007-5 | N/A | AC-F007-* | `docs/specs/F007-positioning-refresh/` | TBD | TBD | npm run build; npm test | In Progress |
+| F008 | Project Detail / Case-Study Route | FR-F008-1, FR-F008-2, FR-F008-3, FR-F008-4 | N/A | AC-F008-* | `docs/specs/F008-project-detail/` | TBD | TBD | npm run build; npm test | Planned |
 
 Status values: `Draft`, `Ready`, `In Progress`, `Review`, `Done`, `Blocked`.
