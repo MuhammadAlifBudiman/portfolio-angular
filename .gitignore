@@ -49,4 +49,6 @@ Thumbs.db
 reports/
 
 # Lighthouse Chrome temp dirs (WSL2 Chrome creates these in CWD)
-C:\Users\
+
+# Serena MCP server (local tool config, not project source)
+.serena/
