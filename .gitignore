@@ -52,3 +52,9 @@ reports/
 
 # Serena MCP server (local tool config, not project source)
 .serena/
+
+# Graphify tool output (generated, not source)
+graphify-out/
+
+# Playwright CLI browser cache
+.playwright-cli/
