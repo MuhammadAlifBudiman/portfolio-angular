@@ -6,8 +6,10 @@ import {
   AfterViewInit,
   OnInit,
   OnDestroy,
+  PLATFORM_ID,
   inject,
 } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
 import { ThemeService } from '../../services/theme.service';
@@ -25,6 +27,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   private themeService = inject(ThemeService);
   private langService = inject(LanguageService);
   private router = inject(Router);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private routerSub?: Subscription;
   @ViewChild('headerElement') headerRef!: ElementRef;
   isNavbarFixed = false;
@@ -73,6 +76,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    if (!this.isBrowser) return;
     const offset = window.pageYOffset;
     this.isNavbarFixed = offset > this.fixedNavOffsetTop;
   }

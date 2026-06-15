@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Language, SUPPORTED_LANGUAGES, Translation, PartialTranslation } from '../models/language.model';
 import { EN } from '../i18n/en';
 import { ID } from '../i18n/id';
@@ -33,9 +34,11 @@ function getByPath(obj: Record<string, unknown>, path: string): string | undefin
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
   readonly currentLang = signal<Language>(DEFAULT_LANG);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   /** Call once on app init (e.g. in HeaderComponent.ngOnInit). */
   loadLanguage(): void {
+    if (!this.isBrowser) return;
     const stored = localStorage.getItem(STORAGE_KEY);
     const lang = isValidLanguage(stored) ? stored : DEFAULT_LANG;
     this._applyLanguage(lang);
@@ -66,7 +69,7 @@ export class LanguageService {
 
   private _applyLanguage(lang: Language): void {
     this.currentLang.set(lang);
-    localStorage.setItem(STORAGE_KEY, lang);
+    if (this.isBrowser) localStorage.setItem(STORAGE_KEY, lang);
     document.documentElement.lang = lang;
   }
 }

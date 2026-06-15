@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { Component, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
@@ -9,6 +10,7 @@ import { LanguageService } from '../../services/language.service';
 })
 export class FooterComponent {
   private langService = inject(LanguageService);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   readonly currentYear = new Date().getFullYear();
 
   t(key: string): string {
@@ -16,6 +18,7 @@ export class FooterComponent {
   }
 
   scrollToTop(): void {
+    if (!this.isBrowser) return;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
