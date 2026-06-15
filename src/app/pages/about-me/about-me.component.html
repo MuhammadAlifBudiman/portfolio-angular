@@ -35,7 +35,7 @@
           ></app-button>
         </div>
       </div>
-      <div class="mt-10 px-4 lg:mt-9">
+      <div class="relative mt-10 px-4 lg:mt-9">
         <img
           src="my-photo.png"
           [alt]="photoAlt"
@@ -45,6 +45,7 @@
           class="z-2 dark:border-dark-text-primary border-light-text-primary dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:hover:bg-dark-background-hover hover:bg-light-background-hover block h-[320px] w-[320px] rounded-lg border-2 border-solid object-cover object-top"
         />
         <div
+          aria-hidden="true"
           class="dark:border-dark-text-primary border-light-text-primary z-1 dark:border-b-dark-text-secondary border-b-light-text-secondary dark:border-r-dark-text-secondary border-r-light-text-secondary pointer-events-none absolute left-6 top-6 h-[320px] w-[320px] rounded-xl border-b-2 border-r-2 border-solid"
         ></div>
         <div class="mt-8 flex items-center">
