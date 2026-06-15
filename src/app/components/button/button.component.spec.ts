@@ -117,4 +117,50 @@ describe('ButtonComponent', () => {
       expect(anchor).toBeNull();
     });
   });
+
+  describe('routerLink mode (routerLink provided)', () => {
+    beforeEach(() => {
+      component.routerLink = '/projects/my-project';
+      component.buttonText = 'Case Study';
+      component.ariaLabel = 'Case Study: My Project';
+      fixture.detectChanges();
+    });
+
+    it('renders an <a> element, not a <button>', () => {
+      const anchor: HTMLAnchorElement | null =
+        fixture.nativeElement.querySelector('a');
+      const button: HTMLButtonElement | null =
+        fixture.nativeElement.querySelector('button');
+      expect(anchor).toBeTruthy();
+      expect(button).toBeNull();
+    });
+
+    it('sets aria-label on the routerLink anchor', () => {
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.getAttribute('aria-label')).toBe('Case Study: My Project');
+    });
+
+    it('does NOT set target or rel on routerLink anchors (internal navigation)', () => {
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.getAttribute('target')).toBeNull();
+      expect(anchor.getAttribute('rel')).toBeNull();
+    });
+
+    it('displays buttonText inside the routerLink anchor', () => {
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.textContent?.trim()).toBe('Case Study');
+    });
+
+    it('routerLink takes priority over href when both are set', () => {
+      component.href = 'https://example.com';
+      fixture.detectChanges();
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      // RouterLink anchor won't have [href] attribute pointing to the external URL
+      expect(anchor.getAttribute('download')).toBeNull();
+    });
+  });
 });

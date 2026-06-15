@@ -153,11 +153,20 @@
                     }
                     @if (project.links.length > 0) {
                       @for (link of project.links; track link.type) {
-                        <app-button
-                          [href]="link.url"
-                          [buttonText]="ctaLabel(link.type)"
-                          [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
-                        ></app-button>
+                        @if (link.type === 'caseStudy') {
+                          <app-button
+                            [routerLink]="link.url"
+                            [buttonText]="ctaLabel(link.type)"
+                            [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+                          ></app-button>
+                        } @else {
+                          <app-button
+                            [href]="link.url"
+                            [newTab]="true"
+                            [buttonText]="ctaLabel(link.type)"
+                            [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+                          ></app-button>
+                        }
                       }
                     }
                   </div>
@@ -274,11 +283,20 @@
                     }
                     @if (project.links.length > 0) {
                       @for (link of project.links; track link.type) {
-                        <app-button
-                          [href]="link.url"
-                          [buttonText]="ctaLabel(link.type)"
-                          [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
-                        ></app-button>
+                        @if (link.type === 'caseStudy') {
+                          <app-button
+                            [routerLink]="link.url"
+                            [buttonText]="ctaLabel(link.type)"
+                            [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+                          ></app-button>
+                        } @else {
+                          <app-button
+                            [href]="link.url"
+                            [newTab]="true"
+                            [buttonText]="ctaLabel(link.type)"
+                            [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+                          ></app-button>
+                        }
                       }
                     }
                   </div>

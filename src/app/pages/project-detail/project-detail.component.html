@@ -52,6 +52,7 @@
               @if (link.type !== 'caseStudy') {
                 <app-button
                   [href]="link.url"
+                  [newTab]="true"
                   [buttonText]="ctaLabel(link.type)"
                   [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
                 ></app-button>

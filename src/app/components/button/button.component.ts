@@ -1,22 +1,24 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-button',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
   @Input() buttonText: string = '';
   @Input() buttonAction: () => void = () => {};
+  /** When set, renders a semantic <a> element using Angular RouterLink for SPA navigation. */
+  @Input() routerLink?: string | string[];
   /** When set, renders a semantic <a> element instead of <button>. */
   @Input() href?: string;
   /** Download filename hint — only used when href is set. */
   @Input() download?: string;
-  /** Accessible label override — only used when href is set. */
+  /** Accessible label override — only used when href or routerLink is set. */
   @Input() ariaLabel?: string;
-  /** Opens anchor links in a new tab with safe rel attributes. */
+  /** Opens anchor links in a new tab with safe rel attributes. Only applies to href mode. */
   @Input() newTab: boolean = false;
   /** Disables the button and sets aria-disabled. Only applies to the <button> variant. */
   @Input() disabled: boolean = false;
