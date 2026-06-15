@@ -211,6 +211,38 @@ describe('HeaderComponent', () => {
     });
   });
 
+  describe('navigation order (B6)', () => {
+    function navItems(): NodeListOf<HTMLElement> {
+      return fixture.nativeElement.querySelectorAll('nav ul li');
+    }
+
+    function navNumberLabel(index: number): string {
+      const item = navItems()[index];
+      const span = item?.querySelector('span');
+      return span?.textContent?.trim() ?? '';
+    }
+
+    it('nav has About at position 01', () => {
+      expect(navNumberLabel(0)).toBe('01.');
+    });
+
+    it('nav has Experience at position 02', () => {
+      expect(navNumberLabel(1)).toBe('02.');
+    });
+
+    it('nav has Technologies at position 03', () => {
+      expect(navNumberLabel(2)).toBe('03.');
+    });
+
+    it('nav has Portfolio at position 04', () => {
+      expect(navNumberLabel(3)).toBe('04.');
+    });
+
+    it('nav has at least 5 items', () => {
+      expect(navItems().length).toBeGreaterThanOrEqual(5);
+    });
+  });
+
   describe('language selector', () => {
     function langButtons(): NodeListOf<HTMLButtonElement> {
       return fixture.nativeElement.querySelectorAll('.lang-btn');
