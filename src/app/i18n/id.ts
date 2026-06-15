@@ -10,7 +10,7 @@ export const ID: PartialTranslation = {
     contact: 'Kontak',
   },
   footer: {
-    copyright: '© 2025 Muhammad Alif Budiman',
+    copyright: '© Muhammad Alif Budiman',
     backToTop: 'Kembali ke atas',
   },
   header: {

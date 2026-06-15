@@ -10,7 +10,7 @@ export const EN: Translation = {
     contact: 'Contact',
   },
   footer: {
-    copyright: '© 2025 Muhammad Alif Budiman',
+    copyright: '© Muhammad Alif Budiman',
     backToTop: 'Back to top',
   },
   header: {

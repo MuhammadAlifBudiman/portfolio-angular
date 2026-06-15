@@ -9,6 +9,7 @@ import { LanguageService } from '../../services/language.service';
 })
 export class FooterComponent {
   private langService = inject(LanguageService);
+  readonly currentYear = new Date().getFullYear();
 
   t(key: string): string {
     return this.langService.t(key);

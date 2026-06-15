@@ -22,7 +22,7 @@ export class TechnologiesComponent {
   readonly techGroups: TechGroup[] = [
     {
       key: 'backend',
-      items: ['Go', 'Node.js', 'Express', 'Python', 'Django', 'Django REST Framework', 'Flask', 'REST API', 'OpenAPI / Swagger', 'Postman', 'JWT', 'Keycloak', 'RBAC'],
+      items: ['Go', 'Node.js', 'Express', 'Python', 'Django', 'Django REST Framework', 'Flask', 'REST API', 'OpenAPI / Swagger', 'JWT', 'Keycloak', 'RBAC'],
     },
     {
       key: 'frontend',
@@ -34,7 +34,7 @@ export class TechnologiesComponent {
     },
     {
       key: 'tools',
-      items: ['Git', 'GitHub', 'DBeaver', 'VS Code'],
+      items: ['Git', 'GitHub', 'Postman', 'DBeaver', 'VS Code'],
     },
   ];
 }
