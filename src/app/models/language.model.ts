@@ -21,8 +21,14 @@ export interface ProjectTranslation {
 export interface Translation {
   nav: {
     aboutMe: string;
+    experience: string;
     portfolio: string;
+    certifications: string;
     contact: string;
+  };
+  footer: {
+    copyright: string;
+    backToTop: string;
   };
   header: {
     lightLabel: string;

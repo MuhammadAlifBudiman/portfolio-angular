@@ -1,0 +1,15 @@
+<footer
+  class="dark:border-dark-border-primary border-light-border-primary dark:text-dark-text-secondary text-light-text-secondary w-full border-t py-6 font-mono text-sm"
+>
+  <div class="container flex flex-col items-center justify-between gap-4 px-4 sm:flex-row">
+    <p>{{ t('footer.copyright') }}</p>
+    <button
+      type="button"
+      (click)="scrollToTop()"
+      class="dark:text-dark-accent-hover text-light-accent-hover dark:hover:text-dark-accent-primary hover:text-light-accent-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-light-accent-hover dark:focus-visible:outline-dark-accent-hover transition-colors duration-200"
+      [attr.aria-label]="t('footer.backToTop')"
+    >
+      {{ t('footer.backToTop') }} ↑
+    </button>
+  </div>
+</footer>

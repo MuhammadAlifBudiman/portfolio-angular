@@ -35,6 +35,8 @@
 ## F00D — Theming Baseline (shipped)
 - FR-F00D-1: Dark and light themes use existing SCSS/Tailwind tokens (`DESIGN.md`).
 - FR-F00D-2: Both themes maintain readable contrast and visible focus styles.
+- FR-F00D-3: `@theme` block in `styles.scss` includes `--radius-*`, `--shadow-*` tokens; ad-hoc arbitrary values for shadows and border-radius are replaced with token utilities across components.
+- FR-F00D-4: Theme-selector accent swatches reference the CSS accent tokens for each theme variant rather than hardcoded hex literals.
 
 ---
 
@@ -91,6 +93,11 @@
 - FR-F00H-8: Mobile nav menu closes on Escape; `<nav>` has `aria-hidden` toggled with the menu state.
 - FR-F00H-9: Social icon SVGs use `aria-labelledby` pointing to `<title id>`, or links carry `aria-label` and SVG is `aria-hidden`.
 - FR-F00H-10: Theme-selector trigger uses `role="button"` with `aria-haspopup="listbox"` and `aria-expanded`; `role="combobox"` is removed.
+- FR-F00H-11: Social icon anchor links in About Me have `focus-visible` outline styles matching the focus ring pattern used by form inputs and `app-button`.
+- FR-F00H-12: Portfolio "Other" project cards use `<h3>` (not `<h4>`) so heading level matches the identical "Featured" cards; heading order within the portfolio section is consistent.
+- FR-F00H-13: `mailto:` links do not carry `target="_blank"` or `rel` attributes; only `https://` external links use `target="_blank" rel="noopener noreferrer"`.
+- FR-F00H-14: The invalid Tailwind utility `lg:max-width-[550px]` in `introduction.component.html` is replaced with the correct `lg:max-w-[550px]`; hero width cap is verified to apply at `lg` breakpoints.
+- FR-F00H-15: The redundant `role="button"` attribute is removed from the native `<button>` element in `theme-selector.component.html`.
 
 ## F00I — SEO, Performance & Social Metadata (shipped · #37 · PR #41)
 **Goal:** All pages are crawlable, social-preview-ready, and performant on initial load.
@@ -181,6 +188,14 @@
 - FR-F007-3: `about.p1/p2/p3` rewritten as graduate with real project/internship evidence; no fabricated claims.
 - FR-F007-4: All `seo.*` titles/descriptions updated to match the new positioning.
 - FR-F007-5: `src/index.html` static title, meta description, OG/Twitter tags, and JSON-LD jobTitle updated.
+
+## F00N — Footer & Navigation Completeness (planned)
+**Goal:** Add a site footer and in-page nav anchors for all main sections.
+- FR-F00N-1: A minimal `app-footer` standalone component renders below `<main>` in `app.component.html`; uses `<footer>` semantic element with copyright and quick links.
+- FR-F00N-2: Footer is tokenized (no hardcoded hex) and renders correctly in dark/light × all 3 accent themes.
+- FR-F00N-3: Footer is keyboard-operable; any links use `app-button` or standard `<a>` with visible focus.
+- FR-F00N-4: Header nav includes scroll anchors for Experience and Certifications sections (or standalone routes if they exist); both are reachable from keyboard nav.
+- FR-F00N-5: `app-footer` has a Karma/Jasmine spec covering creation and basic rendering.
 
 ## F008 — Project Detail / Case-Study Route (planned · deferred)
 **Goal:** Add /portfolio/:id detail pages with problem/context/contribution/technical-implementation sections.

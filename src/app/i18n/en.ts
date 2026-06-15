@@ -3,8 +3,14 @@ import { Translation } from '../models/language.model';
 export const EN: Translation = {
   nav: {
     aboutMe: 'About Me',
+    experience: 'Experience',
     portfolio: 'Portfolio',
+    certifications: 'Certifications',
     contact: 'Contact',
+  },
+  footer: {
+    copyright: '© 2025 Muhammad Alif Budiman',
+    backToTop: 'Back to top',
   },
   header: {
     lightLabel: 'light',
