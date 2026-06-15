@@ -3,7 +3,7 @@ export type ProjectOwnership = 'team' | 'personal' | 'client' | 'internal' | 're
 export type ProjectCategory = 'backend' | 'fullstack' | 'frontend' | 'learning' | 'restricted';
 
 export interface ProjectLink {
-  type: 'demo' | 'github' | 'apiDocs' | 'caseStudy';
+  type: 'demo' | 'github' | 'apiDocs' | 'caseStudy' | 'liveApi';
   url: string;
 }
 

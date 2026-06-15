@@ -129,7 +129,7 @@ export const ID: PartialTranslation = {
     items: {
       bkn: {
         role: 'Programmer Magang — Sistem & Aplikasi Digital',
-        period: 'Nov 2025 – Mei 2026',
+        period: 'Nov 2025 – 23 Mei 2026',
         location: 'Jakarta Timur, Indonesia',
         description:
           'Mendukung pengembangan backend, alur kerja aplikasi digital, dan dokumentasi API untuk sistem internal sektor publik.',

@@ -129,7 +129,7 @@ export const EN: Translation = {
     items: {
       bkn: {
         role: 'Programmer Intern — Digital Systems & Applications',
-        period: 'Nov 2025 – May 2026',
+        period: 'Nov 2025 – 23 May 2026',
         location: 'East Jakarta, Indonesia',
         description:
           'Supported backend development, digital application workflows, and API documentation for internal public-sector systems.',

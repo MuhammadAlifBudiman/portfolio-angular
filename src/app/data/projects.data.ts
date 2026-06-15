@@ -20,7 +20,9 @@ export const PROJECTS: readonly Project[] = [
     stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC', 'Multipart File Upload', 'Workflow System', 'Filtering', 'Sorting', 'Pagination'],
     linkStatus: 'restricted',
     context: { type: 'professional', id: 'bkn-professional', relatedExperienceId: 'bkn' },
-    links: [],
+    links: [
+      { type: 'caseStudy', url: '/projects/bkn-internal-workflow-api' },
+    ],
   },
   {
     id: 'blog-api-server',
@@ -33,7 +35,11 @@ export const PROJECTS: readonly Project[] = [
     stack: ['Node.js', 'Express', 'TypeScript', 'Sequelize', 'PostgreSQL', 'JWT', 'Validation', 'Logging', 'Email Notification', 'Postman Documentation'],
     linkStatus: 'live',
     context: { type: 'bootcamp', id: 'mknows-bootcamp', relatedExperienceId: 'mknows' },
-    links: [{ type: 'github', url: 'https://github.com/MuhammadAlifBudiman/be-mknows-4' }],
+    links: [
+      { type: 'liveApi', url: 'https://express-blog-dun.vercel.app/' },
+      { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/be-mknows-4' },
+      { type: 'caseStudy', url: '/projects/blog-api-server' },
+    ],
   },
   {
     id: 'patient-management-system',
@@ -66,6 +72,7 @@ export const PROJECTS: readonly Project[] = [
       { type: 'demo', url: 'https://alif.pythonanywhere.com/' },
       { type: 'apiDocs', url: 'https://alif.pythonanywhere.com/api/docs' },
       { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/TaskMaster' },
+      { type: 'caseStudy', url: '/projects/task-master' },
     ],
   },
   {
@@ -82,6 +89,7 @@ export const PROJECTS: readonly Project[] = [
     links: [
       { type: 'demo', url: 'https://muhammadalifbudiman.my.id/' },
       { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/portfolio-angular' },
+      { type: 'caseStudy', url: '/projects/portfolio-website' },
     ],
   },
   // --- Other Projects ---

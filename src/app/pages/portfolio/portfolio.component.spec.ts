@@ -102,24 +102,27 @@ describe('PortfolioComponent', () => {
   });
 
   describe('link rendering by status', () => {
-    it('restricted card (bkn) shows a status chip and no anchor', () => {
+    it('restricted card (bkn) renders caseStudy anchor (chip suppressed when links exist)', () => {
       const card = cardById('bkn-internal-workflow-api');
       expect(card).withContext('bkn card should render').not.toBeNull();
-      expect(card!.querySelector('a')).withContext('no href anchor for restricted').toBeNull();
 
-      const chip = card!.querySelector('[role="status"]') as HTMLElement;
-      expect(chip).withContext('restricted status chip present').not.toBeNull();
-      expect(chip.tagName.toLowerCase()).toBe('span');
+      // bkn has a caseStudy link, so the links branch renders instead of the status chip
+      const caseStudyAnchor = card!.querySelector('a[href="/projects/bkn-internal-workflow-api"]');
+      expect(caseStudyAnchor).withContext('caseStudy anchor should be present').not.toBeNull();
+
+      // chip is suppressed when links.length > 0
+      const chip = card!.querySelector('[role="status"]');
+      expect(chip).withContext('status chip suppressed when links present').toBeNull();
     });
 
-    it('live card with two links (portfolio-website) renders demo and github anchors', () => {
+    it('live card with three links (portfolio-website) renders demo, github, and caseStudy anchors', () => {
       const project = PROJECTS.find((p) => p.id === 'portfolio-website')!;
-      expect(project.links.length).toBe(2);
+      expect(project.links.length).toBe(3);
 
       const card = cardById('portfolio-website');
       expect(card).not.toBeNull();
       const anchors = card!.querySelectorAll('a[href]');
-      expect(anchors.length).toBe(2);
+      expect(anchors.length).toBe(3);
     });
   });
 
