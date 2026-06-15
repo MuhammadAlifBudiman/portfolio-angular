@@ -61,29 +61,31 @@ describe('ExperienceComponent', () => {
   });
 
   describe('BKN period i18n (B2)', () => {
-    it('shows BKN period containing "May 2026" in English', () => {
+    it('shows BKN period as "Nov 2025 – 23 May 2026" in English', () => {
       const lang = TestBed.inject(LanguageService);
       lang.setLanguage('en');
       const period = component.itemPeriod('bkn');
-      expect(period).toContain('May 2026');
+      expect(period).toContain('23 May 2026');
+      expect(period).toContain('Nov 2025');
     });
 
-    it('shows BKN period containing "Mei 2026" in Indonesian', () => {
+    it('shows BKN period as "Nov 2025 – 23 Mei 2026" in Indonesian', () => {
       const lang = TestBed.inject(LanguageService);
       lang.setLanguage('id');
       fixture.detectChanges();
       const period = component.itemPeriod('bkn');
-      expect(period).toContain('Mei 2026');
+      expect(period).toContain('23 Mei 2026');
+      expect(period).toContain('Nov 2025');
     });
 
-    it('restores English BKN period after switching back from Indonesian', () => {
+    it('restores exact English BKN period after switching back from Indonesian', () => {
       const lang = TestBed.inject(LanguageService);
       lang.setLanguage('id');
       fixture.detectChanges();
       lang.setLanguage('en');
       fixture.detectChanges();
       const period = component.itemPeriod('bkn');
-      expect(period).toContain('May 2026');
+      expect(period).toContain('23 May 2026');
     });
   });
 });
