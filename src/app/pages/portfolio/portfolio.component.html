@@ -125,14 +125,14 @@
                   <div class="flex flex-wrap gap-2">
                     @if (project.linkStatus === 'restricted') {
                       <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        class="bg-amber-500/10 border border-amber-500/40 dark:text-amber-300 text-amber-700 rounded-full px-3 py-1 text-sm font-medium"
                         role="status"
                         [attr.aria-label]="statusLabel('restricted') + ': ' + project.title"
                         >{{ statusLabel('restricted') }}</span
                       >
                     } @else if (project.linkStatus === 'archived') {
                       <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        class="dark:bg-dark-error-background dark:text-dark-error-text dark:border-dark-error-border bg-light-error-background text-light-error-text border-light-error-border border rounded-full px-3 py-1 text-sm font-medium"
                         role="status"
                         [attr.aria-label]="statusLabel('archived') + ': ' + project.title"
                         >{{ statusLabel('archived') }}</span
@@ -145,7 +145,7 @@
                       ></app-button>
                     } @else if (project.linkStatus === 'live') {
                       <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        class="dark:bg-dark-success-background dark:text-dark-success-text dark:border-dark-success-border bg-light-success-background text-light-success-text border-light-success-border border rounded-full px-3 py-1 text-sm font-medium"
                         role="status"
                         [attr.aria-label]="statusLabel('live') + ': ' + project.title"
                         >{{ statusLabel('live') }}</span
@@ -255,14 +255,14 @@
                   <div class="flex flex-wrap gap-2">
                     @if (project.linkStatus === 'restricted') {
                       <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        class="bg-amber-500/10 border border-amber-500/40 dark:text-amber-300 text-amber-700 rounded-full px-3 py-1 text-sm font-medium"
                         role="status"
                         [attr.aria-label]="statusLabel('restricted') + ': ' + project.title"
                         >{{ statusLabel('restricted') }}</span
                       >
                     } @else if (project.linkStatus === 'archived') {
                       <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        class="dark:bg-dark-error-background dark:text-dark-error-text dark:border-dark-error-border bg-light-error-background text-light-error-text border-light-error-border border rounded-full px-3 py-1 text-sm font-medium"
                         role="status"
                         [attr.aria-label]="statusLabel('archived') + ': ' + project.title"
                         >{{ statusLabel('archived') }}</span
@@ -275,7 +275,7 @@
                       ></app-button>
                     } @else if (project.linkStatus === 'live') {
                       <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        class="dark:bg-dark-success-background dark:text-dark-success-text dark:border-dark-success-border bg-light-success-background text-light-success-text border-light-success-border border rounded-full px-3 py-1 text-sm font-medium"
                         role="status"
                         [attr.aria-label]="statusLabel('live') + ': ' + project.title"
                         >{{ statusLabel('live') }}</span
