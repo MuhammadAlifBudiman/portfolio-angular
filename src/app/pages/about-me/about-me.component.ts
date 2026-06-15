@@ -1,8 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Input } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
-import { Router } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
 import { LanguageService } from '../../services/language.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-about-me',
@@ -11,10 +10,9 @@ import { LanguageService } from '../../services/language.service';
   styleUrl: './about-me.component.scss',
 })
 export class AboutMeComponent implements OnInit {
+  @Input() pageMode = true;
   private lang = inject(LanguageService);
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
-  public router = inject(Router);
+  private seo = inject(SeoService);
 
   get sectionTitle(): string { return this.lang.t('about.title'); }
   get introductionText(): string { return this.lang.t('about.eyebrow'); }
@@ -29,11 +27,12 @@ export class AboutMeComponent implements OnInit {
   resumeDownloadName: string = 'Muhammad-Alif-Budiman-Resume.pdf';
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.lang.t('seo.about.title'));
-    this.metaService.updateTag({ name: 'description', content: this.lang.t('seo.about.description') });
+    if (this.pageMode) {
+      this.seo.setMetadata({
+        title: this.lang.t('seo.about.title'),
+        description: this.lang.t('seo.about.description'),
+        canonicalUrl: 'https://muhammadalifbudiman.my.id/about-me',
+      });
+    }
   }
-
-  navigate = (): void => {
-    this.router.navigate(['/portfolio']);
-  };
 }

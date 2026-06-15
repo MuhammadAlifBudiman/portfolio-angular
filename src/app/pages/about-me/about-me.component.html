@@ -8,11 +8,19 @@
         >
           {{ introductionText }}
         </p>
-        <h1
-          class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
-        >
-          {{ sectionTitle }}
-        </h1>
+        @if (pageMode) {
+          <h1
+            class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
+          >
+            {{ sectionTitle }}
+          </h1>
+        } @else {
+          <h2
+            class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
+          >
+            {{ sectionTitle }}
+          </h2>
+        }
         <p class="mb-1.5 mt-4 w-full lg:max-w-[550px]">
           {{ aboutMeParagraph1 }}
         </p>
@@ -25,7 +33,8 @@
         <div class="flex flex-wrap gap-x-4 gap-y-2">
           <app-button
             [buttonText]="buttonText"
-            [buttonAction]="navigate"
+            href="/portfolio"
+            [ariaLabel]="buttonText"
           ></app-button>
           <app-button
             [buttonText]="resumeButtonText"

@@ -1,8 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ButtonComponent } from '../../components/button/button.component';
-import { Router } from '@angular/router';
-import { Title, Meta } from '@angular/platform-browser';
 import { LanguageService } from '../../services/language.service';
+import { SeoService } from '../../services/seo.service';
+import { ButtonComponent } from '../../components/button/button.component';
 
 @Component({
   selector: 'app-introduction',
@@ -12,22 +11,23 @@ import { LanguageService } from '../../services/language.service';
 })
 export class IntroductionComponent implements OnInit {
   private lang = inject(LanguageService);
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
-  public router = inject(Router);
+  private seo = inject(SeoService);
 
   get greetingText(): string { return this.lang.t('intro.greeting'); }
   get fullName(): string { return 'Muhammad Alif Budiman'; }
   get roleText(): string { return this.lang.t('intro.role'); }
   get introductionText(): string { return this.lang.t('intro.body'); }
-  get aboutMeButtonText(): string { return this.lang.t('intro.aboutMeBtn'); }
+  get viewProjectsText(): string { return this.lang.t('intro.viewProjectsBtn'); }
+  get downloadResumeText(): string { return this.lang.t('intro.downloadResumeBtn'); }
+  get availabilityText(): string { return this.lang.t('intro.availability'); }
+  get locationText(): string { return this.lang.t('intro.location'); }
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.lang.t('seo.home.title'));
-    this.metaService.updateTag({ name: 'description', content: this.lang.t('seo.home.description') });
+    this.seo.setMetadata({
+      title: this.lang.t('seo.home.title'),
+      description: this.lang.t('seo.home.description'),
+      canonicalUrl: 'https://muhammadalifbudiman.my.id/',
+      ogType: 'profile',
+    });
   }
-
-  navigate = (): void => {
-    this.router.navigate(['/about-me']);
-  };
 }

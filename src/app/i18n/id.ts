@@ -6,6 +6,7 @@ export const ID: PartialTranslation = {
     experience: 'Pengalaman',
     portfolio: 'Portofolio',
     certifications: 'Sertifikasi',
+    technologies: 'Teknologi',
     contact: 'Kontak',
   },
   footer: {
@@ -22,8 +23,11 @@ export const ID: PartialTranslation = {
   intro: {
     greeting: 'Halo! Nama saya',
     role: 'Full-Stack Web Developer',
-    body: 'Lulusan Ilmu Komputer dengan fokus pada pengembangan backend API, sistem alur kerja, dan aplikasi web responsif menggunakan Go, TypeScript, Angular, Python, Flask, Django, PostgreSQL, dan MongoDB.',
-    aboutMeBtn: 'Tentang Saya',
+    body: 'Developer berorientasi backend yang membangun aplikasi web berbasis API, sistem alur kerja, dan antarmuka responsif menggunakan Go, TypeScript, Angular, Python, dan PostgreSQL.',
+    viewProjectsBtn: 'Lihat Proyek',
+    downloadResumeBtn: 'Unduh Resume',
+    availability: 'Terbuka untuk peluang Full-Stack dan Backend Developer',
+    location: 'Bekasi / Jakarta, Indonesia',
   },
   about: {
     eyebrow: 'Pelajari lebih lanjut',
@@ -58,11 +62,13 @@ export const ID: PartialTranslation = {
       caseStudy: 'Studi Kasus',
       restricted: 'Terbatas / Internal',
       unavailable: 'Repositori tidak tersedia',
+      archived: 'Demo Tidak Tersedia',
     },
     status: {
       live: 'Aktif',
       restricted: 'Terbatas',
       unavailable: 'Tidak tersedia',
+      archived: 'Diarsipkan',
     },
   },
   contact: {
@@ -108,10 +114,18 @@ export const ID: PartialTranslation = {
       title: 'Kontak — Muhammad Alif Budiman',
       description: 'Hubungi Muhammad Alif Budiman — full-stack web developer. Kontak melalui email, WhatsApp, atau formulir kontak.',
     },
+    project: {
+      titleSuffix: '— Muhammad Alif Budiman',
+    },
   },
   experience: {
     eyebrow: 'Pengalaman Kerja',
     title: 'Pengalaman',
+    groups: {
+      professional: 'Pengalaman Profesional',
+      training: 'Pelatihan & Program',
+    },
+    relatedProject: 'Proyek Terkait',
     items: {
       bkn: {
         role: 'Programmer Magang — Sistem & Aplikasi Digital',
@@ -130,28 +144,94 @@ export const ID: PartialTranslation = {
         period: 'Agu 2023 – Des 2023',
         location: 'Remote',
         description:
-          'Menyelesaikan program pengembangan web full-stack berbasis proyek yang mencakup frontend, backend, database, dan praktik deployment.',
+          'Menyelesaikan program pengembangan web full-stack berbasis proyek (MSIB Batch 5) mencakup frontend, backend, database, dan praktik deployment.',
         contributions: [
           'Menyelesaikan modul HTML, CSS, JavaScript, Python, Flask, MongoDB, AJAX, alur kerja CRUD, web scraping, dan deployment.',
-          'Berkontribusi pada Sistem Manajemen Pasien berbasis tim sebagai developer full-stack.',
+          'Memimpin proyek Sistem Manajemen Pasien berbasis tim sebagai developer full-stack dan ketua proyek.',
+        ],
+      },
+      mknows: {
+        role: 'Backend Developer — Peserta Bootcamp',
+        period: '2023',
+        location: 'Remote',
+        description:
+          'Menyelesaikan bootcamp pengembangan backend API di M-Knows Consulting, membangun REST API berstruktur produksi dengan Node.js, Express, TypeScript, dan PostgreSQL.',
+        contributions: [
+          'Mengimplementasikan arsitektur MVC dengan Sequelize ORM dan PostgreSQL untuk API platform blog.',
+          'Membangun autentikasi JWT, validasi input, integrasi notifikasi email, dan logging terstruktur.',
+          'Menghasilkan dokumentasi API menggunakan Postman dan spesifikasi Swagger/OpenAPI.',
         ],
       },
     },
   },
   certifications: {
-    eyebrow: 'Sertifikasi',
+    eyebrow: 'Kredensial Terverifikasi',
     title: 'Sertifikasi',
     items: {
-      'learningx-msib': {
-        name: 'Pengembangan Web Full-Stack',
-        issuer: 'LearningX MSIB',
-        period: '2023',
-      },
       'bkn-internship': {
-        name: 'Sertifikat Magang',
+        name: 'Sertifikat Magang — Sistem & Aplikasi Digital',
         issuer: 'BKN RI (Badan Kepegawaian Negara)',
         period: '2026',
+        credentialLabel: 'Lihat Kredensial',
       },
+      'cs50w': {
+        name: "CS50's Web Programming with Python and JavaScript",
+        issuer: 'CS50 / HarvardX',
+        period: '2023',
+        credentialLabel: 'Lihat Sertifikat',
+      },
+      'cs50x': {
+        name: "CS50's Introduction to Computer Science",
+        issuer: 'CS50 / HarvardX',
+        period: '2023',
+        credentialLabel: 'Lihat Sertifikat',
+      },
+      'postman-api-fundamentals': {
+        name: 'API Fundamentals Student Expert',
+        issuer: 'Postman',
+        period: '2025',
+        credentialLabel: 'Lihat Lencana',
+      },
+      'dicoding-backend-js': {
+        name: 'Belajar Back-End Pemula dengan JavaScript',
+        issuer: 'Dicoding',
+        period: '2025',
+        credentialLabel: 'Lihat Sertifikat',
+      },
+      '30-days-of-angular': {
+        name: '30 Days of Angular: Build 30 Projects with Angular',
+        issuer: 'Udemy',
+        period: '2025',
+        credentialLabel: 'Lihat Sertifikat',
+      },
+      'aws-cloud-gen-ai': {
+        name: 'Belajar Dasar Cloud dan Gen AI di AWS',
+        issuer: 'Dicoding',
+        period: '2025',
+        credentialLabel: 'Lihat Sertifikat',
+      },
+      'git-github-bootcamp': {
+        name: 'The Git & Github Bootcamp',
+        issuer: 'Udemy',
+        period: '2025',
+        credentialLabel: 'Lihat Sertifikat',
+      },
+      'learningx-msib': {
+        name: 'Pengembangan Web Full-Stack',
+        issuer: 'LearningX MSIB (Batch 5)',
+        period: '2023',
+        note: 'Tidak ada URL kredensial publik yang tersedia.',
+      },
+    },
+  },
+  technologies: {
+    eyebrow: 'Kemampuan Teknis',
+    title: 'Teknologi',
+    groups: {
+      backend: 'Backend & API',
+      frontend: 'Frontend',
+      databases: 'Database',
+      tools: 'Alat Engineering',
     },
   },
   projects: {
@@ -161,29 +241,14 @@ export const ID: PartialTranslation = {
       role: 'Backend developer — implementasi Go API dan dokumentasi Swagger/OpenAPI',
     },
     'blog-api-server': {
-      description: 'REST API berbasis TypeScript untuk platform blog dengan autentikasi, validasi, integrasi PostgreSQL, notifikasi email, logging, dan dokumentasi API.',
+      description: 'REST API berbasis TypeScript untuk platform blog dengan autentikasi JWT, validasi input, integrasi PostgreSQL, notifikasi email, logging, dan dokumentasi API Postman/Swagger.',
       imageAlt: 'Diagram arsitektur backend Blog API Server dengan Express API, autentikasi, Sequelize ORM, PostgreSQL, notifikasi email, dan logging',
       role: 'Backend developer — REST API, autentikasi, validasi, integrasi database, dan dokumentasi',
     },
     'patient-management-system': {
       description: 'Sistem Manajemen Pasien berbasis Flask dan MongoDB untuk pendaftaran pasien, pengelolaan antrian, penjadwalan, rekam medis, alur kerja admin, ekspor CSV, dan pembaruan antarmuka real-time.',
       imageAlt: 'Tangkapan layar dasbor aplikasi Sistem Manajemen Pasien',
-      role: 'Full-stack developer — backend API dan desain database',
-    },
-    'numble': {
-      description: 'Numble adalah permainan puzzle angka berbasis web yang menarik dan adiktif, menantang pemain untuk menggunakan kemampuan matematika mereka.',
-      imageAlt: 'Tangkapan layar antarmuka permainan tebak angka Numble',
-      role: 'Frontend developer — logika permainan dan UI',
-    },
-    'bemy': {
-      description: 'Platform bagi individu untuk menemukan teman ngobrol dan terlibat dalam percakapan virtual.',
-      imageAlt: 'Tangkapan layar aplikasi pencocokan teman chat BeMy',
-      role: 'Frontend developer — antarmuka pencocokan dan UI chat',
-    },
-    'stock-data': {
-      description: 'Website Kontrol Inventaris untuk memfasilitasi pengelolaan stok dan memastikan ketersediaan produk di berbagai marketplace.',
-      imageAlt: 'Tangkapan layar sistem manajemen inventaris StockData',
-      role: 'Full-stack developer — logika inventaris dan sinkronisasi marketplace',
+      role: 'Full-stack developer — backend API, desain database, dan ketua tim',
     },
     'task-master': {
       description: 'Aplikasi manajemen tugas dengan alur kerja harian, mingguan, dan bulanan berulang, REST API berbasis JWT, riwayat tugas, reset otomatis berbasis zona waktu, dokumentasi API Swagger, tabel data interaktif, dan ekspor Excel.',
@@ -191,37 +256,39 @@ export const ID: PartialTranslation = {
       role: 'Full-stack developer — Django REST API, reset tugas terjadwal, dan tabel data',
     },
     'portfolio-website': {
-      description: 'Website portofolio Angular responsif dengan konten bilingual (EN/ID), komponen standalone yang dapat digunakan ulang, direktif kustom, dukungan tema gelap/terang, showcase proyek, dan formulir kontak EmailJS.',
+      description: 'Website portofolio Angular responsif dengan konten bilingual (EN/ID), komponen standalone yang dapat digunakan ulang, direktif kustom, dukungan tema gelap/terang, beberapa tema warna, showcase proyek, dan formulir kontak EmailJS.',
       imageAlt: 'Tangkapan layar website portofolio Muhammad Alif Budiman',
-      role: 'Developer — Angular, TypeScript, SCSS, Tailwind CSS, i18n',
+      role: 'Developer — Angular, TypeScript, SCSS, Tailwind CSS, i18n, unit testing',
     },
-    'color-tap': {
-      description: 'Permainan berbasis web yang adiktif ini dirancang untuk menguji refleks dan kemampuan pengenalan warna Anda dengan cara yang menyenangkan dan menarik.',
-      imageAlt: 'Tangkapan layar permainan tap warna Color Tap di browser',
+    'numble': {
+      description: 'Permainan puzzle angka berbasis web di mana pemain menggabungkan angka untuk mencapai target menggunakan kemampuan matematika. Dibangun sebagai proyek tim.',
+      imageAlt: 'Tangkapan layar antarmuka permainan puzzle angka Numble',
+      role: 'Frontend developer — logika permainan dan UI',
     },
-    'coffee-shop': {
-      description: 'Website CoffeeShop adalah tujuan serbaguna Anda untuk pengalaman kopi yang menyenangkan.',
-      imageAlt: 'Tangkapan layar aplikasi web Coffee Shop',
+    'password-security': {
+      description: 'Aplikasi web Angular untuk keamanan kata sandi: menghasilkan kata sandi kuat, memeriksa kebocoran data melalui API Have I Been Pwned, menganalisis kekuatan kata sandi, dan menjelaskan praktik keamanan kata sandi.',
+      imageAlt: 'Tangkapan layar aplikasi Password Security Angular yang menampilkan pemeriksa kekuatan kata sandi dan deteksi kebocoran',
+      role: 'Developer — Angular, integrasi API, analisis kata sandi',
     },
-    'checkers': {
-      description: 'Permainan Checkers berbasis web yang dibangun dengan Angular, menampilkan gameplay berbasis giliran, pergerakan bidak, penangkapan, promosi raja, dan kondisi akhir permainan. Menerapkan aturan Checkers dengan struktur modular untuk skalabilitas.',
-      imageAlt: 'Tangkapan layar permainan papan Checkers di Angular',
-    },
-    'minesweeper': {
-      description: 'Implementasi berbasis web dari permainan Minesweeper klasik yang dibangun dengan Angular. Pemain mengungkap sel di grid untuk menghindari ranjau tersembunyi dan mengungkap angka yang menunjukkan ranjau di sekitarnya.',
-      imageAlt: 'Tangkapan layar antarmuka grid permainan Minesweeper',
+    'crypto-charts': {
+      description: 'Grafik harga cryptocurrency real-time dan informasi koin yang dibangun dengan Angular, menggunakan API crypto publik. Dikembangkan sebagai bagian dari kursus 30 Days of Angular.',
+      imageAlt: 'Tangkapan layar aplikasi Crypto Charts Angular yang menampilkan grafik harga real-time',
+      role: 'Developer — Angular, integrasi API, visualisasi data',
     },
     'resume-builder': {
-      description: 'ResumeBuilder adalah aplikasi web berbasis Angular yang membantu pengguna membuat, mengedit, dan mengunduh resume profesional. Dilengkapi form yang dapat diedit, pratinjau resume secara langsung, dan pembuatan PDF.',
+      description: 'Aplikasi web berbasis Angular untuk membuat, mengedit, dan mengunduh resume profesional. Dilengkapi form yang dapat diedit, pratinjau resume secara langsung, dan pembuatan PDF.',
       imageAlt: 'Tangkapan layar Resume Builder dengan pratinjau langsung dan ekspor PDF',
-    },
-    'quiz-app': {
-      description: 'QuizzApp adalah aplikasi kuis berbasis web yang dibangun dengan Angular. Memungkinkan pengguna mengikuti kuis, membuat kuis kustom, dan melihat riwayat kuis mereka.',
-      imageAlt: 'Tangkapan layar Quiz App yang menampilkan pembuatan kuis dan riwayat',
+      role: 'Developer — Angular, penanganan form, pembuatan PDF',
     },
     'typing-game': {
-      description: 'TypingGame adalah aplikasi berbasis web yang membantu pengguna meningkatkan kecepatan dan akurasi mengetik melalui tes interaktif. Dilengkapi tantangan mengetik, papan peringkat, tema yang dapat dikustomisasi, dan statistik performa terperinci.',
+      description: 'Tes kecepatan dan akurasi mengetik interaktif dengan tantangan mengetik, papan peringkat, tema yang dapat dikustomisasi, dan statistik performa terperinci.',
       imageAlt: 'Tangkapan layar antarmuka tes kecepatan mengetik Typing Game',
+      role: 'Developer — Angular, penanganan input real-time, pelacakan statistik',
+    },
+    'checkers': {
+      description: 'Permainan Checkers berbasis web yang dibangun dengan Angular. Menampilkan gameplay berbasis giliran, pergerakan bidak, penangkapan, promosi raja, dan kondisi akhir permainan dengan penerapan aturan lengkap.',
+      imageAlt: 'Tangkapan layar permainan papan Checkers di Angular',
+      role: 'Developer — Angular, logika permainan, arsitektur komponen',
     },
   },
   projectContext: {

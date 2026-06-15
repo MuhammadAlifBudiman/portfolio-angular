@@ -43,9 +43,9 @@ describe('AboutMeComponent', () => {
     expect(anchor?.getAttribute('aria-label')).toBe('Download Resume');
   });
 
-  it('navigate() routes to /portfolio (FR-F00L-10)', () => {
-    const navigateSpy = spyOn(component.router, 'navigate');
-    component.navigate();
-    expect(navigateSpy).toHaveBeenCalledWith(['/portfolio']);
+  it('View Projects button links to /portfolio (FR-F00L-10)', () => {
+    const viewProjectsLink: HTMLAnchorElement | null =
+      fixture.nativeElement.querySelector('a[href="/portfolio"]');
+    expect(viewProjectsLink).toBeTruthy();
   });
 });

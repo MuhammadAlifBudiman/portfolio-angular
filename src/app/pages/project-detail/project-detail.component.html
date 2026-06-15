@@ -1,0 +1,135 @@
+<div class="wrapper pt-36">
+  <div class="container">
+    <div class="w-full px-4">
+      @if (project) {
+        <!-- Back nav -->
+        <div class="mx-auto mb-8 w-full max-w-3xl">
+          <button
+            type="button"
+            class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm hover:underline"
+            (click)="navigateBack()"
+          >
+            &larr; Back to Portfolio
+          </button>
+        </div>
+
+        <!-- Project header -->
+        <div class="mx-auto mb-10 w-full max-w-3xl">
+          <div class="mb-2 flex flex-wrap items-center gap-2">
+            <p class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm">
+              {{ ownershipLabel(project.ownership) }}
+            </p>
+            @if (project.year) {
+              <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 text-xs">
+                {{ project.year }}
+              </span>
+            }
+          </div>
+          <h1 class="dark:text-dark-text-primary text-light-text-primary mb-2 text-3xl font-bold md:text-4xl lg:text-5xl">
+            {{ project.title }}
+          </h1>
+          @if (project.context) {
+            <p class="dark:text-dark-accent-hover text-light-accent-hover mb-2 font-mono text-sm">
+              {{ projectContextLabel(project.context.id) }}
+            </p>
+          }
+          <p class="dark:text-dark-text-secondary text-light-text-secondary mb-4 text-lg">
+            {{ projectDescription(project.id) }}
+          </p>
+
+          <!-- Stack badges -->
+          <div class="mb-4 flex flex-wrap gap-1">
+            @for (tech of project.stack; track tech) {
+              <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 font-mono text-xs">
+                {{ tech }}
+              </span>
+            }
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap gap-2">
+            @for (link of project.links; track link.type) {
+              @if (link.type !== 'caseStudy') {
+                <app-button
+                  [href]="link.url"
+                  [buttonText]="ctaLabel(link.type)"
+                  [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+                ></app-button>
+              }
+            }
+            @if (project.linkStatus === 'restricted') {
+              <span
+                class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                role="status"
+              >{{ ctaLabel('restricted') }}</span>
+            }
+            @if (project.linkStatus === 'archived') {
+              <span
+                class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                role="status"
+              >{{ ctaLabel('archived') }}</span>
+            }
+          </div>
+        </div>
+
+        <!-- Confidentiality note (BKN) -->
+        @if (caseStudy?.confidentialityNote) {
+          <div class="mx-auto mb-8 w-full max-w-3xl">
+            <div class="dark:bg-dark-background-hover bg-light-background-hover rounded-lg p-4">
+              <p class="dark:text-dark-text-secondary text-light-text-secondary text-sm italic">
+                &#9888; {{ caseStudy!.confidentialityNote }}
+              </p>
+            </div>
+          </div>
+        }
+
+        <!-- Access note (demo archived/unavailable) -->
+        @if (caseStudy?.accessNote) {
+          <div class="mx-auto mb-6 w-full max-w-3xl">
+            <p class="dark:text-dark-text-secondary text-light-text-secondary text-sm font-mono">
+              {{ caseStudy!.accessNote }}
+            </p>
+          </div>
+        }
+
+        <!-- Case study sections -->
+        @if (caseStudy) {
+          <div class="mx-auto w-full max-w-3xl">
+            @for (section of caseStudy.sections; track section.heading) {
+              <div class="mb-8">
+                <h2 class="dark:text-dark-text-primary text-light-text-primary mb-3 text-xl font-bold">
+                  {{ section.heading }}
+                </h2>
+                @if (isString(section.content)) {
+                  <p class="dark:text-dark-text-secondary text-light-text-secondary leading-relaxed">
+                    {{ section.content }}
+                  </p>
+                }
+                @if (isArray(section.content)) {
+                  <ul class="list-disc space-y-1 pl-5">
+                    @for (item of section.content; track item) {
+                      <li class="dark:text-dark-text-secondary text-light-text-secondary leading-relaxed">
+                        {{ item }}
+                      </li>
+                    }
+                  </ul>
+                }
+              </div>
+            }
+          </div>
+        } @else {
+          <!-- No case study available yet -->
+          <div class="mx-auto w-full max-w-3xl">
+            <p class="dark:text-dark-text-secondary text-light-text-secondary">
+              Detailed case study coming soon.
+            </p>
+          </div>
+        }
+      } @else {
+        <p class="dark:text-dark-text-secondary text-light-text-secondary">
+          Project not found.
+        </p>
+      }
+    </div>
+  </div>
+</div>

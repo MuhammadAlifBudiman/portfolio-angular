@@ -29,9 +29,15 @@ describe('IntroductionComponent — FR-F00L-3', () => {
     );
   });
 
-  it('navigate() routes to /about-me', () => {
-    const navigateSpy = spyOn(component.router, 'navigate');
-    component.navigate();
-    expect(navigateSpy).toHaveBeenCalledWith(['/about-me']);
+  it('View Projects CTA anchors to portfolio section', () => {
+    const anchor: HTMLAnchorElement | null =
+      fixture.nativeElement.querySelector('a[href="#section-portfolio"]');
+    expect(anchor).toBeTruthy();
+  });
+
+  it('Download Resume CTA links to resume.pdf', () => {
+    const anchor: HTMLAnchorElement | null =
+      fixture.nativeElement.querySelector('a[download]');
+    expect(anchor?.getAttribute('href')).toBe('resume.pdf');
   });
 });

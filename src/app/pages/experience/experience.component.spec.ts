@@ -42,7 +42,7 @@ describe('ExperienceComponent', () => {
     expect(role.length).toBeGreaterThan(0);
     expect(role.startsWith('experience.')).toBeFalse();
 
-    const firstCardHeading = cards()[0].querySelector('h3') as HTMLElement;
+    const firstCardHeading = cards()[0].querySelector('h4') as HTMLElement;
     expect(firstCardHeading.textContent?.trim()).toBe(role);
   });
 

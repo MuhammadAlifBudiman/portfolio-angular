@@ -38,14 +38,26 @@ describe('CertificationsComponent', () => {
     expect(heading.textContent).toContain('Certifications');
   });
 
-  it('renders no credential links because no entry has a credentialUrl', () => {
-    // Guard: confirm the data really has no credential URLs.
-    expect(CERTIFICATIONS.every((c) => !c.credentialUrl)).toBeTrue();
-
+  it('renders credential links only for entries that have a credentialUrl', () => {
+    const withUrl = CERTIFICATIONS.filter((c) => !!c.credentialUrl).length;
     const anchors = fixture.nativeElement.querySelectorAll(
       '[data-testid="certification-card"] a[href]',
     );
-    expect(anchors.length).toBe(0);
+    expect(anchors.length).toBe(withUrl);
+  });
+
+  it('does not render a credential link for entries without a credentialUrl', () => {
+    const withoutUrl = CERTIFICATIONS.filter((c) => !c.credentialUrl);
+    expect(withoutUrl.length).toBeGreaterThan(0); // learningx-msib has no URL
+    // Each entry without URL should not have a credential anchor
+    withoutUrl.forEach((cert) => {
+      const card = fixture.nativeElement.querySelector(
+        `[data-testid="certification-card"][data-cert-id="${cert.id}"]`,
+      );
+      if (card) {
+        expect(card.querySelector('a[href]')).toBeNull();
+      }
+    });
   });
 
   it('injects the real LanguageService and defaults to English', () => {
