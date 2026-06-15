@@ -1,4 +1,5 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, PLATFORM_ID, inject, signal } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 export type StyleTheme = 'default' | 'ocean' | 'ember';
 
@@ -27,6 +28,7 @@ function isValidTheme(value: string | null): value is StyleTheme {
 export class ThemeService {
   readonly currentTheme = signal<StyleTheme>(FALLBACK);
   readonly isDarkMode = signal<boolean>(false);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   constructor() {
     this._migrateLegacyDarkModeKey();
@@ -34,6 +36,7 @@ export class ThemeService {
 
   /** Call once on app init (e.g. in HeaderComponent.ngOnInit). */
   loadThemePreference(): void {
+    if (!this.isBrowser) return;
     const stored = localStorage.getItem(STORAGE_KEY);
     const theme = isValidTheme(stored) ? stored : FALLBACK;
     this.applyTheme(theme);
@@ -41,6 +44,7 @@ export class ThemeService {
 
   /** Call once on app init to restore dark mode from storage. */
   loadDarkMode(): void {
+    if (!this.isBrowser) return;
     const stored = localStorage.getItem(DARK_MODE_KEY);
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const dark = stored === 'dark' || (stored === null && prefersDark);
@@ -54,7 +58,7 @@ export class ThemeService {
 
   applyTheme(theme: StyleTheme): void {
     document.documentElement.setAttribute('data-style-theme', theme);
-    localStorage.setItem(STORAGE_KEY, theme);
+    if (this.isBrowser) localStorage.setItem(STORAGE_KEY, theme);
     this.currentTheme.set(theme);
   }
 
@@ -64,12 +68,13 @@ export class ThemeService {
     } else {
       document.documentElement.classList.remove('dark');
     }
-    localStorage.setItem(DARK_MODE_KEY, dark ? 'dark' : 'light');
+    if (this.isBrowser) localStorage.setItem(DARK_MODE_KEY, dark ? 'dark' : 'light');
     this.isDarkMode.set(dark);
   }
 
   /** Migrate the legacy 'theme' localStorage key to 'dark-mode' and remove it. */
   private _migrateLegacyDarkModeKey(): void {
+    if (!this.isBrowser) return;
     const legacy = localStorage.getItem(LEGACY_DARK_MODE_KEY);
     if (legacy !== null) {
       if (!localStorage.getItem(DARK_MODE_KEY)) {

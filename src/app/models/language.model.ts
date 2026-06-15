@@ -37,6 +37,8 @@ export interface Translation {
     themeLabel: string;
     themeAriaLabel: string;
     langAriaLabel: string;
+    navAriaLabel: string;
+    darkModeAriaLabel: string;
   };
   intro: {
     greeting: string;
@@ -76,6 +78,7 @@ export interface Translation {
     cta: {
       demo: string;
       github: string;
+      liveApi: string;
       apiDocs: string;
       caseStudy: string;
       restricted: string;
@@ -168,6 +171,18 @@ export interface Translation {
   };
   projects: Record<string, ProjectTranslation>;
   projectContext: Record<string, string>;
+  caseStudies: {
+    common: {
+      back: string;
+      notFound: string;
+      comingSoon: string;
+    };
+    sectionHeadings: Record<string, string>;
+    // Per-case-study content, keyed by case-study id. Deeply nested and dynamic
+    // (keyed by project id + section id), so typed pragmatically.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [caseStudyId: string]: any;
+  };
 }
 
 /** Partial translation — used for non-default language resources. */

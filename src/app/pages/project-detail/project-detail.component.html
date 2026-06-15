@@ -9,7 +9,7 @@
             class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm hover:underline"
             (click)="navigateBack()"
           >
-            &larr; Back to Portfolio
+            &larr; {{ t('caseStudies.common.back') }}
           </button>
         </div>
 
@@ -52,6 +52,7 @@
               @if (link.type !== 'caseStudy') {
                 <app-button
                   [href]="link.url"
+                  [newTab]="true"
                   [buttonText]="ctaLabel(link.type)"
                   [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
                 ></app-button>
@@ -59,13 +60,13 @@
             }
             @if (project.linkStatus === 'restricted') {
               <span
-                class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                class="bg-amber-500/10 border border-amber-500/40 dark:text-amber-300 text-amber-700 rounded-full px-3 py-1 text-sm font-medium"
                 role="status"
               >{{ ctaLabel('restricted') }}</span>
             }
             @if (project.linkStatus === 'archived') {
               <span
-                class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                class="dark:bg-dark-error-background dark:text-dark-error-text dark:border-dark-error-border bg-light-error-background text-light-error-text border-light-error-border border rounded-full px-3 py-1 text-sm font-medium"
                 role="status"
               >{{ ctaLabel('archived') }}</span>
             }
@@ -73,21 +74,21 @@
         </div>
 
         <!-- Confidentiality note (BKN) -->
-        @if (caseStudy?.confidentialityNote) {
+        @if (caseStudy?.hasConfidentialityNote) {
           <div class="mx-auto mb-8 w-full max-w-3xl">
             <div class="dark:bg-dark-background-hover bg-light-background-hover rounded-lg p-4">
               <p class="dark:text-dark-text-secondary text-light-text-secondary text-sm italic">
-                &#9888; {{ caseStudy!.confidentialityNote }}
+                &#9888; {{ t('caseStudies.' + caseStudy!.id + '.confidentialityNote') }}
               </p>
             </div>
           </div>
         }
 
         <!-- Access note (demo archived/unavailable) -->
-        @if (caseStudy?.accessNote) {
+        @if (caseStudy?.hasAccessNote) {
           <div class="mx-auto mb-6 w-full max-w-3xl">
             <p class="dark:text-dark-text-secondary text-light-text-secondary text-sm font-mono">
-              {{ caseStudy!.accessNote }}
+              {{ t('caseStudies.' + caseStudy!.id + '.accessNote') }}
             </p>
           </div>
         }
@@ -95,19 +96,18 @@
         <!-- Case study sections -->
         @if (caseStudy) {
           <div class="mx-auto w-full max-w-3xl">
-            @for (section of caseStudy.sections; track section.heading) {
+            @for (section of caseStudy.sections; track section.id) {
               <div class="mb-8">
                 <h2 class="dark:text-dark-text-primary text-light-text-primary mb-3 text-xl font-bold">
-                  {{ section.heading }}
+                  {{ getSectionHeading(section.id) }}
                 </h2>
-                @if (isString(section.content)) {
+                @if (section.contentType === 'paragraph') {
                   <p class="dark:text-dark-text-secondary text-light-text-secondary leading-relaxed">
-                    {{ section.content }}
+                    {{ getSectionContent(caseStudy.id, section.id) }}
                   </p>
-                }
-                @if (isArray(section.content)) {
+                } @else {
                   <ul class="list-disc space-y-1 pl-5">
-                    @for (item of section.content; track item) {
+                    @for (item of asArray(getSectionContent(caseStudy.id, section.id)); track item) {
                       <li class="dark:text-dark-text-secondary text-light-text-secondary leading-relaxed">
                         {{ item }}
                       </li>
@@ -121,13 +121,13 @@
           <!-- No case study available yet -->
           <div class="mx-auto w-full max-w-3xl">
             <p class="dark:text-dark-text-secondary text-light-text-secondary">
-              Detailed case study coming soon.
+              {{ t('caseStudies.common.comingSoon') }}
             </p>
           </div>
         }
       } @else {
         <p class="dark:text-dark-text-secondary text-light-text-secondary">
-          Project not found.
+          {{ t('caseStudies.common.notFound') }}
         </p>
       }
     </div>

@@ -1,4 +1,5 @@
 import { Injectable, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 
 export interface SeoMetadata {
@@ -13,6 +14,7 @@ export interface SeoMetadata {
 export class SeoService {
   private titleService = inject(Title);
   private metaService = inject(Meta);
+  private document = inject(DOCUMENT);
 
   readonly defaultImage = 'https://muhammadalifbudiman.my.id/my-photo.png';
   readonly siteUrl = 'https://muhammadalifbudiman.my.id';
@@ -24,7 +26,7 @@ export class SeoService {
     if (meta.canonicalUrl) {
       this.metaService.updateTag({ property: 'og:url', content: meta.canonicalUrl });
       // update canonical link element if present
-      const canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+      const canonical = this.document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
       if (canonical) canonical.href = meta.canonicalUrl;
     }
 

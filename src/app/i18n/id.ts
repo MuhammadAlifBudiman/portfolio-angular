@@ -10,7 +10,7 @@ export const ID: PartialTranslation = {
     contact: 'Kontak',
   },
   footer: {
-    copyright: '© 2025 Muhammad Alif Budiman',
+    copyright: '© Muhammad Alif Budiman',
     backToTop: 'Kembali ke atas',
   },
   header: {
@@ -19,6 +19,8 @@ export const ID: PartialTranslation = {
     themeLabel: 'Tema',
     themeAriaLabel: 'Pilih tema warna',
     langAriaLabel: 'Ganti bahasa',
+    navAriaLabel: 'Toggle menu navigasi',
+    darkModeAriaLabel: 'Toggle mode gelap',
   },
   intro: {
     greeting: 'Halo! Nama saya',
@@ -59,6 +61,7 @@ export const ID: PartialTranslation = {
       demo: 'Demo Langsung',
       github: 'GitHub',
       apiDocs: 'Dokumentasi API',
+      liveApi: 'API Langsung',
       caseStudy: 'Studi Kasus',
       restricted: 'Terbatas / Internal',
       unavailable: 'Repositori tidak tersedia',
@@ -129,7 +132,7 @@ export const ID: PartialTranslation = {
     items: {
       bkn: {
         role: 'Programmer Magang — Sistem & Aplikasi Digital',
-        period: 'Nov 2025 – Mei 2026',
+        period: 'Nov 2025 – 23 Mei 2026',
         location: 'Jakarta Timur, Indonesia',
         description:
           'Mendukung pengembangan backend, alur kerja aplikasi digital, dan dokumentasi API untuk sistem internal sektor publik.',
@@ -302,5 +305,136 @@ export const ID: PartialTranslation = {
     'mknows-bootcamp': 'Proyek Bootcamp · M-Knows Consulting',
     'independent': 'Proyek Mandiri',
     'udemy-angular': 'Latihan Kursus · Udemy',
+  },
+  caseStudies: {
+    common: {
+      back: 'Kembali ke Portofolio',
+      notFound: 'Proyek tidak ditemukan.',
+      comingSoon: 'Studi kasus lengkap akan segera tersedia.',
+    },
+    sectionHeadings: {
+      overview: 'Gambaran Umum',
+      context: 'Konteks',
+      responsibilities: 'Tanggung Jawab',
+      architecture: 'Arsitektur',
+      'engineering-decisions': 'Keputusan Rekayasa Utama',
+      'technology-stack': 'Tumpukan Teknologi',
+    },
+    'bkn-internal-workflow-api': {
+      sections: {
+        overview:
+          'Mengembangkan endpoint API backend dengan Go untuk sistem alur kerja internal instansi pemerintah yang mendukung proses administrasi digital di lingkungan instansi sektor publik.',
+        context:
+          'Magang profesional di BKN RI (Badan Kepegawaian Negara), Nov 2025 – 23 Mei 2026. Peran: Programmer Intern — Sistem & Aplikasi Digital.',
+        responsibilities: [
+          'Mengimplementasikan endpoint REST API Go untuk operasi list, detail, dan pengambilan data.',
+          'Menambahkan filter, pengurutan, dan paginasi pada endpoint pengambilan data.',
+          'Bekerja dengan kontrol akses berbasis peran melalui integrasi Keycloak untuk autentikasi dan otorisasi.',
+          'Mengimplementasikan penanganan unggah berkas multipart untuk proses berbasis dokumen.',
+          'Memelihara dokumentasi OpenAPI/Swagger untuk endpoint yang diimplementasikan.',
+          'Mengerjakan data terkait penjadwalan, penanganan dokumen, dan pengelolaan data administratif.',
+          'Menangani transisi alur kerja dengan membaca dan memperbarui status pada data alur kerja yang sudah ada.',
+        ],
+        architecture:
+          'Sistem dibangun menggunakan Go untuk layanan backend dan mengikuti struktur REST API berlapis. Autentikasi dan otorisasi ditangani melalui integrasi Keycloak. Unggahan berkas diproses melalui penangan multipart, dan endpoint didokumentasikan dengan OpenAPI/Swagger.',
+        'engineering-decisions': [
+          'Mengimplementasikan paginasi mengikuti konvensi aplikasi yang sudah ada.',
+          'Bekerja dalam integrasi Keycloak yang sudah ada untuk autentikasi dan otorisasi alih-alih membuat autentikasi kustom.',
+          'Menjaga dokumentasi OpenAPI/Swagger tetap selaras dengan endpoint yang diimplementasikan.',
+          'Memanfaatkan kembali struktur berlapis yang sudah ada agar endpoint baru konsisten dengan sisa basis kode.',
+        ],
+        'technology-stack':
+          'Go · REST API · OpenAPI / Swagger · Keycloak · Multipart File Upload · Filter · Pengurutan · Paginasi',
+      },
+      accessNote: 'Sistem internal — tidak dapat diakses secara publik.',
+      confidentialityNote:
+        'Sesuai dengan kerahasiaan magang: tidak ada jalur endpoint internal, skema basis data, nama alur kerja, nama aplikasi, detail domain, atau tangkapan layar data nyata yang disertakan.',
+    },
+    'blog-api-server': {
+      sections: {
+        overview:
+          'REST API terstruktur produksi untuk platform blog, dibangun dalam Bootcamp Backend API Development M-Knows Consulting pada 2023. Mengimplementasikan CRUD penuh, autentikasi, notifikasi email, dan dokumentasi API.',
+        context:
+          'Proyek bootcamp di M-Knows Consulting — program Backend API Development. Peran: Backend Developer. Tahun: 2023.',
+        responsibilities: [
+          'Merancang dan mengimplementasikan arsitektur MVC dengan Node.js, Express, dan TypeScript.',
+          'Mengintegrasikan Sequelize ORM dengan PostgreSQL untuk pengelolaan data relasional.',
+          'Membangun autentikasi berbasis JWT (register, login, refresh token, rute terproteksi).',
+          'Mengimplementasikan validasi input dan penanganan error terstruktur.',
+          'Mengintegrasikan notifikasi email menggunakan layanan email pihak ketiga (Nodemailer).',
+          'Menyiapkan logging terstruktur dengan Winston.',
+          'Menghasilkan dokumentasi API menggunakan Postman dan spesifikasi swagger.yaml.',
+        ],
+        architecture:
+          'MVC tiga lapis: controller menangani routing HTTP, service berisi logika bisnis, dan model dipetakan ke PostgreSQL melalui Sequelize. Middleware autentikasi menjaga rute terproteksi, dan middleware logging menangkap metadata request/response.',
+        'engineering-decisions': [
+          'Memilih pemisahan MVC berlapis agar routing, logika bisnis, dan akses data tetap dapat diuji secara independen.',
+          'Menggunakan JWT dengan refresh token agar API tetap stateless sambil mendukung sesi yang lebih panjang.',
+          'Memusatkan validasi dan penanganan error agar endpoint mengembalikan bentuk error yang konsisten.',
+        ],
+        'technology-stack':
+          'Node.js · Express · TypeScript · Sequelize · PostgreSQL · JWT · Validasi · Logging · Notifikasi Email · Dokumentasi Postman · Swagger / OpenAPI',
+      },
+      accessNote:
+        'Deployment publik Vercel tersedia di https://express-blog-dun.vercel.app/. Kode sumber GitHub juga tersedia.',
+    },
+    'patient-management-system': {
+      sections: {
+        overview:
+          'Sistem Pengelolaan Pasien berbasis web yang dibangun untuk proyek akhir MSIB Batch 5 di LearningX (2023). Mengelola registrasi pasien, antrean janji temu, rekam medis, dan alur kerja administratif untuk konteks klinik.',
+        context:
+          'Proyek akhir MSIB di LearningX — Full-Stack Web Development (Batch 5), Agu–Des 2023. Peran: Full-Stack Developer & Ketua Tim. Proyek tim (3 anggota).',
+        responsibilities: [
+          'Memimpin perencanaan proyek, pembagian tugas, dan integrasi antara frontend dan backend.',
+          'Merancang skema dokumen MongoDB untuk pasien, janji temu, antrean, dan rekam medis.',
+          'Membangun rute backend Flask untuk CRUD pasien, penjadwalan janji temu, pengelolaan antrean, dan ekspor CSV.',
+          'Mengimplementasikan pembaruan antarmuka real-time berbasis AJAX untuk status antrean dan janji temu.',
+          'Mengembangkan alur kerja admin termasuk pencatatan rekam medis dan pengelolaan janji temu.',
+          'Menangani deployment ke Glitch (kini diarsipkan).',
+        ],
+        'technology-stack': 'Python · Flask · MongoDB · HTML · CSS · JavaScript · AJAX',
+      },
+      accessNote: 'Hosting Glitch tidak lagi tersedia (platform ditutup). Kode sumber GitHub tetap dapat diakses.',
+    },
+    'task-master': {
+      sections: {
+        overview:
+          'Aplikasi web manajemen tugas yang dikembangkan sebagai proyek akhir CS50W (2023). Memiliki alur tugas berulang harian, mingguan, dan bulanan dengan reset otomatis yang sadar zona waktu, REST API yang diamankan JWT, tabel data interaktif, dan ekspor Excel.',
+        context:
+          "CS50's Web Programming with Python and JavaScript — Proyek Akhir. Peran: Full-Stack Developer. Tahun: Jul–Agu 2023.",
+        responsibilities: [
+          'Merancang dan mengimplementasikan API Django REST Framework dengan autentikasi JWT (djangorestframework-simplejwt).',
+          'Membangun logika reset tugas terjadwal yang sadar zona waktu untuk siklus tugas harian, mingguan, dan bulanan.',
+          'Mengintegrasikan DataTables untuk paginasi, pengurutan, dan filter data tugas sisi server.',
+          'Mengimplementasikan ekspor Excel menggunakan openpyxl untuk pelaporan riwayat tugas.',
+          'Menyiapkan dokumentasi Swagger/OpenAPI melalui drf-spectacular.',
+          'Men-deploy ke PythonAnywhere dengan backend PostgreSQL.',
+        ],
+        architecture:
+          'Django menyajikan template frontend sementara DRF menyediakan lapisan API. Autentikasi berbasis JWT dengan dukungan refresh token. Reset tugas terjadwal dipicu oleh management command Django atau cron, dan DataTables terhubung ke API DRF untuk penanganan data sisi server.',
+        'technology-stack':
+          'Django · Django REST Framework · PostgreSQL · JWT · Swagger / OpenAPI · DataTables · Ekspor Excel · Reset Tugas Terjadwal',
+      },
+    },
+    'portfolio-website': {
+      sections: {
+        overview:
+          'Situs portofolio pribadi yang dibangun dengan Angular 20, SCSS, dan Tailwind CSS v4. Memiliki konten dwibahasa EN/ID, beberapa tema warna, mode gelap/terang, directive kursor kustom, formulir kontak EmailJS, dan unit test Karma/Jasmine.',
+        context: 'Proyek mandiri. Tahun: 2025 (aktif). Peran: Developer.',
+        responsibilities: [
+          'Merancang dan mengimplementasikan komponen Angular standalone untuk setiap bagian portofolio.',
+          'Membangun sistem i18n kustom menggunakan objek terjemahan TypeScript bertipe dengan pencarian dot-path dan fallback EN.',
+          'Mengimplementasikan ThemeService yang mengelola mode gelap/terang dan beberapa tema warna melalui CSS custom properties dan localStorage.',
+          'Menulis CustomCursorDirective yang menangani pergerakan mouse untuk pengalaman kursor kustom.',
+          'Mengintegrasikan EmailJS untuk pengiriman formulir kontak serverless tanpa backend.',
+          'Menyiapkan unit test Karma/Jasmine yang mencakup service, komponen, directive, dan rute.',
+          'Men-deploy melalui angular-cli-ghpages ke GitHub Pages dengan CNAME kustom.',
+        ],
+        architecture:
+          'Single-Page Application dengan Angular router (scroll in-memory + fragment anchor). Setiap bagian adalah komponen standalone, terjemahan diselesaikan saat runtime melalui LanguageService, dan tema diterapkan melalui override variabel CSS document.documentElement.',
+        'technology-stack':
+          'Angular 20 · TypeScript · SCSS · Tailwind CSS v4 · EmailJS · i18n (kustom) · Karma / Jasmine · GitHub Pages',
+      },
+    },
   },
 };

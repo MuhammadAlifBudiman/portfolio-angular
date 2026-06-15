@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectDetailComponent } from './project-detail.component';
 import { SeoService } from '../../services/seo.service';
+import { LanguageService } from '../../services/language.service';
 
 describe('ProjectDetailComponent', () => {
   let component: ProjectDetailComponent;
@@ -46,6 +47,27 @@ describe('ProjectDetailComponent', () => {
     expect(component.caseStudy).toBeDefined();
   });
 
+  it('should resolve section headings from i18n', () => {
+    expect(component.getSectionHeading('overview')).toBe('Overview');
+    expect(component.getSectionHeading('technology-stack')).toBe('Technology Stack');
+  });
+
+  it('should resolve paragraph section content from i18n', () => {
+    const overview = component.getSectionContent('task-master', 'overview');
+    expect(typeof overview).toBe('string');
+    expect(overview as string).toContain('Task management');
+  });
+
+  it('should resolve list section content from i18n as an array', () => {
+    const responsibilities = component.getSectionContent('task-master', 'responsibilities');
+    expect(Array.isArray(responsibilities)).toBeTrue();
+    expect((responsibilities as string[]).length).toBeGreaterThan(0);
+  });
+
+  it('should expose i18n-driven back label (no hardcoded English)', () => {
+    expect(component.t('caseStudies.common.back')).toBe('Back to Portfolio');
+  });
+
   it('should call seo.setMetadata on init', () => {
     expect(seoSpy.setMetadata).toHaveBeenCalled();
   });
@@ -77,5 +99,27 @@ describe('ProjectDetailComponent', () => {
       b.getAttribute('ng-reflect-button-text')?.includes('Case Study')
     );
     expect(caseStudyBtn).toBeUndefined();
+  });
+
+  describe('i18n section headings (B5)', () => {
+    it('renders English section heading "Overview" for task-master', () => {
+      expect(component.getSectionHeading('overview')).toBe('Overview');
+    });
+
+    it('renders Indonesian section heading "Gambaran Umum" when language is id', () => {
+      const lang = TestBed.inject(LanguageService);
+      lang.setLanguage('id');
+      fixture.detectChanges();
+      expect(component.getSectionHeading('overview')).toBe('Gambaran Umum');
+      lang.setLanguage('en');
+    });
+
+    it('t("caseStudies.common.back") resolves to Indonesian "Kembali ke Portofolio" when lang is id', () => {
+      const lang = TestBed.inject(LanguageService);
+      lang.setLanguage('id');
+      fixture.detectChanges();
+      expect(component.t('caseStudies.common.back')).toBe('Kembali ke Portofolio');
+      lang.setLanguage('en');
+    });
   });
 });

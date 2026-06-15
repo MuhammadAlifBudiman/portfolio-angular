@@ -10,7 +10,7 @@ export const EN: Translation = {
     contact: 'Contact',
   },
   footer: {
-    copyright: '© 2025 Muhammad Alif Budiman',
+    copyright: '© Muhammad Alif Budiman',
     backToTop: 'Back to top',
   },
   header: {
@@ -19,6 +19,8 @@ export const EN: Translation = {
     themeLabel: 'Theme',
     themeAriaLabel: 'Select colour theme',
     langAriaLabel: 'Switch language',
+    navAriaLabel: 'Toggle navigation menu',
+    darkModeAriaLabel: 'Toggle dark mode',
   },
   intro: {
     greeting: 'Hello! My name is',
@@ -59,6 +61,7 @@ export const EN: Translation = {
       demo: 'Live Demo',
       github: 'GitHub',
       apiDocs: 'API Docs',
+      liveApi: 'Live API',
       caseStudy: 'Case Study',
       restricted: 'Restricted / Internal',
       unavailable: 'Repository unavailable',
@@ -129,7 +132,7 @@ export const EN: Translation = {
     items: {
       bkn: {
         role: 'Programmer Intern — Digital Systems & Applications',
-        period: 'Nov 2025 – May 2026',
+        period: 'Nov 2025 – 23 May 2026',
         location: 'East Jakarta, Indonesia',
         description:
           'Supported backend development, digital application workflows, and API documentation for internal public-sector systems.',
@@ -302,5 +305,136 @@ export const EN: Translation = {
     'mknows-bootcamp': 'Bootcamp Project · M-Knows Consulting',
     'independent': 'Independent Project',
     'udemy-angular': 'Course Exercise · Udemy',
+  },
+  caseStudies: {
+    common: {
+      back: 'Back to Portfolio',
+      notFound: 'Project not found.',
+      comingSoon: 'Detailed case study coming soon.',
+    },
+    sectionHeadings: {
+      overview: 'Overview',
+      context: 'Context',
+      responsibilities: 'Responsibilities',
+      architecture: 'Architecture',
+      'engineering-decisions': 'Key Engineering Decisions',
+      'technology-stack': 'Technology Stack',
+    },
+    'bkn-internal-workflow-api': {
+      sections: {
+        overview:
+          'Developed backend API endpoints in Go for an internal government workflow system that supports digital administration processes within a public-sector agency.',
+        context:
+          'Professional internship at BKN RI (National Civil Service Agency), Nov 2025 – 23 May 2026. Role: Programmer Intern — Digital Systems & Applications.',
+        responsibilities: [
+          'Implemented Go REST API endpoints for list, detail, and data retrieval operations.',
+          'Added filtering, sorting, and pagination to data retrieval endpoints.',
+          'Worked with role-based access control through Keycloak integration for authentication and authorization.',
+          'Implemented multipart file upload handling for document-based processes.',
+          'Maintained OpenAPI/Swagger documentation for implemented endpoints.',
+          'Worked on scheduling-related data, document handling, and administrative data management.',
+          'Handled workflow transitions by reading and updating status on existing workflow data.',
+        ],
+        architecture:
+          'The system is built using Go for backend services and follows a layered REST API structure. Authentication and authorization are handled through Keycloak integration. File uploads are processed through a multipart handler, and endpoints are described with OpenAPI/Swagger documentation.',
+        'engineering-decisions': [
+          'Implemented pagination following existing application conventions.',
+          'Worked within the established Keycloak integration for authentication and authorization rather than introducing custom auth.',
+          'Kept OpenAPI/Swagger documentation in sync with implemented endpoints.',
+          'Reused the existing layered structure to keep new endpoints consistent with the rest of the codebase.',
+        ],
+        'technology-stack':
+          'Go · REST API · OpenAPI / Swagger · Keycloak · Multipart File Upload · Filtering · Sorting · Pagination',
+      },
+      accessNote: 'Internal system — not publicly accessible.',
+      confidentialityNote:
+        'In compliance with internship confidentiality: no internal endpoint paths, database schemas, workflow names, application names, domain details, or screenshots of real data are included.',
+    },
+    'blog-api-server': {
+      sections: {
+        overview:
+          'A production-structured REST API for a blog platform, built during the M-Knows Consulting Backend API Development Bootcamp in 2023. Implements full CRUD, authentication, email notification, and API documentation.',
+        context:
+          'Bootcamp project at M-Knows Consulting — Backend API Development program. Role: Backend Developer. Year: 2023.',
+        responsibilities: [
+          'Designed and implemented an MVC architecture with Node.js, Express, and TypeScript.',
+          'Integrated Sequelize ORM with PostgreSQL for relational data management.',
+          'Built JWT-based authentication (register, login, token refresh, protected routes).',
+          'Implemented input validation and structured error handling.',
+          'Integrated email notification using a third-party email service (Nodemailer).',
+          'Set up structured logging with Winston.',
+          'Produced API documentation using Postman and a swagger.yaml specification.',
+        ],
+        architecture:
+          'Three-layer MVC: controllers handle HTTP routing, services contain business logic, and models map to PostgreSQL via Sequelize. Authentication middleware guards protected routes, and logging middleware captures request/response metadata.',
+        'engineering-decisions': [
+          'Chose a layered MVC split so routing, business logic, and data access stay independently testable.',
+          'Used JWT with refresh tokens to keep the API stateless while supporting longer sessions.',
+          'Centralised validation and error handling so endpoints return consistent error shapes.',
+        ],
+        'technology-stack':
+          'Node.js · Express · TypeScript · Sequelize · PostgreSQL · JWT · Validation · Logging · Email Notification · Postman Documentation · Swagger / OpenAPI',
+      },
+      accessNote:
+        'A public Vercel deployment is available at https://express-blog-dun.vercel.app/. GitHub source code is also available.',
+    },
+    'patient-management-system': {
+      sections: {
+        overview:
+          'A web-based Patient Management System built for the MSIB Batch 5 capstone project at LearningX (2023). Manages patient registration, appointment queuing, medical records, and administrative workflows for a clinic context.',
+        context:
+          'MSIB Capstone project at LearningX — Full-Stack Web Development (Batch 5), Aug–Dec 2023. Role: Full-Stack Developer & Team Lead. Team project (3 members).',
+        responsibilities: [
+          'Led project planning, task distribution, and integration across frontend and backend.',
+          'Designed the MongoDB document schema for patients, appointments, queues, and medical records.',
+          'Built Flask backend routes for patient CRUD, appointment scheduling, queue management, and CSV export.',
+          'Implemented AJAX-based real-time interface updates for queue and appointment status.',
+          'Developed admin workflows including medical record entry and appointment management.',
+          'Handled deployment to Glitch (now archived).',
+        ],
+        'technology-stack': 'Python · Flask · MongoDB · HTML · CSS · JavaScript · AJAX',
+      },
+      accessNote: 'Glitch hosting is no longer available (platform shut down). GitHub source remains accessible.',
+    },
+    'task-master': {
+      sections: {
+        overview:
+          'Task management web application developed as a CS50W capstone project (2023). Features recurring daily, weekly, and monthly task workflows with timezone-aware automatic resets, a JWT-secured REST API, interactive data tables, and Excel export.',
+        context:
+          "CS50's Web Programming with Python and JavaScript — Capstone Project. Role: Full-Stack Developer. Year: Jul–Aug 2023.",
+        responsibilities: [
+          'Designed and implemented the Django REST Framework API with JWT authentication (djangorestframework-simplejwt).',
+          'Built timezone-aware scheduled task reset logic for daily, weekly, and monthly task cycles.',
+          'Integrated DataTables for server-side pagination, sorting, and filtering of task data.',
+          'Implemented Excel export using openpyxl for task history reporting.',
+          'Set up Swagger/OpenAPI documentation via drf-spectacular.',
+          'Deployed to PythonAnywhere with a PostgreSQL backend.',
+        ],
+        architecture:
+          'Django serves the frontend templates while DRF provides the API layer. Authentication is JWT-based with refresh token support. Scheduled task resets are triggered by Django management commands or cron, and DataTables connects to the DRF API for server-side data handling.',
+        'technology-stack':
+          'Django · Django REST Framework · PostgreSQL · JWT · Swagger / OpenAPI · DataTables · Excel Export · Scheduled Task Reset',
+      },
+    },
+    'portfolio-website': {
+      sections: {
+        overview:
+          'Personal portfolio website built with Angular 20, SCSS, and Tailwind CSS v4. Features bilingual EN/ID content, multiple colour themes, dark/light mode, a custom cursor directive, an EmailJS contact form, and Karma/Jasmine unit tests.',
+        context: 'Independent project. Year: 2025 (active). Role: Developer.',
+        responsibilities: [
+          'Designed and implemented standalone Angular components for each portfolio section.',
+          'Built a custom i18n system using typed TypeScript translation objects with dot-path lookup and EN fallback.',
+          'Implemented a ThemeService managing dark/light mode and multiple colour themes via CSS custom properties and localStorage.',
+          'Wrote a CustomCursorDirective handling mouse movement for a custom cursor experience.',
+          'Integrated EmailJS for serverless contact form submission without a backend.',
+          'Set up Karma/Jasmine unit tests covering services, components, directives, and routes.',
+          'Deployed via angular-cli-ghpages to GitHub Pages with a custom CNAME.',
+        ],
+        architecture:
+          'Single-Page Application with the Angular router (in-memory scroll + fragment anchors). Each section is a standalone component, translation is resolved at runtime via LanguageService, and themes are applied via document.documentElement CSS variable overrides.',
+        'technology-stack':
+          'Angular 20 · TypeScript · SCSS · Tailwind CSS v4 · EmailJS · i18n (custom) · Karma / Jasmine · GitHub Pages',
+      },
+    },
   },
 };

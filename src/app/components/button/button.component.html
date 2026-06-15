@@ -1,4 +1,19 @@
-@if (href) {
+@if (routerLink) {
+  <a
+    [routerLink]="routerLink"
+    [attr.aria-label]="ariaLabel || null"
+    class="dark:border-dark-accent-hover border-light-accent-hover dark:focus-visible:outline-dark-accent-hover focus-visible:outline-light-accent-hover group relative z-0 mt-2.5 inline-flex h-[64px] w-[230px] min-w-[130px] cursor-none items-center justify-center overflow-hidden rounded-lg border-2 border-solid bg-transparent px-[50px] py-[15px] text-center text-base font-bold uppercase focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2"
+  >
+    <div
+      class="dark:text-dark-background-primary dark:bg-dark-accent-hover text-light-background-primary bg-light-accent-hover absolute left-0 top-0 -z-[1] h-full w-full translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:translate-y-0"
+    ></div>
+    <span
+      class="dark:text-dark-accent-hover dark:group-hover:text-dark-background-primary text-light-accent-hover group-hover:text-light-background-primary select-none"
+    >
+      {{ buttonText }}</span
+    >
+  </a>
+} @else if (href) {
   <a
     [href]="href"
     [attr.download]="download || null"

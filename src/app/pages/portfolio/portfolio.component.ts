@@ -1,4 +1,5 @@
-import { Component, OnInit, signal, computed, inject, Input } from '@angular/core';
+import { Component, OnInit, signal, computed, inject, Input, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ButtonComponent } from '../../components/button/button.component';
 import { PROJECTS } from '../../data/projects.data';
 import { LanguageService } from '../../services/language.service';
@@ -21,6 +22,7 @@ export class PortfolioComponent implements OnInit {
   readonly filters = ALL_FILTERS;
   private lang = inject(LanguageService);
   private seo = inject(SeoService);
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   activeFilter = signal<FilterKey>('all');
 
@@ -59,7 +61,10 @@ export class PortfolioComponent implements OnInit {
   statusLabel(key: string): string { return this.lang.t(`portfolio.status.${key}`); }
 
   openWebsite(url: string): () => void {
-    return () => window.open(url, '_blank', 'noopener,noreferrer');
+    return () => {
+      if (!this.isBrowser) return;
+      window.open(url, '_blank', 'noopener,noreferrer');
+    };
   }
 
   ngOnInit(): void {

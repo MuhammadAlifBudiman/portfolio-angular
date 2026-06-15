@@ -102,24 +102,28 @@ describe('PortfolioComponent', () => {
   });
 
   describe('link rendering by status', () => {
-    it('restricted card (bkn) shows a status chip and no anchor', () => {
+    it('restricted card (bkn) renders both status badge and caseStudy anchor', () => {
       const card = cardById('bkn-internal-workflow-api');
       expect(card).withContext('bkn card should render').not.toBeNull();
-      expect(card!.querySelector('a')).withContext('no href anchor for restricted').toBeNull();
 
-      const chip = card!.querySelector('[role="status"]') as HTMLElement;
-      expect(chip).withContext('restricted status chip present').not.toBeNull();
-      expect(chip.tagName.toLowerCase()).toBe('span');
+      // bkn has a caseStudy link — CTAs render independently of status badge
+      const caseStudyAnchor = card!.querySelector('a[href="/projects/bkn-internal-workflow-api"]');
+      expect(caseStudyAnchor).withContext('caseStudy anchor should be present').not.toBeNull();
+
+      // status badge always renders regardless of links presence
+      const chip = card!.querySelector('[role="status"]');
+      expect(chip).withContext('status chip should always render for restricted projects').not.toBeNull();
+      expect(chip!.textContent?.trim()).withContext('chip text should show restricted label').toBe('Restricted');
     });
 
-    it('live card with two links (portfolio-website) renders demo and github anchors', () => {
+    it('live card with three links (portfolio-website) renders demo, github, and caseStudy anchors', () => {
       const project = PROJECTS.find((p) => p.id === 'portfolio-website')!;
-      expect(project.links.length).toBe(2);
+      expect(project.links.length).toBe(3);
 
       const card = cardById('portfolio-website');
       expect(card).not.toBeNull();
       const anchors = card!.querySelectorAll('a[href]');
-      expect(anchors.length).toBe(2);
+      expect(anchors.length).toBe(3);
     });
   });
 
@@ -162,5 +166,94 @@ describe('PortfolioComponent', () => {
     const url = 'https://example.com/';
     component.openWebsite(url)();
     expect(openSpy).toHaveBeenCalledWith(url, '_blank', 'noopener,noreferrer');
+  });
+
+  describe('status badge independent from CTAs (B3)', () => {
+    it('shows restricted badge even when project has links (bkn has caseStudy)', () => {
+      const card = cardById('bkn-internal-workflow-api');
+      expect(card).withContext('bkn card should render').not.toBeNull();
+
+      // Status badge always renders regardless of links presence
+      const chip = card!.querySelector('[role="status"]');
+      expect(chip).withContext('restricted status chip should render').not.toBeNull();
+      expect(chip!.textContent?.trim()).toBe('Restricted');
+
+      // CTA link is also present (caseStudy anchor)
+      const anchor = card!.querySelector('a');
+      expect(anchor).withContext('caseStudy link should render independently').not.toBeNull();
+    });
+
+    it('shows archived badge even when project has links (patient-management-system has github + caseStudy)', () => {
+      const card = cardById('patient-management-system');
+      expect(card).withContext('patient-management-system card should render').not.toBeNull();
+
+      const chip = card!.querySelector('[role="status"]');
+      expect(chip).withContext('archived status chip should render').not.toBeNull();
+      expect(chip!.textContent?.trim()).toBe('Archived');
+
+      // Both github and caseStudy links should be present
+      const anchors = card!.querySelectorAll('a[href]');
+      expect(anchors.length).withContext('patient-management-system has github + caseStudy anchors').toBe(2);
+    });
+
+    it('shows live badge for blog-api-server project with 3 links', () => {
+      const card = cardById('blog-api-server');
+      expect(card).withContext('blog-api-server card should render').not.toBeNull();
+
+      const chip = card!.querySelector('[role="status"]');
+      expect(chip).withContext('live status chip should render').not.toBeNull();
+      expect(chip!.textContent?.trim()).toBe('Live');
+
+      // liveApi + github + caseStudy anchors
+      const anchors = card!.querySelectorAll('a[href]');
+      expect(anchors.length).withContext('blog-api-server has 3 CTA links').toBe(3);
+    });
+  });
+
+  describe('projects data integrity (B1)', () => {
+    it('blog-api-server has linkStatus live', () => {
+      const blog = PROJECTS.find((p) => p.id === 'blog-api-server')!;
+      expect(blog.linkStatus).toBe('live');
+    });
+
+    it('blog-api-server has liveApi link pointing to Vercel', () => {
+      const blog = PROJECTS.find((p) => p.id === 'blog-api-server')!;
+      const live = blog.links.find((l) => l.type === 'liveApi');
+      expect(live?.url).toBe('https://express-blog-dun.vercel.app/');
+    });
+
+    it('blog-api-server has github link', () => {
+      const blog = PROJECTS.find((p) => p.id === 'blog-api-server')!;
+      expect(blog.links.some((l) => l.type === 'github')).toBeTrue();
+    });
+
+    it('blog-api-server has caseStudy link', () => {
+      const blog = PROJECTS.find((p) => p.id === 'blog-api-server')!;
+      expect(blog.links.some((l) => l.type === 'caseStudy')).toBeTrue();
+    });
+
+    it('blog-api-server has NO apiDocs link', () => {
+      const blog = PROJECTS.find((p) => p.id === 'blog-api-server')!;
+      expect(blog.links.some((l) => l.type === 'apiDocs')).toBeFalse();
+    });
+
+    it('all featured projects have a caseStudy link', () => {
+      const featured = PROJECTS.filter((p) => p.featured);
+      for (const project of featured) {
+        expect(project.links.some((l) => l.type === 'caseStudy'))
+          .withContext(`${project.id} should have caseStudy link`)
+          .toBeTrue();
+      }
+    });
+
+    it('bkn-internal-workflow-api has restricted linkStatus', () => {
+      const bkn = PROJECTS.find((p) => p.id === 'bkn-internal-workflow-api')!;
+      expect(bkn.linkStatus).toBe('restricted');
+    });
+
+    it('bkn-internal-workflow-api has caseStudy link', () => {
+      const bkn = PROJECTS.find((p) => p.id === 'bkn-internal-workflow-api')!;
+      expect(bkn.links.some((l) => l.type === 'caseStudy')).toBeTrue();
+    });
   });
 });

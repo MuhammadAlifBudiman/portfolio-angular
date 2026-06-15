@@ -1,4 +1,5 @@
-import { Directive, Renderer2, OnInit, OnDestroy } from '@angular/core';
+import { Directive, Renderer2, OnInit, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
   selector: '[appCustomCursor]',
@@ -7,10 +8,12 @@ export class CustomCursorDirective implements OnInit, OnDestroy {
   private cursorBig!: HTMLElement;
   private translation = { x: 0, y: 0 };
   private scaling = 1;
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
+    if (!this.isBrowser) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     this.initCursor();
   }
@@ -59,6 +62,7 @@ export class CustomCursorDirective implements OnInit, OnDestroy {
   };
 
   ngOnDestroy(): void {
+    if (!this.isBrowser) return;
     window.removeEventListener('mousemove', this.positionElement);
     window.removeEventListener('mousedown', this.enlargeCursor);
     window.removeEventListener('mouseup', this.shrinkCursor);
