@@ -136,6 +136,10 @@ html[data-style-theme='ember'] {
   @apply animate-fadein flex min-h-[100vh] w-full flex-col items-center justify-center;
 }
 
+@utility section-wrapper {
+  @apply animate-fadein flex w-full flex-col items-center justify-center;
+}
+
 @utility big-cursor {
   @apply dark:border-dark-text-primary border-light-text-primary dark:before:bg-dark-background-hover before:bg-light-background-hover dark:before:border-dark-text-primary before:border-light-text-primary pointer-events-none fixed left-0 top-0 z-[999999] h-[50px] w-[50px] rounded-full border-2 mix-blend-multiply before:absolute before:left-0 before:top-0 before:block before:h-full before:w-full before:rounded-full before:border-2 before:mix-blend-multiply before:blur-[11px] before:content-[""] dark:mix-blend-screen dark:before:mix-blend-screen;
   transform: translate3d(-100%, -100%, 0);
