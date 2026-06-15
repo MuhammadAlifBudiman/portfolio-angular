@@ -46,6 +46,27 @@ describe('ProjectDetailComponent', () => {
     expect(component.caseStudy).toBeDefined();
   });
 
+  it('should resolve section headings from i18n', () => {
+    expect(component.getSectionHeading('overview')).toBe('Overview');
+    expect(component.getSectionHeading('technology-stack')).toBe('Technology Stack');
+  });
+
+  it('should resolve paragraph section content from i18n', () => {
+    const overview = component.getSectionContent('task-master', 'overview');
+    expect(typeof overview).toBe('string');
+    expect(overview as string).toContain('Task management');
+  });
+
+  it('should resolve list section content from i18n as an array', () => {
+    const responsibilities = component.getSectionContent('task-master', 'responsibilities');
+    expect(Array.isArray(responsibilities)).toBeTrue();
+    expect((responsibilities as string[]).length).toBeGreaterThan(0);
+  });
+
+  it('should expose i18n-driven back label (no hardcoded English)', () => {
+    expect(component.t('caseStudies.common.back')).toBe('Back to Portfolio');
+  });
+
   it('should call seo.setMetadata on init', () => {
     expect(seoSpy.setMetadata).toHaveBeenCalled();
   });
