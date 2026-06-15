@@ -1,9 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, inject, Input } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CommonModule } from '@angular/common';
 import { EmailService } from '../../services/email.service';
-import { Title, Meta } from '@angular/platform-browser';
 import { LanguageService } from '../../services/language.service';
+import { SeoService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-contact',
@@ -12,10 +12,10 @@ import { LanguageService } from '../../services/language.service';
   styleUrl: './contact.component.scss',
 })
 export class ContactComponent implements OnInit {
+  @Input() pageMode = true;
   private lang = inject(LanguageService);
   private emailService = inject(EmailService);
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
+  private seo = inject(SeoService);
 
   phoneNumber = '+6281295837271';
   email = 'alifm2101@gmail.com';
@@ -44,8 +44,13 @@ export class ContactComponent implements OnInit {
   get formSendingLabel(): string { return this.lang.t('contact.form.sending'); }
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.lang.t('seo.contact.title'));
-    this.metaService.updateTag({ name: 'description', content: this.lang.t('seo.contact.description') });
+    if (this.pageMode) {
+      this.seo.setMetadata({
+        title: this.lang.t('seo.contact.title'),
+        description: this.lang.t('seo.contact.description'),
+        canonicalUrl: 'https://muhammadalifbudiman.my.id/contact',
+      });
+    }
   }
 
   sendData = (): void => {

@@ -58,3 +58,5 @@ graphify-out/
 
 # Playwright CLI browser cache
 .playwright-cli/
+
+artifacts/

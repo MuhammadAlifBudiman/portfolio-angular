@@ -62,6 +62,11 @@ describe('HeaderComponent', () => {
       expect(hamburger.getAttribute('aria-controls')).toBe('nav-menu');
     });
 
+    it('stays visible below the 2xl desktop navigation breakpoint', () => {
+      expect(hamburger.classList).toContain('2xl:hidden');
+      expect(hamburger.classList).not.toContain('xl:hidden');
+    });
+
     it('toggleMenu() sets isMenuOpen to true on first call', () => {
       expect(component.isMenuOpen).toBeFalse();
       component.toggleMenu();
@@ -116,6 +121,16 @@ describe('HeaderComponent', () => {
       component.onEscape();
 
       expect(component.isMenuOpen).toBeFalse();
+    });
+  });
+
+  describe('desktop navigation breakpoint', () => {
+    it('uses 2xl classes for the expanded desktop nav', () => {
+      const navMenu = fixture.nativeElement.querySelector('#nav-menu') as HTMLElement;
+      expect(navMenu.classList).toContain('2xl:static');
+      expect(navMenu.classList).toContain('2xl:block');
+      expect(navMenu.classList).not.toContain('xl:static');
+      expect(navMenu.classList).not.toContain('xl:block');
     });
   });
 

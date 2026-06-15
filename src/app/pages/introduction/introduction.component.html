@@ -20,10 +20,24 @@
       <p class="lg:max-w-[550px] mb-1.5 mt-4">
         {{ introductionText }}
       </p>
-      <app-button
-        [buttonText]="aboutMeButtonText"
-        [buttonAction]="navigate"
-      ></app-button>
+      <!-- Availability + location -->
+      <p class="dark:text-dark-text-secondary text-light-text-secondary lg:max-w-[550px] mb-4 mt-2 font-mono text-sm">
+        {{ availabilityText }} · {{ locationText }}
+      </p>
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-3">
+        <app-button
+          [href]="'#section-portfolio'"
+          [buttonText]="viewProjectsText"
+          [ariaLabel]="viewProjectsText"
+        ></app-button>
+        <app-button
+          href="resume.pdf"
+          [buttonText]="downloadResumeText"
+          download="Muhammad-Alif-Budiman-Resume.pdf"
+          [ariaLabel]="downloadResumeText"
+        ></app-button>
+      </div>
     </div>
   </div>
 </div>

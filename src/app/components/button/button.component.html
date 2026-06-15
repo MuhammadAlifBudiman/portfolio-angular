@@ -3,6 +3,8 @@
     [href]="href"
     [attr.download]="download || null"
     [attr.aria-label]="ariaLabel || null"
+    [attr.target]="newTab ? '_blank' : null"
+    [attr.rel]="newTab ? 'noopener noreferrer' : null"
     class="dark:border-dark-accent-hover border-light-accent-hover dark:focus-visible:outline-dark-accent-hover focus-visible:outline-light-accent-hover group relative z-0 mt-2.5 inline-flex h-[64px] w-[230px] min-w-[130px] cursor-none items-center justify-center overflow-hidden rounded-lg border-2 border-solid bg-transparent px-[50px] py-[15px] text-center text-base font-bold uppercase focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2"
   >
     <div

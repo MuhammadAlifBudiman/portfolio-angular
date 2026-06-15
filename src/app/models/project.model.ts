@@ -31,7 +31,7 @@ export interface Project {
   /** @deprecated Cards should read `links` instead. Kept for backward compatibility. */
   url?: string;
   stack: string[];
-  linkStatus: 'live' | 'restricted' | 'unavailable';
+  linkStatus: 'live' | 'restricted' | 'archived' | 'unavailable';
   featured: boolean;
   categories: ProjectCategory[];
   /** Four-digit year or range (e.g. '2024', '2025–2026'). Omit when unknown. */

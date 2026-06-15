@@ -85,6 +85,23 @@ describe('ButtonComponent', () => {
       expect(anchor.getAttribute('aria-label')).toBe('Download Resume');
     });
 
+    it('does not set target or rel on internal anchors by default', () => {
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.getAttribute('target')).toBeNull();
+      expect(anchor.getAttribute('rel')).toBeNull();
+    });
+
+    it('sets safe new-tab attributes when requested', () => {
+      component.newTab = true;
+      fixture.detectChanges();
+
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.getAttribute('target')).toBe('_blank');
+      expect(anchor.getAttribute('rel')).toBe('noopener noreferrer');
+    });
+
     it('displays buttonText inside the anchor', () => {
       const anchor: HTMLAnchorElement =
         fixture.nativeElement.querySelector('a');

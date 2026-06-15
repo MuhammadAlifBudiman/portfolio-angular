@@ -9,11 +9,19 @@
       >
         {{ contactEyebrow }}
       </p>
-      <h1
-        class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
-      >
-        {{ contactTitle }}
-      </h1>
+      @if (pageMode) {
+        <h1
+          class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
+        >
+          {{ contactTitle }}
+        </h1>
+      } @else {
+        <h2
+          class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
+        >
+          {{ contactTitle }}
+        </h2>
+      }
       <div class="mt-4 flex flex-col items-center justify-center">
         <p
           class="dark:text-dark-text-secondary text-light-text-secondary mb-1 max-w-[500px] text-base"

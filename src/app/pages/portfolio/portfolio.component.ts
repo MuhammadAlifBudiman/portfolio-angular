@@ -1,8 +1,8 @@
-import { Component, OnInit, signal, computed, inject } from '@angular/core';
+import { Component, OnInit, signal, computed, inject, Input } from '@angular/core';
 import { ButtonComponent } from '../../components/button/button.component';
 import { PROJECTS } from '../../data/projects.data';
-import { Title, Meta } from '@angular/platform-browser';
 import { LanguageService } from '../../services/language.service';
+import { SeoService } from '../../services/seo.service';
 import { ProjectCategory } from '../../models/project.model';
 
 export type FilterKey = 'all' | 'featured' | ProjectCategory;
@@ -16,11 +16,11 @@ const ALL_FILTERS: FilterKey[] = ['all', 'featured', 'backend', 'fullstack', 'fr
   styleUrl: './portfolio.component.scss',
 })
 export class PortfolioComponent implements OnInit {
+  @Input() pageMode = true;
   readonly allProjects = PROJECTS;
   readonly filters = ALL_FILTERS;
   private lang = inject(LanguageService);
-  private titleService = inject(Title);
-  private metaService = inject(Meta);
+  private seo = inject(SeoService);
 
   activeFilter = signal<FilterKey>('all');
 
@@ -63,7 +63,12 @@ export class PortfolioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titleService.setTitle(this.lang.t('seo.portfolio.title'));
-    this.metaService.updateTag({ name: 'description', content: this.lang.t('seo.portfolio.description') });
+    if (this.pageMode) {
+      this.seo.setMetadata({
+        title: this.lang.t('seo.portfolio.title'),
+        description: this.lang.t('seo.portfolio.description'),
+        canonicalUrl: 'https://muhammadalifbudiman.my.id/portfolio',
+      });
+    }
   }
 }

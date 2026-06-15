@@ -5,15 +5,23 @@
       <div class="mx-auto mb-8 max-w-xl text-center">
         <p
           id="section-portfolio"
-          class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-base md:text-xl"
+          class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-base md:text-xl scroll-mt-20"
         >
           {{ portfolioEyebrow }}
         </p>
-        <h1
-          class="dark:text-dark-text-primary text-light-text-primary text-3xl font-bold md:text-4xl lg:text-6xl"
-        >
-          {{ portfolioTitle }}
-        </h1>
+        @if (pageMode) {
+          <h1
+            class="dark:text-dark-text-primary text-light-text-primary text-3xl font-bold md:text-4xl lg:text-6xl"
+          >
+            {{ portfolioTitle }}
+          </h1>
+        } @else {
+          <h2
+            class="dark:text-dark-text-primary text-light-text-primary text-3xl font-bold md:text-4xl lg:text-6xl"
+          >
+            {{ portfolioTitle }}
+          </h2>
+        }
       </div>
 
       <!-- Filter bar -->
@@ -140,6 +148,13 @@
                           ctaLabel('unavailable') + ': ' + project.title
                         "
                       ></app-button>
+                    } @else if (project.linkStatus === 'archived') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="ctaLabel('archived') + ': ' + project.title"
+                        >{{ ctaLabel('archived') }}</span
+                      >
                     }
                   </div>
                 </div>
@@ -250,6 +265,13 @@
                           ctaLabel('unavailable') + ': ' + project.title
                         "
                       ></app-button>
+                    } @else if (project.linkStatus === 'archived') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="ctaLabel('archived') + ': ' + project.title"
+                        >{{ ctaLabel('archived') }}</span
+                      >
                     }
                   </div>
                 </div>

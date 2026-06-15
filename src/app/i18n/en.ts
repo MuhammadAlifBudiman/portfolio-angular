@@ -6,6 +6,7 @@ export const EN: Translation = {
     experience: 'Experience',
     portfolio: 'Portfolio',
     certifications: 'Certifications',
+    technologies: 'Technologies',
     contact: 'Contact',
   },
   footer: {
@@ -22,8 +23,11 @@ export const EN: Translation = {
   intro: {
     greeting: 'Hello! My name is',
     role: 'Full-Stack Web Developer',
-    body: 'Computer Science graduate focused on backend API development, workflow systems, and responsive web applications using Go, TypeScript, Angular, Python, Flask, Django, PostgreSQL, and MongoDB.',
-    aboutMeBtn: 'About Me',
+    body: 'Backend-focused developer building API-driven, workflow-based, and responsive web applications with Go, TypeScript, Angular, Python, and PostgreSQL.',
+    viewProjectsBtn: 'View Projects',
+    downloadResumeBtn: 'Download Resume',
+    availability: 'Open to Full-Stack and Backend Developer roles',
+    location: 'Bekasi / Jakarta, Indonesia',
   },
   about: {
     eyebrow: 'Learn more',
@@ -58,11 +62,13 @@ export const EN: Translation = {
       caseStudy: 'Case Study',
       restricted: 'Restricted / Internal',
       unavailable: 'Repository unavailable',
+      archived: 'Demo Unavailable',
     },
     status: {
       live: 'Live',
       restricted: 'Restricted',
       unavailable: 'Unavailable',
+      archived: 'Archived',
     },
   },
   contact: {
@@ -108,10 +114,18 @@ export const EN: Translation = {
       title: 'Contact — Muhammad Alif Budiman',
       description: 'Get in touch with Muhammad Alif Budiman — full-stack web developer. Contact via email, WhatsApp, or the contact form.',
     },
+    project: {
+      titleSuffix: '— Muhammad Alif Budiman',
+    },
   },
   experience: {
     eyebrow: 'Work Experience',
     title: 'Experience',
+    groups: {
+      professional: 'Professional Experience',
+      training: 'Training & Programs',
+    },
+    relatedProject: 'Related Project',
     items: {
       bkn: {
         role: 'Programmer Intern — Digital Systems & Applications',
@@ -130,28 +144,98 @@ export const EN: Translation = {
         period: 'Aug 2023 – Dec 2023',
         location: 'Remote',
         description:
-          'Completed a project-based full-stack web development program covering frontend, backend, database, and deployment practice.',
+          'Completed a project-based full-stack web development program (MSIB Batch 5) covering frontend, backend, database, and deployment practice.',
         contributions: [
           'Completed modules in HTML, CSS, JavaScript, Python, Flask, MongoDB, AJAX, CRUD workflows, web scraping, and deployment.',
-          'Contributed to a team-based Patient Management System as full-stack developer.',
+          'Led a team-based Patient Management System project as full-stack developer and project lead.',
+        ],
+      },
+      mknows: {
+        role: 'Backend Developer — Bootcamp Participant',
+        period: '2023',
+        location: 'Remote',
+        description:
+          'Completed a backend API development bootcamp at M-Knows Consulting, building a production-structured REST API with Node.js, Express, TypeScript, and PostgreSQL.',
+        contributions: [
+          'Implemented MVC architecture with Sequelize ORM and PostgreSQL for a blog platform API.',
+          'Built JWT authentication, input validation, email notification integration, and structured logging.',
+          'Produced API documentation using Postman and Swagger/OpenAPI specification.',
         ],
       },
     },
   },
   certifications: {
-    eyebrow: 'Certifications',
+    eyebrow: 'Verified Credentials',
     title: 'Certifications',
     items: {
-      'learningx-msib': {
-        name: 'Full-Stack Web Development',
-        issuer: 'LearningX MSIB',
-        period: '2023',
-      },
       'bkn-internship': {
-        name: 'Internship Certificate',
+        name: 'Internship Certificate — Digital Systems & Applications',
         issuer: 'BKN RI (National Civil Service Agency)',
         period: '2026',
+        credentialLabel: 'View Credential',
+        credentialLabels: {
+          bkn: 'View BKN Certificate',
+          kemnaker: 'View Kemnaker Certificate',
+        },
       },
+      'cs50w': {
+        name: "CS50's Web Programming with Python and JavaScript",
+        issuer: 'CS50 / HarvardX',
+        period: '2023',
+        credentialLabel: 'View Certificate',
+      },
+      'cs50x': {
+        name: "CS50's Introduction to Computer Science",
+        issuer: 'CS50 / HarvardX',
+        period: '2023',
+        credentialLabel: 'View Certificate',
+      },
+      'postman-api-fundamentals': {
+        name: 'API Fundamentals Student Expert',
+        issuer: 'Postman',
+        period: '2025',
+        credentialLabel: 'View Badge',
+      },
+      'dicoding-backend-js': {
+        name: 'Belajar Back-End Pemula dengan JavaScript',
+        issuer: 'Dicoding',
+        period: '2025',
+        credentialLabel: 'View Certificate',
+      },
+      '30-days-of-angular': {
+        name: '30 Days of Angular: Build 30 Projects with Angular',
+        issuer: 'Udemy',
+        period: '2025',
+        credentialLabel: 'View Certificate',
+      },
+      'aws-cloud-gen-ai': {
+        name: 'Belajar Dasar Cloud dan Gen AI di AWS',
+        issuer: 'Dicoding',
+        period: '2025',
+        credentialLabel: 'View Certificate',
+      },
+      'git-github-bootcamp': {
+        name: 'The Git & Github Bootcamp',
+        issuer: 'Udemy',
+        period: '2025',
+        credentialLabel: 'View Certificate',
+      },
+      'learningx-msib': {
+        name: 'Full-Stack Web Development',
+        issuer: 'LearningX MSIB (Batch 5)',
+        period: '2023',
+        credentialLabel: 'View Certificate',
+      },
+    },
+  },
+  technologies: {
+    eyebrow: 'Technical Capabilities',
+    title: 'Technologies',
+    groups: {
+      backend: 'Backend & API',
+      frontend: 'Frontend',
+      databases: 'Databases',
+      tools: 'Engineering Tools',
     },
   },
   projects: {
@@ -161,29 +245,14 @@ export const EN: Translation = {
       role: 'Backend developer — Go API implementation and Swagger/OpenAPI documentation',
     },
     'blog-api-server': {
-      description: 'A TypeScript-based REST API for a blog platform with authentication, validation, PostgreSQL integration, email notifications, logging, and API documentation.',
+      description: 'A TypeScript-based REST API for a blog platform with JWT authentication, input validation, PostgreSQL integration, email notifications, logging, and Postman/Swagger API documentation.',
       imageAlt: 'Backend architecture diagram for Blog API Server with Express API, authentication, Sequelize ORM, PostgreSQL, email notifications, and logging',
       role: 'Backend developer — REST API, authentication, validation, database integration, and documentation',
     },
     'patient-management-system': {
       description: 'Patient Management System built with Flask and MongoDB for patient registration, queue handling, scheduling, medical records, admin workflows, CSV export, and real-time interface updates.',
       imageAlt: 'Screenshot of Patient Management System application dashboard',
-      role: 'Full-stack developer — backend API and database design',
-    },
-    'numble': {
-      description: 'Numble is an engaging and addictive web-based number puzzle game that challenges players to use their mathematical skills.',
-      imageAlt: 'Screenshot of Numble math word-guessing game interface',
-      role: 'Frontend developer — game logic and UI',
-    },
-    'bemy': {
-      description: 'Platform for individuals to find chat friends and engage in virtual conversations.',
-      imageAlt: 'Screenshot of BeMy friend chat matching application',
-      role: 'Frontend developer — matching interface and chat UI',
-    },
-    'stock-data': {
-      description: 'An Inventory Control website to facilitate stock management and ensure product availability across various marketplaces.',
-      imageAlt: 'Screenshot of StockData inventory management system',
-      role: 'Full-stack developer — inventory logic and marketplace sync',
+      role: 'Full-stack developer — backend API, database design, and team lead',
     },
     'task-master': {
       description: 'Task management web application with recurring daily, weekly, and monthly workflows, JWT-secured REST API, task history, timezone-based automatic resets, Swagger API documentation, interactive data tables, and Excel export.',
@@ -191,37 +260,39 @@ export const EN: Translation = {
       role: 'Full-stack developer — Django REST API, scheduled task resets, and data tables',
     },
     'portfolio-website': {
-      description: 'Responsive Angular portfolio website with bilingual content (EN/ID), reusable standalone components, custom directives, dark/light theme support, project showcase, and EmailJS contact form.',
+      description: 'Responsive Angular portfolio website with bilingual content (EN/ID), standalone components, custom directives, dark/light theme support, multiple colour themes, project showcase, and EmailJS contact form.',
       imageAlt: 'Screenshot of Muhammad Alif Budiman portfolio website',
-      role: 'Developer — Angular, TypeScript, SCSS, Tailwind CSS, i18n',
+      role: 'Developer — Angular, TypeScript, SCSS, Tailwind CSS, i18n, unit testing',
     },
-    'color-tap': {
-      description: 'This addictive web-based game is designed to test your reflexes and color recognition skills in a fun and engaging way.',
-      imageAlt: 'Screenshot of Color Tap browser tapping game',
+    'numble': {
+      description: 'A web-based number puzzle game where players combine numbers to form a target using mathematical skills. Built as a team project.',
+      imageAlt: 'Screenshot of Numble math puzzle game interface',
+      role: 'Frontend developer — game logic and UI',
     },
-    'coffee-shop': {
-      description: 'The CoffeeShop website is your one-stop destination for a delightful coffee experience.',
-      imageAlt: 'Screenshot of Coffee Shop web application',
+    'password-security': {
+      description: 'Angular web app for password security: generates strong passwords, checks for data breaches via the Have I Been Pwned API, analyses password strength, and explains password security best practices.',
+      imageAlt: 'Screenshot of Password Security Angular app showing password strength checker and breach detection',
+      role: 'Developer — Angular, API integration, password analysis',
     },
-    'checkers': {
-      description: 'A web-based Checkers game built with Angular, featuring turn-based gameplay, piece movement, capturing, king promotion, and game-over conditions. It enforces Checkers rules and has a modular structure for scalability.',
-      imageAlt: 'Screenshot of Checkers board game in Angular',
-    },
-    'minesweeper': {
-      description: 'A web-based implementation of the classic Minesweeper game built with Angular. Players uncover cells on a grid to avoid hidden mines and reveal numbers indicating adjacent mines.',
-      imageAlt: 'Screenshot of Minesweeper game grid interface',
+    'crypto-charts': {
+      description: 'Real-time cryptocurrency price charts and coin information built with Angular, consuming a public crypto API. Developed as part of the 30 Days of Angular course.',
+      imageAlt: 'Screenshot of Crypto Charts Angular app showing real-time price charts',
+      role: 'Developer — Angular, API integration, data visualisation',
     },
     'resume-builder': {
-      description: 'ResumeBuilder is an Angular-based web application that helps users create, edit, and download professional resumes. It features an editable form for inputting details, a live preview of the resume, and PDF generation.',
+      description: 'Angular-based web application for creating, editing, and downloading professional resumes. Features an editable form, live preview, and PDF generation.',
       imageAlt: 'Screenshot of Resume Builder with live preview and PDF export',
-    },
-    'quiz-app': {
-      description: 'QuizzApp is a web-based quiz application built with Angular. It allows users to take quizzes, create custom quizzes, and view their quiz history.',
-      imageAlt: 'Screenshot of Quiz App showing quiz creation and history',
+      role: 'Developer — Angular, form handling, PDF generation',
     },
     'typing-game': {
-      description: 'TypingGame is a web-based app that helps users improve typing speed and accuracy through interactive tests. It features typing challenges, a leaderboard, customizable themes, and detailed performance stats.',
+      description: 'Interactive typing speed and accuracy test with typing challenges, leaderboard, customisable themes, and detailed performance statistics.',
       imageAlt: 'Screenshot of Typing Game speed test interface',
+      role: 'Developer — Angular, real-time input handling, stats tracking',
+    },
+    'checkers': {
+      description: 'Web-based Checkers game built with Angular. Features turn-based gameplay, piece movement, capturing, king promotion, and game-over conditions with full rule enforcement.',
+      imageAlt: 'Screenshot of Checkers board game in Angular',
+      role: 'Developer — Angular, game logic, component architecture',
     },
   },
   projectContext: {

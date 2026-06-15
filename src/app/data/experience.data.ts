@@ -9,4 +9,8 @@ export const EXPERIENCES: readonly Experience[] = [
     id: 'learningx-msib',
     company: 'LearningX MSIB',
   },
+  {
+    id: 'mknows',
+    company: 'M-Knows Consulting',
+  },
 ];

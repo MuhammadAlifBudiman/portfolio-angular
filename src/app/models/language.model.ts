@@ -24,6 +24,7 @@ export interface Translation {
     experience: string;
     portfolio: string;
     certifications: string;
+    technologies: string;
     contact: string;
   };
   footer: {
@@ -41,7 +42,10 @@ export interface Translation {
     greeting: string;
     role: string;
     body: string;
-    aboutMeBtn: string;
+    viewProjectsBtn: string;
+    downloadResumeBtn: string;
+    availability: string;
+    location: string;
   };
   about: {
     eyebrow: string;
@@ -76,11 +80,13 @@ export interface Translation {
       caseStudy: string;
       restricted: string;
       unavailable: string;
+      archived: string;
     };
     status: {
       live: string;
       restricted: string;
       unavailable: string;
+      archived: string;
     };
   };
   contact: {
@@ -114,10 +120,16 @@ export interface Translation {
     about: { title: string; description: string };
     portfolio: { title: string; description: string };
     contact: { title: string; description: string };
+    project?: { titleSuffix: string };
   };
   experience: {
     eyebrow: string;
     title: string;
+    groups: {
+      professional: string;
+      training: string;
+    };
+    relatedProject: string;
     items: Record<
       string,
       {
@@ -140,8 +152,19 @@ export interface Translation {
         period: string;
         note?: string;
         credentialLabel?: string;
+        credentialLabels?: Record<string, string>;
       }
     >;
+  };
+  technologies: {
+    eyebrow: string;
+    title: string;
+    groups: {
+      backend: string;
+      frontend: string;
+      databases: string;
+      tools: string;
+    };
   };
   projects: Record<string, ProjectTranslation>;
   projectContext: Record<string, string>;
