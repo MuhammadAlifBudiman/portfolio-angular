@@ -234,5 +234,11 @@ describe('HeaderComponent', () => {
         expect(component.switchLanguage).toHaveBeenCalledWith(component.supportedLanguages[1]);
       }
     });
+
+    it('hides the native cursor on language buttons for the custom cursor layer', () => {
+      langButtons().forEach((button) => {
+        expect(getComputedStyle(button).cursor).toBe('none');
+      });
+    });
   });
 });

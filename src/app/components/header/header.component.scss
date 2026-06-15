@@ -49,7 +49,7 @@
   font-size: 0.875rem;
   font-family: var(--font-mono, monospace);
   font-weight: 700;
-  cursor: pointer;
+  cursor: none;
   transition: background-color 0.2s, color 0.2s;
   background: transparent;
   border: none;
@@ -69,5 +69,4 @@
     color: var(--color-dark-background-primary);
   }
 }
-
 
