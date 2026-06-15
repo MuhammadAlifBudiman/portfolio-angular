@@ -59,6 +59,7 @@ export const EN: Translation = {
       demo: 'Live Demo',
       github: 'GitHub',
       apiDocs: 'API Docs',
+      liveApi: 'Live API',
       caseStudy: 'Case Study',
       restricted: 'Restricted / Internal',
       unavailable: 'Repository unavailable',

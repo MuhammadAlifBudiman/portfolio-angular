@@ -59,6 +59,7 @@ export const ID: PartialTranslation = {
       demo: 'Demo Langsung',
       github: 'GitHub',
       apiDocs: 'Dokumentasi API',
+      liveApi: 'API Langsung',
       caseStudy: 'Studi Kasus',
       restricted: 'Terbatas / Internal',
       unavailable: 'Repositori tidak tersedia',
