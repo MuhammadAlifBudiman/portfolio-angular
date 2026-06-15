@@ -19,6 +19,8 @@ export const ID: PartialTranslation = {
     themeLabel: 'Tema',
     themeAriaLabel: 'Pilih tema warna',
     langAriaLabel: 'Ganti bahasa',
+    navAriaLabel: 'Toggle menu navigasi',
+    darkModeAriaLabel: 'Toggle mode gelap',
   },
   intro: {
     greeting: 'Halo! Nama saya',

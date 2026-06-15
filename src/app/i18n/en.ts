@@ -19,6 +19,8 @@ export const EN: Translation = {
     themeLabel: 'Theme',
     themeAriaLabel: 'Select colour theme',
     langAriaLabel: 'Switch language',
+    navAriaLabel: 'Toggle navigation menu',
+    darkModeAriaLabel: 'Toggle dark mode',
   },
   intro: {
     greeting: 'Hello! My name is',

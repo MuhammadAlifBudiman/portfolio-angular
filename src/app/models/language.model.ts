@@ -37,6 +37,8 @@ export interface Translation {
     themeLabel: string;
     themeAriaLabel: string;
     langAriaLabel: string;
+    navAriaLabel: string;
+    darkModeAriaLabel: string;
   };
   intro: {
     greeting: string;
