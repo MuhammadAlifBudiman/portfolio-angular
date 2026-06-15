@@ -46,9 +46,14 @@ export class ProjectDetailComponent implements OnInit {
   getSectionContent(caseStudyId: string, sectionId: string): string | string[] {
     const lang = this.lang.currentLang();
     const resource = (lang === 'id' ? ID : EN) as Record<string, unknown>;
-    const value = this.resolveSection(resource, caseStudyId, sectionId)
-      ?? this.resolveSection(EN as unknown as Record<string, unknown>, caseStudyId, sectionId);
-    return value ?? this.lang.t(`caseStudies.${caseStudyId}.sections.${sectionId}`);
+    const idValue = this.resolveSection(resource, caseStudyId, sectionId);
+    if (idValue != null) return idValue;
+
+    if (lang !== 'en') {
+      console.warn(`[i18n] Missing ${lang} translation for caseStudies.${caseStudyId}.sections.${sectionId}, falling back to EN`);
+    }
+    const enValue = this.resolveSection(EN as unknown as Record<string, unknown>, caseStudyId, sectionId);
+    return enValue ?? this.lang.t(`caseStudies.${caseStudyId}.sections.${sectionId}`);
   }
 
   private resolveSection(
