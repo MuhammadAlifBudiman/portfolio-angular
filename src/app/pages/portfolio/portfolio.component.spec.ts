@@ -102,17 +102,18 @@ describe('PortfolioComponent', () => {
   });
 
   describe('link rendering by status', () => {
-    it('restricted card (bkn) renders caseStudy anchor (chip suppressed when links exist)', () => {
+    it('restricted card (bkn) renders both status badge and caseStudy anchor', () => {
       const card = cardById('bkn-internal-workflow-api');
       expect(card).withContext('bkn card should render').not.toBeNull();
 
-      // bkn has a caseStudy link, so the links branch renders instead of the status chip
+      // bkn has a caseStudy link — CTAs render independently of status badge
       const caseStudyAnchor = card!.querySelector('a[href="/projects/bkn-internal-workflow-api"]');
       expect(caseStudyAnchor).withContext('caseStudy anchor should be present').not.toBeNull();
 
-      // chip is suppressed when links.length > 0
+      // status badge always renders regardless of links presence
       const chip = card!.querySelector('[role="status"]');
-      expect(chip).withContext('status chip suppressed when links present').toBeNull();
+      expect(chip).withContext('status chip should always render for restricted projects').not.toBeNull();
+      expect(chip!.textContent?.trim()).withContext('chip text should show restricted label').toBe('Restricted');
     });
 
     it('live card with three links (portfolio-website) renders demo, github, and caseStudy anchors', () => {

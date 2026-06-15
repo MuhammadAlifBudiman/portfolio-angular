@@ -76,6 +76,7 @@ export interface Translation {
     cta: {
       demo: string;
       github: string;
+      liveApi: string;
       apiDocs: string;
       caseStudy: string;
       restricted: string;

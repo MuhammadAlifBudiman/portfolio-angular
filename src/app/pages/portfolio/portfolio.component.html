@@ -123,6 +123,34 @@
                     }
                   </div>
                   <div class="flex flex-wrap gap-2">
+                    @if (project.linkStatus === 'restricted') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="statusLabel('restricted') + ': ' + project.title"
+                        >{{ statusLabel('restricted') }}</span
+                      >
+                    } @else if (project.linkStatus === 'archived') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="statusLabel('archived') + ': ' + project.title"
+                        >{{ statusLabel('archived') }}</span
+                      >
+                    } @else if (project.linkStatus === 'unavailable') {
+                      <app-button
+                        [disabled]="true"
+                        [buttonText]="ctaLabel('unavailable')"
+                        [ariaLabel]="ctaLabel('unavailable') + ': ' + project.title"
+                      ></app-button>
+                    } @else if (project.linkStatus === 'live') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="statusLabel('live') + ': ' + project.title"
+                        >{{ statusLabel('live') }}</span
+                      >
+                    }
                     @if (project.links.length > 0) {
                       @for (link of project.links; track link.type) {
                         <app-button
@@ -131,30 +159,6 @@
                           [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
                         ></app-button>
                       }
-                    } @else if (project.linkStatus === 'restricted') {
-                      <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
-                        role="status"
-                        [attr.aria-label]="
-                          ctaLabel('restricted') + ': ' + project.title
-                        "
-                        >{{ ctaLabel('restricted') }}</span
-                      >
-                    } @else if (project.linkStatus === 'unavailable') {
-                      <app-button
-                        [disabled]="true"
-                        [buttonText]="ctaLabel('unavailable')"
-                        [ariaLabel]="
-                          ctaLabel('unavailable') + ': ' + project.title
-                        "
-                      ></app-button>
-                    } @else if (project.linkStatus === 'archived') {
-                      <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
-                        role="status"
-                        [attr.aria-label]="ctaLabel('archived') + ': ' + project.title"
-                        >{{ ctaLabel('archived') }}</span
-                      >
                     }
                   </div>
                 </div>
@@ -240,6 +244,34 @@
                     }
                   </div>
                   <div class="flex flex-wrap gap-2">
+                    @if (project.linkStatus === 'restricted') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="statusLabel('restricted') + ': ' + project.title"
+                        >{{ statusLabel('restricted') }}</span
+                      >
+                    } @else if (project.linkStatus === 'archived') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="statusLabel('archived') + ': ' + project.title"
+                        >{{ statusLabel('archived') }}</span
+                      >
+                    } @else if (project.linkStatus === 'unavailable') {
+                      <app-button
+                        [disabled]="true"
+                        [buttonText]="ctaLabel('unavailable')"
+                        [ariaLabel]="ctaLabel('unavailable') + ': ' + project.title"
+                      ></app-button>
+                    } @else if (project.linkStatus === 'live') {
+                      <span
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
+                        role="status"
+                        [attr.aria-label]="statusLabel('live') + ': ' + project.title"
+                        >{{ statusLabel('live') }}</span
+                      >
+                    }
                     @if (project.links.length > 0) {
                       @for (link of project.links; track link.type) {
                         <app-button
@@ -248,30 +280,6 @@
                           [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
                         ></app-button>
                       }
-                    } @else if (project.linkStatus === 'restricted') {
-                      <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
-                        role="status"
-                        [attr.aria-label]="
-                          ctaLabel('restricted') + ': ' + project.title
-                        "
-                        >{{ ctaLabel('restricted') }}</span
-                      >
-                    } @else if (project.linkStatus === 'unavailable') {
-                      <app-button
-                        [disabled]="true"
-                        [buttonText]="ctaLabel('unavailable')"
-                        [ariaLabel]="
-                          ctaLabel('unavailable') + ': ' + project.title
-                        "
-                      ></app-button>
-                    } @else if (project.linkStatus === 'archived') {
-                      <span
-                        class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-3 py-1 text-sm"
-                        role="status"
-                        [attr.aria-label]="ctaLabel('archived') + ': ' + project.title"
-                        >{{ ctaLabel('archived') }}</span
-                      >
                     }
                   </div>
                 </div>
