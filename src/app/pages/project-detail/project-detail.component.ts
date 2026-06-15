@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PROJECTS } from '../../data/projects.data';
 import { CASE_STUDIES, CaseStudy } from '../../data/case-studies.data';
 import { Project } from '../../models/project.model';
@@ -9,7 +9,7 @@ import { ButtonComponent } from '../../components/button/button.component';
 
 @Component({
   selector: 'app-project-detail',
-  imports: [RouterLink, ButtonComponent],
+  imports: [ButtonComponent],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss',
 })

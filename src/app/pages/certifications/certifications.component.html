@@ -11,6 +11,7 @@
           <div
             class="dark:bg-dark-background-hover bg-light-background-hover flex w-full flex-col rounded-xl p-6 shadow-md sm:w-[calc(50%-0.75rem)]"
             [attr.data-testid]="'certification-card'"
+            [attr.data-cert-id]="cert.id"
           >
             <p class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm font-medium mb-1">{{ itemIssuer(cert.id) }}</p>
             <h3 class="dark:text-dark-text-primary text-light-text-primary text-lg font-semibold mb-1">{{ itemName(cert.id) }}</h3>
@@ -18,13 +19,16 @@
             @if (itemNote(cert.id) && !itemNote(cert.id).startsWith('certifications.')) {
               <p class="dark:text-dark-text-secondary text-light-text-secondary text-xs italic mb-3">{{ itemNote(cert.id) }}</p>
             }
-            @if (cert.credentialUrl) {
-              <div class="mt-auto">
+            @if (credentialLinks(cert).length) {
+              <div class="mt-auto flex flex-wrap gap-2">
+                @for (link of credentialLinks(cert); track link.key) {
                 <app-button
-                  [href]="cert.credentialUrl"
-                  [buttonText]="viewCredentialLabel(cert.id)"
-                  [ariaLabel]="viewCredentialLabel(cert.id) + ': ' + itemName(cert.id)">
+                  [href]="link.url"
+                  [newTab]="true"
+                  [buttonText]="viewCredentialLabel(cert.id, link.key)"
+                  [ariaLabel]="viewCredentialLabel(cert.id, link.key) + ': ' + itemName(cert.id)">
                 </app-button>
+                }
               </div>
             }
           </div>

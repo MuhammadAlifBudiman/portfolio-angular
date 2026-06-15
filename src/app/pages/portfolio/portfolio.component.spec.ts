@@ -145,6 +145,18 @@ describe('PortfolioComponent', () => {
     });
   });
 
+  describe('project screenshot assets', () => {
+    it('loads Password Security and Crypto Charts screenshots from committed assets', async () => {
+      const projectIds = ['password-security', 'crypto-charts'];
+      const imagePaths = projectIds.map((id) => PROJECTS.find((project) => project.id === id)?.imageSrc);
+
+      expect(imagePaths).toEqual(['projects/password-security.png', 'projects/crypto-charts.png']);
+
+      const responses = await Promise.all(imagePaths.map((path) => fetch(path!)));
+      expect(responses.every((response) => response.ok)).toBeTrue();
+    });
+  });
+
   it('openWebsite calls window.open with noopener,noreferrer', () => {
     const openSpy = spyOn(window, 'open');
     const url = 'https://example.com/';

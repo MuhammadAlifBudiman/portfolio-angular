@@ -173,6 +173,10 @@ export const ID: PartialTranslation = {
         issuer: 'BKN RI (Badan Kepegawaian Negara)',
         period: '2026',
         credentialLabel: 'Lihat Kredensial',
+        credentialLabels: {
+          bkn: 'Lihat Sertifikat BKN',
+          kemnaker: 'Lihat Sertifikat Kemnaker',
+        },
       },
       'cs50w': {
         name: "CS50's Web Programming with Python and JavaScript",
@@ -220,7 +224,7 @@ export const ID: PartialTranslation = {
         name: 'Pengembangan Web Full-Stack',
         issuer: 'LearningX MSIB (Batch 5)',
         period: '2023',
-        note: 'Tidak ada URL kredensial publik yang tersedia.',
+        credentialLabel: 'Lihat Sertifikat',
       },
     },
   },

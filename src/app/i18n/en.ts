@@ -173,6 +173,10 @@ export const EN: Translation = {
         issuer: 'BKN RI (National Civil Service Agency)',
         period: '2026',
         credentialLabel: 'View Credential',
+        credentialLabels: {
+          bkn: 'View BKN Certificate',
+          kemnaker: 'View Kemnaker Certificate',
+        },
       },
       'cs50w': {
         name: "CS50's Web Programming with Python and JavaScript",
@@ -220,7 +224,7 @@ export const EN: Translation = {
         name: 'Full-Stack Web Development',
         issuer: 'LearningX MSIB (Batch 5)',
         period: '2023',
-        note: 'No public credential URL available.',
+        credentialLabel: 'View Certificate',
       },
     },
   },

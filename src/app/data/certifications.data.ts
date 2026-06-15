@@ -3,7 +3,16 @@ import { Certification } from '../models/certification.model';
 export const CERTIFICATIONS: readonly Certification[] = [
   {
     id: 'bkn-internship',
-    credentialUrl: 'https://teken-digital.bkn.go.id/verifqr?id=019e24db-898a-7083-a858-440edcb2d4da',
+    credentialLinks: [
+      {
+        key: 'bkn',
+        url: 'https://drive.google.com/file/d/1zg2GHWOy85qdYrIdigWeiggZqXfn37TF/view?usp=sharing',
+      },
+      {
+        key: 'kemnaker',
+        url: 'https://drive.google.com/file/d/1SwldY7hQSbDR8nNNFJSpV8Obf1l2Cb1w/view?usp=sharing',
+      },
+    ],
     issuedYear: '2026',
     category: 'professional',
   },
@@ -51,7 +60,7 @@ export const CERTIFICATIONS: readonly Certification[] = [
   },
   {
     id: 'learningx-msib',
-    // No public credential URL available from LinkedIn export
+    credentialUrl: 'https://drive.google.com/file/d/1ExauUbF0nx4jQv58oiwl8luxYDaq3g1l/view?usp=sharing',
     issuedYear: '2023',
     category: 'program',
   },

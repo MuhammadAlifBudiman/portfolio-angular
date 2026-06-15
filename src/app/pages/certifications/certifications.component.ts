@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CERTIFICATIONS } from '../../data/certifications.data';
+import { Certification } from '../../models/certification.model';
 import { LanguageService } from '../../services/language.service';
 import { ButtonComponent } from '../../components/button/button.component';
 
@@ -20,7 +21,14 @@ export class CertificationsComponent {
   itemIssuer(id: string): string { return this.lang.t(`certifications.items.${id}.issuer`); }
   itemPeriod(id: string): string { return this.lang.t(`certifications.items.${id}.period`); }
   itemNote(id: string): string { return this.lang.t(`certifications.items.${id}.note`); }
-  viewCredentialLabel(id: string): string {
-    return this.lang.t(`certifications.items.${id}.credentialLabel`) || 'View Credential';
+  credentialLinks(cert: Certification): readonly { key: string; url: string }[] {
+    return cert.credentialLinks ?? (cert.credentialUrl ? [{ key: 'default', url: cert.credentialUrl }] : []);
+  }
+
+  viewCredentialLabel(id: string, key = 'default'): string {
+    const keyedLabel = key === 'default'
+      ? ''
+      : this.lang.t(`certifications.items.${id}.credentialLabels.${key}`);
+    return keyedLabel || this.lang.t(`certifications.items.${id}.credentialLabel`) || 'View Credential';
   }
 }

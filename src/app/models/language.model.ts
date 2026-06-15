@@ -152,6 +152,7 @@ export interface Translation {
         period: string;
         note?: string;
         credentialLabel?: string;
+        credentialLabels?: Record<string, string>;
       }
     >;
   };

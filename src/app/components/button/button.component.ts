@@ -16,6 +16,8 @@ export class ButtonComponent {
   @Input() download?: string;
   /** Accessible label override — only used when href is set. */
   @Input() ariaLabel?: string;
+  /** Opens anchor links in a new tab with safe rel attributes. */
+  @Input() newTab: boolean = false;
   /** Disables the button and sets aria-disabled. Only applies to the <button> variant. */
   @Input() disabled: boolean = false;
 
