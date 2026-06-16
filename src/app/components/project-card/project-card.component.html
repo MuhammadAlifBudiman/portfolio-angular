@@ -1,0 +1,101 @@
+<div
+  [id]="project.id"
+  data-testid="project-card"
+  class="mb-12 flex flex-col p-4"
+>
+  <!-- IMAGE -->
+  <div class="shadow-md">
+    <img
+      [src]="project.imageSrc"
+      [alt]="projectImageAlt"
+      loading="lazy"
+      height="222"
+      class="z-2 dark:border-dark-text-primary border-light-text-primary dark:hover:border-dark-accent-primary hover:border-light-accent-primary dark:hover:bg-dark-background-hover hover:bg-light-background-hover h-[222px] w-full rounded-lg border-2 object-cover"
+    />
+  </div>
+
+  <div class="flex h-full flex-col">
+    <!-- META ROW: ownership · year · STATUS BADGE -->
+    <div class="mt-2 flex flex-wrap items-center gap-2">
+      <p class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm">
+        {{ ownershipLabel }}
+      </p>
+      @if (project.year) {
+        <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 text-xs">
+          {{ project.year }}
+        </span>
+      }
+      <!-- STATUS BADGE IN META ROW (not in actions) -->
+      <app-project-status-badge
+        [status]="project.linkStatus"
+        [label]="statusLabel"
+        [projectTitle]="project.title"
+      />
+    </div>
+
+    <!-- TITLE -->
+    <h3 class="dark:text-dark-text-primary text-light-text-primary mb-1 text-3xl">
+      {{ project.title }}
+    </h3>
+
+    <!-- CONTEXT -->
+    @if (projectContextLabel) {
+      <p class="dark:text-dark-accent-hover text-light-accent-hover mb-1 font-mono text-sm">
+        {{ projectContextLabel }}
+      </p>
+    }
+
+    <!-- ROLE -->
+    @if (projectRole && !projectRole.startsWith('projects.')) {
+      <p class="dark:text-dark-text-secondary text-light-text-secondary mb-1 text-sm italic">
+        {{ projectRole }}
+      </p>
+    }
+
+    <!-- DESCRIPTION -->
+    <p class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-lg">
+      {{ projectDescription }}
+    </p>
+
+    <!-- TECH STACK CHIPS -->
+    <div class="mb-3 flex flex-wrap gap-1">
+      @for (tech of project.stack; track tech) {
+        <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 font-mono text-xs">
+          {{ tech }}
+        </span>
+      }
+    </div>
+
+    <!-- ACTIONS ROW: CTA buttons ONLY (no status here) -->
+    @if (project.links.length > 0) {
+      <div class="mt-auto flex flex-wrap items-center gap-2 pt-3">
+        @for (link of project.links; track link.type) {
+          @if (link.type === 'caseStudy') {
+            <app-button
+              [routerLink]="link.url"
+              [buttonText]="ctaLabel(link.type)"
+              [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+              variant="compact"
+            />
+          } @else if (link.type === 'github' || link.type === 'apiDocs') {
+            <app-button
+              [href]="link.url"
+              [newTab]="true"
+              [buttonText]="ctaLabel(link.type)"
+              [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+              variant="text"
+            />
+          } @else {
+            <app-button
+              [href]="link.url"
+              [newTab]="true"
+              [buttonText]="ctaLabel(link.type)"
+              [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
+              variant="compact"
+            />
+          }
+        }
+      </div>
+    }
+  </div>
+</div>

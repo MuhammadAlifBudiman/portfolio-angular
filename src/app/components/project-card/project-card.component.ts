@@ -1,0 +1,28 @@
+import { Component, Input, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Project } from '../../models/project.model';
+import { ButtonComponent } from '../button/button.component';
+import { ProjectStatusBadgeComponent } from '../project-status-badge/project-status-badge.component';
+import { LanguageService } from '../../services/language.service';
+
+@Component({
+  selector: 'app-project-card',
+  standalone: true,
+  imports: [RouterLink, ButtonComponent, ProjectStatusBadgeComponent],
+  templateUrl: './project-card.component.html',
+  styleUrl: './project-card.component.scss',
+})
+export class ProjectCardComponent {
+  @Input({ required: true }) project!: Project;
+  private lang = inject(LanguageService);
+
+  get ownershipLabel(): string { return this.lang.t(`ownership.${this.project.ownership}`); }
+  get projectContextLabel(): string | null {
+    return this.project.context ? this.lang.t(`projectContext.${this.project.context.id}`) : null;
+  }
+  get projectDescription(): string { return this.lang.t(`projects.${this.project.id}.description`); }
+  get projectImageAlt(): string { return this.lang.t(`projects.${this.project.id}.imageAlt`); }
+  get projectRole(): string { return this.lang.t(`projects.${this.project.id}.role`); }
+  get statusLabel(): string { return this.lang.t(`portfolio.status.${this.project.linkStatus}`); }
+  ctaLabel(type: string): string { return this.lang.t(`portfolio.cta.${type}`); }
+}
