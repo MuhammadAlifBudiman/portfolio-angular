@@ -205,5 +205,17 @@
 - FR-F008-3: BKN detail page uses only anonymized, non-confidential content.
 - FR-F008-4: All content bilingual via LanguageService.
 
+## F00O — Project Card & Status-Badge UI Hierarchy (in-progress · issue #63)
+**Goal:** Fix the status-badge oval defect, separate status metadata from CTA actions, add ButtonComponent size variants, de-duplicate card markup, and normalise homepage section spacing.
+- FR-F00O-1: Status badges (live/restricted/archived/unavailable) are separated from CTA buttons and placed in the project metadata row (ownership · year · status).
+- FR-F00O-2: Status badge is a compact inline element (`role="status"`, `aria-label="{label}: {projectTitle}"`, `inline-flex h-fit`) that never stretches to button height.
+- FR-F00O-3: `ButtonComponent` supports three variants: `default` (existing hero size, unchanged), `compact` (cards/detail/certs), `text` (low-priority external links).
+- FR-F00O-4: A `ProjectCardComponent` encapsulates card markup; `PortfolioComponent` uses it for both featured and other sections (no duplicate card HTML).
+- FR-F00O-5: `ProjectStatusBadgeComponent` is a standalone reusable component with accessible label and status-specific color tokens.
+- FR-F00O-6: Homepage sections (`about-me`, `portfolio`, `contact`) use content-based height (`section-wrapper`) when embedded (`pageMode=false`), `wrapper` (min-h-100vh) only on standalone routes.
+- FR-F00O-7: Status color CSS tokens (`--color-status-{live,restricted,archived,unavailable}-{text,background,border}`) are defined in `src/styles.scss`; badge uses them via Tailwind utilities.
+- FR-F00O-8: All themes (default/ocean/ember × light/dark), EN/ID labels, and all tested viewport widths remain correct.
+- FR-F00O-9: All existing unit tests pass; new unit tests cover `ProjectStatusBadgeComponent`, `ProjectCardComponent`, `ButtonComponent` variants, and layout toggling.
+
 ## Out of Scope (all features)
 Backend, DB, auth, analytics that track individuals, fabricated content, heavy dependencies for trivial UI.

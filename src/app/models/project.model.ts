@@ -2,6 +2,8 @@ export type ProjectOwnership = 'team' | 'personal' | 'client' | 'internal' | 're
 
 export type ProjectCategory = 'backend' | 'fullstack' | 'frontend' | 'learning' | 'restricted';
 
+export type ProjectLinkStatus = 'live' | 'restricted' | 'archived' | 'unavailable';
+
 export interface ProjectLink {
   type: 'demo' | 'github' | 'apiDocs' | 'caseStudy' | 'liveApi';
   url: string;
@@ -31,7 +33,7 @@ export interface Project {
   /** @deprecated Cards should read `links` instead. Kept for backward compatibility. */
   url?: string;
   stack: string[];
-  linkStatus: 'live' | 'restricted' | 'archived' | 'unavailable';
+  linkStatus: ProjectLinkStatus;
   featured: boolean;
   categories: ProjectCategory[];
   /** Four-digit year or range (e.g. '2024', '2025–2026'). Omit when unknown. */

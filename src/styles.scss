@@ -38,6 +38,39 @@
   --light-filter-logo-hover: brightness(0) saturate(100%) invert(60%) sepia(20%)
     saturate(500%) hue-rotate(180deg) brightness(90%) contrast(90%);
 
+  /* --- status badge tokens --- */
+  /* live — reuse success palette */
+  --color-status-live-text-dark: #65ffd1;
+  --color-status-live-background-dark: rgba(101, 255, 209, 0.1);
+  --color-status-live-border-dark: #4ecba3;
+  --color-status-live-text-light: #0055b3;
+  --color-status-live-background-light: rgba(0, 123, 255, 0.1);
+  --color-status-live-border-light: #0056b3;
+
+  /* restricted — amber / warning */
+  --color-status-restricted-text-dark: #fbbf24;
+  --color-status-restricted-background-dark: rgba(251, 191, 36, 0.12);
+  --color-status-restricted-border-dark: #d97706;
+  --color-status-restricted-text-light: #92400e;
+  --color-status-restricted-background-light: rgba(217, 119, 6, 0.1);
+  --color-status-restricted-border-light: #b45309;
+
+  /* archived — neutral gray */
+  --color-status-archived-text-dark: #a3a3a3;
+  --color-status-archived-background-dark: rgba(163, 163, 163, 0.1);
+  --color-status-archived-border-dark: #737373;
+  --color-status-archived-text-light: #525252;
+  --color-status-archived-background-light: rgba(82, 82, 82, 0.08);
+  --color-status-archived-border-light: #737373;
+
+  /* unavailable — neutral gray */
+  --color-status-unavailable-text-dark: #737373;
+  --color-status-unavailable-background-dark: rgba(115, 115, 115, 0.1);
+  --color-status-unavailable-border-dark: #525252;
+  --color-status-unavailable-text-light: #737373;
+  --color-status-unavailable-background-light: rgba(115, 115, 115, 0.08);
+  --color-status-unavailable-border-light: #525252;
+
   /* Typography */
   --font-primary: "Open Sans", sans-serif;
   --font-mono: "Roboto Mono", monospace;
