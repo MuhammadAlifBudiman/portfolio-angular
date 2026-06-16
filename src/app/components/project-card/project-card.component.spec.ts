@@ -106,6 +106,32 @@ describe('ProjectCardComponent', () => {
     expect(el).toBeTruthy();
   });
 
+  it('root element is a semantic article', () => {
+    setup();
+    const el = fixture.nativeElement.querySelector('article[data-testid="project-card"]');
+    expect(el).toBeTruthy();
+  });
+
+  it('article element has h-full class for equal-height layout', () => {
+    setup();
+    const el: HTMLElement = fixture.nativeElement.querySelector('article[data-testid="project-card"]');
+    expect(el.className).toContain('h-full');
+  });
+
+  it('content wrapper has flex-1 class so mt-auto can push actions down', () => {
+    setup();
+    const article: HTMLElement = fixture.nativeElement.querySelector('article');
+    const wrapper: HTMLElement | null = article.querySelector('.flex-1');
+    expect(wrapper).toBeTruthy();
+  });
+
+  it('action row includes items-center for vertical alignment', () => {
+    setup();
+    const actionsDiv: HTMLElement | null = fixture.nativeElement.querySelector('.mt-auto');
+    expect(actionsDiv).toBeTruthy();
+    expect(actionsDiv!.className).toContain('items-center');
+  });
+
   it('renders tech stack chips', () => {
     setup();
     const chips = fixture.nativeElement.querySelectorAll('.font-mono.text-xs');

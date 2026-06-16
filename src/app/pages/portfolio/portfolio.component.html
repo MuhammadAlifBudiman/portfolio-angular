@@ -55,11 +55,11 @@
           >
             {{ featuredTitle }}
           </h2>
-          <div class="flex w-full flex-wrap">
+          <div class="flex w-full flex-wrap items-stretch">
             @for (project of featuredProjects(); track project.id) {
               <app-project-card
                 [project]="project"
-                class="md:w-1/2"
+                class="mb-12 flex w-full md:w-1/2"
               />
             }
           </div>
@@ -74,11 +74,11 @@
           >
             {{ otherTitle }}
           </h2>
-          <div class="flex w-full flex-wrap">
+          <div class="flex w-full flex-wrap items-stretch">
             @for (project of otherProjects(); track project.id) {
               <app-project-card
                 [project]="project"
-                class="md:w-1/2"
+                class="mb-12 flex w-full md:w-1/2"
               />
             }
           </div>

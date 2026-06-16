@@ -128,6 +128,14 @@ describe('ButtonComponent', () => {
       expect(button.className).toContain('h-[64px]');
     });
 
+    it('default variant: native button retains mt-2.5', () => {
+      component.variant = 'default';
+      fixture.detectChanges();
+      const button: HTMLButtonElement =
+        fixture.nativeElement.querySelector('button');
+      expect(button.className).toContain('mt-2.5');
+    });
+
     it('compact variant: native button has h-10 class and NOT h-[64px]', () => {
       component.variant = 'compact';
       fixture.detectChanges();
@@ -137,6 +145,15 @@ describe('ButtonComponent', () => {
       expect(button.className).not.toContain('h-[64px]');
     });
 
+    it('compact variant: native button uses mt-0 and NOT mt-2.5', () => {
+      component.variant = 'compact';
+      fixture.detectChanges();
+      const button: HTMLButtonElement =
+        fixture.nativeElement.querySelector('button');
+      expect(button.className).toContain('mt-0');
+      expect(button.className).not.toContain('mt-2.5');
+    });
+
     it('text variant: native button has underline-offset-2 class and NOT h-[64px]', () => {
       component.variant = 'text';
       fixture.detectChanges();
@@ -144,6 +161,16 @@ describe('ButtonComponent', () => {
         fixture.nativeElement.querySelector('button');
       expect(button.className).toContain('underline-offset-2');
       expect(button.className).not.toContain('h-[64px]');
+    });
+
+    it('text variant: native button uses mt-0, h-10, and NOT mt-2.5', () => {
+      component.variant = 'text';
+      fixture.detectChanges();
+      const button: HTMLButtonElement =
+        fixture.nativeElement.querySelector('button');
+      expect(button.className).toContain('mt-0');
+      expect(button.className).toContain('h-10');
+      expect(button.className).not.toContain('mt-2.5');
     });
 
     it('compact with newTab=true: href anchor has target="_blank"', () => {

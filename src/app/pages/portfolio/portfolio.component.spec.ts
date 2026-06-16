@@ -250,6 +250,28 @@ describe('PortfolioComponent', () => {
     });
   });
 
+  describe('equal-height card grid layout', () => {
+    it('card host elements carry md:w-1/2 responsive width class', () => {
+      const hosts = fixture.nativeElement.querySelectorAll('app-project-card');
+      expect(hosts.length).toBeGreaterThan(0);
+      for (const host of Array.from(hosts) as HTMLElement[]) {
+        expect(host.className).withContext(`host ${host.id} should have md:w-1/2`).toContain('md:w-1/2');
+      }
+    });
+
+    it('card host elements carry flex class so they participate in stretch', () => {
+      const hosts = fixture.nativeElement.querySelectorAll('app-project-card');
+      for (const host of Array.from(hosts) as HTMLElement[]) {
+        expect(host.className).withContext(`host should have flex class`).toContain('flex');
+      }
+    });
+
+    it('card row containers carry items-stretch for equal-height rows', () => {
+      const rows = fixture.nativeElement.querySelectorAll('.flex.flex-wrap.items-stretch');
+      expect(rows.length).toBeGreaterThanOrEqual(1);
+    });
+  });
+
   describe('pageMode layout class binding', () => {
     it('root element has wrapper class when pageMode is true (default)', () => {
       const root: HTMLElement = fixture.nativeElement.querySelector('div');

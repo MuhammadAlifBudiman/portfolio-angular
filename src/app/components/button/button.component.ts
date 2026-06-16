@@ -38,17 +38,17 @@ export class ButtonComponent {
       this.variant === 'text'
         ? 'border-transparent'
         : 'dark:border-dark-accent-hover border-light-accent-hover';
-    return `${borderClass} dark:focus-visible:outline-dark-accent-hover focus-visible:outline-light-accent-hover group relative z-0 mt-2.5 inline-flex cursor-none items-center justify-center overflow-hidden border-2 border-solid bg-transparent text-center font-bold uppercase focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2`;
+    return `${borderClass} dark:focus-visible:outline-dark-accent-hover focus-visible:outline-light-accent-hover group relative z-0 inline-flex cursor-none items-center justify-center overflow-hidden border-2 border-solid bg-transparent text-center font-bold uppercase focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2`;
   }
 
   get variantClasses(): string {
     switch (this.variant) {
       case 'compact':
-        return 'h-10 w-auto min-w-0 px-4 py-2 text-sm rounded-md whitespace-nowrap';
+        return 'mt-0 h-10 w-auto min-w-0 px-4 py-2 text-sm rounded-md whitespace-nowrap';
       case 'text':
-        return 'w-auto min-w-0 px-1 py-1 text-sm underline-offset-2 hover:underline';
+        return 'mt-0 h-10 w-auto min-w-0 px-2 py-2 text-sm underline-offset-2 hover:underline whitespace-nowrap';
       default:
-        return 'h-[64px] w-[230px] min-w-[130px] px-[50px] py-[15px] text-base rounded-lg';
+        return 'mt-2.5 h-[64px] w-[230px] min-w-[130px] px-[50px] py-[15px] text-base rounded-lg';
     }
   }
 }
