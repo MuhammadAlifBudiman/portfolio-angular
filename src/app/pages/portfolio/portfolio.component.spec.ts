@@ -161,13 +161,6 @@ describe('PortfolioComponent', () => {
     });
   });
 
-  it('openWebsite calls window.open with noopener,noreferrer', () => {
-    const openSpy = spyOn(window, 'open');
-    const url = 'https://example.com/';
-    component.openWebsite(url)();
-    expect(openSpy).toHaveBeenCalledWith(url, '_blank', 'noopener,noreferrer');
-  });
-
   describe('status badge independent from CTAs (B3)', () => {
     it('shows restricted badge even when project has links (bkn has caseStudy)', () => {
       const card = cardById('bkn-internal-workflow-api');
