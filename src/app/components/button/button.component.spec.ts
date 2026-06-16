@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 
 import { ButtonComponent } from './button.component';
+import { ButtonVariant } from './button.component';
 
 describe('ButtonComponent', () => {
   let fixture: ComponentFixture<ButtonComponent>;
@@ -115,6 +116,54 @@ describe('ButtonComponent', () => {
       const anchor: HTMLAnchorElement | null =
         fixture.nativeElement.querySelector('a');
       expect(anchor).toBeNull();
+    });
+  });
+
+  describe('variant input', () => {
+    it('default variant: native button has h-[64px] class (hero size)', () => {
+      component.variant = 'default';
+      fixture.detectChanges();
+      const button: HTMLButtonElement =
+        fixture.nativeElement.querySelector('button');
+      expect(button.className).toContain('h-[64px]');
+    });
+
+    it('compact variant: native button has h-10 class and NOT h-[64px]', () => {
+      component.variant = 'compact';
+      fixture.detectChanges();
+      const button: HTMLButtonElement =
+        fixture.nativeElement.querySelector('button');
+      expect(button.className).toContain('h-10');
+      expect(button.className).not.toContain('h-[64px]');
+    });
+
+    it('text variant: native button has underline-offset-2 class and NOT h-[64px]', () => {
+      component.variant = 'text';
+      fixture.detectChanges();
+      const button: HTMLButtonElement =
+        fixture.nativeElement.querySelector('button');
+      expect(button.className).toContain('underline-offset-2');
+      expect(button.className).not.toContain('h-[64px]');
+    });
+
+    it('compact with newTab=true: href anchor has target="_blank"', () => {
+      component.variant = 'compact';
+      component.href = 'https://example.com';
+      component.newTab = true;
+      fixture.detectChanges();
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.getAttribute('target')).toBe('_blank');
+    });
+
+    it('text with newTab=true: href anchor shows ↗ external link indicator', () => {
+      component.variant = 'text';
+      component.href = 'https://example.com';
+      component.newTab = true;
+      fixture.detectChanges();
+      const anchor: HTMLAnchorElement =
+        fixture.nativeElement.querySelector('a');
+      expect(anchor.textContent).toContain('↗');
     });
   });
 
