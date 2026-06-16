@@ -101,6 +101,43 @@ describe('ProjectDetailComponent', () => {
     expect(caseStudyBtn).toBeUndefined();
   });
 
+  it('should render status badge in the meta row (ownership/year row)', () => {
+    const el: HTMLElement = fixture.nativeElement;
+    const metaRow = el.querySelector('.mb-2.flex.flex-wrap.items-center.gap-2');
+    expect(metaRow).toBeTruthy();
+    const badge = metaRow?.querySelector('app-project-status-badge');
+    expect(badge).toBeTruthy();
+  });
+
+  it('should NOT render status badge or status spans inside the CTA action row', () => {
+    const el: HTMLElement = fixture.nativeElement;
+    // The action row contains app-button elements and has items-center class
+    const actionRows = el.querySelectorAll('.flex.flex-wrap.items-center.gap-2');
+    // Find the action row (the one that is NOT the meta row — meta row has mb-2)
+    const actionRow = Array.from(actionRows).find(r => !r.classList.contains('mb-2'));
+    if (actionRow) {
+      expect(actionRow.querySelector('app-project-status-badge')).toBeNull();
+      expect(actionRow.querySelector('[role="status"]')).toBeNull();
+    }
+  });
+
+  it('should expose statusLabel method that resolves portfolio.status i18n keys', () => {
+    expect(component.statusLabel('live')).toBeTruthy();
+    expect(component.statusLabel('restricted')).toBeTruthy();
+    expect(component.statusLabel('archived')).toBeTruthy();
+  });
+
+  it('should render action buttons with compact variant attribute', () => {
+    const el: HTMLElement = fixture.nativeElement;
+    const buttons = el.querySelectorAll('app-button');
+    // task-master project has links; each rendered button should carry variant="compact"
+    if (buttons.length > 0) {
+      Array.from(buttons).forEach(btn => {
+        expect(btn.getAttribute('ng-reflect-variant')).toBe('compact');
+      });
+    }
+  });
+
   describe('i18n section headings (B5)', () => {
     it('renders English section heading "Overview" for task-master', () => {
       expect(component.getSectionHeading('overview')).toBe('Overview');

@@ -8,10 +8,11 @@ import { SeoService } from '../../services/seo.service';
 import { EN } from '../../i18n/en';
 import { ID } from '../../i18n/id';
 import { ButtonComponent } from '../../components/button/button.component';
+import { ProjectStatusBadgeComponent } from '../../components/project-status-badge/project-status-badge.component';
 
 @Component({
   selector: 'app-project-detail',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, ProjectStatusBadgeComponent],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss',
 })
@@ -33,6 +34,7 @@ export class ProjectDetailComponent implements OnInit {
   t(key: string): string { return this.lang.t(key); }
 
   ctaLabel(type: string): string { return this.lang.t(`portfolio.cta.${type}`); }
+  statusLabel(key: string): string { return this.lang.t(`portfolio.status.${key}`); }
   projectDescription(id: string): string { return this.lang.t(`projects.${id}.description`); }
   ownershipLabel(key: string): string { return this.lang.t(`ownership.${key}`); }
   projectContextLabel(contextId: string): string { return this.lang.t(`projectContext.${contextId}`); }
