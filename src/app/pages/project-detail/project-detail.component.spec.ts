@@ -127,13 +127,13 @@ describe('ProjectDetailComponent', () => {
     expect(component.statusLabel('archived')).toBeTruthy();
   });
 
-  it('should render action buttons with compact variant attribute', () => {
+  it('should render action buttons with compact size (h-10 class)', () => {
     const el: HTMLElement = fixture.nativeElement;
-    const buttons = el.querySelectorAll('app-button');
-    // task-master project has links; each rendered button should carry variant="compact"
-    if (buttons.length > 0) {
-      Array.from(buttons).forEach(btn => {
-        expect(btn.getAttribute('ng-reflect-variant')).toBe('compact');
+    // task-master has external links; compact variant renders h-10 on the anchor element
+    const anchors = el.querySelectorAll('app-button a');
+    if (anchors.length > 0) {
+      Array.from(anchors).forEach(anchor => {
+        expect(anchor.classList).toContain('h-10');
       });
     }
   });
