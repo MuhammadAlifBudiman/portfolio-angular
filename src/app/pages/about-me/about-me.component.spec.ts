@@ -48,4 +48,18 @@ describe('AboutMeComponent', () => {
       fixture.nativeElement.querySelector('a[href="/portfolio"]');
     expect(viewProjectsLink).toBeTruthy();
   });
+
+  it('root element has wrapper class when pageMode is true (default)', () => {
+    const root: HTMLElement = fixture.nativeElement.querySelector('div');
+    expect(root.classList).toContain('wrapper');
+    expect(root.classList).not.toContain('section-wrapper');
+  });
+
+  it('root element has section-wrapper class when pageMode is false', () => {
+    component.pageMode = false;
+    fixture.detectChanges();
+    const root: HTMLElement = fixture.nativeElement.querySelector('div');
+    expect(root.classList).toContain('section-wrapper');
+    expect(root.classList).not.toContain('wrapper');
+  });
 });

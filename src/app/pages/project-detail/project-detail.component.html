@@ -24,6 +24,11 @@
                 {{ project.year }}
               </span>
             }
+            <app-project-status-badge
+              [status]="project.linkStatus"
+              [label]="statusLabel(project.linkStatus)"
+              [projectTitle]="project.title"
+            />
           </div>
           <h1 class="dark:text-dark-text-primary text-light-text-primary mb-2 text-3xl font-bold md:text-4xl lg:text-5xl">
             {{ project.title }}
@@ -47,7 +52,7 @@
           </div>
 
           <!-- CTAs -->
-          <div class="flex flex-wrap gap-2">
+          <div class="flex flex-wrap items-center gap-2">
             @for (link of project.links; track link.type) {
               @if (link.type !== 'caseStudy') {
                 <app-button
@@ -55,20 +60,9 @@
                   [newTab]="true"
                   [buttonText]="ctaLabel(link.type)"
                   [ariaLabel]="ctaLabel(link.type) + ': ' + project.title"
-                ></app-button>
+                  variant="compact"
+                />
               }
-            }
-            @if (project.linkStatus === 'restricted') {
-              <span
-                class="bg-amber-500/10 border border-amber-500/40 dark:text-amber-300 text-amber-700 rounded-full px-3 py-1 text-sm font-medium"
-                role="status"
-              >{{ ctaLabel('restricted') }}</span>
-            }
-            @if (project.linkStatus === 'archived') {
-              <span
-                class="dark:bg-dark-error-background dark:text-dark-error-text dark:border-dark-error-border bg-light-error-background text-light-error-text border-light-error-border border rounded-full px-3 py-1 text-sm font-medium"
-                role="status"
-              >{{ ctaLabel('archived') }}</span>
             }
           </div>
         </div>

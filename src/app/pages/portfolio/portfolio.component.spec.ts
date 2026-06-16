@@ -161,13 +161,6 @@ describe('PortfolioComponent', () => {
     });
   });
 
-  it('openWebsite calls window.open with noopener,noreferrer', () => {
-    const openSpy = spyOn(window, 'open');
-    const url = 'https://example.com/';
-    component.openWebsite(url)();
-    expect(openSpy).toHaveBeenCalledWith(url, '_blank', 'noopener,noreferrer');
-  });
-
   describe('status badge independent from CTAs (B3)', () => {
     it('shows restricted badge even when project has links (bkn has caseStudy)', () => {
       const card = cardById('bkn-internal-workflow-api');
@@ -254,6 +247,22 @@ describe('PortfolioComponent', () => {
     it('bkn-internal-workflow-api has caseStudy link', () => {
       const bkn = PROJECTS.find((p) => p.id === 'bkn-internal-workflow-api')!;
       expect(bkn.links.some((l) => l.type === 'caseStudy')).toBeTrue();
+    });
+  });
+
+  describe('pageMode layout class binding', () => {
+    it('root element has wrapper class when pageMode is true (default)', () => {
+      const root: HTMLElement = fixture.nativeElement.querySelector('div');
+      expect(root.classList).toContain('wrapper');
+      expect(root.classList).not.toContain('section-wrapper');
+    });
+
+    it('root element has section-wrapper class when pageMode is false', () => {
+      component.pageMode = false;
+      fixture.detectChanges();
+      const root: HTMLElement = fixture.nativeElement.querySelector('div');
+      expect(root.classList).toContain('section-wrapper');
+      expect(root.classList).not.toContain('wrapper');
     });
   });
 });

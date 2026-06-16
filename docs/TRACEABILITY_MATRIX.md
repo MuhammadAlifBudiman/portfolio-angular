@@ -29,5 +29,6 @@ This file is the control table for requirement traceability. Update it whenever 
 | F00I | SEO, Performance & Social Metadata (prerender) | FR-F00I-* | US-07 | N/A | `docs/specs/F00I-seo-prerender/` | #37, #61 | TBD | npm run build (prerender output) | In Progress |
 | F00N | Navigation Order & Breakpoint | FR-F00N-* | N/A | N/A | `docs/specs/F00N-nav/` | #61 | TBD | npm run build; Playwright responsive check | In Progress |
 | F002 | i18n English / Indonesian (case-study + aria-labels) | FR-F002-* | US-05 | AC-F002-* | `docs/specs/F002-i18n/` | #10, #61 | #48 | UAT + language fallback + case-study translations | In Progress |
+| F00O | Project Card & Status-Badge UI Hierarchy | FR-F00O-1 through FR-F00O-9 | US-02 | N/A | `docs/specs/f00o-project-card-status-ui/` | #63 | TBD | npm run build; npm run test:ci; playwright screenshots | In Progress |
 
 Status values: `Draft`, `Ready`, `In Progress`, `Review`, `Done`, `Blocked`.

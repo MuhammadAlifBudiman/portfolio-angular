@@ -20,13 +20,14 @@
               <p class="dark:text-dark-text-secondary text-light-text-secondary text-xs italic mb-3">{{ itemNote(cert.id) }}</p>
             }
             @if (credentialLinks(cert).length) {
-              <div class="mt-auto flex flex-wrap gap-2">
+              <div class="mt-auto flex flex-wrap items-center gap-2">
                 @for (link of credentialLinks(cert); track link.key) {
                 <app-button
                   [href]="link.url"
                   [newTab]="true"
                   [buttonText]="viewCredentialLabel(cert.id, link.key)"
-                  [ariaLabel]="viewCredentialLabel(cert.id, link.key) + ': ' + itemName(cert.id)">
+                  [ariaLabel]="viewCredentialLabel(cert.id, link.key) + ': ' + itemName(cert.id)"
+                  variant="compact">
                 </app-button>
                 }
               </div>

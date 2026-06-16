@@ -104,4 +104,14 @@ describe('CertificationsComponent', () => {
     const lang = TestBed.inject(LanguageService);
     expect(lang.t('certifications.title')).toBe('Certifications');
   });
+
+  it('credential buttons use compact variant (h-10 class on anchor elements)', () => {
+    const anchors = Array.from(
+      fixture.nativeElement.querySelectorAll('[data-testid="certification-card"] a[href]'),
+    ) as HTMLElement[];
+    expect(anchors.length).toBeGreaterThan(0);
+    anchors.forEach((anchor) => {
+      expect(anchor.classList).withContext(`anchor "${anchor.textContent?.trim()}" should have h-10`).toContain('h-10');
+    });
+  });
 });
