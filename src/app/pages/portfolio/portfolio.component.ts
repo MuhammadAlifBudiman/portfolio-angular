@@ -1,10 +1,9 @@
-import { Component, OnInit, signal, computed, inject, Input, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { ButtonComponent } from '../../components/button/button.component';
+import { Component, OnInit, signal, computed, inject, Input } from '@angular/core';
 import { PROJECTS } from '../../data/projects.data';
 import { LanguageService } from '../../services/language.service';
 import { SeoService } from '../../services/seo.service';
 import { ProjectCategory } from '../../models/project.model';
+import { ProjectCardComponent } from '../../components/project-card/project-card.component';
 
 export type FilterKey = 'all' | 'featured' | ProjectCategory;
 
@@ -12,7 +11,7 @@ const ALL_FILTERS: FilterKey[] = ['all', 'featured', 'backend', 'fullstack', 'fr
 
 @Component({
   selector: 'app-portfolio',
-  imports: [ButtonComponent],
+  imports: [ProjectCardComponent],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss',
 })
@@ -22,7 +21,6 @@ export class PortfolioComponent implements OnInit {
   readonly filters = ALL_FILTERS;
   private lang = inject(LanguageService);
   private seo = inject(SeoService);
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   activeFilter = signal<FilterKey>('all');
 
@@ -45,27 +43,6 @@ export class PortfolioComponent implements OnInit {
   setFilter(key: FilterKey): void { this.activeFilter.set(key); }
 
   filterLabel(key: FilterKey): string { return this.lang.t(`portfolio.filters.${key}`); }
-
-  ownershipLabel(key: string): string { return this.lang.t(`ownership.${key}`); }
-
-  projectContextLabel(contextId: string): string { return this.lang.t(`projectContext.${contextId}`); }
-
-  projectDescription(id: string): string { return this.lang.t(`projects.${id}.description`); }
-
-  projectImageAlt(id: string): string { return this.lang.t(`projects.${id}.imageAlt`); }
-
-  projectRole(id: string): string { return this.lang.t(`projects.${id}.role`); }
-
-  ctaLabel(type: string): string { return this.lang.t(`portfolio.cta.${type}`); }
-
-  statusLabel(key: string): string { return this.lang.t(`portfolio.status.${key}`); }
-
-  openWebsite(url: string): () => void {
-    return () => {
-      if (!this.isBrowser) return;
-      window.open(url, '_blank', 'noopener,noreferrer');
-    };
-  }
 
   ngOnInit(): void {
     if (this.pageMode) {
