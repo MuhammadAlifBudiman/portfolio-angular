@@ -132,7 +132,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'patient-workflow',
         type: 'flow',
-        src: 'projects/case-studies/patient-management-workflow.webp',
+        src: 'projects/diagrams/patient-workflow.svg',
         altKey: 'caseStudies.patient-management-system.media.patient-workflow.alt',
         captionKey: 'caseStudies.patient-management-system.media.patient-workflow.caption',
         afterSectionId: 'technology-stack',

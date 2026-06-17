@@ -60,3 +60,8 @@ graphify-out/
 .playwright-cli/
 
 artifacts/
+
+# Temporary & Personal Folders
+/linkedin/
+/playwright-report/
+/test-results/

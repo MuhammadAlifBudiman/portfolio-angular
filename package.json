@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
+    "test:ui": "playwright test",
     "setup:env": "cp src/environments/example.environment.ts src/environments/environment.ts && node -e \"require('fs').writeFileSync('src/environments/environment.prod.ts', 'export const environment = { production: true, emailService: { serviceId: \\'\\', templateId: \\'\\', publicKey: \\'\\'} };')\" && echo 'Local env files created. Set real EmailJS values in environment.prod.ts for a local prod build.'",
     "prepare": "husky"
   },
@@ -38,6 +39,7 @@
     "@angular/compiler-cli": "^20.3.24",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
+    "@playwright/test": "^1.61.0",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",
@@ -56,6 +58,9 @@
     "webpack-dev-server": "5.2.4",
     "sockjs": {
       "uuid": "11.1.1"
-    }
+    },
+    "@babel/core": "^7.29.6",
+    "esbuild": "^0.28.1",
+    "vite": "^7.3.5"
   }
 }
