@@ -173,6 +173,55 @@ describe('ProjectDetailComponent', () => {
       const captions = fixture.nativeElement.querySelectorAll('figcaption');
       expect(captions.length).toBeGreaterThan(0);
     });
+
+    it('renders placed media immediately after its matching section', async () => {
+      await TestBed.resetTestingModule();
+
+      routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+      seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata']);
+
+      await TestBed.configureTestingModule({
+        imports: [ProjectDetailComponent],
+        providers: [
+          { provide: ActivatedRoute, useValue: createRoute('patient-management-system') },
+          { provide: Router, useValue: routerSpy },
+          { provide: SeoService, useValue: seoSpy },
+        ],
+      }).compileComponents();
+
+      const patientFixture = TestBed.createComponent(ProjectDetailComponent);
+      patientFixture.detectChanges();
+
+      const contextSection = patientFixture.nativeElement.querySelector('[data-section-id="context"]');
+      expect(contextSection).toBeTruthy();
+      const placedFigure = contextSection.nextElementSibling as HTMLElement | null;
+      expect(placedFigure?.tagName.toLowerCase()).toBe('figure');
+      expect(placedFigure?.getAttribute('data-media-id')).toBe('patient-login');
+    });
+
+    it('renders contain/top classes from media metadata', async () => {
+      await TestBed.resetTestingModule();
+
+      routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+      seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata']);
+
+      await TestBed.configureTestingModule({
+        imports: [ProjectDetailComponent],
+        providers: [
+          { provide: ActivatedRoute, useValue: createRoute('patient-management-system') },
+          { provide: Router, useValue: routerSpy },
+          { provide: SeoService, useValue: seoSpy },
+        ],
+      }).compileComponents();
+
+      const patientFixture = TestBed.createComponent(ProjectDetailComponent);
+      patientFixture.detectChanges();
+
+      const workflowImg: HTMLImageElement | null =
+        patientFixture.nativeElement.querySelector('figure[data-media-id="patient-workflow"] img');
+      expect(workflowImg?.className).toContain('object-contain');
+      expect(workflowImg?.className).toContain('object-top');
+    });
   });
 
   describe('i18n section headings (B5)', () => {

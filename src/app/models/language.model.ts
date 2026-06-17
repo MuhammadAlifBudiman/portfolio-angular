@@ -30,6 +30,10 @@ export interface Translation {
   footer: {
     copyright: string;
     backToTop: string;
+    github: string;
+    linkedin: string;
+    email: string;
+    resume: string;
   };
   header: {
     lightLabel: string;
@@ -174,6 +178,7 @@ export interface Translation {
     };
   };
   quickFacts: {
+    profileTitle: string;
     featuredCaseStudies: string;
     experienceEntries: string;
     verifiedCredentials: string;

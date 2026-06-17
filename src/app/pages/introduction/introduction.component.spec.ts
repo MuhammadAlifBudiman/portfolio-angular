@@ -69,13 +69,27 @@ describe('IntroductionComponent — FR-F00L-3', () => {
     });
 
     it('quick facts dl renders in the DOM', () => {
-      const dl = fixture.nativeElement.querySelector('dl[aria-label="Quick facts"]');
+      const dl = fixture.nativeElement.querySelector('aside[aria-label="Developer Profile"] dl');
       expect(dl).withContext('quick facts dl should render').not.toBeNull();
     });
 
     it('renders one dt per quick fact', () => {
-      const dts = fixture.nativeElement.querySelectorAll('dl[aria-label="Quick facts"] dt');
+      const dts = fixture.nativeElement.querySelectorAll('aside[aria-label="Developer Profile"] dt');
       expect(dts.length).toBe(component.quickFacts.length);
+    });
+
+    it('renders a compact Developer Profile panel beside the hero copy', () => {
+      const layout = fixture.nativeElement.querySelector('[data-testid="intro-layout"]');
+      const panel = fixture.nativeElement.querySelector('aside[aria-label="Developer Profile"]');
+
+      expect(layout?.className).toContain('lg:grid-cols-2');
+      expect(panel).toBeTruthy();
+      expect(panel.textContent).toContain('Developer Profile');
+    });
+
+    it('renders raw quick-fact counts without percentage symbols', () => {
+      const panel: HTMLElement = fixture.nativeElement.querySelector('aside[aria-label="Developer Profile"]');
+      expect(panel.textContent).not.toContain('%');
     });
   });
 });

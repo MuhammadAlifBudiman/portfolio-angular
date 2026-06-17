@@ -12,8 +12,7 @@ describe('ProjectCardComponent', () => {
   const bknProject = PROJECTS.find(p => p.id === 'bkn-internal-workflow-api')!;
   // task-master has live status + multiple link types (demo, apiDocs, github, caseStudy)
   const taskMasterProject = PROJECTS.find(p => p.id === 'task-master')!;
-  // patient-management-system has archived status
-  const archivedProject = PROJECTS.find(p => p.id === 'patient-management-system')!;
+  const patientProject = PROJECTS.find(p => p.id === 'patient-management-system')!;
 
   function setup(project = bknProject) {
     TestBed.configureTestingModule({
@@ -88,10 +87,23 @@ describe('ProjectCardComponent', () => {
     expect(badge).toBeTruthy();
   });
 
-  it('renders archived status badge for patient-management-system', () => {
-    setup(archivedProject);
+  it('renders live status badge for patient-management-system', () => {
+    setup(patientProject);
     const badge = fixture.nativeElement.querySelector('app-project-status-badge');
     expect(badge).toBeTruthy();
+    expect(component.statusLabel).toBe('Live');
+  });
+
+  it('applies configured image fit and top alignment classes', () => {
+    setup({
+      ...patientProject,
+      imageFit: 'contain',
+      imagePosition: 'top',
+    } as typeof patientProject);
+
+    const img: HTMLImageElement = fixture.nativeElement.querySelector('img');
+    expect(img.className).toContain('object-contain');
+    expect(img.className).toContain('object-top');
   });
 
   it('renders live status for task-master', () => {

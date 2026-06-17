@@ -12,6 +12,12 @@ export class FooterComponent {
   private langService = inject(LanguageService);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   readonly currentYear = new Date().getFullYear();
+  readonly links = {
+    github: 'https://github.com/MuhammadAlifBudiman',
+    linkedin: 'https://www.linkedin.com/in/muhammad-alif-budiman/',
+    email: 'mailto:muhammadalifbudiman0@gmail.com',
+    resume: 'resume.pdf',
+  };
 
   t(key: string): string {
     return this.langService.t(key);

@@ -32,5 +32,15 @@ export class ProjectCardComponent {
   get projectImageAlt(): string { return this.lang.t(`projects.${this.project.id}.imageAlt`); }
   get projectRole(): string { return this.lang.t(`projects.${this.project.id}.role`); }
   get statusLabel(): string { return this.lang.t(`portfolio.status.${this.project.linkStatus}`); }
+  get projectImageClass(): string {
+    const fitClass = this.project.imageFit === 'contain' ? 'object-contain' : 'object-cover';
+    const positionClass = this.project.imagePosition === 'top' ? 'object-top' : 'object-center';
+    return [
+      'z-2 dark:border-dark-text-primary border-light-text-primary dark:hover:border-dark-accent-primary hover:border-light-accent-primary',
+      'dark:hover:bg-dark-background-hover hover:bg-light-background-hover h-[222px] w-full rounded-lg border-2',
+      fitClass,
+      positionClass,
+    ].join(' ');
+  }
   ctaLabel(type: string): string { return this.lang.t(`portfolio.cta.${type}`); }
 }
