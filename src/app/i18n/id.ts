@@ -323,6 +323,7 @@ export const ID: PartialTranslation = {
       back: 'Kembali ke Portofolio',
       notFound: 'Proyek tidak ditemukan.',
       comingSoon: 'Studi kasus lengkap akan segera tersedia.',
+      visualEvidence: 'Bukti Visual',
     },
     sectionHeadings: {
       overview: 'Gambaran Umum',
@@ -358,6 +359,16 @@ export const ID: PartialTranslation = {
         'technology-stack':
           'Go · REST API · OpenAPI / Swagger · Keycloak · Multipart File Upload · Filter · Pengurutan · Paginasi',
       },
+      media: {
+        'bkn-arch': {
+          alt: 'Diagram arsitektur API yang dianonimkan: lapisan klien, auth/authz, layanan Go API, akses data, dan sumber data internal',
+          caption: 'Diagram konseptual yang dianonimkan — tidak ada detail arsitektur internal nyata yang disertakan',
+        },
+        'bkn-flow': {
+          alt: 'Siklus hidup permintaan RBAC: validasi token JWT, pemeriksaan peran/izin, handler endpoint, respons 200 OK atau penolakan 401/403',
+          caption: 'Siklus hidup permintaan RBAC yang dianonimkan — tidak ada nama endpoint atau peran nyata yang disertakan',
+        },
+      },
       accessNote: 'Sistem internal — tidak dapat diakses secara publik.',
       confidentialityNote:
         'Sesuai dengan kerahasiaan magang: tidak ada jalur endpoint internal, skema basis data, nama alur kerja, nama aplikasi, detail domain, atau tangkapan layar data nyata yang disertakan.',
@@ -387,6 +398,16 @@ export const ID: PartialTranslation = {
         'technology-stack':
           'Node.js · Express · TypeScript · Sequelize · PostgreSQL · JWT · Validasi · Logging · Notifikasi Email · Dokumentasi Postman · Swagger / OpenAPI',
       },
+      media: {
+        'blog-screenshot': {
+          alt: 'Kartu proyek Blog API Server yang menampilkan REST API untuk platform blog berbasis Node.js, Express, dan TypeScript',
+          caption: 'Blog API Server — deployment Vercel',
+        },
+        'blog-arch': {
+          alt: 'Arsitektur MVC Blog API: rute Express, controller dengan middleware autentikasi dan validasi, lapisan service, Sequelize ORM, database PostgreSQL, dengan email dan logging sebagai cross-cutting concern',
+          caption: 'Arsitektur MVC tiga lapis dengan cross-cutting concern email dan logging',
+        },
+      },
       accessNote:
         'Deployment publik Vercel tersedia di https://express-blog-dun.vercel.app/. Kode sumber GitHub juga tersedia.',
     },
@@ -405,6 +426,16 @@ export const ID: PartialTranslation = {
           'Menangani deployment ke Glitch (kini diarsipkan).',
         ],
         'technology-stack': 'Python · Flask · MongoDB · HTML · CSS · JavaScript · AJAX',
+      },
+      media: {
+        'patient-screenshot': {
+          alt: 'Aplikasi web Sistem Pengelolaan Pasien yang menampilkan pendaftaran pasien, antrean janji temu, dan pengelolaan rekam medis',
+          caption: 'Sistem Pengelolaan Pasien — proyek akhir MSIB Batch 5 di LearningX',
+        },
+        'patient-flow': {
+          alt: 'Diagram alur pasien: pasien mendaftar dan bergabung ke antrean, dokter memanggil pasien, dokter mencatat konsultasi, admin mengekspor laporan CSV',
+          caption: 'Alur inti pendaftaran pasien dan konsultasi',
+        },
       },
       accessNote: 'Hosting Glitch tidak lagi tersedia (platform ditutup). Kode sumber GitHub tetap dapat diakses.',
     },
@@ -427,6 +458,16 @@ export const ID: PartialTranslation = {
         'technology-stack':
           'Django · Django REST Framework · PostgreSQL · JWT · Swagger / OpenAPI · DataTables · Ekspor Excel · Reset Tugas Terjadwal',
       },
+      media: {
+        'taskmaster-screenshot': {
+          alt: 'Aplikasi web Task Master yang menampilkan antarmuka manajemen tugas dengan pelacakan tugas berulang dan tabel data',
+          caption: 'Task Master — proyek akhir CS50W, live di PythonAnywhere',
+        },
+        'taskmaster-flow': {
+          alt: 'Alur reset tugas berulang: pemicu cron mengevaluasi tanggal jatuh tempo untuk tugas harian, mingguan, dan bulanan, mereset tugas yang melewati batas ke status pending, mencatat event reset',
+          caption: 'Alur reset tugas berulang yang sadar zona waktu',
+        },
+      },
     },
     'portfolio-website': {
       sections: {
@@ -446,6 +487,16 @@ export const ID: PartialTranslation = {
           'Single-Page Application dengan Angular router (scroll in-memory + fragment anchor). Setiap bagian adalah komponen standalone, terjemahan diselesaikan saat runtime melalui LanguageService, dan tema diterapkan melalui override variabel CSS document.documentElement.',
         'technology-stack':
           'Angular 20 · TypeScript · SCSS · Tailwind CSS v4 · EmailJS · i18n (kustom) · Karma / Jasmine · GitHub Pages',
+      },
+      media: {
+        'portfolio-screenshot': {
+          alt: 'Situs portofolio yang menampilkan bagian pengenalan dengan konten hero, fakta cepat, dan tombol aksi',
+          caption: 'Situs portofolio — Angular 20, live di GitHub Pages',
+        },
+        'portfolio-arch': {
+          alt: 'Arsitektur situs portofolio: sinyal LanguageService, ThemeService, SeoService, komponen Angular standalone, berkas data, build prerender statis, dideploy ke GitHub Pages',
+          caption: 'Arsitektur Angular SSG: komponen, service, prerender statis, deployment GitHub Pages',
+        },
       },
     },
   },

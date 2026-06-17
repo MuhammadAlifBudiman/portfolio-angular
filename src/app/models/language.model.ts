@@ -187,6 +187,7 @@ export interface Translation {
       back: string;
       notFound: string;
       comingSoon: string;
+      visualEvidence: string;
     };
     sectionHeadings: Record<string, string>;
     // Per-case-study content, keyed by case-study id. Deeply nested and dynamic

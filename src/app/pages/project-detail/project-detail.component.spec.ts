@@ -138,6 +138,43 @@ describe('ProjectDetailComponent', () => {
     }
   });
 
+  describe('case study media (Task F)', () => {
+    it('task-master case study has media entries', () => {
+      expect(component.caseStudy?.media?.length).toBeGreaterThan(0);
+    });
+
+    it('media section heading renders when media is present', () => {
+      const headings = Array.from(
+        fixture.nativeElement.querySelectorAll('h2'),
+      ) as HTMLElement[];
+      const mediaHeading = headings.find((h) => h.textContent?.includes('Visual Evidence'));
+      expect(mediaHeading).withContext('Visual Evidence heading should render').not.toBeNull();
+    });
+
+    it('renders img elements for each media item with loading="lazy"', () => {
+      const imgs = fixture.nativeElement.querySelectorAll('figure img') as NodeListOf<HTMLImageElement>;
+      expect(imgs.length).toBeGreaterThan(0);
+      imgs.forEach((img) => {
+        expect(img.getAttribute('loading')).withContext('img should be lazy-loaded').toBe('lazy');
+      });
+    });
+
+    it('every rendered media img has a non-empty alt attribute', () => {
+      const imgs = fixture.nativeElement.querySelectorAll('figure img') as NodeListOf<HTMLImageElement>;
+      expect(imgs.length).toBeGreaterThan(0);
+      imgs.forEach((img) => {
+        expect(img.getAttribute('alt')?.trim().length)
+          .withContext('alt must be non-empty')
+          .toBeGreaterThan(0);
+      });
+    });
+
+    it('renders figcaption for media items that have a captionKey', () => {
+      const captions = fixture.nativeElement.querySelectorAll('figcaption');
+      expect(captions.length).toBeGreaterThan(0);
+    });
+  });
+
   describe('i18n section headings (B5)', () => {
     it('renders English section heading "Overview" for task-master', () => {
       expect(component.getSectionHeading('overview')).toBe('Overview');

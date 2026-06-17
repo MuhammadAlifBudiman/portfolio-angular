@@ -189,7 +189,7 @@ describe('PortfolioComponent', () => {
       expect(anchors.length).withContext('patient-management-system has github + caseStudy anchors').toBe(2);
     });
 
-    it('shows live badge for blog-api-server project with 3 links', () => {
+    it('shows live badge for blog-api-server project with 4 links', () => {
       const card = cardById('blog-api-server');
       expect(card).withContext('blog-api-server card should render').not.toBeNull();
 
@@ -197,9 +197,9 @@ describe('PortfolioComponent', () => {
       expect(chip).withContext('live status chip should render').not.toBeNull();
       expect(chip!.textContent?.trim()).toBe('Live');
 
-      // liveApi + github + caseStudy anchors
+      // liveApi + github + apiDocs + caseStudy anchors
       const anchors = card!.querySelectorAll('a[href]');
-      expect(anchors.length).withContext('blog-api-server has 3 CTA links').toBe(3);
+      expect(anchors.length).withContext('blog-api-server has 4 CTA links').toBe(4);
     });
   });
 
@@ -225,9 +225,11 @@ describe('PortfolioComponent', () => {
       expect(blog.links.some((l) => l.type === 'caseStudy')).toBeTrue();
     });
 
-    it('blog-api-server has NO apiDocs link', () => {
+    it('blog-api-server has apiDocs link pointing to Postman documenter', () => {
       const blog = PROJECTS.find((p) => p.id === 'blog-api-server')!;
-      expect(blog.links.some((l) => l.type === 'apiDocs')).toBeFalse();
+      const apiDocs = blog.links.find((l) => l.type === 'apiDocs');
+      expect(apiDocs).withContext('apiDocs link should exist').toBeDefined();
+      expect(apiDocs?.url).toContain('documenter.getpostman.com');
     });
 
     it('all featured projects have a caseStudy link', () => {
@@ -269,6 +271,52 @@ describe('PortfolioComponent', () => {
     it('card row containers carry items-stretch for equal-height rows', () => {
       const rows = fixture.nativeElement.querySelectorAll('.flex.flex-wrap.items-stretch');
       expect(rows.length).toBeGreaterThanOrEqual(1);
+    });
+  });
+
+  describe('Task A data integrity', () => {
+    it('BKN title is "Internal Digital Systems Backend API"', () => {
+      const bkn = PROJECTS.find((p) => p.id === 'bkn-internal-workflow-api')!;
+      expect(bkn.title).toBe('Internal Digital Systems Backend API');
+    });
+
+    it('portfolio-website categories contain only "frontend" (not fullstack)', () => {
+      const portfolio = PROJECTS.find((p) => p.id === 'portfolio-website')!;
+      expect(portfolio.categories).toEqual(['frontend']);
+    });
+
+    it('numble has a github link', () => {
+      const numble = PROJECTS.find((p) => p.id === 'numble')!;
+      expect(numble.links.some((l) => l.type === 'github')).toBeTrue();
+    });
+
+    it('typing-game is absent from project data', () => {
+      const typingGame = PROJECTS.find((p) => p.id === 'typing-game');
+      expect(typingGame).toBeUndefined();
+    });
+
+    it('checkers is present in project data', () => {
+      const checkers = PROJECTS.find((p) => p.id === 'checkers');
+      expect(checkers).toBeDefined();
+    });
+
+    it('stockdata is present as a non-featured project', () => {
+      const stockdata = PROJECTS.find((p) => p.id === 'stockdata');
+      expect(stockdata).withContext('stockdata should exist').toBeDefined();
+      expect(stockdata?.featured).toBeFalse();
+    });
+
+    it('stockdata ownership is team', () => {
+      const stockdata = PROJECTS.find((p) => p.id === 'stockdata');
+      expect(stockdata?.ownership).toBe('team');
+    });
+
+    it('total featured projects is 5', () => {
+      expect(PROJECTS.filter((p) => p.featured).length).toBe(5);
+    });
+
+    it('other (non-featured) projects count is ≤ 6', () => {
+      expect(PROJECTS.filter((p) => !p.featured).length).toBeLessThanOrEqual(6);
     });
   });
 
