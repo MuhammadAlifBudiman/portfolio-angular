@@ -9,4 +9,6 @@ export interface Certification {
   issuedYear?: string;
   /** Grouping category for display ordering. */
   category?: 'professional' | 'program' | 'course' | 'tool';
+  /** Display priority: featured certs render by default; additional are collapsed behind a toggle. */
+  priority?: 'featured' | 'additional';
 }

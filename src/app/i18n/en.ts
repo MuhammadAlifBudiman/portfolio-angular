@@ -77,7 +77,7 @@ export const EN: Translation = {
   contact: {
     eyebrow: 'Get in touch',
     title: 'Contact',
-    description: 'If you have any questions or would like to discuss a project, feel free to reach out!',
+    description: 'Open to Backend and Full-Stack Developer opportunities, technical collaboration, and API-driven web projects.',
     whatsappLabel: 'WhatsApp:',
     emailLabel: 'Email:',
     form: {
@@ -170,6 +170,10 @@ export const EN: Translation = {
   certifications: {
     eyebrow: 'Verified Credentials',
     title: 'Certifications',
+    featuredHeading: 'Featured Credentials',
+    additionalHeading: 'Additional Credentials',
+    showMore: 'Show More Credentials',
+    showLess: 'Show Less Credentials',
     items: {
       'bkn-internship': {
         name: 'Internship Certificate — Digital Systems & Applications',
@@ -241,6 +245,13 @@ export const EN: Translation = {
       tools: 'Engineering Tools',
     },
   },
+  quickFacts: {
+    featuredCaseStudies: 'Featured Case Studies',
+    experienceEntries: 'Professional & Training Experiences',
+    verifiedCredentials: 'Verified Credentials',
+    targetRoles: 'Open to Roles',
+    targetRolesValue: 'Backend · Full-Stack',
+  },
   projects: {
     'bkn-internal-workflow-api': {
       description: 'Developed and refined Go backend endpoints for internal workflow modules, including list/detail retrieval, filtering, sorting, pagination, workflow transitions, multipart file handling, and OpenAPI documentation.',
@@ -287,10 +298,10 @@ export const EN: Translation = {
       imageAlt: 'Screenshot of Resume Builder with live preview and PDF export',
       role: 'Developer — Angular, form handling, PDF generation',
     },
-    'typing-game': {
-      description: 'Interactive typing speed and accuracy test with typing challenges, leaderboard, customisable themes, and detailed performance statistics.',
-      imageAlt: 'Screenshot of Typing Game speed test interface',
-      role: 'Developer — Angular, real-time input handling, stats tracking',
+    'stockdata': {
+      description: 'Web-based inventory management system developed as a university HCI project for a real client. Features product editing, category management, sorting, search, and live deployment.',
+      imageAlt: 'StockData inventory management web application screenshot',
+      role: 'Contributed to backend feature development (edit and sorting), frontend implementation, UI mockup design, live hosting setup, and debugging.',
     },
     'checkers': {
       description: 'Web-based Checkers game built with Angular. Features turn-based gameplay, piece movement, capturing, king promotion, and game-over conditions with full rule enforcement.',
@@ -305,12 +316,14 @@ export const EN: Translation = {
     'mknows-bootcamp': 'Bootcamp Project · M-Knows Consulting',
     'independent': 'Independent Project',
     'udemy-angular': 'Course Exercise · Udemy',
+    'stockdata-hci': 'Client-Based Team Project · University',
   },
   caseStudies: {
     common: {
       back: 'Back to Portfolio',
       notFound: 'Project not found.',
       comingSoon: 'Detailed case study coming soon.',
+      visualEvidence: 'Visual Evidence',
     },
     sectionHeadings: {
       overview: 'Overview',
@@ -346,6 +359,16 @@ export const EN: Translation = {
         'technology-stack':
           'Go · REST API · OpenAPI / Swagger · Keycloak · Multipart File Upload · Filtering · Sorting · Pagination',
       },
+      media: {
+        'bkn-arch': {
+          alt: 'Anonymized API architecture diagram showing client, auth/authz, Go API service, data access, and internal data source layers',
+          caption: 'Anonymized conceptual diagram — no real internal architecture details included',
+        },
+        'bkn-flow': {
+          alt: 'RBAC request lifecycle: validate JWT token, check role permission, endpoint handler, 200 OK response or 401/403 rejection',
+          caption: 'Anonymized RBAC request lifecycle — no real endpoint or role names included',
+        },
+      },
       accessNote: 'Internal system — not publicly accessible.',
       confidentialityNote:
         'In compliance with internship confidentiality: no internal endpoint paths, database schemas, workflow names, application names, domain details, or screenshots of real data are included.',
@@ -375,6 +398,16 @@ export const EN: Translation = {
         'technology-stack':
           'Node.js · Express · TypeScript · Sequelize · PostgreSQL · JWT · Validation · Logging · Email Notification · Postman Documentation · Swagger / OpenAPI',
       },
+      media: {
+        'blog-screenshot': {
+          alt: 'Blog API Server project card showing the REST API for a blog platform built with Node.js, Express, and TypeScript',
+          caption: 'Blog API Server — Vercel deployment',
+        },
+        'blog-arch': {
+          alt: 'Blog API MVC architecture: Express routes, controllers with auth middleware and validation, services layer, Sequelize ORM, PostgreSQL database, with email and logging cross-cutting concerns',
+          caption: 'Three-layer MVC architecture with cross-cutting email and logging concerns',
+        },
+      },
       accessNote:
         'A public Vercel deployment is available at https://express-blog-dun.vercel.app/. GitHub source code is also available.',
     },
@@ -393,6 +426,16 @@ export const EN: Translation = {
           'Handled deployment to Glitch (now archived).',
         ],
         'technology-stack': 'Python · Flask · MongoDB · HTML · CSS · JavaScript · AJAX',
+      },
+      media: {
+        'patient-screenshot': {
+          alt: 'Patient Management System clinic web application showing patient registration, appointment queuing, and medical record management',
+          caption: 'Patient Management System — MSIB Batch 5 capstone project at LearningX',
+        },
+        'patient-flow': {
+          alt: 'Patient workflow diagram: patient registers and joins queue, doctor calls patient, doctor records consultation, admin exports CSV report',
+          caption: 'Core patient registration and consultation workflow',
+        },
       },
       accessNote: 'Glitch hosting is no longer available (platform shut down). GitHub source remains accessible.',
     },
@@ -415,6 +458,16 @@ export const EN: Translation = {
         'technology-stack':
           'Django · Django REST Framework · PostgreSQL · JWT · Swagger / OpenAPI · DataTables · Excel Export · Scheduled Task Reset',
       },
+      media: {
+        'taskmaster-screenshot': {
+          alt: 'Task Master web application showing the task management interface with recurring task tracking and data table',
+          caption: 'Task Master — CS50W capstone project, live on PythonAnywhere',
+        },
+        'taskmaster-flow': {
+          alt: 'Recurring task reset flow: cron trigger evaluates due dates for daily, weekly, and monthly tasks, resets overdue tasks to pending, logs the reset event',
+          caption: 'Timezone-aware recurring task reset flow',
+        },
+      },
     },
     'portfolio-website': {
       sections: {
@@ -434,6 +487,16 @@ export const EN: Translation = {
           'Single-Page Application with the Angular router (in-memory scroll + fragment anchors). Each section is a standalone component, translation is resolved at runtime via LanguageService, and themes are applied via document.documentElement CSS variable overrides.',
         'technology-stack':
           'Angular 20 · TypeScript · SCSS · Tailwind CSS v4 · EmailJS · i18n (custom) · Karma / Jasmine · GitHub Pages',
+      },
+      media: {
+        'portfolio-screenshot': {
+          alt: 'Portfolio website showing the introduction section with hero content, quick facts, and call-to-action buttons',
+          caption: 'Portfolio website — Angular 20, live on GitHub Pages',
+        },
+        'portfolio-arch': {
+          alt: 'Portfolio website architecture: LanguageService signal, ThemeService, SeoService, standalone Angular components, data files, static prerender build, deployed to GitHub Pages',
+          caption: 'Angular SSG architecture: components, services, static prerender, GitHub Pages deployment',
+        },
       },
     },
   },

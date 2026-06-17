@@ -19,9 +19,9 @@
             <p class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm">
               {{ ownershipLabel(project.ownership) }}
             </p>
-            @if (project.year) {
+            @if (projectPeriod) {
               <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 text-xs">
-                {{ project.year }}
+                {{ projectPeriod }}
               </span>
             }
             <app-project-status-badge
@@ -111,6 +111,30 @@
               </div>
             }
           </div>
+          @if (caseStudy.media?.length) {
+            <div class="mx-auto mt-10 w-full max-w-3xl">
+              <h2 class="dark:text-dark-text-primary text-light-text-primary mb-4 text-xl font-bold">
+                {{ t('caseStudies.common.visualEvidence') }}
+              </h2>
+              <div class="flex flex-col gap-6">
+                @for (item of caseStudy.media!; track item.id) {
+                  <figure>
+                    <img
+                      [src]="item.src"
+                      [alt]="t(item.altKey)"
+                      loading="lazy"
+                      class="dark:border-dark-background-hover border-light-background-hover w-full rounded-lg border"
+                    />
+                    @if (item.captionKey) {
+                      <figcaption class="dark:text-dark-text-secondary text-light-text-secondary mt-2 text-center font-mono text-sm">
+                        {{ t(item.captionKey) }}
+                      </figcaption>
+                    }
+                  </figure>
+                }
+              </div>
+            </div>
+          }
         } @else {
           <!-- No case study available yet -->
           <div class="mx-auto w-full max-w-3xl">

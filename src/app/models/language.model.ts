@@ -147,6 +147,10 @@ export interface Translation {
   certifications: {
     eyebrow: string;
     title: string;
+    featuredHeading: string;
+    additionalHeading: string;
+    showMore: string;
+    showLess: string;
     items: Record<
       string,
       {
@@ -169,6 +173,13 @@ export interface Translation {
       tools: string;
     };
   };
+  quickFacts: {
+    featuredCaseStudies: string;
+    experienceEntries: string;
+    verifiedCredentials: string;
+    targetRoles: string;
+    targetRolesValue: string;
+  };
   projects: Record<string, ProjectTranslation>;
   projectContext: Record<string, string>;
   caseStudies: {
@@ -176,6 +187,7 @@ export interface Translation {
       back: string;
       notFound: string;
       comingSoon: string;
+      visualEvidence: string;
     };
     sectionHeadings: Record<string, string>;
     // Per-case-study content, keyed by case-study id. Deeply nested and dynamic

@@ -14,9 +14,24 @@ export interface CaseStudySection {
   contentType: 'paragraph' | 'list';
 }
 
+export type CaseStudyMediaType = 'screenshot' | 'architecture' | 'flow' | 'api-example';
+
+export interface CaseStudyMedia {
+  /** Stable id — used as i18n key suffix: caseStudies.<caseStudyId>.media.<id>.alt */
+  id: string;
+  type: CaseStudyMediaType;
+  src: string;
+  /** i18n key for the image alt text */
+  altKey: string;
+  /** Optional i18n key for a visible caption below the image */
+  captionKey?: string;
+}
+
 export interface CaseStudy {
   id: string;
   sections: CaseStudySection[];
+  /** Optional visual evidence (screenshots, architecture diagrams, flow diagrams). */
+  media?: readonly CaseStudyMedia[];
   hasAccessNote?: boolean;
   hasConfidentialityNote?: boolean;
 }
@@ -32,6 +47,22 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       { id: 'engineering-decisions', contentType: 'list' },
       { id: 'technology-stack', contentType: 'paragraph' },
     ],
+    media: [
+      {
+        id: 'bkn-arch',
+        type: 'architecture',
+        src: 'projects/diagrams/bkn-architecture.svg',
+        altKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-arch.alt',
+        captionKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-arch.caption',
+      },
+      {
+        id: 'bkn-flow',
+        type: 'flow',
+        src: 'projects/diagrams/bkn-rbac-flow.svg',
+        altKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-flow.alt',
+        captionKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-flow.caption',
+      },
+    ],
     hasAccessNote: true,
     hasConfidentialityNote: true,
   },
@@ -45,6 +76,22 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       { id: 'engineering-decisions', contentType: 'list' },
       { id: 'technology-stack', contentType: 'paragraph' },
     ],
+    media: [
+      {
+        id: 'blog-screenshot',
+        type: 'screenshot',
+        src: 'projects/blog-api-server.png',
+        altKey: 'caseStudies.blog-api-server.media.blog-screenshot.alt',
+        captionKey: 'caseStudies.blog-api-server.media.blog-screenshot.caption',
+      },
+      {
+        id: 'blog-arch',
+        type: 'architecture',
+        src: 'projects/diagrams/blog-api-architecture.svg',
+        altKey: 'caseStudies.blog-api-server.media.blog-arch.alt',
+        captionKey: 'caseStudies.blog-api-server.media.blog-arch.caption',
+      },
+    ],
     hasAccessNote: false,
   },
   {
@@ -54,6 +101,22 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       { id: 'context', contentType: 'paragraph' },
       { id: 'responsibilities', contentType: 'list' },
       { id: 'technology-stack', contentType: 'paragraph' },
+    ],
+    media: [
+      {
+        id: 'patient-screenshot',
+        type: 'screenshot',
+        src: 'projects/klinikgoogle.png',
+        altKey: 'caseStudies.patient-management-system.media.patient-screenshot.alt',
+        captionKey: 'caseStudies.patient-management-system.media.patient-screenshot.caption',
+      },
+      {
+        id: 'patient-flow',
+        type: 'flow',
+        src: 'projects/diagrams/patient-workflow.svg',
+        altKey: 'caseStudies.patient-management-system.media.patient-flow.alt',
+        captionKey: 'caseStudies.patient-management-system.media.patient-flow.caption',
+      },
     ],
     hasAccessNote: true,
   },
@@ -66,6 +129,22 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       { id: 'architecture', contentType: 'paragraph' },
       { id: 'technology-stack', contentType: 'paragraph' },
     ],
+    media: [
+      {
+        id: 'taskmaster-screenshot',
+        type: 'screenshot',
+        src: 'projects/taskmaster.png',
+        altKey: 'caseStudies.task-master.media.taskmaster-screenshot.alt',
+        captionKey: 'caseStudies.task-master.media.taskmaster-screenshot.caption',
+      },
+      {
+        id: 'taskmaster-flow',
+        type: 'flow',
+        src: 'projects/diagrams/taskmaster-reset-flow.svg',
+        altKey: 'caseStudies.task-master.media.taskmaster-flow.alt',
+        captionKey: 'caseStudies.task-master.media.taskmaster-flow.caption',
+      },
+    ],
     hasAccessNote: false,
   },
   {
@@ -76,6 +155,22 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       { id: 'responsibilities', contentType: 'list' },
       { id: 'architecture', contentType: 'paragraph' },
       { id: 'technology-stack', contentType: 'paragraph' },
+    ],
+    media: [
+      {
+        id: 'portfolio-screenshot',
+        type: 'screenshot',
+        src: 'projects/portfolio-website.png',
+        altKey: 'caseStudies.portfolio-website.media.portfolio-screenshot.alt',
+        captionKey: 'caseStudies.portfolio-website.media.portfolio-screenshot.caption',
+      },
+      {
+        id: 'portfolio-arch',
+        type: 'architecture',
+        src: 'projects/diagrams/portfolio-architecture.svg',
+        altKey: 'caseStudies.portfolio-website.media.portfolio-arch.alt',
+        captionKey: 'caseStudies.portfolio-website.media.portfolio-arch.caption',
+      },
     ],
     hasAccessNote: false,
   },

@@ -37,8 +37,9 @@ describe('CertificationsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`renders one card per certification entry (${CERTIFICATIONS.length})`, () => {
-    expect(cards().length).toBe(CERTIFICATIONS.length);
+  it('renders only featured certifications by default (additional collapsed)', () => {
+    const featured = CERTIFICATIONS.filter((c) => c.priority !== 'additional');
+    expect(cards().length).toBe(featured.length);
   });
 
   it("section heading contains the EN title 'Certifications'", () => {
@@ -46,8 +47,9 @@ describe('CertificationsComponent', () => {
     expect(heading.textContent).toContain('Certifications');
   });
 
-  it('renders credential links for single and multiple credential entries', () => {
-    const withUrl = CERTIFICATIONS.reduce(
+  it('renders credential links for visible (featured) certification entries', () => {
+    const featuredCerts = CERTIFICATIONS.filter((c) => c.priority !== 'additional');
+    const withUrl = featuredCerts.reduce(
       (total, cert) => total + (cert.credentialLinks?.length ?? (cert.credentialUrl ? 1 : 0)),
       0,
     );
@@ -112,6 +114,63 @@ describe('CertificationsComponent', () => {
     expect(anchors.length).toBeGreaterThan(0);
     anchors.forEach((anchor) => {
       expect(anchor.classList).withContext(`anchor "${anchor.textContent?.trim()}" should have h-10`).toContain('h-10');
+    });
+  });
+
+  describe('featured / additional toggle (Task D)', () => {
+    it('toggle button exists with aria-expanded="false" by default', () => {
+      const btn = fixture.nativeElement.querySelector('button[aria-expanded]') as HTMLButtonElement;
+      expect(btn).withContext('toggle button should render').not.toBeNull();
+      expect(btn.getAttribute('aria-expanded')).toBe('false');
+    });
+
+    it('additional certifications are not rendered initially', () => {
+      const additional = CERTIFICATIONS.filter((c) => c.priority === 'additional');
+      additional.forEach((cert) => {
+        const card = fixture.nativeElement.querySelector(
+          `[data-testid="certification-card"][data-cert-id="${cert.id}"]`,
+        );
+        expect(card).withContext(`${cert.id} should be hidden initially`).toBeNull();
+      });
+    });
+
+    it('clicking toggle shows additional certifications', () => {
+      const btn = fixture.nativeElement.querySelector('button[aria-expanded]') as HTMLButtonElement;
+      btn.click();
+      fixture.detectChanges();
+      const additional = CERTIFICATIONS.filter((c) => c.priority === 'additional');
+      expect(additional.length).toBeGreaterThan(0);
+      additional.forEach((cert) => {
+        const card = fixture.nativeElement.querySelector(
+          `[data-testid="certification-card"][data-cert-id="${cert.id}"]`,
+        );
+        expect(card).withContext(`${cert.id} should be visible after toggle`).not.toBeNull();
+      });
+    });
+
+    it('aria-expanded becomes "true" after toggle', () => {
+      const btn = fixture.nativeElement.querySelector('button[aria-expanded]') as HTMLButtonElement;
+      btn.click();
+      fixture.detectChanges();
+      expect(btn.getAttribute('aria-expanded')).toBe('true');
+    });
+
+    it('all certifications visible after toggle (total = CERTIFICATIONS.length)', () => {
+      const btn = fixture.nativeElement.querySelector('button[aria-expanded]') as HTMLButtonElement;
+      btn.click();
+      fixture.detectChanges();
+      expect(cards().length).toBe(CERTIFICATIONS.length);
+    });
+
+    it('clicking toggle again collapses additional certifications', () => {
+      const btn = fixture.nativeElement.querySelector('button[aria-expanded]') as HTMLButtonElement;
+      btn.click();
+      fixture.detectChanges();
+      btn.click();
+      fixture.detectChanges();
+      const featured = CERTIFICATIONS.filter((c) => c.priority !== 'additional');
+      expect(cards().length).toBe(featured.length);
+      expect(btn.getAttribute('aria-expanded')).toBe('false');
     });
   });
 });

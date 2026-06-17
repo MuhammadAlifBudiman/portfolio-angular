@@ -9,6 +9,7 @@ import { EN } from '../../i18n/en';
 import { ID } from '../../i18n/id';
 import { ButtonComponent } from '../../components/button/button.component';
 import { ProjectStatusBadgeComponent } from '../../components/project-status-badge/project-status-badge.component';
+import { formatProjectPeriod } from '../../utils/project-period.util';
 
 @Component({
   selector: 'app-project-detail',
@@ -24,6 +25,14 @@ export class ProjectDetailComponent implements OnInit {
 
   project: Project | undefined;
   caseStudy: CaseStudy | undefined;
+
+  get projectPeriod(): string | null {
+    if (!this.project) return null;
+    if (this.project.period) {
+      return formatProjectPeriod(this.project.period, this.lang.currentLang());
+    }
+    return this.project.year ?? null;
+  }
 
   get viewCaseStudy(): string { return this.lang.t('portfolio.cta.caseStudy'); }
   get githubLabel(): string { return this.lang.t('portfolio.cta.github'); }

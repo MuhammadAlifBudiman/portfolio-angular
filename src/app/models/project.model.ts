@@ -24,6 +24,16 @@ export interface ProjectContext {
   relatedExperienceId?: string;
 }
 
+/** Typed date range for a project. Replaces the bare `year` string for ongoing/range projects. */
+export interface ProjectPeriod {
+  /** Start year (four-digit). */
+  startYear: number;
+  /** End year for a known fixed range (four-digit). Omit for single-year or ongoing. */
+  endYear?: number;
+  /** True when the project is still active. Renders as "Present" (EN) / "Sekarang" (ID). */
+  ongoing?: boolean;
+}
+
 export interface Project {
   /** Stable id — reused as card element id, @for track key, and i18n key prefix. */
   id: string;
@@ -36,8 +46,12 @@ export interface Project {
   linkStatus: ProjectLinkStatus;
   featured: boolean;
   categories: ProjectCategory[];
-  /** Four-digit year or range (e.g. '2024', '2025–2026'). Omit when unknown. */
+  /** Four-digit year or range (e.g. '2024', '2025–2026'). Omit when unknown.
+   * @deprecated Use `period` instead for typed, language-aware rendering.
+   */
   year?: string;
+  /** Typed date period. When present, use `formatProjectPeriod` to render instead of `year`. */
+  period?: ProjectPeriod;
   /** Authoritative CTA list — replaces `url` in card rendering. */
   links: ProjectLink[];
   /**
