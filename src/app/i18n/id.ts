@@ -170,6 +170,10 @@ export const ID: PartialTranslation = {
   certifications: {
     eyebrow: 'Kredensial Terverifikasi',
     title: 'Sertifikasi',
+    featuredHeading: 'Kredensial Unggulan',
+    additionalHeading: 'Kredensial Tambahan',
+    showMore: 'Tampilkan Lebih Banyak Kredensial',
+    showLess: 'Sembunyikan Kredensial Tambahan',
     items: {
       'bkn-internship': {
         name: 'Sertifikat Magang — Sistem & Aplikasi Digital',

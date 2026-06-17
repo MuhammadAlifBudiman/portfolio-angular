@@ -170,6 +170,10 @@ export const EN: Translation = {
   certifications: {
     eyebrow: 'Verified Credentials',
     title: 'Certifications',
+    featuredHeading: 'Featured Credentials',
+    additionalHeading: 'Additional Credentials',
+    showMore: 'Show More Credentials',
+    showLess: 'Show Less Credentials',
     items: {
       'bkn-internship': {
         name: 'Internship Certificate — Digital Systems & Applications',

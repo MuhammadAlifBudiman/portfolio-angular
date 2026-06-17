@@ -147,6 +147,10 @@ export interface Translation {
   certifications: {
     eyebrow: string;
     title: string;
+    featuredHeading: string;
+    additionalHeading: string;
+    showMore: string;
+    showLess: string;
     items: Record<
       string,
       {
