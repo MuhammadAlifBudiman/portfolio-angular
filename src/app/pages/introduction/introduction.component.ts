@@ -2,6 +2,9 @@ import { Component, OnInit, inject } from '@angular/core';
 import { LanguageService } from '../../services/language.service';
 import { SeoService } from '../../services/seo.service';
 import { ButtonComponent } from '../../components/button/button.component';
+import { PROJECTS } from '../../data/projects.data';
+import { EXPERIENCES } from '../../data/experience.data';
+import { CERTIFICATIONS } from '../../data/certifications.data';
 
 @Component({
   selector: 'app-introduction',
@@ -21,6 +24,19 @@ export class IntroductionComponent implements OnInit {
   get downloadResumeText(): string { return this.lang.t('intro.downloadResumeBtn'); }
   get availabilityText(): string { return this.lang.t('intro.availability'); }
   get locationText(): string { return this.lang.t('intro.location'); }
+
+  readonly featuredProjectCount = PROJECTS.filter(p => p.featured).length;
+  readonly experienceCount = EXPERIENCES.length;
+  readonly certCount = CERTIFICATIONS.length;
+
+  get quickFacts(): { count: number | null; label: string; value?: string }[] {
+    return [
+      { count: this.featuredProjectCount, label: this.lang.t('quickFacts.featuredCaseStudies') },
+      { count: this.experienceCount, label: this.lang.t('quickFacts.experienceEntries') },
+      { count: this.certCount, label: this.lang.t('quickFacts.verifiedCredentials') },
+      { count: null, label: this.lang.t('quickFacts.targetRoles'), value: this.lang.t('quickFacts.targetRolesValue') },
+    ];
+  }
 
   ngOnInit(): void {
     this.seo.setMetadata({

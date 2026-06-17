@@ -173,6 +173,13 @@ export interface Translation {
       tools: string;
     };
   };
+  quickFacts: {
+    featuredCaseStudies: string;
+    experienceEntries: string;
+    verifiedCredentials: string;
+    targetRoles: string;
+    targetRolesValue: string;
+  };
   projects: Record<string, ProjectTranslation>;
   projectContext: Record<string, string>;
   caseStudies: {

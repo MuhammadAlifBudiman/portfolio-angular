@@ -245,6 +245,13 @@ export const ID: PartialTranslation = {
       tools: 'Alat Engineering',
     },
   },
+  quickFacts: {
+    featuredCaseStudies: 'Studi Kasus Unggulan',
+    experienceEntries: 'Pengalaman Profesional & Pelatihan',
+    verifiedCredentials: 'Kredensial Terverifikasi',
+    targetRoles: 'Terbuka untuk Posisi',
+    targetRolesValue: 'Backend · Full-Stack',
+  },
   projects: {
     'bkn-internal-workflow-api': {
       description: 'Mengembangkan dan menyempurnakan endpoint backend Go untuk modul alur kerja internal, mencakup pengambilan daftar/detail, filter, pengurutan, paginasi, transisi alur kerja, penanganan file multipart, dan dokumentasi OpenAPI.',

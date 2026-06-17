@@ -38,6 +38,24 @@
           [ariaLabel]="downloadResumeText"
         ></app-button>
       </div>
+
+      <!-- Quick facts -->
+      <dl class="mt-8 flex flex-wrap gap-x-6 gap-y-3" aria-label="Quick facts">
+        @for (fact of quickFacts; track fact.label) {
+          <div class="flex flex-col">
+            <dt class="dark:text-dark-text-secondary text-light-text-secondary font-mono text-xs">
+              {{ fact.label }}
+            </dt>
+            <dd class="dark:text-dark-text-primary text-light-text-primary font-semibold text-sm">
+              @if (fact.count !== null) {
+                {{ fact.count }}
+              } @else {
+                {{ fact.value }}
+              }
+            </dd>
+          </div>
+        }
+      </dl>
     </div>
   </div>
 </div>

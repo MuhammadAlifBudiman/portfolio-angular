@@ -245,6 +245,13 @@ export const EN: Translation = {
       tools: 'Engineering Tools',
     },
   },
+  quickFacts: {
+    featuredCaseStudies: 'Featured Case Studies',
+    experienceEntries: 'Professional & Training Experiences',
+    verifiedCredentials: 'Verified Credentials',
+    targetRoles: 'Open to Roles',
+    targetRolesValue: 'Backend · Full-Stack',
+  },
   projects: {
     'bkn-internal-workflow-api': {
       description: 'Developed and refined Go backend endpoints for internal workflow modules, including list/detail retrieval, filtering, sorting, pagination, workflow transitions, multipart file handling, and OpenAPI documentation.',
