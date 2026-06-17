@@ -176,17 +176,17 @@ describe('PortfolioComponent', () => {
       expect(anchor).withContext('caseStudy link should render independently').not.toBeNull();
     });
 
-    it('shows archived badge even when project has links (patient-management-system has github + caseStudy)', () => {
+    it('shows live badge with demo, API docs, GitHub, and case-study links for patient-management-system', () => {
       const card = cardById('patient-management-system');
       expect(card).withContext('patient-management-system card should render').not.toBeNull();
 
       const chip = card!.querySelector('[role="status"]');
-      expect(chip).withContext('archived status chip should render').not.toBeNull();
-      expect(chip!.textContent?.trim()).toBe('Archived');
+      expect(chip).withContext('live status chip should render').not.toBeNull();
+      expect(chip!.textContent?.trim()).toBe('Live');
 
-      // Both github and caseStudy links should be present
+      // demo + apiDocs + github + caseStudy anchors should be present
       const anchors = card!.querySelectorAll('a[href]');
-      expect(anchors.length).withContext('patient-management-system has github + caseStudy anchors').toBe(2);
+      expect(anchors.length).withContext('patient-management-system has four CTA anchors').toBe(4);
     });
 
     it('shows live badge for blog-api-server project with 4 links', () => {

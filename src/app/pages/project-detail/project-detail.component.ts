@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PROJECTS } from '../../data/projects.data';
-import { CASE_STUDIES, CaseStudy } from '../../data/case-studies.data';
+import { CASE_STUDIES, CaseStudy, CaseStudyMedia } from '../../data/case-studies.data';
 import { Project } from '../../models/project.model';
 import { LanguageService } from '../../services/language.service';
 import { SeoService } from '../../services/seo.service';
@@ -83,6 +83,27 @@ export class ProjectDetailComponent implements OnInit {
     return Array.isArray(val) ? val : [val];
   }
 
+  placedMediaAfter(sectionId: string): CaseStudyMedia[] {
+    return [...(this.caseStudy?.media ?? [])].filter(item => item.afterSectionId === sectionId);
+  }
+
+  get unplacedMedia(): CaseStudyMedia[] {
+    return [...(this.caseStudy?.media ?? [])].filter(item => !item.afterSectionId);
+  }
+
+  mediaImageClass(item: CaseStudyMedia): string {
+    const fitClass = item.imageFit === 'contain' || item.type === 'architecture' || item.type === 'flow'
+      ? 'object-contain'
+      : 'object-cover';
+    const positionClass = item.imagePosition === 'top' ? 'object-top' : 'object-center';
+    return [
+      'dark:border-dark-background-hover border-light-background-hover bg-light-background-hover dark:bg-dark-background-hover',
+      'max-h-[420px] w-full rounded-lg border',
+      fitClass,
+      positionClass,
+    ].join(' ');
+  }
+
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug') ?? '';
     this.project = PROJECTS.find(p => p.id === slug);
@@ -103,6 +124,6 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   navigateBack(): void {
-    this.router.navigate(['/portfolio']);
+    this.router.navigate(['/'], { fragment: 'section-portfolio' });
   }
 }

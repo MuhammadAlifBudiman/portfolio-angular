@@ -21,6 +21,7 @@ describe('HeaderComponent', () => {
           { path: '', component: StubComponent },
           { path: 'about-me', component: StubComponent },
           { path: 'portfolio', component: StubComponent },
+          { path: 'contact', component: StubComponent },
         ]),
       ],
     }).compileComponents();
@@ -62,9 +63,9 @@ describe('HeaderComponent', () => {
       expect(hamburger.getAttribute('aria-controls')).toBe('nav-menu');
     });
 
-    it('stays visible below the xl desktop navigation breakpoint', () => {
-      expect(hamburger.classList).toContain('xl:hidden');
-      expect(hamburger.classList).not.toContain('2xl:hidden');
+    it('stays visible below the 2xl desktop navigation breakpoint', () => {
+      expect(hamburger.classList).toContain('2xl:hidden');
+      expect(hamburger.classList).not.toContain('xl:hidden');
     });
 
     it('toggleMenu() sets isMenuOpen to true on first call', () => {
@@ -125,12 +126,12 @@ describe('HeaderComponent', () => {
   });
 
   describe('desktop navigation breakpoint', () => {
-    it('uses xl classes for the expanded desktop nav', () => {
+    it('uses 2xl classes for the expanded desktop nav', () => {
       const navMenu = fixture.nativeElement.querySelector('#nav-menu') as HTMLElement;
-      expect(navMenu.classList).toContain('xl:static');
-      expect(navMenu.classList).toContain('xl:block');
-      expect(navMenu.classList).not.toContain('2xl:static');
-      expect(navMenu.classList).not.toContain('2xl:block');
+      expect(navMenu.classList).toContain('2xl:static');
+      expect(navMenu.classList).toContain('2xl:block');
+      expect(navMenu.classList).not.toContain('xl:static');
+      expect(navMenu.classList).not.toContain('xl:block');
     });
   });
 
@@ -240,6 +241,32 @@ describe('HeaderComponent', () => {
 
     it('nav has at least 5 items', () => {
       expect(navItems().length).toBeGreaterThanOrEqual(5);
+    });
+
+    it('all six primary nav links target homepage fragments', () => {
+      const anchors = Array.from(
+        fixture.nativeElement.querySelectorAll('nav ul li a'),
+      ) as HTMLAnchorElement[];
+      const hrefs = anchors.slice(0, 6).map(anchor => anchor.getAttribute('href'));
+
+      expect(hrefs).toEqual([
+        '/#section-about',
+        '/#section-experience',
+        '/#section-technologies',
+        '/#section-portfolio',
+        '/#section-certifications',
+        '/#section-contact',
+      ]);
+    });
+
+    it('closes the mobile menu when a primary nav link is selected', () => {
+      component.toggleMenu();
+      fixture.detectChanges();
+
+      const firstLink: HTMLAnchorElement = fixture.nativeElement.querySelector('nav ul li a');
+      firstLink.click();
+
+      expect(component.isMenuOpen).toBeFalse();
     });
   });
 

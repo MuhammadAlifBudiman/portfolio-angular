@@ -12,6 +12,10 @@ export const ID: PartialTranslation = {
   footer: {
     copyright: '© Muhammad Alif Budiman',
     backToTop: 'Kembali ke atas',
+    github: 'GitHub',
+    linkedin: 'LinkedIn',
+    email: 'Email',
+    resume: 'Resume',
   },
   header: {
     lightLabel: 'terang',
@@ -246,6 +250,7 @@ export const ID: PartialTranslation = {
     },
   },
   quickFacts: {
+    profileTitle: 'Profil Developer',
     featuredCaseStudies: 'Studi Kasus Unggulan',
     experienceEntries: 'Pengalaman Profesional & Pelatihan',
     verifiedCredentials: 'Kredensial Terverifikasi',
@@ -414,7 +419,7 @@ export const ID: PartialTranslation = {
     'patient-management-system': {
       sections: {
         overview:
-          'Sistem Pengelolaan Pasien berbasis web yang dibangun untuk proyek akhir MSIB Batch 5 di LearningX (2023). Mengelola registrasi pasien, antrean janji temu, rekam medis, dan alur kerja administratif untuk konteks klinik.',
+          'Sistem Pengelolaan Pasien berbasis web yang dibangun untuk proyek akhir MSIB Batch 5 di LearningX (2023). Mengelola registrasi pasien, antrean janji temu, rekam medis, dan alur kerja administratif untuk konteks klinik. Aplikasi ini kemudian di-redeploy ke Northflank setelah setup hosting sebelumnya tidak lagi digunakan.',
         context:
           'Proyek akhir MSIB di LearningX — Full-Stack Web Development (Batch 5), Agu–Des 2023. Peran: Full-Stack Developer & Ketua Tim. Proyek tim (3 anggota).',
         responsibilities: [
@@ -423,21 +428,25 @@ export const ID: PartialTranslation = {
           'Membangun rute backend Flask untuk CRUD pasien, penjadwalan janji temu, pengelolaan antrean, dan ekspor CSV.',
           'Mengimplementasikan pembaruan antarmuka real-time berbasis AJAX untuk status antrean dan janji temu.',
           'Mengembangkan alur kerja admin termasuk pencatatan rekam medis dan pengelolaan janji temu.',
-          'Menangani deployment ke Glitch (kini diarsipkan).',
+          'Menangani deployment awal dan kemudian mendokumentasikan redeployment Northflank sebagai environment live saat ini.',
         ],
         'technology-stack': 'Python · Flask · MongoDB · HTML · CSS · JavaScript · AJAX',
       },
       media: {
-        'patient-screenshot': {
-          alt: 'Aplikasi web Sistem Pengelolaan Pasien yang menampilkan pendaftaran pasien, antrean janji temu, dan pengelolaan rekam medis',
-          caption: 'Sistem Pengelolaan Pasien — proyek akhir MSIB Batch 5 di LearningX',
+        'patient-login': {
+          alt: 'Layar login Sistem Pengelolaan Pasien untuk role pasien dan pegawai',
+          caption: 'Deployment live Northflank — halaman masuk aplikasi',
         },
-        'patient-flow': {
-          alt: 'Diagram alur pasien: pasien mendaftar dan bergabung ke antrean, dokter memanggil pasien, dokter mencatat konsultasi, admin mengekspor laporan CSV',
-          caption: 'Alur inti pendaftaran pasien dan konsultasi',
+        'patient-dashboard': {
+          alt: 'Homepage publik Sistem Pengelolaan Pasien yang menampilkan tabel jadwal dokter dan status antrean saat ini',
+          caption: 'Tampilan publik jadwal dan status antrean pada deployment live Northflank',
+        },
+        'patient-workflow': {
+          alt: 'Diagram alur pasien: registrasi pasien, verifikasi pegawai, pembaruan status antrean, pemrosesan rekam medis, dan ekspor CSV',
+          caption: 'Alur klinik terverifikasi dengan pasien dan pegawai sebagai role terautentikasi',
         },
       },
-      accessNote: 'Hosting Glitch tidak lagi tersedia (platform ditutup). Kode sumber GitHub tetap dapat diakses.',
+      accessNote: 'Demo live dan dokumentasi API tersedia di Northflank. Kode sumber GitHub tetap dapat diakses publik.',
     },
     'task-master': {
       sections: {
@@ -450,7 +459,7 @@ export const ID: PartialTranslation = {
           'Membangun logika reset tugas terjadwal yang sadar zona waktu untuk siklus tugas harian, mingguan, dan bulanan.',
           'Mengintegrasikan DataTables untuk paginasi, pengurutan, dan filter data tugas sisi server.',
           'Mengimplementasikan ekspor Excel menggunakan openpyxl untuk pelaporan riwayat tugas.',
-          'Menyiapkan dokumentasi Swagger/OpenAPI melalui drf-spectacular.',
+          'Menyiapkan dokumentasi Swagger/OpenAPI melalui drf-yasg.',
           'Men-deploy ke PythonAnywhere dengan backend PostgreSQL.',
         ],
         architecture:

@@ -4,6 +4,10 @@ export type ProjectCategory = 'backend' | 'fullstack' | 'frontend' | 'learning' 
 
 export type ProjectLinkStatus = 'live' | 'restricted' | 'archived' | 'unavailable';
 
+export type ProjectImageFit = 'cover' | 'contain';
+
+export type ProjectImagePosition = 'center' | 'top';
+
 export interface ProjectLink {
   type: 'demo' | 'github' | 'apiDocs' | 'caseStudy' | 'liveApi';
   url: string;
@@ -40,6 +44,8 @@ export interface Project {
   title: string;
   ownership: ProjectOwnership;
   imageSrc: string;
+  imageFit?: ProjectImageFit;
+  imagePosition?: ProjectImagePosition;
   /** @deprecated Cards should read `links` instead. Kept for backward compatibility. */
   url?: string;
   stack: string[];

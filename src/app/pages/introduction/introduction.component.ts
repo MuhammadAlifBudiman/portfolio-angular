@@ -24,6 +24,7 @@ export class IntroductionComponent implements OnInit {
   get downloadResumeText(): string { return this.lang.t('intro.downloadResumeBtn'); }
   get availabilityText(): string { return this.lang.t('intro.availability'); }
   get locationText(): string { return this.lang.t('intro.location'); }
+  get profileTitle(): string { return this.lang.t('quickFacts.profileTitle'); }
 
   readonly featuredProjectCount = PROJECTS.filter(p => p.featured).length;
   readonly experienceCount = EXPERIENCES.length;

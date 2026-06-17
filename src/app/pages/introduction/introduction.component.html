@@ -1,61 +1,71 @@
 <div class="wrapper pt-36">
   <div class="mx-auto w-full max-w-[1280px] px-6">
-    <div class="w-full max-w-[760px]">
-      <p
-        class="dark:text-dark-accent-hover text-light-accent-hover lg:max-w-[550px] mb-1.5 font-mono text-base md:text-xl"
-      >
-        {{ greetingText }}
-      </p>
-      <h1
-        class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
-      >
-        {{ fullName }}
-      </h1>
-      <h2
-        class="dark:text-dark-text-secondary text-light-text-secondary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
-        id="my-role"
-      >
-        {{ roleText }}
-      </h2>
-      <p class="lg:max-w-[550px] mb-1.5 mt-4">
-        {{ introductionText }}
-      </p>
-      <!-- Availability + location -->
-      <p class="dark:text-dark-text-secondary text-light-text-secondary lg:max-w-[550px] mb-4 mt-2 font-mono text-sm">
-        {{ availabilityText }} · {{ locationText }}
-      </p>
-      <!-- CTAs -->
-      <div class="flex flex-wrap gap-3">
-        <app-button
-          [href]="'#section-portfolio'"
-          [buttonText]="viewProjectsText"
-          [ariaLabel]="viewProjectsText"
-        ></app-button>
-        <app-button
-          href="resume.pdf"
-          [buttonText]="downloadResumeText"
-          download="Muhammad-Alif-Budiman-Resume.pdf"
-          [ariaLabel]="downloadResumeText"
-        ></app-button>
+    <div
+      data-testid="intro-layout"
+      class="grid w-full items-center gap-8 lg:grid-cols-2 lg:gap-12"
+    >
+      <div class="w-full max-w-[720px]">
+        <p
+          class="dark:text-dark-accent-hover text-light-accent-hover lg:max-w-[550px] mb-1.5 font-mono text-base md:text-xl"
+        >
+          {{ greetingText }}
+        </p>
+        <h1
+          class="dark:text-dark-text-primary text-light-text-primary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
+        >
+          {{ fullName }}
+        </h1>
+        <h2
+          class="dark:text-dark-text-secondary text-light-text-secondary mb-1.5 text-3xl font-bold md:text-4xl lg:text-6xl"
+          id="my-role"
+        >
+          {{ roleText }}
+        </h2>
+        <p class="lg:max-w-[550px] mb-1.5 mt-4">
+          {{ introductionText }}
+        </p>
+        <p class="dark:text-dark-text-secondary text-light-text-secondary lg:max-w-[550px] mb-4 mt-2 font-mono text-sm">
+          {{ availabilityText }} · {{ locationText }}
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <app-button
+            [href]="'#section-portfolio'"
+            [buttonText]="viewProjectsText"
+            [ariaLabel]="viewProjectsText"
+          ></app-button>
+          <app-button
+            href="resume.pdf"
+            [buttonText]="downloadResumeText"
+            download="Muhammad-Alif-Budiman-Resume.pdf"
+            [ariaLabel]="downloadResumeText"
+          ></app-button>
+        </div>
       </div>
 
-      <!-- Quick facts -->
-      <dl class="mt-8 flex flex-wrap gap-x-6 gap-y-3" aria-label="Quick facts">
-        @for (fact of quickFacts; track fact.label) {
-          <div class="flex flex-col">
-            <dt class="dark:text-dark-text-secondary text-light-text-secondary font-mono text-xs">
-              {{ fact.label }}
-            </dt>
-            <dd class="dark:text-dark-text-primary text-light-text-primary font-semibold text-sm">
-              @if (fact.count !== null) {
-                {{ fact.count }}
-              } @else {
-                {{ fact.value }}
-              }
-            </dd>
-          </div>
-        }
-      </dl>
+      <aside
+        aria-label="Developer Profile"
+        class="dark:border-dark-border-primary border-light-border-primary dark:bg-dark-background-hover bg-light-background-hover w-full rounded-lg border p-5 lg:ml-auto lg:max-w-[420px]"
+      >
+        <h3 class="dark:text-dark-text-primary text-light-text-primary mb-4 text-lg font-bold">
+          {{ profileTitle }}
+        </h3>
+        <dl class="grid grid-cols-2 gap-4">
+          @for (fact of quickFacts; track fact.label) {
+            <div>
+              <dt class="dark:text-dark-text-secondary text-light-text-secondary font-mono text-xs">
+                {{ fact.label }}
+              </dt>
+              <dd class="dark:text-dark-text-primary text-light-text-primary mt-1 text-xl font-semibold">
+                @if (fact.count !== null) {
+                  {{ fact.count }}
+                } @else {
+                  {{ fact.value }}
+                }
+              </dd>
+            </div>
+          }
+        </dl>
+      </aside>
     </div>
   </div>
 </div>

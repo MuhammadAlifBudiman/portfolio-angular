@@ -30,9 +30,13 @@ describe('FooterComponent', () => {
     expect(el.querySelector('footer')).toBeTruthy();
   });
 
-  it('should call t() for copyright and backToTop keys', () => {
+  it('should call t() for copyright, link, and backToTop keys', () => {
     expect(langServiceSpy.t).toHaveBeenCalledWith('footer.copyright');
     expect(langServiceSpy.t).toHaveBeenCalledWith('footer.backToTop');
+    expect(langServiceSpy.t).toHaveBeenCalledWith('footer.github');
+    expect(langServiceSpy.t).toHaveBeenCalledWith('footer.linkedin');
+    expect(langServiceSpy.t).toHaveBeenCalledWith('footer.email');
+    expect(langServiceSpy.t).toHaveBeenCalledWith('footer.resume');
   });
 
   it('should have a back-to-top button with an aria-label', () => {
@@ -45,5 +49,22 @@ describe('FooterComponent', () => {
     const spy = spyOn(window, 'scrollTo');
     component.scrollToTop();
     expect(spy).toHaveBeenCalled();
+  });
+
+  it('renders expected footer links with safe external attributes', () => {
+    const anchors = Array.from(fixture.nativeElement.querySelectorAll('a')) as HTMLAnchorElement[];
+    const hrefs = anchors.map(anchor => anchor.getAttribute('href'));
+
+    expect(hrefs).toContain('https://github.com/MuhammadAlifBudiman');
+    expect(hrefs).toContain('https://www.linkedin.com/in/muhammad-alif-budiman/');
+    expect(hrefs).toContain('mailto:muhammadalifbudiman0@gmail.com');
+    expect(hrefs).toContain('resume.pdf');
+
+    anchors
+      .filter(anchor => anchor.getAttribute('href')?.startsWith('https://'))
+      .forEach(anchor => {
+        expect(anchor.getAttribute('target')).toBe('_blank');
+        expect(anchor.getAttribute('rel')).toBe('noopener noreferrer');
+      });
   });
 });

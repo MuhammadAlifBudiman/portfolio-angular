@@ -91,7 +91,7 @@
         @if (caseStudy) {
           <div class="mx-auto w-full max-w-3xl">
             @for (section of caseStudy.sections; track section.id) {
-              <div class="mb-8">
+              <div class="mb-8" [attr.data-section-id]="section.id">
                 <h2 class="dark:text-dark-text-primary text-light-text-primary mb-3 text-xl font-bold">
                   {{ getSectionHeading(section.id) }}
                 </h2>
@@ -109,21 +109,36 @@
                   </ul>
                 }
               </div>
+              @for (item of placedMediaAfter(section.id); track item.id) {
+                <figure class="mb-8" [attr.data-media-id]="item.id">
+                  <img
+                    [src]="item.src"
+                    [alt]="t(item.altKey)"
+                    loading="lazy"
+                    [class]="mediaImageClass(item)"
+                  />
+                  @if (item.captionKey) {
+                    <figcaption class="dark:text-dark-text-secondary text-light-text-secondary mt-2 text-center font-mono text-sm">
+                      {{ t(item.captionKey) }}
+                    </figcaption>
+                  }
+                </figure>
+              }
             }
           </div>
-          @if (caseStudy.media?.length) {
+          @if (unplacedMedia.length) {
             <div class="mx-auto mt-10 w-full max-w-3xl">
               <h2 class="dark:text-dark-text-primary text-light-text-primary mb-4 text-xl font-bold">
                 {{ t('caseStudies.common.visualEvidence') }}
               </h2>
               <div class="flex flex-col gap-6">
-                @for (item of caseStudy.media!; track item.id) {
-                  <figure>
+                @for (item of unplacedMedia; track item.id) {
+                  <figure [attr.data-media-id]="item.id">
                     <img
                       [src]="item.src"
                       [alt]="t(item.altKey)"
                       loading="lazy"
-                      class="dark:border-dark-background-hover border-light-background-hover w-full rounded-lg border"
+                      [class]="mediaImageClass(item)"
                     />
                     @if (item.captionKey) {
                       <figcaption class="dark:text-dark-text-secondary text-light-text-secondary mt-2 text-center font-mono text-sm">

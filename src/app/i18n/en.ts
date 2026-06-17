@@ -12,6 +12,10 @@ export const EN: Translation = {
   footer: {
     copyright: '© Muhammad Alif Budiman',
     backToTop: 'Back to top',
+    github: 'GitHub',
+    linkedin: 'LinkedIn',
+    email: 'Email',
+    resume: 'Resume',
   },
   header: {
     lightLabel: 'light',
@@ -246,6 +250,7 @@ export const EN: Translation = {
     },
   },
   quickFacts: {
+    profileTitle: 'Developer Profile',
     featuredCaseStudies: 'Featured Case Studies',
     experienceEntries: 'Professional & Training Experiences',
     verifiedCredentials: 'Verified Credentials',
@@ -414,7 +419,7 @@ export const EN: Translation = {
     'patient-management-system': {
       sections: {
         overview:
-          'A web-based Patient Management System built for the MSIB Batch 5 capstone project at LearningX (2023). Manages patient registration, appointment queuing, medical records, and administrative workflows for a clinic context.',
+          'A web-based Patient Management System built for the MSIB Batch 5 capstone project at LearningX (2023). Manages patient registration, appointment queuing, medical records, and administrative workflows for a clinic context. The app was later redeployed to Northflank after the earlier hosting setup was retired.',
         context:
           'MSIB Capstone project at LearningX — Full-Stack Web Development (Batch 5), Aug–Dec 2023. Role: Full-Stack Developer & Team Lead. Team project (3 members).',
         responsibilities: [
@@ -423,21 +428,25 @@ export const EN: Translation = {
           'Built Flask backend routes for patient CRUD, appointment scheduling, queue management, and CSV export.',
           'Implemented AJAX-based real-time interface updates for queue and appointment status.',
           'Developed admin workflows including medical record entry and appointment management.',
-          'Handled deployment to Glitch (now archived).',
+          'Handled the original deployment and later documented the Northflank redeployment as the current live environment.',
         ],
         'technology-stack': 'Python · Flask · MongoDB · HTML · CSS · JavaScript · AJAX',
       },
       media: {
-        'patient-screenshot': {
-          alt: 'Patient Management System clinic web application showing patient registration, appointment queuing, and medical record management',
-          caption: 'Patient Management System — MSIB Batch 5 capstone project at LearningX',
+        'patient-login': {
+          alt: 'Patient Management System login screen for pasien and pegawai roles',
+          caption: 'Live Northflank deployment — login entry point',
         },
-        'patient-flow': {
-          alt: 'Patient workflow diagram: patient registers and joins queue, doctor calls patient, doctor records consultation, admin exports CSV report',
-          caption: 'Core patient registration and consultation workflow',
+        'patient-dashboard': {
+          alt: 'Patient Management System public homepage showing doctor schedules and current queue status tables',
+          caption: 'Public schedule and queue status view on the live Northflank deployment',
+        },
+        'patient-workflow': {
+          alt: 'Patient workflow diagram: pasien registration, pegawai verification, queue status updates, medical-record processing, and CSV export',
+          caption: 'Verified clinic workflow with pasien and pegawai as authenticated roles',
         },
       },
-      accessNote: 'Glitch hosting is no longer available (platform shut down). GitHub source remains accessible.',
+      accessNote: 'Live demo and API documentation are available on Northflank. GitHub source code remains publicly accessible.',
     },
     'task-master': {
       sections: {
@@ -450,7 +459,7 @@ export const EN: Translation = {
           'Built timezone-aware scheduled task reset logic for daily, weekly, and monthly task cycles.',
           'Integrated DataTables for server-side pagination, sorting, and filtering of task data.',
           'Implemented Excel export using openpyxl for task history reporting.',
-          'Set up Swagger/OpenAPI documentation via drf-spectacular.',
+          'Set up Swagger/OpenAPI documentation via drf-yasg.',
           'Deployed to PythonAnywhere with a PostgreSQL backend.',
         ],
         architecture:

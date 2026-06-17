@@ -1,3 +1,5 @@
+import { ProjectImageFit, ProjectImagePosition } from '../models/project.model';
+
 /**
  * Structural (language-neutral) case-study model.
  *
@@ -25,6 +27,10 @@ export interface CaseStudyMedia {
   altKey: string;
   /** Optional i18n key for a visible caption below the image */
   captionKey?: string;
+  /** Renders the figure immediately after the matching section instead of in the fallback visual evidence group. */
+  afterSectionId?: string;
+  imageFit?: ProjectImageFit;
+  imagePosition?: ProjectImagePosition;
 }
 
 export interface CaseStudy {
@@ -104,18 +110,34 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
     ],
     media: [
       {
-        id: 'patient-screenshot',
+        id: 'patient-login',
         type: 'screenshot',
-        src: 'projects/klinikgoogle.png',
-        altKey: 'caseStudies.patient-management-system.media.patient-screenshot.alt',
-        captionKey: 'caseStudies.patient-management-system.media.patient-screenshot.caption',
+        src: 'projects/case-studies/patient-management-login.webp',
+        altKey: 'caseStudies.patient-management-system.media.patient-login.alt',
+        captionKey: 'caseStudies.patient-management-system.media.patient-login.caption',
+        afterSectionId: 'context',
+        imageFit: 'cover',
+        imagePosition: 'top',
       },
       {
-        id: 'patient-flow',
+        id: 'patient-dashboard',
+        type: 'screenshot',
+        src: 'projects/case-studies/patient-management-dashboard.webp',
+        altKey: 'caseStudies.patient-management-system.media.patient-dashboard.alt',
+        captionKey: 'caseStudies.patient-management-system.media.patient-dashboard.caption',
+        afterSectionId: 'responsibilities',
+        imageFit: 'cover',
+        imagePosition: 'top',
+      },
+      {
+        id: 'patient-workflow',
         type: 'flow',
-        src: 'projects/diagrams/patient-workflow.svg',
-        altKey: 'caseStudies.patient-management-system.media.patient-flow.alt',
-        captionKey: 'caseStudies.patient-management-system.media.patient-flow.caption',
+        src: 'projects/case-studies/patient-management-workflow.webp',
+        altKey: 'caseStudies.patient-management-system.media.patient-workflow.alt',
+        captionKey: 'caseStudies.patient-management-system.media.patient-workflow.caption',
+        afterSectionId: 'technology-stack',
+        imageFit: 'contain',
+        imagePosition: 'top',
       },
     ],
     hasAccessNote: true,
