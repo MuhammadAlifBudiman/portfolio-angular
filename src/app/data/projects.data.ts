@@ -11,7 +11,7 @@ export const PROJECTS: readonly Project[] = [
   // --- Featured ---
   {
     id: 'bkn-internal-workflow-api',
-    title: 'Internal Workflow Backend API',
+    title: 'Internal Digital Systems Backend API',
     ownership: 'internal',
     featured: true,
     categories: ['backend', 'restricted'],
@@ -37,6 +37,7 @@ export const PROJECTS: readonly Project[] = [
     context: { type: 'bootcamp', id: 'mknows-bootcamp', relatedExperienceId: 'mknows' },
     links: [
       { type: 'liveApi', url: 'https://express-blog-dun.vercel.app/' },
+      { type: 'apiDocs', url: 'https://documenter.getpostman.com/view/24748798/2sB34mgxFL' },
       { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/be-mknows-4' },
       { type: 'caseStudy', url: '/projects/blog-api-server' },
     ],
@@ -80,7 +81,7 @@ export const PROJECTS: readonly Project[] = [
     title: 'Portfolio Website',
     ownership: 'personal',
     featured: true,
-    categories: ['frontend', 'fullstack'],
+    categories: ['frontend'],
     year: '2025',
     imageSrc: 'projects/portfolio-website.png',
     stack: ['Angular', 'TypeScript', 'SCSS', 'Tailwind CSS', 'i18n', 'Responsive UI', 'Unit Testing'],
@@ -103,7 +104,10 @@ export const PROJECTS: readonly Project[] = [
     imageSrc: 'projects/numble.png',
     stack: ['JavaScript', 'HTML', 'CSS'],
     linkStatus: 'live',
-    links: [{ type: 'demo', url: 'https://numble-xi.vercel.app/' }],
+    links: [
+      { type: 'demo', url: 'https://numble-xi.vercel.app/' },
+      { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/Numble' },
+    ],
   },
   // NOTE: image screenshots for password-security and crypto-charts need to be added to public/projects/
   {
@@ -154,19 +158,18 @@ export const PROJECTS: readonly Project[] = [
     ],
   },
   {
-    id: 'typing-game',
-    title: 'Typing Game',
-    ownership: 'personal',
+    id: 'stockdata',
+    title: 'StockData',
+    ownership: 'team',
     featured: false,
-    categories: ['frontend'],
-    year: '2025',
-    imageSrc: 'projects/typinggame.jpeg',
-    stack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
-    linkStatus: 'live',
-    context: { type: 'course', id: 'udemy-angular' },
+    categories: ['fullstack'],
+    year: '2021',
+    imageSrc: 'projects/stockdata.png',
+    stack: ['PHP', 'MySQL', 'JavaScript', 'CSS', 'HTML'],
+    linkStatus: 'archived',
+    context: { type: 'course', id: 'stockdata-hci' },
     links: [
-      { type: 'demo', url: 'https://muhammadalifbudiman.github.io/typing-game/' },
-      { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/typing-game' },
+      { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/stockdata' },
     ],
   },
   {

@@ -77,7 +77,7 @@ export const EN: Translation = {
   contact: {
     eyebrow: 'Get in touch',
     title: 'Contact',
-    description: 'If you have any questions or would like to discuss a project, feel free to reach out!',
+    description: 'Open to Backend and Full-Stack Developer opportunities, technical collaboration, and API-driven web projects.',
     whatsappLabel: 'WhatsApp:',
     emailLabel: 'Email:',
     form: {
@@ -287,10 +287,10 @@ export const EN: Translation = {
       imageAlt: 'Screenshot of Resume Builder with live preview and PDF export',
       role: 'Developer — Angular, form handling, PDF generation',
     },
-    'typing-game': {
-      description: 'Interactive typing speed and accuracy test with typing challenges, leaderboard, customisable themes, and detailed performance statistics.',
-      imageAlt: 'Screenshot of Typing Game speed test interface',
-      role: 'Developer — Angular, real-time input handling, stats tracking',
+    'stockdata': {
+      description: 'Web-based inventory management system developed as a university HCI project for a real client. Features product editing, category management, sorting, search, and live deployment.',
+      imageAlt: 'StockData inventory management web application screenshot',
+      role: 'Contributed to backend feature development (edit and sorting), frontend implementation, UI mockup design, live hosting setup, and debugging.',
     },
     'checkers': {
       description: 'Web-based Checkers game built with Angular. Features turn-based gameplay, piece movement, capturing, king promotion, and game-over conditions with full rule enforcement.',
@@ -305,6 +305,7 @@ export const EN: Translation = {
     'mknows-bootcamp': 'Bootcamp Project · M-Knows Consulting',
     'independent': 'Independent Project',
     'udemy-angular': 'Course Exercise · Udemy',
+    'stockdata-hci': 'Client-Based Team Project · University',
   },
   caseStudies: {
     common: {

@@ -77,7 +77,7 @@ export const ID: PartialTranslation = {
   contact: {
     eyebrow: 'Hubungi saya',
     title: 'Kontak',
-    description: 'Jika Anda memiliki pertanyaan atau ingin mendiskusikan sebuah proyek, jangan ragu untuk menghubungi saya!',
+    description: 'Terbuka untuk peluang Backend dan Full-Stack Developer, kolaborasi teknis, serta pengembangan aplikasi web berbasis API.',
     whatsappLabel: 'WhatsApp:',
     emailLabel: 'Email:',
     form: {
@@ -287,10 +287,10 @@ export const ID: PartialTranslation = {
       imageAlt: 'Tangkapan layar Resume Builder dengan pratinjau langsung dan ekspor PDF',
       role: 'Developer — Angular, penanganan form, pembuatan PDF',
     },
-    'typing-game': {
-      description: 'Tes kecepatan dan akurasi mengetik interaktif dengan tantangan mengetik, papan peringkat, tema yang dapat dikustomisasi, dan statistik performa terperinci.',
-      imageAlt: 'Tangkapan layar antarmuka tes kecepatan mengetik Typing Game',
-      role: 'Developer — Angular, penanganan input real-time, pelacakan statistik',
+    'stockdata': {
+      description: 'Sistem manajemen inventaris berbasis web yang dikembangkan sebagai proyek HCI universitas untuk klien nyata. Fitur meliputi pengelolaan produk, kategori, pengurutan, pencarian, dan deployment langsung.',
+      imageAlt: 'Tangkapan layar aplikasi web manajemen inventaris StockData',
+      role: 'Berkontribusi pada pengembangan fitur backend (edit dan pengurutan), implementasi frontend, desain mockup UI, pengaturan hosting live, dan debugging.',
     },
     'checkers': {
       description: 'Permainan Checkers berbasis web yang dibangun dengan Angular. Menampilkan gameplay berbasis giliran, pergerakan bidak, penangkapan, promosi raja, dan kondisi akhir permainan dengan penerapan aturan lengkap.',
@@ -305,6 +305,7 @@ export const ID: PartialTranslation = {
     'mknows-bootcamp': 'Proyek Bootcamp · M-Knows Consulting',
     'independent': 'Proyek Mandiri',
     'udemy-angular': 'Latihan Kursus · Udemy',
+    'stockdata-hci': 'Proyek Tim Berbasis Klien · Universitas',
   },
   caseStudies: {
     common: {
