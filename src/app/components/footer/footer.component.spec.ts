@@ -57,7 +57,7 @@ describe('FooterComponent', () => {
 
     expect(hrefs).toContain('https://github.com/MuhammadAlifBudiman');
     expect(hrefs).toContain('https://www.linkedin.com/in/muhammad-alif-budiman/');
-    expect(hrefs).toContain('mailto:muhammadalifbudiman0@gmail.com');
+    expect(hrefs).toContain('mailto:alifm2101@gmail.com');
     expect(hrefs).toContain('resume.pdf');
 
     anchors

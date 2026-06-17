@@ -15,7 +15,7 @@ export class FooterComponent {
   readonly links = {
     github: 'https://github.com/MuhammadAlifBudiman',
     linkedin: 'https://www.linkedin.com/in/muhammad-alif-budiman/',
-    email: 'mailto:muhammadalifbudiman0@gmail.com',
+    email: 'mailto:alifm2101@gmail.com',
     resume: 'resume.pdf',
   };
 
