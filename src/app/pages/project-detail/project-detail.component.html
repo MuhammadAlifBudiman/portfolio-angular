@@ -19,9 +19,9 @@
             <p class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm">
               {{ ownershipLabel(project.ownership) }}
             </p>
-            @if (project.year) {
+            @if (projectPeriod) {
               <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 text-xs">
-                {{ project.year }}
+                {{ projectPeriod }}
               </span>
             }
             <app-project-status-badge

@@ -4,6 +4,7 @@ import { Project } from '../../models/project.model';
 import { ButtonComponent } from '../button/button.component';
 import { ProjectStatusBadgeComponent } from '../project-status-badge/project-status-badge.component';
 import { LanguageService } from '../../services/language.service';
+import { formatProjectPeriod } from '../../utils/project-period.util';
 
 @Component({
   selector: 'app-project-card',
@@ -15,6 +16,13 @@ import { LanguageService } from '../../services/language.service';
 export class ProjectCardComponent {
   @Input({ required: true }) project!: Project;
   private lang = inject(LanguageService);
+
+  get projectPeriod(): string | null {
+    if (this.project.period) {
+      return formatProjectPeriod(this.project.period, this.lang.currentLang());
+    }
+    return this.project.year ?? null;
+  }
 
   get ownershipLabel(): string { return this.lang.t(`ownership.${this.project.ownership}`); }
   get projectContextLabel(): string | null {
