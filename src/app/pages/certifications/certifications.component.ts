@@ -28,11 +28,11 @@ export class CertificationsComponent {
     this.showAdditional.update(v => !v);
   }
 
-  get showMoreLabel(): string {
-    return this.showAdditional()
+  showMoreLabel = computed(() =>
+    this.showAdditional()
       ? this.lang.t('certifications.showLess')
-      : this.lang.t('certifications.showMore');
-  }
+      : this.lang.t('certifications.showMore')
+  );
 
   t(key: string): string { return this.lang.t(key); }
 
