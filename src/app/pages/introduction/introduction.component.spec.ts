@@ -84,7 +84,7 @@ describe('IntroductionComponent — FR-F00L-3', () => {
 
       expect(layout?.className).toContain('lg:grid-cols-2');
       expect(panel).toBeTruthy();
-      expect(panel.textContent).toContain('Developer Profile');
+      expect(panel.getAttribute('aria-label')).toBe(component.profileTitle);
     });
 
     it('renders raw quick-fact counts without percentage symbols', () => {
