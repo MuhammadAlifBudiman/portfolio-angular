@@ -150,19 +150,43 @@ html[data-style-theme='ember'] {
   --color-light-border-primary: rgba(230, 74, 25, 0.5);
 }
 
-* {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
-  &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
+/* Themed scrollbar — visible but styled to match the design tokens.
+   Removed the global scrollbar-hiding block so horizontal overflow
+   containers show a scroll affordance on all browsers. */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
+::-webkit-scrollbar-track {
+  background: var(--color-light-background-primary, #fff9f7);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-light-border-primary, rgba(230, 74, 25, 0.5));
+  border-radius: 3px;
+}
+
+:root.dark ::-webkit-scrollbar-track {
+  background: var(--color-dark-background-primary, #1a0a00);
+}
+
+:root.dark ::-webkit-scrollbar-thumb {
+  background: var(--color-dark-border-primary, rgba(255, 138, 101, 0.5));
+}
+
+/* Hide the native cursor only when the JS custom cursor has successfully
+   initialised — .custom-cursor-active is added by the directive on init
+   and removed on destroy, so fallback users always keep the native cursor. */
 @media (pointer: fine) {
-  * { cursor: none; }
-  input, textarea, select { cursor: text; }
-  a, button, [role="button"], [tabindex] { cursor: none; }
+  .custom-cursor-active * { cursor: none; }
+  .custom-cursor-active input,
+  .custom-cursor-active textarea,
+  .custom-cursor-active select { cursor: text; }
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active [role="button"],
+  .custom-cursor-active [tabindex] { cursor: none; }
 }
 
 @utility wrapper {

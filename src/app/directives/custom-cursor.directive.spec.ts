@@ -30,6 +30,7 @@ describe('CustomCursorDirective — FR-F00L-5', () => {
 
   afterEach(() => {
     document.querySelectorAll('.big-cursor').forEach((el) => el.remove());
+    document.documentElement.classList.remove('custom-cursor-active');
   });
 
   function createDesktop(): void {
@@ -69,6 +70,21 @@ describe('CustomCursorDirective — FR-F00L-5', () => {
     expect(document.body.querySelector('.big-cursor')).toBeNull();
     const events = removeSpy.calls.allArgs().map((args) => args[0]);
     expect(events).toContain('mousemove');
+  });
+
+  it('adds custom-cursor-active to documentElement when cursor initialises on desktop', () => {
+    createDesktop();
+
+    expect(document.documentElement.classList.contains('custom-cursor-active')).toBeTrue();
+  });
+
+  it('removes custom-cursor-active from documentElement on destroy', () => {
+    createDesktop();
+    expect(document.documentElement.classList.contains('custom-cursor-active')).toBeTrue();
+
+    fixture.destroy();
+
+    expect(document.documentElement.classList.contains('custom-cursor-active')).toBeFalse();
   });
 
   it('does not create a cursor on mobile user agents', () => {
