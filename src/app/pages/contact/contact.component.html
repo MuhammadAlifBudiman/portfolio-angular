@@ -1,5 +1,6 @@
 <div [class.wrapper]="pageMode" [class.section-wrapper]="!pageMode" class="pt-24">
-  <div class="mx-auto flex max-w-2xl flex-col items-center justify-center px-4">
+  <div class="mx-auto max-w-5xl px-4 lg:flex lg:items-start lg:gap-12">
+    <div class="mb-10 lg:mb-0 lg:w-1/2">
     <div
       class="dark:text-dark-text-secondary text-light-text-secondary mb-5 text-center text-base"
     >
@@ -22,14 +23,14 @@
           {{ contactTitle }}
         </h2>
       }
-      <div class="mt-4 flex flex-col items-center justify-center">
+      <div class="mt-4 flex flex-col items-center justify-center lg:items-start">
         <p
-          class="dark:text-dark-text-secondary text-light-text-secondary mb-1 max-w-[500px] text-base"
+          class="dark:text-dark-text-secondary text-light-text-secondary mb-1 max-w-[500px] text-base lg:text-left"
         >
           {{ contactDescription }}
         </p>
         <p
-          class="dark:text-dark-text-secondary text-light-text-secondary mb-5 text-center text-base"
+          class="dark:text-dark-text-secondary text-light-text-secondary mb-5 text-center text-base lg:text-left"
         >
           {{ whatsappLabel }}
           <a
@@ -49,7 +50,9 @@
         </p>
       </div>
     </div>
+    </div><!-- end left column -->
 
+    <div class="lg:w-1/2">
     <form class="w-full" #contactForm>
       <input type="hidden" name="time" [value]="time" />
       <div class="mb-5">
@@ -136,5 +139,6 @@
         ></app-button>
       </div>
     </form>
+    </div><!-- end right column -->
   </div>
 </div>
