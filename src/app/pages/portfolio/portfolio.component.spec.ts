@@ -144,7 +144,7 @@ describe('PortfolioComponent', () => {
 
     it('task-master year is 2023', () => {
       const card = cardById('task-master')!;
-      const yearSpan = card.querySelector('span.rounded-full.px-2');
+      const yearSpan = card.querySelector('[data-testid="project-period"]');
       expect(yearSpan?.textContent?.trim()).toBe('2023');
     });
   });
@@ -154,7 +154,7 @@ describe('PortfolioComponent', () => {
       const projectIds = ['password-security', 'crypto-charts'];
       const imagePaths = projectIds.map((id) => PROJECTS.find((project) => project.id === id)?.imageSrc);
 
-      expect(imagePaths).toEqual(['projects/password-security.png', 'projects/crypto-charts.png']);
+      expect(imagePaths).toEqual(['projects/password-security.webp', 'projects/crypto-charts.webp']);
 
       const responses = await Promise.all(imagePaths.map((path) => fetch(path!)));
       expect(responses.every((response) => response.ok)).toBeTrue();
@@ -269,8 +269,11 @@ describe('PortfolioComponent', () => {
     });
 
     it('card row containers carry items-stretch for equal-height rows', () => {
-      const rows = fixture.nativeElement.querySelectorAll('.flex.flex-wrap.items-stretch');
+      const rows = fixture.nativeElement.querySelectorAll('[data-testid="card-row"]');
       expect(rows.length).toBeGreaterThanOrEqual(1);
+      Array.from(rows).forEach((row) =>
+        expect((row as HTMLElement).className).toContain('items-stretch')
+      );
     });
   });
 

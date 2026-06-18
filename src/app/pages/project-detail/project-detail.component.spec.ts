@@ -103,7 +103,7 @@ describe('ProjectDetailComponent', () => {
 
   it('should render status badge in the meta row (ownership/year row)', () => {
     const el: HTMLElement = fixture.nativeElement;
-    const metaRow = el.querySelector('.mb-2.flex.flex-wrap.items-center.gap-2');
+    const metaRow = el.querySelector('[data-testid="project-meta-row"]');
     expect(metaRow).toBeTruthy();
     const badge = metaRow?.querySelector('app-project-status-badge');
     expect(badge).toBeTruthy();
@@ -112,9 +112,7 @@ describe('ProjectDetailComponent', () => {
   it('should NOT render status badge or status spans inside the CTA action row', () => {
     const el: HTMLElement = fixture.nativeElement;
     // The action row contains app-button elements and has items-center class
-    const actionRows = el.querySelectorAll('.flex.flex-wrap.items-center.gap-2');
-    // Find the action row (the one that is NOT the meta row — meta row has mb-2)
-    const actionRow = Array.from(actionRows).find(r => !r.classList.contains('mb-2'));
+    const actionRow = el.querySelector('[data-testid="project-action-row"]');
     if (actionRow) {
       expect(actionRow.querySelector('app-project-status-badge')).toBeNull();
       expect(actionRow.querySelector('[role="status"]')).toBeNull();

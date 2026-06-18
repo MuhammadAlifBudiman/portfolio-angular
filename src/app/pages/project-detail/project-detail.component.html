@@ -15,7 +15,7 @@
 
         <!-- Project header -->
         <div class="mx-auto mb-10 w-full max-w-3xl">
-          <div class="mb-2 flex flex-wrap items-center gap-2">
+          <div data-testid="project-meta-row" class="mb-2 flex flex-wrap items-center gap-2">
             <p class="dark:text-dark-accent-hover text-light-accent-hover font-mono text-sm">
               {{ ownershipLabel(project.ownership) }}
             </p>
@@ -52,7 +52,7 @@
           </div>
 
           <!-- CTAs -->
-          <div class="flex flex-wrap items-center gap-2">
+          <div data-testid="project-action-row" class="flex flex-wrap items-center gap-2">
             @for (link of project.links; track link.type) {
               @if (link.type !== 'caseStudy') {
                 <app-button

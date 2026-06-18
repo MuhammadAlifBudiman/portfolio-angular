@@ -157,13 +157,9 @@ describe('ProjectCardComponent', () => {
       stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC', 'Multipart File Upload', 'Workflow System'],
     } as typeof bknProject;
     setup(manyStackProject);
-    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('.mb-3');
-    // All chip spans with bg class (the real tech chips, not the "+N more" span)
-    const techChips = chipContainer.querySelectorAll('span.rounded-full.bg-light-background-hover, span.rounded-full.dark\\:bg-dark-background-hover');
-    // Fallback: count spans that do NOT contain "more"
-    const allSpans: NodeListOf<HTMLElement> = chipContainer.querySelectorAll('span');
-    const techChipCount = Array.from(allSpans).filter(s => !s.textContent?.includes('more')).length;
-    expect(techChipCount).toBe(6);
+    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('[data-testid="chip-container"]');
+    const allSpans: NodeListOf<HTMLElement> = chipContainer.querySelectorAll('[data-testid="stack-chip"]');
+    expect(allSpans.length).toBe(6);
   });
 
   it('renders "+N more" chip when stack has more than 6 items', () => {
@@ -172,7 +168,7 @@ describe('ProjectCardComponent', () => {
       stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC', 'Multipart File Upload', 'Workflow System'],
     } as typeof bknProject;
     setup(manyStackProject);
-    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('.mb-3');
+    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('[data-testid="chip-container"]');
     const allSpans: NodeListOf<HTMLElement> = chipContainer.querySelectorAll('span');
     const moreChip = Array.from(allSpans).find(s => s.textContent?.trim().includes('more'));
     expect(moreChip).toBeTruthy();
@@ -186,7 +182,7 @@ describe('ProjectCardComponent', () => {
       stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC'],
     } as typeof bknProject;
     setup(fewStackProject);
-    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('.mb-3');
+    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('[data-testid="chip-container"]');
     const allSpans: NodeListOf<HTMLElement> = chipContainer.querySelectorAll('span');
     const moreChip = Array.from(allSpans).find(s => s.textContent?.trim().includes('more'));
     expect(moreChip).toBeUndefined();
@@ -202,7 +198,7 @@ describe('ProjectCardComponent', () => {
   it('description uses text-base class', () => {
     setup();
     // The description paragraph has flex-1 and mb-2.5
-    const desc: HTMLElement = fixture.nativeElement.querySelector('p.flex-1');
+    const desc: HTMLElement = fixture.nativeElement.querySelector('[data-testid="project-description"]');
     expect(desc.className).toContain('text-base');
     expect(desc.className).not.toContain('text-lg');
   });

@@ -69,16 +69,19 @@ describe('ContactComponent — FR-F00L-2', () => {
     });
 
     it('populates the hidden time input before sending', fakeAsync(() => {
-      setEmail('alif@example.com');
-      component.sendData();
-      const timeInput = component.contactForm.nativeElement.querySelector(
-        'input[name="time"]'
-      ) as HTMLInputElement;
+      // Compute expected before sendData() so both new Date() calls happen in
+      // the same synchronous tick — jasmine.clock() cannot mock Date inside
+      // Angular's fakeAsync zone (zone.js intercepts timers first).
       const expected = new Date().toLocaleString('en-US', {
         dateStyle: 'medium',
         timeStyle: 'short',
         timeZone: 'UTC',
       });
+      setEmail('alif@example.com');
+      component.sendData();
+      const timeInput = component.contactForm.nativeElement.querySelector(
+        'input[name="time"]'
+      ) as HTMLInputElement;
       expect(timeInput.value).toBe(expected);
       flushMicrotasks();
     }));
