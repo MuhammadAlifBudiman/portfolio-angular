@@ -167,6 +167,28 @@
           </a>
         </div>
       </div>
+    <!-- Technologies section -->
+    <div class="mt-16 w-full px-4">
+      <h2 class="dark:text-dark-text-primary text-light-text-primary mb-6 text-2xl font-bold">
+        {{ technologiesTitle }}
+      </h2>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        @for (cat of techCategories; track cat.category) {
+          <div class="dark:bg-dark-background-hover bg-light-background-hover dark:border-dark-border-primary border-light-border-primary rounded-lg border p-4">
+            <h3 class="dark:text-dark-text-primary text-light-text-primary mb-3 font-mono text-sm font-semibold uppercase tracking-wider">
+              {{ cat.category }}
+            </h3>
+            <ul class="flex flex-wrap gap-2" [attr.aria-label]="cat.category + ' technologies'">
+              @for (tech of cat.items; track tech) {
+                <li class="dark:bg-dark-background-primary bg-light-background-primary dark:border-dark-border-primary border-light-border-primary dark:text-dark-text-secondary text-light-text-secondary rounded border px-2 py-0.5 font-mono text-xs">
+                  {{ tech }}
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </div>
     </div>
   </div>
 </div>
