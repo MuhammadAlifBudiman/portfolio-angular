@@ -43,7 +43,7 @@
       </div>
 
       <aside
-        aria-label="Developer Profile"
+        [attr.aria-label]="profileTitle"
         class="dark:border-dark-border-primary border-light-border-primary dark:bg-dark-background-hover bg-light-background-hover w-full rounded-lg border p-5 lg:ml-auto lg:max-w-[420px]"
       >
         <h3 class="dark:text-dark-text-primary text-light-text-primary mb-4 text-lg font-bold">
@@ -58,7 +58,7 @@
                   <dt class="dark:text-dark-text-secondary text-light-text-secondary font-mono text-xs">{{ fact.label }}</dt>
                 </div>
                 <div class="w-full bg-light-border-primary/30 dark:bg-dark-border-primary/30 h-1.5 rounded-sm overflow-hidden" aria-hidden="true">
-                  <div class="bg-light-accent-primary dark:bg-dark-accent-primary h-full" [style.width.%]="(fact.count / maxCount) * 100"></div>
+                  <div class="bg-light-accent-primary dark:bg-dark-accent-primary h-full" [style.width.%]="(fact.count / maxCount) * 100" aria-hidden="true"></div>
                 </div>
               } @else {
                 <dt class="sr-only">{{ fact.label }}</dt>
