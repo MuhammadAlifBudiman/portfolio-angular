@@ -29,6 +29,12 @@ This file is the control table for requirement traceability. Update it whenever 
 | F00I | SEO, Performance & Social Metadata (prerender) | FR-F00I-* | US-07 | N/A | `docs/specs/F00I-seo-prerender/` | #37, #61 | TBD | npm run build (prerender output) | In Progress |
 | F00N | Navigation Order & Breakpoint | FR-F00N-* | N/A | N/A | `docs/specs/F00N-nav/` | #61 | TBD | npm run build; Playwright responsive check | In Progress |
 | F002 | i18n English / Indonesian (case-study + aria-labels) | FR-F002-* | US-05 | AC-F002-* | `docs/specs/F002-i18n/` | #10, #61 | #48 | UAT + language fallback + case-study translations | In Progress |
-| F00O | Project Card & Status-Badge UI Hierarchy | FR-F00O-1 through FR-F00O-9 | US-02 | N/A | `docs/specs/f00o-project-card-status-ui/` | #63 | TBD | npm run build; npm run test:ci; playwright screenshots | In Progress |
+| F00O | Project Card & Status-Badge UI Hierarchy | FR-F00O-1 through FR-F00O-9 | US-02 | N/A | `docs/specs/f00o-project-card-status-ui/` | #63, #71 | TBD | npm run build; npm run test:ci; playwright screenshots | In Progress |
+| F00P | Scroll UX & Custom Cursor Resilience | FR-F00P-1 through FR-F00P-5 | N/A | N/A | `docs/specs/F00P-scroll-cursor/` | #68 | TBD | build + manual scroll/cursor check | In Progress |
+| F00Q | Diagram Theme, Mobile & Accuracy | FR-F00Q-1 through FR-F00Q-5 | N/A | N/A | `docs/specs/F00Q-diagrams/` | #72 | TBD | build + playwright 320px + light/dark visual | In Progress |
+| F00R | Technologies Section Layout Refinement | FR-F00R-1 through FR-F00R-6 | US-03 | N/A | `docs/specs/F00R-technologies-layout/` | #74 | TBD | build + npm test + playwright responsive | In Progress |
+| F00S | Contact Section Two-Column Layout | FR-F00S-1 through FR-F00S-6 | US-04 | N/A | `docs/specs/F00S-contact-layout/` | #75 | TBD | build + npm test + playwright desktop/mobile | In Progress |
+| F00E (ext) | README Documentation Sync | FR-F00E-* | N/A | N/A | `docs/product/FEATURE_SPEC.md` | #76 | TBD | manual README review + build | In Progress |
+| F00H+F00L (ext) | A11y Audit + Test Coverage Update | FR-F00H-* + FR-F00L-* | US-01, US-04 | N/A | `docs/specs/F00L-test-coverage/` | #77 | TBD | npm run test:ci + npm run test:ui + build | In Progress |
 
 Status values: `Draft`, `Ready`, `In Progress`, `Review`, `Done`, `Blocked`.

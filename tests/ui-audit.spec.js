@@ -3,7 +3,7 @@
  * Run: playwright test tests/ui-audit.spec.ts
  */
 
-const { test, expect } = require('@playwright/test');
+const { test, expect, request } = require('@playwright/test');
 
 const BASE = 'https://muhammadalifbudiman.my.id';
 
@@ -125,6 +125,59 @@ test.describe('Portfolio UI/UX audit', () => {
     const count = await cvBtn.count();
     console.log(`[intro] CV/Resume buttons found: ${count}`);
     expect(count).toBeGreaterThan(0);
+  });
+
+  // ─── SSG prerender regression guard ─────────────────────────────────────────
+  // Verifies that the locally built dist/ output is a full Angular SSG prerender,
+  // not a CSR shell. Starts a local static server, fetches the root URL using
+  // baseURL from playwright.config.js, and asserts the ng-server-context="ssg"
+  // marker that Angular injects into every prerendered page.
+  test('[ssg] root HTML response contains ng-server-context="ssg" marker', async () => {
+    const { spawn } = require('child_process');
+    const path = require('path');
+
+    const distDir = path.resolve(__dirname, '../dist/portfolio/browser');
+    const port = 8765;
+    const baseURL = 'http://localhost:' + port;
+
+    // Start local static server
+    const server = spawn(
+      'npx',
+      ['http-server', distDir, '-p', String(port), '-d', 'false', '--silent'],
+      { detached: false, stdio: 'ignore' }
+    );
+
+    // Wait until the server accepts connections (up to 10s)
+    const waitForServer = (url, maxMs = 10000) =>
+      new Promise((resolve, reject) => {
+        const start = Date.now();
+        const check = () => {
+          const http = require('http');
+          const req = http.get(url, (res) => { res.resume(); resolve(); });
+          req.on('error', () => {
+            if (Date.now() - start > maxMs) return reject(new Error(`Server at ${url} did not start within ${maxMs}ms`));
+            setTimeout(check, 300);
+          });
+          req.end();
+        };
+        check();
+      });
+
+    try {
+      await waitForServer(baseURL + '/');
+
+      const apiCtx = await request.newContext({ baseURL: 'http://localhost:8765' });
+      const response = await apiCtx.get('/', { headers: { Accept: 'text/html' } });
+      expect(response.ok()).toBe(true);
+      const body = await response.text();
+      expect(body, 'Root HTML must contain ng-server-context="ssg" (Angular SSG marker)').toContain(
+        'ng-server-context="ssg"'
+      );
+      await apiCtx.dispose();
+    } finally {
+      server.kill();
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
   });
 
   // ─── Mobile viewport check ────────────────────────────────────────────────
