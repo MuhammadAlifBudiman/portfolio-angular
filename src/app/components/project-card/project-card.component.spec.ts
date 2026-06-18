@@ -202,4 +202,24 @@ describe('ProjectCardComponent', () => {
     expect(desc.className).toContain('text-base');
     expect(desc.className).not.toContain('text-lg');
   });
+
+  it('article has a permanent border class (not just hover)', () => {
+    setup();
+    const article: HTMLElement = fixture.nativeElement.querySelector('article[data-testid="project-card"]');
+    // Must have a border class that is NOT prefixed with hover:
+    const classes: string[] = article.className.split(' ');
+    const hasNonHoverBorder = classes.some(c => c.startsWith('border-') && !c.startsWith('hover:'));
+    expect(hasNonHoverBorder).withContext('article should have a permanent border-* class').toBeTrue();
+  });
+
+  it('stackOverflowLabel returns English i18n string', () => {
+    setup();
+    expect(component.stackOverflowLabel(3)).toBe('+3 more');
+  });
+
+  it('stackOverflowLabel uses count from argument', () => {
+    setup();
+    expect(component.stackOverflowLabel(1)).toBe('+1 more');
+    expect(component.stackOverflowLabel(10)).toBe('+10 more');
+  });
 });

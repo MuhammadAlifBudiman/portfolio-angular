@@ -43,4 +43,7 @@ export class ProjectCardComponent {
     ].join(' ');
   }
   ctaLabel(type: string): string { return this.lang.t(`portfolio.cta.${type}`); }
+  stackOverflowLabel(count: number): string {
+    return this.lang.t('portfolio.stackMore').replace('{count}', String(count));
+  }
 }

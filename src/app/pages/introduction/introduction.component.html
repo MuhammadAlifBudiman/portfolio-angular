@@ -49,24 +49,17 @@
         <h3 class="dark:text-dark-text-primary text-light-text-primary mb-4 text-lg font-bold">
           {{ profileTitle }}
         </h3>
-        <dl class="flex flex-col gap-4">
+        <dl class="grid grid-cols-2 gap-3">
           @for (fact of quickFacts; track fact.label) {
-            <div>
+            <div
+              class="dark:bg-dark-background-primary bg-light-background-primary dark:border-dark-border-primary border-light-border-primary rounded-lg border p-4 flex flex-col gap-1"
+            >
               @if (fact.count !== null) {
-                <div class="flex items-baseline gap-3 mb-1">
-                  <dd class="dark:text-dark-text-primary text-light-text-primary text-xl font-semibold">{{ fact.count }}</dd>
-                  <dt class="dark:text-dark-text-secondary text-light-text-secondary font-mono text-xs">{{ fact.label }}</dt>
-                </div>
-                <div class="w-full bg-light-border-primary/30 dark:bg-dark-border-primary/30 h-1.5 rounded-sm overflow-hidden" aria-hidden="true">
-                  <div class="bg-light-accent-primary dark:bg-dark-accent-primary h-full" [style.width.%]="(fact.count / maxCount) * 100" aria-hidden="true"></div>
-                </div>
+                <dd class="dark:text-dark-accent-primary text-light-accent-primary text-3xl font-bold leading-none">{{ fact.count }}</dd>
               } @else {
-                <dt class="sr-only">{{ fact.label }}</dt>
-                <dd class="dark:text-dark-text-primary text-light-text-primary text-sm flex items-center gap-2 mt-2 font-mono">
-                  <span class="w-2 h-2 rounded-full bg-light-accent-primary dark:bg-dark-accent-primary" aria-hidden="true"></span>
-                  {{ fact.value }}
-                </dd>
+                <dd class="dark:text-dark-accent-primary text-light-accent-primary text-sm font-semibold font-mono leading-snug">{{ fact.value }}</dd>
               }
+              <dt class="dark:text-dark-text-secondary text-light-text-secondary font-mono text-xs leading-snug">{{ fact.label }}</dt>
             </div>
           }
         </dl>

@@ -29,7 +29,6 @@ export class IntroductionComponent implements OnInit {
   readonly featuredProjectCount = PROJECTS.filter(p => p.featured).length;
   readonly experienceCount = EXPERIENCES.length;
   readonly certCount = CERTIFICATIONS.length;
-  readonly maxCount = Math.max(this.featuredProjectCount, this.experienceCount, this.certCount, 15);
 
   get quickFacts(): { count: number | null; label: string; value?: string }[] {
     return [

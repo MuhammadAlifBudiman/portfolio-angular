@@ -78,6 +78,7 @@ export const EN: Translation = {
       unavailable: 'Unavailable',
       archived: 'Archived',
     },
+    stackMore: '+{count} more',
   },
   contact: {
     eyebrow: 'Get in touch',

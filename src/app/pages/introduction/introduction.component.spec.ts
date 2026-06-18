@@ -91,5 +91,29 @@ describe('IntroductionComponent — FR-F00L-3', () => {
       const panel: HTMLElement = fixture.nativeElement.querySelector('aside[aria-label="Developer Profile"]');
       expect(panel.textContent).not.toContain('%');
     });
+
+    it('does not render progress bars (no role="progressbar", no style.width bar elements)', () => {
+      const panel: HTMLElement = fixture.nativeElement.querySelector('aside[aria-label="Developer Profile"]');
+      expect(panel.querySelector('[role="progressbar"]')).toBeNull();
+      expect(panel.querySelector('progress')).toBeNull();
+      // No inline width style used for bars
+      const barElements = panel.querySelectorAll('[style*="width"]');
+      expect(barElements.length).toBe(0);
+    });
+
+    it('renders metric tiles in a 2-column grid', () => {
+      const dl: HTMLElement = fixture.nativeElement.querySelector('aside[aria-label="Developer Profile"] dl');
+      expect(dl?.classList.toString()).toContain('grid-cols-2');
+    });
+
+    it('component does not expose maxCount property', () => {
+      expect((component as unknown as Record<string, unknown>)['maxCount']).toBeUndefined();
+    });
+
+    it('renders dd element for each fact count or value', () => {
+      const panel: HTMLElement = fixture.nativeElement.querySelector('aside[aria-label="Developer Profile"]');
+      const dds = panel.querySelectorAll('dd');
+      expect(dds.length).toBe(component.quickFacts.length);
+    });
   });
 });

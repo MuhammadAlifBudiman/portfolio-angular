@@ -19,6 +19,11 @@ export class TechnologiesComponent {
   get title(): string { return this.lang.t('technologies.title'); }
   groupLabel(key: string): string { return this.lang.t(`technologies.groups.${key}`); }
 
+  /** First 8 items shown as primary badges. */
+  primaryItems(group: TechGroup): string[] { return group.items.slice(0, 8); }
+  /** Items beyond 8 shown in a secondary style. */
+  additionalItems(group: TechGroup): string[] { return group.items.slice(8); }
+
   readonly techGroups: TechGroup[] = [
     {
       key: 'backend',
