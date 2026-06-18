@@ -1,102 +1,120 @@
-# Portfolio
+# Muhammad Alif Budiman — Portfolio
 
-This is a personal portfolio web application built with [Angular CLI](https://github.com/angular/angular-cli) version 20.3.x. The project showcases your work, skills, and contact information in a modern, responsive design.
+Personal portfolio website for Muhammad Alif Budiman, a full-stack web developer focused on backend APIs and workflow systems.
+
+Live site: [muhammadalifbudiman.my.id](https://muhammadalifbudiman.my.id)
 
 ## Features
 
-- **About Me**: Introduction and background information.
-- **Portfolio**: Gallery of projects with images and descriptions.
-- **Contact**: Contact form for visitors to reach out.
-- **Custom Components**: Reusable UI elements (buttons, header, etc.).
-- **Custom Directives**: Enhanced interactivity (e.g., custom cursor).
-- **Responsive Design**: Optimized for desktop and mobile devices.
-- **Modern Styling**: Uses SCSS and Tailwind CSS for styling.
+- Professional introduction with evidence-based quick facts and resume access
+- About, Experience, Technologies, Projects, Certifications, and Contact sections
+- Filterable project showcase with dedicated case-study routes (`/projects/:slug`)
+- English and Indonesian content
+- Persistent dark/light mode and selectable accent themes
+- EmailJS contact form with validation and accessible status feedback
+- Static prerendering for the main pages and five project case studies
+- Responsive layouts, keyboard navigation, skip navigation, reduced-motion support, and visible focus states
+- Progressive custom cursor enhancement on supported pointer devices
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Angular 20 (standalone components) |
+| Language | TypeScript ~5.9 |
+| Styling | Tailwind CSS v4, SCSS |
+| Rendering | Angular SSR package with static prerendering |
+| Contact | EmailJS |
+| Unit tests | Karma / Jasmine |
+| E2E tests | Playwright |
+| Hosting | GitHub Pages with a custom domain |
 
 ## Project Structure
 
-- `src/app/components/`: Shared UI components (e.g., button, header).
-- `src/app/pages/`: Main pages (about-me, contact, introduction, main, portfolio).
-- `src/app/services/`: Application services (e.g., email service).
-- `src/app/directives/`: Custom Angular directives.
-- `public/`: Static assets and project images.
-
-## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18 or higher recommended)
-- [Angular CLI](https://angular.dev/tools/cli)
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/MuhammadAlifBudiman/portfolio-angular
-   cd portfolio
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-### Development Server
-
-Start the local development server:
-
-```bash
-ng serve
+```
+src/app/
+  pages/          # introduction, about-me, portfolio, contact,
+                  # project-detail, certifications, experience
+  components/     # button, header, footer, project-card,
+                  # project-status-badge, theme-selector, language-selector
+  services/       # email, language, seo, theme
+  directives/     # custom-cursor
+  data/           # projects, case-studies, experiences, certifications
+  i18n/           # en.ts, id.ts
+public/           # static assets, resume.pdf, project images/diagrams
+tests/            # Playwright E2E specs
+docs/             # product specs, architecture ADRs, roadmap, UAT
 ```
 
-Navigate to [http://localhost:4200/](http://localhost:4200/) in your browser. The app will reload automatically on code changes.
+## Development
 
-### Code Scaffolding
+Requirements:
 
-Generate a new component:
+- Node.js 20 (CI uses 20.19.5)
+- npm
 
-```bash
-ng generate component component-name
-```
-
-For more schematics:
+**Install dependencies**
 
 ```bash
-ng generate --help
+npm ci
 ```
 
-### Building
-
-Build the project for production:
+**Create local environment files**
 
 ```bash
-ng build
+npm run setup:env
 ```
 
-The build artifacts will be stored in the `dist/` directory.
+This copies the safe example configuration to the ignored local environment files. To test contact delivery locally, set your own EmailJS `serviceId`, `templateId`, and `publicKey` in `src/environments/environment.prod.ts`. Never commit real values.
 
-### Running Unit Tests
-
-Run unit tests with Karma:
+**Development server** — http://localhost:4200
 
 ```bash
-ng test
+npm start
 ```
 
-### Running End-to-End Tests
-
-Run e2e tests (if configured):
+**Production build**
 
 ```bash
-ng e2e
+npm run build
 ```
 
-> Note: Angular CLI does not include an e2e framework by default. You can add one as needed.
+The production build emits the static site under `dist/portfolio/browser`.
 
-## Customization
+**Unit tests**
 
-- Update your personal information and project details in the relevant components under `src/app/pages/`.
-- Add or replace project images in `public/projects/`.
+```bash
+npm run test:ci
+```
 
-## Additional Resources
+**E2E tests**
 
-- [Angular CLI Documentation](https://angular.dev/tools/cli)
-- [Angular Official Documentation](https://angular.dev/)
+```bash
+npm run test:ui
+```
+
+## Architecture
+
+The application is a standalone-component Angular site with typed data modules for projects, case studies, experience, and certifications. Services manage language, theme, SEO metadata, and EmailJS delivery. Angular's static output mode prerenders public routes at build time; the deployed application has no database, authentication layer, or custom backend.
+
+See [docs/architecture/ARCHITECTURE.md](docs/architecture/ARCHITECTURE.md) for the system design and [docs/product/FEATURE_SPEC.md](docs/product/FEATURE_SPEC.md) for the feature inventory.
+
+## Deployment
+
+Pushes to `main` trigger `.github/workflows/deploy.yml`. The workflow installs dependencies, injects EmailJS values from GitHub Actions secrets, builds the static site, and deploys it to the `gh-pages` branch:
+
+```bash
+npx ng deploy --cname=muhammadalifbudiman.my.id
+```
+
+Required repository secrets:
+
+- `ENV_SERVICE_ID`
+- `ENV_TEMPLATE_ID`
+- `ENV_PUBLIC_KEY`
+
+Do not place production credentials in tracked environment files.
+
+## License
+
+Personal project — all rights reserved.
