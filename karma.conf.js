@@ -6,8 +6,14 @@
 if (!process.env.CHROME_BIN) {
   try {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const fs = require('fs');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const puppeteer = require('puppeteer');
-    process.env.CHROME_BIN = puppeteer.executablePath();
+    const bundledChrome = puppeteer.executablePath();
+
+    if (fs.existsSync(bundledChrome)) {
+      process.env.CHROME_BIN = bundledChrome;
+    }
   } catch (_) {
     // Fall through — system Chrome will be used if available.
   }
