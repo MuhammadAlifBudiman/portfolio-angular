@@ -60,6 +60,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         src: 'projects/diagrams/bkn-architecture.svg',
         altKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-arch.alt',
         captionKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-arch.caption',
+        afterSectionId: 'architecture',
       },
       {
         id: 'bkn-flow',
@@ -67,6 +68,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         src: 'projects/diagrams/bkn-rbac-flow.svg',
         altKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-flow.alt',
         captionKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-flow.caption',
+        afterSectionId: 'engineering-decisions',
       },
     ],
     hasAccessNote: true,
@@ -89,6 +91,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         src: 'projects/blog-api-server.png',
         altKey: 'caseStudies.blog-api-server.media.blog-screenshot.alt',
         captionKey: 'caseStudies.blog-api-server.media.blog-screenshot.caption',
+        afterSectionId: 'overview',
       },
       {
         id: 'blog-arch',
@@ -96,6 +99,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         src: 'projects/diagrams/blog-api-architecture.svg',
         altKey: 'caseStudies.blog-api-server.media.blog-arch.alt',
         captionKey: 'caseStudies.blog-api-server.media.blog-arch.caption',
+        afterSectionId: 'architecture',
       },
     ],
     hasAccessNote: false,
@@ -158,6 +162,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         src: 'projects/taskmaster.png',
         altKey: 'caseStudies.task-master.media.taskmaster-screenshot.alt',
         captionKey: 'caseStudies.task-master.media.taskmaster-screenshot.caption',
+        afterSectionId: 'overview',
       },
       {
         id: 'taskmaster-flow',
@@ -165,6 +170,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         src: 'projects/diagrams/taskmaster-reset-flow.svg',
         altKey: 'caseStudies.task-master.media.taskmaster-flow.alt',
         captionKey: 'caseStudies.task-master.media.taskmaster-flow.caption',
+        afterSectionId: 'architecture',
       },
     ],
     hasAccessNote: false,
@@ -185,6 +191,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         src: 'projects/portfolio-website.png',
         altKey: 'caseStudies.portfolio-website.media.portfolio-screenshot.alt',
         captionKey: 'caseStudies.portfolio-website.media.portfolio-screenshot.caption',
+        afterSectionId: 'overview',
       },
       {
         id: 'portfolio-arch',
@@ -192,6 +199,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         src: 'projects/diagrams/portfolio-architecture.svg',
         altKey: 'caseStudies.portfolio-website.media.portfolio-arch.alt',
         captionKey: 'caseStudies.portfolio-website.media.portfolio-arch.caption',
+        afterSectionId: 'architecture',
       },
     ],
     hasAccessNote: false,
