@@ -75,7 +75,7 @@
           id="hamburger"
           name="hamburger"
           type="button"
-          class="absolute right-4 block 2xl:hidden"
+          class="absolute right-4 block xl:hidden"
           [attr.aria-label]="t('header.navAriaLabel')"
           aria-controls="nav-menu"
           [attr.aria-expanded]="isMenuOpen"
@@ -94,11 +94,10 @@
       </div>
       <nav
         id="nav-menu"
-        [attr.aria-hidden]="!isMenuOpen"
-        class="absolute right-4 top-full hidden w-[calc(100vw-2rem)] max-w-[320px] rounded-xl border shadow-xl backdrop-blur-md bg-light-background-primary/95 dark:bg-dark-background-primary/95 border-light-border-primary dark:border-dark-border-primary 2xl:static 2xl:block 2xl:w-auto 2xl:max-w-none 2xl:border-0 2xl:bg-transparent 2xl:shadow-none dark:2xl:bg-transparent"
+        class="absolute right-4 top-full hidden w-[calc(100vw-2rem)] max-w-[320px] rounded-xl border shadow-xl backdrop-blur-md bg-light-background-primary/95 dark:bg-dark-background-primary/95 border-light-border-primary dark:border-dark-border-primary xl:static xl:block xl:w-auto xl:max-w-none xl:border-0 xl:bg-transparent xl:shadow-none dark:xl:bg-transparent"
       >
         <ul
-          class="block font-mono text-base font-bold 2xl:flex 2xl:justify-end 2xl:items-center"
+          class="block font-mono text-base font-bold xl:flex xl:justify-end xl:items-center"
         >
           <li class="group">
             <a
@@ -172,8 +171,8 @@
               >{{ t('nav.contact') }}</a
             >
           </li>
-          <li class="mb-3 mt-3 flex items-start pl-8 2xl:mb-0 2xl:mt-0 2xl:items-center">
-            <div class="flex flex-col items-start gap-3 2xl:flex-row 2xl:items-center 2xl:gap-3">
+          <li class="mb-3 mt-3 flex items-start pl-8 xl:mb-0 xl:mt-0 xl:items-center">
+            <div class="flex flex-col items-start gap-3 xl:flex-row xl:items-center xl:gap-3">
               <div class="flex items-center">
                 <span class="mr-2 text-sm">{{ t('header.lightLabel') }}</span>
                 <input
