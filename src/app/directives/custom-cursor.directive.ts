@@ -38,6 +38,8 @@ export class CustomCursorDirective implements OnInit, OnDestroy {
     window.addEventListener('mousemove', this.positionElement);
     window.addEventListener('mousedown', this.enlargeCursor);
     window.addEventListener('mouseup', this.shrinkCursor);
+
+    document.documentElement.classList.add('custom-cursor-active');
   }
 
   private positionElement = (event: MouseEvent): void => {
@@ -66,6 +68,8 @@ export class CustomCursorDirective implements OnInit, OnDestroy {
     window.removeEventListener('mousemove', this.positionElement);
     window.removeEventListener('mousedown', this.enlargeCursor);
     window.removeEventListener('mouseup', this.shrinkCursor);
+
+    document.documentElement.classList.remove('custom-cursor-active');
 
     if (this.cursorBig) {
       this.renderer.removeChild(document.body, this.cursorBig);
