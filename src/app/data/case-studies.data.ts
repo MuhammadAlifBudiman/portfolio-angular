@@ -31,6 +31,10 @@ export interface CaseStudyMedia {
   afterSectionId?: string;
   imageFit?: ProjectImageFit;
   imagePosition?: ProjectImagePosition;
+  /** Inline code content for api-example type; replaces image rendering with <pre><code> block */
+  codeContent?: string;
+  /** Language hint for code blocks, e.g. 'json' */
+  codeLanguage?: string;
 }
 
 export interface CaseStudy {
@@ -100,6 +104,28 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
         altKey: 'caseStudies.blog-api-server.media.blog-arch.alt',
         captionKey: 'caseStudies.blog-api-server.media.blog-arch.caption',
         afterSectionId: 'architecture',
+      },
+      {
+        id: 'blog-api-example',
+        type: 'api-example',
+        src: 'https://express-blog-dun.vercel.app/v1/articles',
+        altKey: 'caseStudies.blog-api-server.media.blog-api-example.alt',
+        captionKey: 'caseStudies.blog-api-server.media.blog-api-example.caption',
+        afterSectionId: 'engineering-decisions',
+        codeLanguage: 'json',
+        codeContent: `GET /v1/articles — live response
+{
+  "code": 200,
+  "status": "OK",
+  "message": "Get Articles Success",
+  "data": [],
+  "meta": {
+    "current_page": 1,
+    "size_page": 0,
+    "max_page": 0,
+    "total_data": 0
+  }
+}`,
       },
     ],
     hasAccessNote: false,

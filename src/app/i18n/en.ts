@@ -414,6 +414,10 @@ export const EN: Translation = {
           alt: 'Blog API MVC architecture: Express routes, controllers with auth middleware and validation, services layer, Sequelize ORM, PostgreSQL database, with email and logging cross-cutting concerns',
           caption: 'Three-layer MVC architecture with cross-cutting email and logging concerns',
         },
+        'blog-api-example': {
+          alt: 'Live GET /v1/articles API response showing JSON envelope with code, status, message, data array, and pagination meta object',
+          caption: 'Live GET /v1/articles — consistent JSON envelope: code, status, message, data, meta',
+        },
       },
       accessNote:
         'A public Vercel deployment is available at https://express-blog-dun.vercel.app/. GitHub source code is also available.',
