@@ -150,4 +150,60 @@ describe('ProjectCardComponent', () => {
     // stack chips are in the mb-3 div
     expect(chips.length).toBeGreaterThan(0);
   });
+
+  it('renders at most 6 stack chips when stack has more than 6 items', () => {
+    const manyStackProject = {
+      ...bknProject,
+      stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC', 'Multipart File Upload', 'Workflow System'],
+    } as typeof bknProject;
+    setup(manyStackProject);
+    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('.mb-3');
+    // All chip spans with bg class (the real tech chips, not the "+N more" span)
+    const techChips = chipContainer.querySelectorAll('span.rounded-full.bg-light-background-hover, span.rounded-full.dark\\:bg-dark-background-hover');
+    // Fallback: count spans that do NOT contain "more"
+    const allSpans: NodeListOf<HTMLElement> = chipContainer.querySelectorAll('span');
+    const techChipCount = Array.from(allSpans).filter(s => !s.textContent?.includes('more')).length;
+    expect(techChipCount).toBe(6);
+  });
+
+  it('renders "+N more" chip when stack has more than 6 items', () => {
+    const manyStackProject = {
+      ...bknProject,
+      stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC', 'Multipart File Upload', 'Workflow System'],
+    } as typeof bknProject;
+    setup(manyStackProject);
+    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('.mb-3');
+    const allSpans: NodeListOf<HTMLElement> = chipContainer.querySelectorAll('span');
+    const moreChip = Array.from(allSpans).find(s => s.textContent?.trim().includes('more'));
+    expect(moreChip).toBeTruthy();
+    // 8 items - 6 cap = 2 more
+    expect(moreChip!.textContent?.trim()).toBe('+2 more');
+  });
+
+  it('does not render "+N more" chip when stack has 6 or fewer items', () => {
+    const fewStackProject = {
+      ...bknProject,
+      stack: ['Go', 'REST API', 'OpenAPI', 'Swagger', 'Keycloak', 'RBAC'],
+    } as typeof bknProject;
+    setup(fewStackProject);
+    const chipContainer: HTMLElement = fixture.nativeElement.querySelector('.mb-3');
+    const allSpans: NodeListOf<HTMLElement> = chipContainer.querySelectorAll('span');
+    const moreChip = Array.from(allSpans).find(s => s.textContent?.trim().includes('more'));
+    expect(moreChip).toBeUndefined();
+  });
+
+  it('title uses text-2xl class', () => {
+    setup();
+    const h3: HTMLElement = fixture.nativeElement.querySelector('h3');
+    expect(h3.className).toContain('text-2xl');
+    expect(h3.className).not.toContain('text-3xl');
+  });
+
+  it('description uses text-base class', () => {
+    setup();
+    // The description paragraph has flex-1 and mb-2.5
+    const desc: HTMLElement = fixture.nativeElement.querySelector('p.flex-1');
+    expect(desc.className).toContain('text-base');
+    expect(desc.className).not.toContain('text-lg');
+  });
 });

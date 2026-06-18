@@ -9,6 +9,7 @@
       [src]="project.imageSrc"
       [alt]="projectImageAlt"
       loading="lazy"
+      width="393"
       height="222"
       [class]="projectImageClass"
     />
@@ -34,7 +35,7 @@
     </div>
 
     <!-- TITLE -->
-    <h3 class="dark:text-dark-text-primary text-light-text-primary mb-1 text-3xl">
+    <h3 class="dark:text-dark-text-primary text-light-text-primary mb-1 text-2xl">
       {{ project.title }}
     </h3>
 
@@ -53,16 +54,19 @@
     }
 
     <!-- DESCRIPTION -->
-    <p class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-lg">
+    <p class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-base">
       {{ projectDescription }}
     </p>
 
     <!-- TECH STACK CHIPS -->
     <div class="mb-3 flex flex-wrap gap-1">
-      @for (tech of project.stack; track tech) {
+      @for (tech of project.stack.slice(0, 6); track tech) {
         <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 font-mono text-xs">
           {{ tech }}
         </span>
+      }
+      @if (project.stack.length > 6) {
+        <span class="rounded-full border px-2 py-0.5 font-mono text-xs opacity-60">+{{ project.stack.length - 6 }} more</span>
       }
     </div>
 
