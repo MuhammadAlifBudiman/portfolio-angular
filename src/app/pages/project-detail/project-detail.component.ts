@@ -115,12 +115,40 @@ export class ProjectDetailComponent implements OnInit {
     }
 
     const titleSuffix = this.lang.t('seo.project.titleSuffix') || '— Muhammad Alif Budiman';
+    const description = this.projectDescription(this.project.id);
+    const canonicalUrl = `https://muhammadalifbudiman.my.id/projects/${slug}`;
+
     this.seo.setMetadata({
       title: `${this.project.title} ${titleSuffix}`,
-      description: this.projectDescription(this.project.id),
-      canonicalUrl: `https://muhammadalifbudiman.my.id/projects/${slug}`,
+      description,
+      canonicalUrl,
       ogType: 'article',
+      image: this.project.socialImageSrc,
     });
+
+    const githubLink = this.project.links.find(l => l.type === 'github');
+    const isPublic = this.project.linkStatus !== 'restricted' && !!githubLink;
+
+    const structuredData: Record<string, unknown> = {
+      '@context': 'https://schema.org',
+      '@type': isPublic ? 'SoftwareSourceCode' : 'CreativeWork',
+      name: this.project.title,
+      description,
+      url: canonicalUrl,
+      image: this.project.socialImageSrc ?? this.seo.defaultImage,
+      author: {
+        '@type': 'Person',
+        name: 'Muhammad Alif Budiman',
+        url: 'https://muhammadalifbudiman.my.id',
+      },
+    };
+
+    if (isPublic && githubLink) {
+      structuredData['programmingLanguage'] = this.project.stack;
+      structuredData['codeRepository'] = githubLink.url;
+    }
+
+    this.seo.setStructuredData(structuredData, 'project-structured-data');
   }
 
   navigateBack(): void {

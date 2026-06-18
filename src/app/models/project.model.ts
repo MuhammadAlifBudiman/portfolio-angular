@@ -69,4 +69,9 @@ export interface Project {
   imageAlt?: string;
   role?: string;
   context?: ProjectContext;
+  /** Absolute HTTPS URL for og:image / twitter:image on the project detail page.
+   *  Reuses the existing card WebP at the canonical origin. */
+  socialImageSrc?: string;
+  /** i18n key for the social image alt text (e.g. 'projects.task-master.imageAlt'). */
+  socialImageAltKey?: string;
 }
