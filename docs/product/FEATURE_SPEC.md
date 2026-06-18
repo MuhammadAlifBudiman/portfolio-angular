@@ -217,5 +217,39 @@
 - FR-F00O-8: All themes (default/ocean/ember × light/dark), EN/ID labels, and all tested viewport widths remain correct.
 - FR-F00O-9: All existing unit tests pass; new unit tests cover `ProjectStatusBadgeComponent`, `ProjectCardComponent`, `ButtonComponent` variants, and layout toggling.
 
+## F00P — Scroll UX & Custom Cursor Resilience (planned · issue #68)
+**Goal:** Restore native browser scrollbar and ensure the custom cursor never hides the native cursor when it fails to initialise.
+- FR-F00P-1: The global `*{scrollbar-width:none; &::-webkit-scrollbar{display:none}}` block in `styles.scss` is removed; the vertical scrollbar is visible on long pages.
+- FR-F00P-2: Horizontal overflow containers (diagram wrappers, code blocks) retain a scroll affordance.
+- FR-F00P-3: `cursor:none` is scoped under a `.custom-cursor-active` class that is added to `<html>` only after `CustomCursorDirective` successfully initialises.
+- FR-F00P-4: If the directive bails (reduced-motion, coarse pointer, mobile UA, SSR), the class is never added and the native cursor remains visible.
+- FR-F00P-5: The `.custom-cursor-active` class is removed on directive destroy.
+
+## F00Q — Diagram Theme, Mobile & Accuracy (planned · issue #72)
+**Goal:** All six SVG diagrams are readable in light and dark themes, scrollable on mobile, and factually accurate.
+- FR-F00Q-1: Hardcoded dark background (`fill="#0f172a"`) is replaced with a neutral palette or CSS-variable-driven fills in all six SVGs.
+- FR-F00Q-2: Diagram `<img>` elements in `project-detail.component.html` are wrapped in `overflow-x-auto` with a `min-w-[600px]` constraint so mobile users can scroll.
+- FR-F00Q-3: `patient-workflow.svg` uses language-neutral or consistently English labels; domain roles (`pasien`, `pegawai`) are preserved as proper nouns.
+- FR-F00Q-4: Each diagram's technology labels are verified against repository evidence (Blog: Sequelize/PG/JWT/Nodemailer/Winston; Task Master: DRF/drf-yasg; Portfolio: Angular 20/static deploy).
+- FR-F00Q-5: BKN diagrams remain anonymised; no internal endpoint paths, DB schemas, or application names are added.
+
+## F00R — Technologies Section Layout Refinement (planned · issue #74)
+**Goal:** Replace the flat chip cloud with four structured category cards.
+- FR-F00R-1: `technologies.component` renders four category cards: Backend & API, Frontend, Databases, Engineering Tools.
+- FR-F00R-2: Each card has a visible `<h3>` category heading and lists 6–8 primary technologies; additional tools are visually subordinate (smaller, secondary colour).
+- FR-F00R-3: No proficiency percentage, bar, or star rating is shown.
+- FR-F00R-4: Layout is a responsive grid (1 col mobile → 2 col tablet → 4 col desktop).
+- FR-F00R-5: All category labels and technology names are bilingual via `LanguageService`.
+- FR-F00R-6: Only verified technologies (already present in the data source) are included.
+
+## F00S — Contact Section Two-Column Layout (planned · issue #75)
+**Goal:** On desktop, show recruiter contact information on the left and the contact form on the right.
+- FR-F00S-1: `contact.component.html` uses a responsive two-column grid at `lg:` breakpoint.
+- FR-F00S-2: Left column contains: recruiter-oriented message, email link, WhatsApp link, LinkedIn link, and verified location/availability text (if already in i18n).
+- FR-F00S-3: Right column contains the existing `<form>` element unchanged.
+- FR-F00S-4: On mobile the layout stacks single-column (contact info first, then form).
+- FR-F00S-5: All existing form behaviour is preserved: EmailJS submission, field validation, loading state (`role="status"`), alert block (`role="alert"`), accessible labels.
+- FR-F00S-6: No oversized empty area; both columns have comparable visual weight.
+
 ## Out of Scope (all features)
 Backend, DB, auth, analytics that track individuals, fabricated content, heavy dependencies for trivial UI.
