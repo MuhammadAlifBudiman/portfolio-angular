@@ -1,38 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-label="Anonymized conceptual API architecture diagram showing Client through Auth/Authz, Go API Layer, Service Layer, Data Access to Existing Internal Data Source">
   <title>Anonymized API Architecture — BKN Internal System</title>
   <style>
-    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: currentColor; font-size: 13px; }
-    .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; rx: 6; }
-    .box-accent { fill: #0f172a; stroke: #475569; stroke-width: 1.5; }
-    .label { fill: #94a3b8; font-size: 11px; }
-    .arrow { stroke: #64748b; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
-    .note { fill: #1e293b; stroke: #334155; stroke-width: 1; }
+    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: #1e293b; font-size: 13px; }
+    .box { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1.5; rx: 6; }
+    .box-accent { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; }
+    .label { fill: #475569; font-size: 11px; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    .note { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
     .note-text { fill: #64748b; font-size: 10px; font-style: italic; }
-    .tier { fill: none; stroke: #1e293b; stroke-width: 0; }
-    .anon-badge { fill: #0f172a; stroke: #334155; stroke-width: 1; }
+    .tier { fill: none; stroke: #e2e8f0; stroke-width: 0; }
+    .anon-badge { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
     .anon-text { fill: #64748b; font-size: 9px; }
-    @media (prefers-color-scheme: light) {
-      text { fill: #1e293b; }
-      .box { fill: #f1f5f9; stroke: #cbd5e1; }
-      .box-accent { fill: #f8fafc; stroke: #94a3b8; }
-      .label { fill: #475569; }
-      .arrow { stroke: #94a3b8; }
-      .note { fill: #f1f5f9; stroke: #cbd5e1; }
-      .anon-badge { fill: #f8fafc; stroke: #cbd5e1; }
-    }
   </style>
   <defs>
     <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#64748b"/>
+      <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
     </marker>
   </defs>
 
   <!-- Title -->
-  <text x="300" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#cbd5e1">API Architecture (Anonymized Conceptual Diagram)</text>
+  <text x="300" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">API Architecture (Anonymized Conceptual Diagram)</text>
 
   <!-- Client -->
   <rect x="220" y="50" width="160" height="40" rx="6" class="box"/>
-  <text x="300" y="75" text-anchor="middle" font-size="13" fill="#e2e8f0">Client</text>
+  <text x="300" y="75" text-anchor="middle" font-size="13" fill="#1e293b">Client</text>
 
   <!-- Arrow 1 -->
   <line x1="300" y1="90" x2="300" y2="110" class="arrow"/>
@@ -53,20 +44,20 @@
 
   <!-- Service Layer -->
   <rect x="180" y="230" width="240" height="40" rx="6" class="box"/>
-  <text x="300" y="255" text-anchor="middle" font-size="13" fill="#e2e8f0">Service Layer</text>
+  <text x="300" y="255" text-anchor="middle" font-size="13" fill="#1e293b">Service Layer</text>
 
   <!-- Arrow 4 -->
   <line x1="300" y1="270" x2="300" y2="290" class="arrow"/>
 
   <!-- Data Access -->
   <rect x="180" y="290" width="240" height="35" rx="6" class="box"/>
-  <text x="300" y="312" text-anchor="middle" font-size="12" fill="#94a3b8">Data Access → Internal Data Source</text>
+  <text x="300" y="312" text-anchor="middle" font-size="12" fill="#475569">Data Access → Internal Data Source</text>
 
   <!-- Stack labels right side -->
   <text x="450" y="135" class="label">Keycloak · RBAC</text>
   <text x="450" y="195" class="label">Endpoints · Swagger</text>
   <text x="450" y="255" class="label">Business Logic</text>
-  <text x="450" y="312" class="label">PostgreSQL</text>
+  <text x="450" y="312" class="label">Internal Data Store</text>
 
   <!-- Anonymized note -->
   <rect x="8" y="315" width="220" height="18" rx="3" class="anon-badge"/>

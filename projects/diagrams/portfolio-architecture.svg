@@ -1,55 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" role="img" aria-label="Portfolio website architecture showing Angular standalone components, LanguageService signal for i18n, ThemeService for dark/light themes, static prerender via Angular SSG outputting HTML per route to GitHub Pages">
   <title>Portfolio Website — Component and Build Architecture</title>
   <style>
-    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: currentColor; font-size: 12px; }
-    .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; }
-    .arrow { stroke: #64748b; stroke-width: 1.5; fill: none; marker-end: url(#arr6); }
-    .arrow-dash { stroke: #475569; stroke-width: 1; stroke-dasharray: 4,3; fill: none; marker-end: url(#arr6); }
-    .label { fill: #64748b; font-size: 10px; }
-    .service { fill: #1e3a5f; stroke: #2563eb; stroke-width: 1.5; }
-    .component { fill: #14532d; stroke: #16a34a; stroke-width: 1.5; }
-    .build { fill: #2e1065; stroke: #7c3aed; stroke-width: 1.5; }
-    .deploy { fill: #1c1917; stroke: #78716c; stroke-width: 1.5; }
-    @media (prefers-color-scheme: light) {
-      text { fill: #1e293b; }
-      .box { fill: #f1f5f9; stroke: #cbd5e1; }
-      .label { fill: #475569; }
-      .arrow { stroke: #94a3b8; }
-      .arrow-dash { stroke: #94a3b8; }
-      .deploy { fill: #fafaf9; stroke: #a8a29e; }
-    }
+    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: #1e293b; font-size: 12px; }
+    .box { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1.5; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arr6); }
+    .arrow-dash { stroke: #94a3b8; stroke-width: 1; stroke-dasharray: 4,3; fill: none; marker-end: url(#arr6); }
+    .label { fill: #475569; font-size: 10px; }
+    .service { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+    .component { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
+    .build { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
+    .deploy { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1.5; }
   </style>
   <defs>
     <marker id="arr6" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#64748b"/>
+      <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
     </marker>
   </defs>
 
-  <text x="300" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#cbd5e1">Portfolio Website — Architecture</text>
+  <text x="300" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">Portfolio Website — Architecture</text>
 
   <!-- Services row -->
   <text x="300" y="48" text-anchor="middle" class="label">Services</text>
   <rect x="60" y="55" width="140" height="28" rx="5" class="service"/>
-  <text x="130" y="73" text-anchor="middle" font-size="11" fill="#93c5fd">LanguageService (signal)</text>
+  <text x="130" y="73" text-anchor="middle" font-size="11" fill="#1d4ed8">LanguageService (signal)</text>
 
   <rect x="230" y="55" width="140" height="28" rx="5" class="service"/>
-  <text x="300" y="73" text-anchor="middle" font-size="11" fill="#93c5fd">ThemeService</text>
+  <text x="300" y="73" text-anchor="middle" font-size="11" fill="#1d4ed8">ThemeService</text>
 
   <rect x="400" y="55" width="140" height="28" rx="5" class="service"/>
-  <text x="470" y="73" text-anchor="middle" font-size="11" fill="#93c5fd">SeoService</text>
+  <text x="470" y="73" text-anchor="middle" font-size="11" fill="#1d4ed8">SeoService</text>
 
   <!-- Component row -->
   <text x="300" y="104" text-anchor="middle" class="label">Standalone Components (Angular 20)</text>
   <rect x="20" y="112" width="105" height="26" rx="4" class="component"/>
-  <text x="72" y="129" text-anchor="middle" font-size="10" fill="#86efac">Introduction</text>
+  <text x="72" y="129" text-anchor="middle" font-size="10" fill="#15803d">Introduction</text>
   <rect x="135" y="112" width="105" height="26" rx="4" class="component"/>
-  <text x="187" y="129" text-anchor="middle" font-size="10" fill="#86efac">Portfolio</text>
+  <text x="187" y="129" text-anchor="middle" font-size="10" fill="#15803d">Portfolio</text>
   <rect x="250" y="112" width="105" height="26" rx="4" class="component"/>
-  <text x="302" y="129" text-anchor="middle" font-size="10" fill="#86efac">ProjectDetail</text>
+  <text x="302" y="129" text-anchor="middle" font-size="10" fill="#15803d">ProjectDetail</text>
   <rect x="365" y="112" width="105" height="26" rx="4" class="component"/>
-  <text x="417" y="129" text-anchor="middle" font-size="10" fill="#86efac">Certifications</text>
+  <text x="417" y="129" text-anchor="middle" font-size="10" fill="#15803d">Certifications</text>
   <rect x="480" y="112" width="100" height="26" rx="4" class="component"/>
-  <text x="530" y="129" text-anchor="middle" font-size="10" fill="#86efac">Contact</text>
+  <text x="530" y="129" text-anchor="middle" font-size="10" fill="#15803d">Contact</text>
 
   <!-- Service arrows down to components -->
   <line x1="130" y1="83" x2="130" y2="112" class="arrow-dash"/>
@@ -68,13 +60,13 @@
   <!-- Build -->
   <text x="300" y="213" text-anchor="middle" class="label">Build (ng build / outputMode: static)</text>
   <rect x="180" y="220" width="240" height="28" rx="6" class="build"/>
-  <text x="300" y="238" text-anchor="middle" font-size="11" fill="#c4b5fd">Angular SSG — Prerender All Routes</text>
+  <text x="300" y="238" text-anchor="middle" font-size="11" fill="#6d28d9">Angular SSG — Prerender All Routes</text>
 
   <line x1="300" y1="248" x2="300" y2="268" class="arrow"/>
 
   <!-- Deploy -->
   <rect x="160" y="268" width="280" height="28" rx="6" class="deploy"/>
-  <text x="300" y="286" text-anchor="middle" fill="#a8a29e">GitHub Pages (dist/portfolio/browser)</text>
+  <text x="300" y="286" text-anchor="middle" fill="#57534e">GitHub Pages (dist/portfolio/browser)</text>
 
   <!-- Stack footer -->
   <text x="300" y="314" text-anchor="middle" class="label">Angular 20 · TypeScript · Tailwind CSS v4 · SCSS · EmailJS · Karma/Jasmine</text>
