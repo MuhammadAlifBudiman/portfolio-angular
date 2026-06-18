@@ -7,7 +7,6 @@ module.exports = defineConfig({
   retries: 1,
   reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
-    baseURL: 'http://localhost:8765',
     headless: true,
     screenshot: 'only-on-failure',
     video: 'off',

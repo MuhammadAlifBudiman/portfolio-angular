@@ -133,7 +133,7 @@ test.describe('Portfolio UI/UX audit', () => {
   // baseURL from playwright.config.js, and asserts the ng-server-context="ssg"
   // marker that Angular injects into every prerendered page.
   test('[ssg] root HTML response contains ng-server-context="ssg" marker', async () => {
-    const { execSync, spawn } = require('child_process');
+    const { spawn } = require('child_process');
     const path = require('path');
 
     const distDir = path.resolve(__dirname, '../dist/portfolio/browser');
@@ -166,7 +166,7 @@ test.describe('Portfolio UI/UX audit', () => {
     try {
       await waitForServer(baseURL + '/');
 
-      const apiCtx = await request.newContext({ baseURL });
+      const apiCtx = await request.newContext({ baseURL: 'http://localhost:8765' });
       const response = await apiCtx.get('/', { headers: { Accept: 'text/html' } });
       expect(response.ok()).toBe(true);
       const body = await response.text();
@@ -176,6 +176,7 @@ test.describe('Portfolio UI/UX audit', () => {
       await apiCtx.dispose();
     } finally {
       server.kill();
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
   });
 
