@@ -1,37 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" role="img" aria-label="Blog API Server MVC architecture: Routes layer, Controller layer with Auth Middleware and Validation, Service layer, Model/ORM layer connecting to PostgreSQL, plus Email and Logging cross-cutting concerns">
   <title>Blog API Server — MVC Architecture</title>
   <style>
-    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: currentColor; font-size: 12px; }
-    .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; }
-    .layer { fill: #0f172a; stroke: #1e293b; stroke-width: 1; }
-    .arrow { stroke: #64748b; stroke-width: 1.5; fill: none; marker-end: url(#arr3); }
-    .label { fill: #64748b; font-size: 10px; }
-    .accent-blue { fill: #1e3a5f; stroke: #2563eb; stroke-width: 1.5; }
-    .accent-green { fill: #14532d; stroke: #16a34a; stroke-width: 1.5; }
-    .accent-purple { fill: #2e1065; stroke: #7c3aed; stroke-width: 1.5; }
-    .db { fill: #1c1917; stroke: #78716c; stroke-width: 1.5; }
-    .side { fill: #1e293b; stroke: #475569; stroke-width: 1; }
-    @media (prefers-color-scheme: light) {
-      text { fill: #1e293b; }
-      .box { fill: #f1f5f9; stroke: #cbd5e1; }
-      .layer { fill: #f8fafc; stroke: #e2e8f0; }
-      .db { fill: #fafaf9; stroke: #a8a29e; }
-      .side { fill: #f1f5f9; stroke: #94a3b8; }
-      .label { fill: #475569; }
-      .arrow { stroke: #94a3b8; }
-    }
+    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: #1e293b; font-size: 12px; }
+    .box { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1.5; }
+    .layer { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arr3); }
+    .label { fill: #475569; font-size: 10px; }
+    .accent-blue { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+    .accent-green { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
+    .accent-purple { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
+    .db { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1.5; }
+    .side { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1; }
   </style>
   <defs>
     <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#64748b"/>
+      <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
     </marker>
   </defs>
 
-  <text x="300" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#cbd5e1">Blog API Server — MVC Architecture</text>
+  <text x="300" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#1e293b">Blog API Server — MVC Architecture</text>
 
   <!-- Routes -->
   <rect x="170" y="40" width="260" height="34" rx="6" class="accent-blue"/>
-  <text x="300" y="61" text-anchor="middle" fill="#93c5fd">Express Routes (HTTP entry points)</text>
+  <text x="300" y="61" text-anchor="middle" fill="#1d4ed8">Express Routes (HTTP entry points)</text>
 
   <line x1="300" y1="74" x2="300" y2="94" class="arrow"/>
 
@@ -43,7 +34,7 @@
 
   <!-- Service -->
   <rect x="170" y="148" width="260" height="34" rx="6" class="accent-green"/>
-  <text x="300" y="169" text-anchor="middle" fill="#86efac">Services (Business Logic)</text>
+  <text x="300" y="169" text-anchor="middle" fill="#15803d">Services (Business Logic)</text>
 
   <line x1="300" y1="182" x2="300" y2="202" class="arrow"/>
 
@@ -55,16 +46,16 @@
 
   <!-- PostgreSQL -->
   <rect x="200" y="256" width="200" height="34" rx="6" class="db"/>
-  <text x="300" y="277" text-anchor="middle" fill="#a8a29e">PostgreSQL Database</text>
+  <text x="300" y="277" text-anchor="middle" fill="#57534e">PostgreSQL Database</text>
 
   <!-- Side: Email + Logging -->
   <rect x="480" y="148" width="110" height="30" rx="4" class="side"/>
-  <text x="535" y="167" text-anchor="middle" font-size="11" fill="#94a3b8">Email (Nodemailer)</text>
-  <line x1="430" y1="165" x2="480" y2="163" stroke="#475569" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr3)"/>
+  <text x="535" y="167" text-anchor="middle" font-size="11" fill="#475569">Email (Nodemailer)</text>
+  <line x1="430" y1="165" x2="480" y2="163" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr3)"/>
 
   <rect x="480" y="188" width="110" height="30" rx="4" class="side"/>
-  <text x="535" y="207" text-anchor="middle" font-size="11" fill="#94a3b8">Winston Logging</text>
-  <line x1="430" y1="200" x2="480" y2="203" stroke="#475569" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr3)"/>
+  <text x="535" y="207" text-anchor="middle" font-size="11" fill="#475569">Winston Logging</text>
+  <line x1="430" y1="200" x2="480" y2="203" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr3)"/>
 
   <!-- Stack footer -->
   <text x="300" y="306" text-anchor="middle" class="label">Node.js · Express · TypeScript · Sequelize · PostgreSQL · JWT · Winston · Nodemailer</text>

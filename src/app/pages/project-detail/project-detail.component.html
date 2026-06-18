@@ -111,12 +111,19 @@
               </div>
               @for (item of placedMediaAfter(section.id); track item.id) {
                 <figure class="mb-8" [attr.data-media-id]="item.id">
-                  <img
-                    [src]="item.src"
-                    [alt]="t(item.altKey)"
-                    loading="lazy"
-                    [class]="mediaImageClass(item)"
-                  />
+                  @if (item.type === 'api-example') {
+                    <pre
+                      class="dark:bg-dark-background-hover bg-light-background-hover dark:border-dark-border-primary border-light-border-primary dark:text-dark-text-primary text-light-text-primary overflow-x-auto rounded-lg border p-4 font-mono text-sm leading-relaxed"
+                      [attr.aria-label]="t(item.altKey)"
+                    ><code>{{ item.codeContent }}</code></pre>
+                  } @else {
+                    <img
+                      [src]="item.src"
+                      [alt]="t(item.altKey)"
+                      loading="lazy"
+                      [class]="mediaImageClass(item)"
+                    />
+                  }
                   @if (item.captionKey) {
                     <figcaption class="dark:text-dark-text-secondary text-light-text-secondary mt-2 text-center font-mono text-sm">
                       {{ t(item.captionKey) }}
@@ -134,12 +141,19 @@
               <div class="flex flex-col gap-6">
                 @for (item of unplacedMedia; track item.id) {
                   <figure [attr.data-media-id]="item.id">
-                    <img
-                      [src]="item.src"
-                      [alt]="t(item.altKey)"
-                      loading="lazy"
-                      [class]="mediaImageClass(item)"
-                    />
+                    @if (item.type === 'api-example') {
+                      <pre
+                        class="dark:bg-dark-background-hover bg-light-background-hover dark:border-dark-border-primary border-light-border-primary dark:text-dark-text-primary text-light-text-primary overflow-x-auto rounded-lg border p-4 font-mono text-sm leading-relaxed"
+                        [attr.aria-label]="t(item.altKey)"
+                      ><code>{{ item.codeContent }}</code></pre>
+                    } @else {
+                      <img
+                        [src]="item.src"
+                        [alt]="t(item.altKey)"
+                        loading="lazy"
+                        [class]="mediaImageClass(item)"
+                      />
+                    }
                     @if (item.captionKey) {
                       <figcaption class="dark:text-dark-text-secondary text-light-text-secondary mt-2 text-center font-mono text-sm">
                         {{ t(item.captionKey) }}

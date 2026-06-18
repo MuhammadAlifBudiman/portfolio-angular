@@ -1,25 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-label="Patient Management System workflow with pasien registration, pegawai verification, queue status updates, medical record processing, and CSV export">
   <title>Patient Management System - Verified Workflow</title>
   <style>
-    text { font-family: ui-monospace, "Cascadia Code", monospace; fill: currentColor; font-size: 13px; }
-    .small { fill: #94a3b8; font-size: 11px; }
-    .role-pasien { fill: #1e3a5f; stroke: #2563eb; stroke-width: 1.5; }
-    .role-pegawai { fill: #14532d; stroke: #16a34a; stroke-width: 1.5; }
-    .data { fill: #2e1065; stroke: #7c3aed; stroke-width: 1.5; }
-    .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; }
-    .arrow { stroke: #64748b; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
-    .line { stroke: #334155; stroke-width: 1; stroke-dasharray: 4 4; }
-    @media (prefers-color-scheme: light) {
-      text { fill: #1e293b; }
-      .small { fill: #475569; }
-      .box { fill: #f1f5f9; stroke: #cbd5e1; }
-      .arrow { stroke: #94a3b8; }
-      .line { stroke: #cbd5e1; }
-    }
+    text { font-family: ui-monospace, "Cascadia Code", monospace; fill: #1e293b; font-size: 13px; }
+    .small { fill: #475569; font-size: 11px; }
+    .role-pasien { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+    .role-pegawai { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
+    .data { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
+    .box { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1.5; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+    .line { stroke: #cbd5e1; stroke-width: 1; stroke-dasharray: 4 4; }
   </style>
   <defs>
     <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L9,3.5 z" fill="#64748b"/>
+      <path d="M0,0 L0,7 L9,3.5 z" fill="#94a3b8"/>
     </marker>
   </defs>
 
@@ -27,13 +20,13 @@
   <text x="380" y="52" text-anchor="middle" class="small">Authenticated roles: pasien and pegawai. Doctor is scheduling / medical-record data, not a login actor.</text>
 
   <rect x="42" y="82" width="120" height="34" rx="5" class="role-pasien"/>
-  <text x="102" y="104" text-anchor="middle" font-size="12" fill="#93c5fd">pasien</text>
+  <text x="102" y="104" text-anchor="middle" font-size="12" fill="#1d4ed8">pasien</text>
 
   <rect x="320" y="82" width="120" height="34" rx="5" class="role-pegawai"/>
-  <text x="380" y="104" text-anchor="middle" font-size="12" fill="#86efac">pegawai</text>
+  <text x="380" y="104" text-anchor="middle" font-size="12" fill="#15803d">pegawai</text>
 
   <rect x="598" y="82" width="120" height="34" rx="5" class="data"/>
-  <text x="658" y="104" text-anchor="middle" font-size="12" fill="#c4b5fd">clinic data</text>
+  <text x="658" y="104" text-anchor="middle" font-size="12" fill="#6d28d9">clinic data</text>
 
   <line x1="102" y1="116" x2="102" y2="318" class="line"/>
   <line x1="380" y1="116" x2="380" y2="318" class="line"/>
@@ -50,7 +43,7 @@
   <text x="523" y="151" text-anchor="middle" class="small">patient record</text>
 
   <rect x="578" y="142" width="160" height="34" rx="5" class="data"/>
-  <text x="658" y="164" text-anchor="middle" fill="#c4b5fd">Patient / doctor data</text>
+  <text x="658" y="164" text-anchor="middle" fill="#6d28d9">Patient / doctor data</text>
 
   <rect x="300" y="204" width="160" height="34" rx="5" class="box"/>
   <text x="380" y="226" text-anchor="middle">Queue status update</text>
@@ -62,14 +55,14 @@
 
   <line x1="460" y1="221" x2="586" y2="221" class="arrow"/>
   <rect x="578" y="204" width="160" height="34" rx="5" class="data"/>
-  <text x="658" y="226" text-anchor="middle" fill="#c4b5fd">Schedule data</text>
+  <text x="658" y="226" text-anchor="middle" fill="#6d28d9">Schedule data</text>
 
   <rect x="300" y="266" width="160" height="34" rx="5" class="box"/>
   <text x="380" y="288" text-anchor="middle">Medical record entry</text>
   <line x1="460" y1="283" x2="586" y2="283" class="arrow"/>
 
   <rect x="578" y="266" width="160" height="34" rx="5" class="data"/>
-  <text x="658" y="288" text-anchor="middle" fill="#c4b5fd">CSV export</text>
+  <text x="658" y="288" text-anchor="middle" fill="#6d28d9">CSV export</text>
 
   <text x="380" y="336" text-anchor="middle" class="small">Python · Flask · MongoDB · AJAX · HTML · CSS · JavaScript</text>
 </svg>

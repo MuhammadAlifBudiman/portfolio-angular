@@ -414,6 +414,10 @@ export const ID: PartialTranslation = {
           alt: 'Arsitektur MVC Blog API: rute Express, controller dengan middleware autentikasi dan validasi, lapisan service, Sequelize ORM, database PostgreSQL, dengan email dan logging sebagai cross-cutting concern',
           caption: 'Arsitektur MVC tiga lapis dengan cross-cutting concern email dan logging',
         },
+        'blog-api-example': {
+          alt: 'Respons API GET /v1/articles yang menampilkan envelope JSON dengan code, status, message, array data, dan objek meta paginasi',
+          caption: 'Live GET /v1/articles — envelope JSON konsisten: code, status, message, data, meta',
+        },
       },
       accessNote:
         'Deployment publik Vercel tersedia di https://express-blog-dun.vercel.app/. Kode sumber GitHub juga tersedia.',
