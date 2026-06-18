@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" role="img" aria-label="Anonymized conceptual API architecture diagram showing Client through Auth/Authz, Go API Layer, Service Layer, Data Access to Existing Internal Data Source">
   <title>Anonymized API Architecture — BKN Internal System</title>
   <style>
-    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: #e2e8f0; font-size: 13px; }
+    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: currentColor; font-size: 13px; }
     .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; rx: 6; }
     .box-accent { fill: #0f172a; stroke: #475569; stroke-width: 1.5; }
     .label { fill: #94a3b8; font-size: 11px; }
@@ -11,15 +11,21 @@
     .tier { fill: none; stroke: #1e293b; stroke-width: 0; }
     .anon-badge { fill: #0f172a; stroke: #334155; stroke-width: 1; }
     .anon-text { fill: #64748b; font-size: 9px; }
+    @media (prefers-color-scheme: light) {
+      text { fill: #1e293b; }
+      .box { fill: #f1f5f9; stroke: #cbd5e1; }
+      .box-accent { fill: #f8fafc; stroke: #94a3b8; }
+      .label { fill: #475569; }
+      .arrow { stroke: #94a3b8; }
+      .note { fill: #f1f5f9; stroke: #cbd5e1; }
+      .anon-badge { fill: #f8fafc; stroke: #cbd5e1; }
+    }
   </style>
   <defs>
     <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
       <path d="M0,0 L0,6 L8,3 z" fill="#64748b"/>
     </marker>
   </defs>
-
-  <!-- Background -->
-  <rect width="600" height="340" fill="#0f172a" rx="8"/>
 
   <!-- Title -->
   <text x="300" y="28" text-anchor="middle" font-size="14" font-weight="600" fill="#cbd5e1">API Architecture (Anonymized Conceptual Diagram)</text>

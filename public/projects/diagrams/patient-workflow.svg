@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-label="Patient Management System workflow with pasien registration, pegawai verification, queue status updates, medical record processing, and CSV export">
   <title>Patient Management System - Verified Workflow</title>
   <style>
-    text { font-family: ui-monospace, "Cascadia Code", monospace; fill: #e2e8f0; font-size: 13px; }
+    text { font-family: ui-monospace, "Cascadia Code", monospace; fill: currentColor; font-size: 13px; }
     .small { fill: #94a3b8; font-size: 11px; }
     .role-pasien { fill: #1e3a5f; stroke: #2563eb; stroke-width: 1.5; }
     .role-pegawai { fill: #14532d; stroke: #16a34a; stroke-width: 1.5; }
@@ -9,6 +9,13 @@
     .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; }
     .arrow { stroke: #64748b; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
     .line { stroke: #334155; stroke-width: 1; stroke-dasharray: 4 4; }
+    @media (prefers-color-scheme: light) {
+      text { fill: #1e293b; }
+      .small { fill: #475569; }
+      .box { fill: #f1f5f9; stroke: #cbd5e1; }
+      .arrow { stroke: #94a3b8; }
+      .line { stroke: #cbd5e1; }
+    }
   </style>
   <defs>
     <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
@@ -16,7 +23,6 @@
     </marker>
   </defs>
 
-  <rect width="760" height="360" fill="#0f172a" rx="10"/>
   <text x="380" y="30" text-anchor="middle" font-size="16" font-weight="700">Patient Management - Verified Clinic Workflow</text>
   <text x="380" y="52" text-anchor="middle" class="small">Authenticated roles: pasien and pegawai. Doctor is scheduling / medical-record data, not a login actor.</text>
 

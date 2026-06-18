@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" role="img" aria-label="Anonymized RBAC request lifecycle: Request arrives, token validated, role checked, endpoint handler runs, response returned">
   <title>RBAC Request Lifecycle (Anonymized)</title>
   <style>
-    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: #e2e8f0; font-size: 12px; }
+    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: currentColor; font-size: 12px; }
     .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; }
     .decision { fill: #1e293b; stroke: #475569; stroke-width: 1.5; }
     .arrow { stroke: #64748b; stroke-width: 1.5; fill: none; marker-end: url(#arr2); }
@@ -10,6 +10,14 @@
     .reject-text { fill: #fca5a5; }
     .anon-badge { fill: #0f172a; stroke: #334155; stroke-width: 1; }
     .anon-text { fill: #64748b; font-size: 9px; font-style: italic; }
+    @media (prefers-color-scheme: light) {
+      text { fill: #1e293b; }
+      .box { fill: #f1f5f9; stroke: #cbd5e1; }
+      .decision { fill: #f1f5f9; stroke: #94a3b8; }
+      .label { fill: #475569; }
+      .arrow { stroke: #94a3b8; }
+      .anon-badge { fill: #f8fafc; stroke: #cbd5e1; }
+    }
   </style>
   <defs>
     <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
@@ -17,7 +25,6 @@
     </marker>
   </defs>
 
-  <rect width="600" height="280" fill="#0f172a" rx="8"/>
   <text x="300" y="25" text-anchor="middle" font-size="13" font-weight="600" fill="#cbd5e1">RBAC Request Lifecycle (Anonymized)</text>
 
   <!-- Step 1: Request -->
