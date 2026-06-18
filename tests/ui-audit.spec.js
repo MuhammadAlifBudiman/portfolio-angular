@@ -3,7 +3,7 @@
  * Run: playwright test tests/ui-audit.spec.ts
  */
 
-const { test, expect } = require('@playwright/test');
+const { test, expect, request } = require('@playwright/test');
 
 const BASE = 'https://muhammadalifbudiman.my.id';
 
@@ -125,6 +125,22 @@ test.describe('Portfolio UI/UX audit', () => {
     const count = await cvBtn.count();
     console.log(`[intro] CV/Resume buttons found: ${count}`);
     expect(count).toBeGreaterThan(0);
+  });
+
+  // ─── SSG prerender regression guard ─────────────────────────────────────────
+  test('[ssg] root HTML response contains ng-server-context="ssg" marker', async () => {
+    // Fetch the raw HTML from the live site (same BASE used throughout this file).
+    // This confirms Angular SSG output is being served, not a CSR shell.
+    const apiCtx = await request.newContext();
+    const response = await apiCtx.get(`${BASE}/`, {
+      headers: { 'Accept': 'text/html' },
+    });
+    expect(response.ok()).toBe(true);
+    const body = await response.text();
+    expect(body, 'Root HTML must contain ng-server-context="ssg" (Angular SSG marker)').toContain(
+      'ng-server-context="ssg"'
+    );
+    await apiCtx.dispose();
   });
 
   // ─── Mobile viewport check ────────────────────────────────────────────────

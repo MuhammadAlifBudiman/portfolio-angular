@@ -9,6 +9,7 @@
     "test": "ng test",
     "test:ci": "ng test --watch=false --browsers=ChromeHeadlessNoSandbox",
     "test:ui": "playwright test",
+    "prerender:check": "node scripts/check-prerender.js",
     "setup:env": "cp src/environments/example.environment.ts src/environments/environment.ts && node -e \"require('fs').writeFileSync('src/environments/environment.prod.ts', 'export const environment = { production: true, emailService: { serviceId: \\'\\', templateId: \\'\\', publicKey: \\'\\'} };')\" && echo 'Local env files created. Set real EmailJS values in environment.prod.ts for a local prod build.'",
     "prepare": "husky"
   },
