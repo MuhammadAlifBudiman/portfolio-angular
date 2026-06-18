@@ -88,7 +88,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'blog-screenshot',
         type: 'screenshot',
-        src: 'projects/blog-api-server.png',
+        src: 'projects/blog-api-server.webp',
         altKey: 'caseStudies.blog-api-server.media.blog-screenshot.alt',
         captionKey: 'caseStudies.blog-api-server.media.blog-screenshot.caption',
         afterSectionId: 'overview',
@@ -159,7 +159,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'taskmaster-screenshot',
         type: 'screenshot',
-        src: 'projects/taskmaster.png',
+        src: 'projects/taskmaster.webp',
         altKey: 'caseStudies.task-master.media.taskmaster-screenshot.alt',
         captionKey: 'caseStudies.task-master.media.taskmaster-screenshot.caption',
         afterSectionId: 'overview',
@@ -188,7 +188,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'portfolio-screenshot',
         type: 'screenshot',
-        src: 'projects/portfolio-website.png',
+        src: 'projects/portfolio-website.webp',
         altKey: 'caseStudies.portfolio-website.media.portfolio-screenshot.alt',
         captionKey: 'caseStudies.portfolio-website.media.portfolio-screenshot.caption',
         afterSectionId: 'overview',

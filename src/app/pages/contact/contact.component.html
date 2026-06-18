@@ -129,6 +129,7 @@
         class="mt-5 rounded-md p-2.5 text-center text-base"
         [ngClass]="alertType"
       >
+        <span class="sr-only">{{ alertKind }}:</span>
         {{ alertMessage }}
       </div>
       <div class="mb-4 flex w-full justify-center text-center">

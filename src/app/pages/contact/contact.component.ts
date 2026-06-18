@@ -43,6 +43,8 @@ export class ContactComponent implements OnInit {
   get formSendLabel(): string { return this.lang.t('contact.form.send'); }
   get formSendingLabel(): string { return this.lang.t('contact.form.sending'); }
 
+  get alertKind(): string { return this.alertType?.includes('success') ? 'Success' : 'Error'; }
+
   ngOnInit(): void {
     if (this.pageMode) {
       this.seo.setMetadata({

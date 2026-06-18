@@ -55,7 +55,7 @@
           >
             {{ featuredTitle }}
           </h2>
-          <div class="flex w-full flex-wrap items-stretch">
+          <div data-testid="card-row" class="flex w-full flex-wrap items-stretch">
             @for (project of featuredProjects(); track project.id) {
               <app-project-card
                 [project]="project"
@@ -74,7 +74,7 @@
           >
             {{ otherTitle }}
           </h2>
-          <div class="flex w-full flex-wrap items-stretch">
+          <div data-testid="card-row" class="flex w-full flex-wrap items-stretch">
             @for (project of otherProjects(); track project.id) {
               <app-project-card
                 [project]="project"

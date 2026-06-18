@@ -1,17 +1,17 @@
 <article
   [id]="project.id"
   data-testid="project-card"
-  class="flex h-full w-full flex-col p-4"
+  class="group flex h-full w-full flex-col p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-dark-accent-primary/10 rounded-xl"
 >
   <!-- IMAGE -->
-  <div class="shadow-md">
+  <div class="shadow-md overflow-hidden rounded-lg">
     <img
       [src]="project.imageSrc"
       [alt]="projectImageAlt"
       loading="lazy"
       width="393"
       height="222"
-      [class]="projectImageClass"
+      [class]="projectImageClass + ' transition-transform duration-500 group-hover:scale-105'"
     />
   </div>
 
@@ -22,7 +22,7 @@
         {{ ownershipLabel }}
       </p>
       @if (projectPeriod) {
-        <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 text-xs">
+        <span data-testid="project-period" class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 text-xs">
           {{ projectPeriod }}
         </span>
       }
@@ -54,14 +54,14 @@
     }
 
     <!-- DESCRIPTION -->
-    <p class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-base">
+    <p data-testid="project-description" class="dark:text-dark-text-secondary text-light-text-secondary mb-2.5 block flex-1 text-base">
       {{ projectDescription }}
     </p>
 
     <!-- TECH STACK CHIPS -->
-    <div class="mb-3 flex flex-wrap gap-1">
+    <div data-testid="chip-container" class="mb-3 flex flex-wrap gap-1">
       @for (tech of project.stack.slice(0, 6); track tech) {
-        <span class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 font-mono text-xs">
+        <span data-testid="stack-chip" class="dark:bg-dark-background-hover bg-light-background-hover dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2 py-0.5 font-mono text-xs">
           {{ tech }}
         </span>
       }
