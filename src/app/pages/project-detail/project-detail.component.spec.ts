@@ -18,7 +18,7 @@ describe('ProjectDetailComponent', () => {
 
   beforeEach(async () => {
     routerSpy = jasmine.createSpyObj('Router', ['navigate']);
-    seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata']);
+    seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata', 'setStructuredData']);
 
     await TestBed.configureTestingModule({
       imports: [ProjectDetailComponent],
@@ -72,11 +72,25 @@ describe('ProjectDetailComponent', () => {
     expect(seoSpy.setMetadata).toHaveBeenCalled();
   });
 
+  it('should call seo.setMetadata with project-specific image for task-master', () => {
+    const call = seoSpy.setMetadata.calls.mostRecent();
+    expect(call.args[0].image).toBe(
+      'https://muhammadalifbudiman.my.id/projects/taskmaster.webp',
+    );
+  });
+
+  it('should call seo.setStructuredData on init', () => {
+    expect(seoSpy.setStructuredData).toHaveBeenCalledWith(
+      jasmine.objectContaining({ name: 'Task Master' }),
+      'project-structured-data',
+    );
+  });
+
   it('should navigate to / for unknown slug', async () => {
     await TestBed.resetTestingModule();
 
     routerSpy = jasmine.createSpyObj('Router', ['navigate']);
-    seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata']);
+    seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata', 'setStructuredData']);
 
     await TestBed.configureTestingModule({
       imports: [ProjectDetailComponent],
@@ -176,7 +190,7 @@ describe('ProjectDetailComponent', () => {
       await TestBed.resetTestingModule();
 
       routerSpy = jasmine.createSpyObj('Router', ['navigate']);
-      seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata']);
+      seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata', 'setStructuredData']);
 
       await TestBed.configureTestingModule({
         imports: [ProjectDetailComponent],
@@ -201,7 +215,7 @@ describe('ProjectDetailComponent', () => {
       await TestBed.resetTestingModule();
 
       routerSpy = jasmine.createSpyObj('Router', ['navigate']);
-      seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata']);
+      seoSpy = jasmine.createSpyObj('SeoService', ['setMetadata', 'setStructuredData']);
 
       await TestBed.configureTestingModule({
         imports: [ProjectDetailComponent],

@@ -36,7 +36,16 @@ jobs:
           ENV_TEMPLATE_ID: ${{ secrets.ENV_TEMPLATE_ID }}
           ENV_PUBLIC_KEY: ${{ secrets.ENV_PUBLIC_KEY }}
 
-      - name: Build & Deploy
+      - name: Run unit tests
+        run: npm run test:ci
+
+      - name: Build production output
+        run: npm run build
+
+      - name: Validate prerender output
+        run: npm run prerender:check
+
+      - name: Deploy to GitHub Pages
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

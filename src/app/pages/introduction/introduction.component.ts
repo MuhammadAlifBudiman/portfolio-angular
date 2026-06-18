@@ -47,5 +47,13 @@ export class IntroductionComponent implements OnInit {
       canonicalUrl: 'https://muhammadalifbudiman.my.id/',
       ogType: 'profile',
     });
+
+    this.seo.setStructuredData({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'Muhammad Alif Budiman — Portfolio',
+      url: 'https://muhammadalifbudiman.my.id',
+      author: { '@type': 'Person', name: 'Muhammad Alif Budiman' },
+    }, 'website-structured-data');
   }
 }
