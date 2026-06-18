@@ -67,7 +67,7 @@ for (const route of ROUTES) {
     failed = true;
   }
 
-  if (!failed || (stat.size > MIN_SIZE_BYTES && content.includes(SSG_MARKER))) {
+  if (stat.size > MIN_SIZE_BYTES && content.includes(SSG_MARKER)) {
     const sizeKb = (stat.size / 1024).toFixed(1);
     console.log(`PASS            ${route}  (${sizeKb} KB, ssg=true)`);
   }
