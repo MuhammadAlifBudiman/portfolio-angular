@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" role="img" aria-label="Portfolio website architecture showing Angular standalone components, LanguageService signal for i18n, ThemeService for dark/light themes, static prerender via Angular SSG outputting HTML per route to GitHub Pages">
   <title>Portfolio Website — Component and Build Architecture</title>
   <style>
-    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: #e2e8f0; font-size: 12px; }
+    text { font-family: ui-monospace, 'Cascadia Code', monospace; fill: currentColor; font-size: 12px; }
     .box { fill: #1e293b; stroke: #334155; stroke-width: 1.5; }
     .arrow { stroke: #64748b; stroke-width: 1.5; fill: none; marker-end: url(#arr6); }
     .arrow-dash { stroke: #475569; stroke-width: 1; stroke-dasharray: 4,3; fill: none; marker-end: url(#arr6); }
@@ -10,6 +10,14 @@
     .component { fill: #14532d; stroke: #16a34a; stroke-width: 1.5; }
     .build { fill: #2e1065; stroke: #7c3aed; stroke-width: 1.5; }
     .deploy { fill: #1c1917; stroke: #78716c; stroke-width: 1.5; }
+    @media (prefers-color-scheme: light) {
+      text { fill: #1e293b; }
+      .box { fill: #f1f5f9; stroke: #cbd5e1; }
+      .label { fill: #475569; }
+      .arrow { stroke: #94a3b8; }
+      .arrow-dash { stroke: #94a3b8; }
+      .deploy { fill: #fafaf9; stroke: #a8a29e; }
+    }
   </style>
   <defs>
     <marker id="arr6" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
@@ -17,7 +25,6 @@
     </marker>
   </defs>
 
-  <rect width="600" height="320" fill="#0f172a" rx="8"/>
   <text x="300" y="24" text-anchor="middle" font-size="14" font-weight="600" fill="#cbd5e1">Portfolio Website — Architecture</text>
 
   <!-- Services row -->
