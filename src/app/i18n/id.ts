@@ -78,6 +78,7 @@ export const ID: PartialTranslation = {
       unavailable: 'Tidak tersedia',
       archived: 'Diarsipkan',
     },
+    stackMore: '+{count} lainnya',
   },
   contact: {
     eyebrow: 'Hubungi saya',

@@ -96,6 +96,7 @@ export interface Translation {
       unavailable: string;
       archived: string;
     };
+    stackMore: string;
   };
   contact: {
     eyebrow: string;
