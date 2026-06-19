@@ -61,7 +61,8 @@ export interface Translation {
     p3: string;
     viewProjectsBtn: string;
     downloadResumeBtn: string;
-    photoAlt: string;\n  };
+    photoAlt: string;
+  };
   portfolio: {
     eyebrow: string;
     title: string;
@@ -193,6 +194,8 @@ export interface Translation {
       notFound: string;
       comingSoon: string;
       visualEvidence: string;
+      viewFullSize: string;
+      closeFullSize: string;
     };
     sectionHeadings: Record<string, string>;
     // Per-case-study content, keyed by case-study id. Deeply nested and dynamic
