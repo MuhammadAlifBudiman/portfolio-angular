@@ -55,11 +55,11 @@
           >
             {{ featuredTitle }}
           </h2>
-          <div data-testid="card-row" class="flex w-full flex-wrap items-stretch">
-            @for (project of featuredProjects(); track project.id) {
+          <div data-testid="card-row" class="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
+            @for (project of featuredProjects(); track project.id; let last = $last, count = $count) {
               <app-project-card
                 [project]="project"
-                class="mb-12 flex w-full md:w-1/2"
+                [class]="last && count % 2 === 1 ? 'flex min-w-0 md:col-span-2 md:mx-auto md:w-[calc(50%-1rem)]' : 'flex min-w-0'"
               />
             }
           </div>
@@ -74,12 +74,9 @@
           >
             {{ otherTitle }}
           </h2>
-          <div data-testid="card-row" class="flex w-full flex-wrap items-stretch">
+          <div data-testid="card-row" class="grid grid-cols-1 items-stretch gap-6 md:grid-cols-2 lg:gap-8">
             @for (project of otherProjects(); track project.id) {
-              <app-project-card
-                [project]="project"
-                class="mb-12 flex w-full md:w-1/2"
-              />
+              <app-project-card [project]="project" class="flex min-w-0" />
             }
           </div>
         </section>
