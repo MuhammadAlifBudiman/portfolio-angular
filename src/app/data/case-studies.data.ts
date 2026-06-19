@@ -35,6 +35,12 @@ export interface CaseStudyMedia {
   codeContent?: string;
   /** Language hint for code blocks, e.g. 'json' */
   codeLanguage?: string;
+  /** Intrinsic width in px — used on <img> for CLS prevention */
+  width?: number;
+  /** Intrinsic height in px — used on <img> for CLS prevention */
+  height?: number;
+  /** Minimum display width in px — used to gate diagram rendering at narrow viewports */
+  minimumDisplayWidth?: number;
 }
 
 export interface CaseStudy {
