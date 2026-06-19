@@ -61,9 +61,7 @@ export interface Translation {
     p3: string;
     viewProjectsBtn: string;
     downloadResumeBtn: string;
-    photoAlt: string;
-
-  };
+    photoAlt: string;\n  };
   portfolio: {
     eyebrow: string;
     title: string;

@@ -43,9 +43,7 @@ export const ID: PartialTranslation = {
     p3: 'Proyek yang telah saya kerjakan antara lain backend API sektor publik internal di BKN RI, Sistem Manajemen Pasien, aplikasi manajemen tugas dengan Django REST Framework, dan website portofolio ini. Saya menghargai rekayasa berbasis bukti dan kode yang mudah dipelihara serta terdokumentasi dengan baik.',
     viewProjectsBtn: 'Lihat Proyek',
     downloadResumeBtn: 'Unduh Resume',
-    photoAlt: 'Foto Muhammad Alif Budiman',
-
-  },
+    photoAlt: 'Foto Muhammad Alif Budiman',\n  },
   portfolio: {
     eyebrow: 'Temukan karya saya',
     title: 'Portofolio',

@@ -43,9 +43,7 @@ export const EN: Translation = {
     p3: 'Projects I have worked on include an internal public-sector backend API at BKN RI, a Patient Management System, a task management application with Django REST Framework, and this portfolio site. I value evidence-based engineering and maintainable, well-documented code.',
     viewProjectsBtn: 'View Projects',
     downloadResumeBtn: 'Download Resume',
-    photoAlt: 'Photo of Muhammad Alif Budiman',
-
-  },
+    photoAlt: 'Photo of Muhammad Alif Budiman',\n  },
   portfolio: {
     eyebrow: 'Discover my work',
     title: 'Portfolio',
