@@ -68,4 +68,16 @@ describe('Portfolio project consistency', () => {
       imageFit: 'contain',
     }));
   });
+
+  it('should have Checkers project with imageFit contain', () => {
+    const checkers = PROJECTS.find(p => p.id === 'checkers');
+    expect(checkers).toBeTruthy();
+    expect(checkers!.imageFit).toBe('contain');
+  });
+
+  it('should have Checkers imagePosition center', () => {
+    const checkers = PROJECTS.find(p => p.id === 'checkers');
+    expect(checkers).toBeTruthy();
+    expect(checkers!.imagePosition).toBe('center');
+  });
 });

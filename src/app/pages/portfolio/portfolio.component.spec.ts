@@ -253,11 +253,13 @@ describe('PortfolioComponent', () => {
   });
 
   describe('equal-height card grid layout', () => {
-    it('card host elements carry md:w-1/2 responsive width class', () => {
+    it('card host elements use flex min-w-0 (not md:w-1/2)', () => {
       const hosts = fixture.nativeElement.querySelectorAll('app-project-card');
       expect(hosts.length).toBeGreaterThan(0);
       for (const host of Array.from(hosts) as HTMLElement[]) {
-        expect(host.className).withContext(`host ${host.id} should have md:w-1/2`).toContain('md:w-1/2');
+        expect(host.className).withContext(`host ${host.id} should have flex`).toContain('flex');
+        expect(host.className).withContext(`host ${host.id} should have min-w-0`).toContain('min-w-0');
+        expect(host.className).withContext(`host ${host.id} should not have md:w-1/2`).not.toContain('w-1/2');
       }
     });
 
@@ -266,6 +268,17 @@ describe('PortfolioComponent', () => {
       for (const host of Array.from(hosts) as HTMLElement[]) {
         expect(host.className).withContext(`host should have flex class`).toContain('flex');
       }
+    });
+
+    it('card row containers use CSS Grid with responsive columns', () => {
+      const rows = fixture.nativeElement.querySelectorAll('[data-testid="card-row"]');
+      expect(rows.length).toBeGreaterThanOrEqual(1);
+      Array.from(rows).forEach((row) => {
+        expect((row as HTMLElement).className).toContain('grid');
+        expect((row as HTMLElement).className).toContain('md:grid-cols-2');
+        expect((row as HTMLElement).className).toContain('gap-6');
+        expect((row as HTMLElement).className).toContain('items-stretch');
+      });
     });
 
     it('card row containers carry items-stretch for equal-height rows', () => {
