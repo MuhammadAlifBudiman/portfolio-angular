@@ -1,8 +1,6 @@
 <figure class="mb-0">
   <div
     class="diagram-scroll overflow-x-auto rounded-xl border"
-    [attr.aria-label]="t(item.altKey)"
-    role="img"
   >
     @switch (diagramId) {
       @case ('bkn-arch') { <ng-container *ngTemplateOutlet="bknArchSvg" /> }
@@ -19,6 +17,7 @@
       <figcaption class="font-mono text-sm opacity-70">{{ t(item.captionKey) }}</figcaption>
     }
     <button
+      #triggerBtn
       type="button"
       class="ml-auto text-xs underline opacity-70 hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
       (click)="openFullSize()"
@@ -30,16 +29,17 @@
     <div
       class="diagram-overlay fixed inset-0 z-50 flex items-center justify-center bg-black/80"
       role="dialog"
-      [attr.aria-modal]="true"
+      aria-modal="true"
       [attr.aria-label]="t(item.altKey)"
+      (click)="closeFullSize()"
     >
-      <div class="diagram-overlay-inner relative max-h-screen w-full max-w-5xl overflow-auto p-4">
+      <div #overlayInner class="diagram-overlay-inner relative max-h-screen w-full max-w-5xl overflow-auto p-4" tabindex="-1" (click)="$event.stopPropagation()" (keydown)="onOverlayKeydown($event)">
         <button
           type="button"
           class="absolute right-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-sm font-medium text-black shadow focus-visible:outline focus-visible:outline-2"
           (click)="closeFullSize()"
           [attr.aria-label]="t('caseStudies.common.closeFullSize')"
-        >&#x2715;</button>
+        ><span aria-hidden="true">&#x2715;</span></button>
         @switch (diagramId) {
           @case ('bkn-arch') { <ng-container *ngTemplateOutlet="bknArchSvg" /> }
           @case ('bkn-flow') { <ng-container *ngTemplateOutlet="bknFlowSvg" /> }
