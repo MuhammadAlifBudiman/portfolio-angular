@@ -84,7 +84,7 @@ describe('AboutMeComponent', () => {
   it('should still render photo, View Projects button, and Download Resume button', () => {
     const viewProjects = fixture.nativeElement.querySelector('a[href="/portfolio"]');
     const downloadResume = fixture.nativeElement.querySelector('a[download]');
-    const photo = fixture.nativeElement.querySelector('img[alt]');
+    const photo = fixture.nativeElement.querySelector('img[src="my-photo.png"]');
     expect(viewProjects).toBeTruthy();
     expect(downloadResume).toBeTruthy();
     expect(photo).toBeTruthy();

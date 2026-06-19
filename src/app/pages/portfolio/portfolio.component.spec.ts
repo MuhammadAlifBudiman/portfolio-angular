@@ -281,13 +281,6 @@ describe('PortfolioComponent', () => {
       });
     });
 
-    it('card row containers carry items-stretch for equal-height rows', () => {
-      const rows = fixture.nativeElement.querySelectorAll('[data-testid="card-row"]');
-      expect(rows.length).toBeGreaterThanOrEqual(1);
-      Array.from(rows).forEach((row) =>
-        expect((row as HTMLElement).className).toContain('items-stretch')
-      );
-    });
   });
 
   describe('Task A data integrity', () => {

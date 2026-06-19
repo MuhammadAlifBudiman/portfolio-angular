@@ -249,17 +249,19 @@ describe('ProjectDetailComponent', () => {
     });
 
     it('renders screenshot media with img element inside figure', () => {
-      // task-master also has a screenshot item (projects/taskmaster.webp)
-      const screenshotFigures = fixture.nativeElement.querySelectorAll('figure img');
-      expect(screenshotFigures.length).toBeGreaterThan(0);
+      // task-master has a screenshot with a known data-media-id — scope the selector to avoid matching diagram children
+      const screenshotImg = fixture.nativeElement.querySelector('figure[data-media-id="taskmaster-screenshot"] img');
+      expect(screenshotImg).withContext('screenshot img should render inside its figure').not.toBeNull();
     });
 
     it('flow/architecture items do not render as bare img — app-case-study-diagram handles them', () => {
+      // taskmaster-flow is type:'flow' — its figure must NOT contain a bare <img>
+      const flowFigureImg = fixture.nativeElement.querySelector('figure[data-media-id="taskmaster-flow"] img');
+      expect(flowFigureImg).withContext('flow-type figure must not contain a bare img').toBeNull();
+
+      // flow/architecture items render via app-case-study-diagram instead
       const diagrams = fixture.nativeElement.querySelectorAll('app-case-study-diagram');
-      expect(diagrams.length).toBeGreaterThan(0);
-      Array.from(diagrams).forEach((el) => {
-        expect((el as HTMLElement).tagName.toLowerCase()).toBe('app-case-study-diagram');
-      });
+      expect(diagrams.length).withContext('flow-type items should render as app-case-study-diagram').toBeGreaterThan(0);
     });
   });
 
