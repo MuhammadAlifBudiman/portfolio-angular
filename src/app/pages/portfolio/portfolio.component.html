@@ -59,7 +59,7 @@
             @for (project of featuredProjects(); track project.id; let last = $last, count = $count) {
               <app-project-card
                 [project]="project"
-                [class]="last && count % 2 === 1 ? 'flex min-w-0 md:col-span-2 md:mx-auto md:w-[calc(50%-1rem)]' : 'flex min-w-0'"
+                [class]="last && count % 2 === 1 ? 'flex min-w-0 md:col-span-2 md:mx-auto md:w-[calc(50%-0.75rem)] lg:w-[calc(50%-1rem)]' : 'flex min-w-0'"
               />
             }
           </div>
