@@ -211,7 +211,7 @@ describe('ProjectDetailComponent', () => {
       expect(placedFigure?.getAttribute('data-media-id')).toBe('patient-login');
     });
 
-    it('renders contain/top classes from media metadata', async () => {
+    it('flow-type media (patient-workflow) renders as app-case-study-diagram, not img', async () => {
       await TestBed.resetTestingModule();
 
       routerSpy = jasmine.createSpyObj('Router', ['navigate']);
@@ -229,10 +229,39 @@ describe('ProjectDetailComponent', () => {
       const patientFixture = TestBed.createComponent(ProjectDetailComponent);
       patientFixture.detectChanges();
 
-      const workflowImg: HTMLImageElement | null =
-        patientFixture.nativeElement.querySelector('figure[data-media-id="patient-workflow"] img');
-      expect(workflowImg?.className).toContain('object-contain');
-      expect(workflowImg?.className).toContain('object-top');
+      // patient-workflow is type:'flow' — must render as diagram component, not bare img
+      const diagrams = patientFixture.nativeElement.querySelectorAll('app-case-study-diagram');
+      expect(diagrams.length).withContext('flow-type items should render as app-case-study-diagram').toBeGreaterThan(0);
+
+      // screenshot-type items (patient-login, patient-dashboard) still render with object-fit classes
+      const screenshotImg: HTMLImageElement | null =
+        patientFixture.nativeElement.querySelector('figure[data-media-id="patient-login"] img');
+      expect(screenshotImg).withContext('screenshot img should exist').not.toBeNull();
+      expect(screenshotImg?.className).toContain('object-cover');
+    });
+  });
+
+  describe('diagram rendering (Task 4)', () => {
+    it('renders architecture/flow media with app-case-study-diagram, not img', () => {
+      // task-master has a flow diagram (taskmaster-reset-flow.svg)
+      const diagrams = fixture.nativeElement.querySelectorAll('app-case-study-diagram');
+      expect(diagrams.length).toBeGreaterThan(0);
+    });
+
+    it('renders screenshot media with img element inside figure', () => {
+      // task-master has a screenshot with a known data-media-id — scope the selector to avoid matching diagram children
+      const screenshotImg = fixture.nativeElement.querySelector('figure[data-media-id="taskmaster-screenshot"] img');
+      expect(screenshotImg).withContext('screenshot img should render inside its figure').not.toBeNull();
+    });
+
+    it('flow/architecture items do not render as bare img — app-case-study-diagram handles them', () => {
+      // taskmaster-flow is type:'flow' — its figure must NOT contain a bare <img>
+      const flowFigureImg = fixture.nativeElement.querySelector('figure[data-media-id="taskmaster-flow"] img');
+      expect(flowFigureImg).withContext('flow-type figure must not contain a bare img').toBeNull();
+
+      // flow/architecture items render via app-case-study-diagram instead
+      const diagrams = fixture.nativeElement.querySelectorAll('app-case-study-diagram');
+      expect(diagrams.length).withContext('flow-type items should render as app-case-study-diagram').toBeGreaterThan(0);
     });
   });
 

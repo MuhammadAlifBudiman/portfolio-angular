@@ -1,0 +1,409 @@
+<figure class="mb-0">
+  <div
+    class="diagram-scroll overflow-x-auto rounded-xl border"
+  >
+    @switch (diagramId) {
+      @case ('bkn-arch') { <ng-container *ngTemplateOutlet="bknArchSvg" /> }
+      @case ('bkn-flow') { <ng-container *ngTemplateOutlet="bknFlowSvg" /> }
+      @case ('blog-arch') { <ng-container *ngTemplateOutlet="blogArchSvg" /> }
+      @case ('patient-workflow') { <ng-container *ngTemplateOutlet="patientWorkflowSvg" /> }
+      @case ('taskmaster-flow') { <ng-container *ngTemplateOutlet="taskmasterFlowSvg" /> }
+      @case ('portfolio-arch') { <ng-container *ngTemplateOutlet="portfolioArchSvg" /> }
+    }
+  </div>
+
+  <div class="mt-2 flex items-center justify-between">
+    @if (item.captionKey) {
+      <figcaption class="font-mono text-sm opacity-70">{{ t(item.captionKey) }}</figcaption>
+    }
+    <button
+      #triggerBtn
+      type="button"
+      class="ml-auto text-xs underline opacity-70 hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+      (click)="openFullSize()"
+      [attr.aria-label]="t('caseStudies.common.viewFullSize')"
+    >{{ t('caseStudies.common.viewFullSize') }}</button>
+  </div>
+
+  @if (showFullSize()) {
+    <div
+      class="diagram-overlay fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="t(item.altKey)"
+      (click)="closeFullSize()"
+    >
+      <div #overlayInner class="diagram-overlay-inner relative max-h-screen w-full max-w-5xl overflow-auto p-4" tabindex="-1" (click)="$event.stopPropagation()" (keydown)="onOverlayKeydown($event)">
+        <button
+          type="button"
+          class="absolute right-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-sm font-medium text-black shadow focus-visible:outline focus-visible:outline-2"
+          (click)="closeFullSize()"
+          [attr.aria-label]="t('caseStudies.common.closeFullSize')"
+        ><span aria-hidden="true">&#x2715;</span></button>
+        @switch (diagramId) {
+          @case ('bkn-arch') { <ng-container *ngTemplateOutlet="bknArchSvg" /> }
+          @case ('bkn-flow') { <ng-container *ngTemplateOutlet="bknFlowSvg" /> }
+          @case ('blog-arch') { <ng-container *ngTemplateOutlet="blogArchSvg" /> }
+          @case ('patient-workflow') { <ng-container *ngTemplateOutlet="patientWorkflowSvg" /> }
+          @case ('taskmaster-flow') { <ng-container *ngTemplateOutlet="taskmasterFlowSvg" /> }
+          @case ('portfolio-arch') { <ng-container *ngTemplateOutlet="portfolioArchSvg" /> }
+        }
+      </div>
+    </div>
+  }
+
+  <!-- ── SVG Templates ─────────────────────────────────────────── -->
+
+  <!-- BKN Architecture -->
+  <ng-template #bknArchSvg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" role="img" aria-label="Anonymized conceptual API architecture diagram showing Client through Auth/Authz, Go API Layer, Service Layer, Data Access to Existing Internal Data Source">
+      <defs>
+        <marker id="arr-bkn-arch" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+        </marker>
+      </defs>
+
+      <!-- Title -->
+      <text x="300" y="28" text-anchor="middle" class="dg-title">API Architecture (Anonymized Conceptual Diagram)</text>
+
+      <!-- Client -->
+      <rect x="220" y="50" width="160" height="40" rx="6" class="box"/>
+      <text x="300" y="75" text-anchor="middle" class="dg-text">Client</text>
+
+      <!-- Arrow 1 -->
+      <line x1="300" y1="90" x2="300" y2="110" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-arch)"/>
+
+      <!-- Auth / Authz -->
+      <rect x="180" y="110" width="240" height="40" rx="6" class="accent-blue"/>
+      <text x="300" y="135" text-anchor="middle" class="dg-on-blue">Authentication &amp; Authorization</text>
+
+      <!-- Arrow 2 -->
+      <line x1="300" y1="150" x2="300" y2="170" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-arch)"/>
+
+      <!-- Go API Layer -->
+      <rect x="170" y="170" width="260" height="40" rx="6" class="accent-green"/>
+      <text x="300" y="195" text-anchor="middle" class="dg-on-green">Go REST API Layer</text>
+
+      <!-- Arrow 3 -->
+      <line x1="300" y1="210" x2="300" y2="230" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-arch)"/>
+
+      <!-- Service Layer -->
+      <rect x="180" y="230" width="240" height="40" rx="6" class="box"/>
+      <text x="300" y="255" text-anchor="middle" class="dg-text">Service Layer</text>
+
+      <!-- Arrow 4 -->
+      <line x1="300" y1="270" x2="300" y2="290" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-arch)"/>
+
+      <!-- Data Access -->
+      <rect x="180" y="290" width="240" height="35" rx="6" class="box"/>
+      <text x="300" y="312" text-anchor="middle" class="dg-muted">Data Access &#x2192; Internal Data Source</text>
+
+      <!-- Stack labels right side -->
+      <text x="450" y="135" class="dg-muted">Keycloak · RBAC</text>
+      <text x="450" y="195" class="dg-muted">Endpoints · Swagger</text>
+      <text x="450" y="255" class="dg-muted">Business Logic</text>
+      <text x="450" y="312" class="dg-muted">Internal Data Store</text>
+
+      <!-- Anonymized note (moved below Data Access box) -->
+      <rect x="8" y="348" width="220" height="18" rx="3" class="anon-badge"/>
+      <text x="14" y="361" class="dg-note">Anonymized — no real paths, schema, or domain names</text>
+    </svg>
+  </ng-template>
+
+  <!-- BKN RBAC Flow -->
+  <ng-template #bknFlowSvg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 280" role="img" aria-label="Anonymized RBAC request lifecycle: Request arrives, token validated, role checked, endpoint handler runs, response returned">
+      <defs>
+        <marker id="arr-bkn-flow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+        </marker>
+      </defs>
+
+      <text x="300" y="25" text-anchor="middle" class="dg-title">RBAC Request Lifecycle (Anonymized)</text>
+
+      <!-- Step 1: Request -->
+      <rect x="210" y="40" width="180" height="34" rx="6" class="box"/>
+      <text x="300" y="61" text-anchor="middle" class="dg-text">Incoming API Request</text>
+
+      <!-- Arrow -->
+      <line x1="300" y1="74" x2="300" y2="94" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-flow)"/>
+
+      <!-- Step 2: Token check -->
+      <rect x="190" y="94" width="220" height="34" rx="6" class="accent-blue"/>
+      <text x="300" y="115" text-anchor="middle" class="dg-on-blue">Validate JWT Token</text>
+
+      <!-- Arrow + branch -->
+      <line x1="300" y1="128" x2="300" y2="148" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-flow)"/>
+      <!-- Reject branch -->
+      <line x1="410" y1="111" x2="480" y2="111" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-flow)"/>
+      <rect x="480" y="97" width="110" height="28" rx="4" class="reject"/>
+      <text x="535" y="115" text-anchor="middle" class="dg-danger">401 Unauthorized</text>
+      <text x="445" y="108" text-anchor="middle" class="dg-muted">invalid</text>
+
+      <!-- Step 3: Role check -->
+      <rect x="190" y="148" width="220" height="34" rx="6" class="accent-green"/>
+      <text x="300" y="169" text-anchor="middle" class="dg-on-green">Check Role / Permission</text>
+
+      <!-- Arrow + branch -->
+      <line x1="300" y1="182" x2="300" y2="202" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-flow)"/>
+      <!-- Reject branch -->
+      <line x1="410" y1="165" x2="480" y2="165" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-flow)"/>
+      <rect x="480" y="151" width="110" height="28" rx="4" class="reject"/>
+      <text x="535" y="169" text-anchor="middle" class="dg-danger">403 Forbidden</text>
+      <text x="445" y="162" text-anchor="middle" class="dg-muted">no access</text>
+
+      <!-- Step 4: Handler -->
+      <rect x="200" y="202" width="200" height="34" rx="6" class="box"/>
+      <text x="300" y="223" text-anchor="middle" class="dg-text">Endpoint Handler</text>
+
+      <!-- Arrow -->
+      <line x1="300" y1="236" x2="300" y2="252" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-bkn-flow)"/>
+
+      <!-- Step 5: Response -->
+      <rect x="210" y="252" width="180" height="22" rx="4" class="box"/>
+      <text x="300" y="267" text-anchor="middle" class="dg-muted">200 OK Response</text>
+
+      <!-- Anon note -->
+      <rect x="8" y="262" width="190" height="14" rx="3" class="anon-badge"/>
+      <text x="14" y="272" class="dg-note">Anonymized conceptual flow</text>
+    </svg>
+  </ng-template>
+
+  <!-- Blog API Architecture -->
+  <ng-template #blogArchSvg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" role="img" aria-label="Blog API Server MVC architecture: Routes layer, Controller layer with Auth Middleware and Validation, Service layer, Model/ORM layer connecting to PostgreSQL, plus Email and Logging cross-cutting concerns">
+      <defs>
+        <marker id="arr-blog" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+        </marker>
+      </defs>
+
+      <text x="300" y="24" text-anchor="middle" class="dg-title">Blog API Server — MVC Architecture</text>
+
+      <!-- Routes -->
+      <rect x="170" y="40" width="260" height="34" rx="6" class="accent-blue"/>
+      <text x="300" y="61" text-anchor="middle" class="dg-on-blue">Express Routes (HTTP entry points)</text>
+
+      <line x1="300" y1="74" x2="300" y2="94" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-blog)"/>
+
+      <!-- Controller + middleware -->
+      <rect x="150" y="94" width="300" height="34" rx="6" class="box"/>
+      <text x="300" y="115" text-anchor="middle" class="dg-text">Controllers · Auth Middleware · Validation</text>
+
+      <line x1="300" y1="128" x2="300" y2="148" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-blog)"/>
+
+      <!-- Service -->
+      <rect x="170" y="148" width="260" height="34" rx="6" class="accent-green"/>
+      <text x="300" y="169" text-anchor="middle" class="dg-on-green">Services (Business Logic)</text>
+
+      <line x1="300" y1="182" x2="300" y2="202" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-blog)"/>
+
+      <!-- Models / ORM -->
+      <rect x="170" y="202" width="260" height="34" rx="6" class="box"/>
+      <text x="300" y="223" text-anchor="middle" class="dg-text">Sequelize ORM Models</text>
+
+      <line x1="300" y1="236" x2="300" y2="256" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-blog)"/>
+
+      <!-- PostgreSQL -->
+      <rect x="200" y="256" width="200" height="34" rx="6" class="db"/>
+      <text x="300" y="277" text-anchor="middle" class="dg-muted">PostgreSQL Database</text>
+
+      <!-- Side: Email + Logging -->
+      <rect x="480" y="148" width="110" height="30" rx="4" class="side"/>
+      <text x="535" y="167" text-anchor="middle" class="dg-muted">Email (Nodemailer)</text>
+      <line x1="430" y1="165" x2="480" y2="163" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-blog)"/>
+
+      <rect x="480" y="188" width="110" height="30" rx="4" class="side"/>
+      <text x="535" y="207" text-anchor="middle" class="dg-muted">Winston Logging</text>
+      <line x1="430" y1="200" x2="480" y2="203" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-blog)"/>
+
+      <!-- Stack footer -->
+      <text x="300" y="306" text-anchor="middle" class="dg-footer">Node.js · Express · TypeScript · Sequelize · PostgreSQL · JWT · Winston · Nodemailer</text>
+    </svg>
+  </ng-template>
+
+  <!-- Patient Workflow -->
+  <ng-template #patientWorkflowSvg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-label="Patient Management System workflow with patient registration, staff verification, queue status updates, medical record processing, and CSV export">
+      <defs>
+        <marker id="arr-patient" markerWidth="9" markerHeight="9" refX="7" refY="3.5" orient="auto">
+          <path d="M0,0 L0,7 L9,3.5 z" fill="#94a3b8"/>
+        </marker>
+      </defs>
+
+      <text x="380" y="30" text-anchor="middle" class="dg-title">Patient Management — Verified Clinic Workflow</text>
+
+      <rect x="42" y="60" width="120" height="34" rx="5" class="role-pasien"/>
+      <text x="102" y="82" text-anchor="middle" class="dg-on-blue">{{ t('caseStudies.patient.diagram.patientRole') }}</text>
+
+      <rect x="320" y="60" width="120" height="34" rx="5" class="role-pegawai"/>
+      <text x="380" y="82" text-anchor="middle" class="dg-on-green">{{ t('caseStudies.patient.diagram.staffRole') }}</text>
+
+      <rect x="598" y="60" width="120" height="34" rx="5" class="data"/>
+      <text x="658" y="82" text-anchor="middle" class="dg-on-purple">{{ t('caseStudies.patient.diagram.clinicData') }}</text>
+
+      <line x1="102" y1="94" x2="102" y2="318" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="380" y1="94" x2="380" y2="318" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4"/>
+      <line x1="658" y1="94" x2="658" y2="318" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4"/>
+
+      <rect x="40" y="120" width="150" height="34" rx="5" class="box"/>
+      <text x="115" y="142" text-anchor="middle" class="dg-text">{{ t('caseStudies.patient.diagram.patientRegistration') }}</text>
+      <line x1="190" y1="137" x2="310" y2="137" stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#arr-patient)"/>
+      <text x="250" y="129" text-anchor="middle" class="dg-muted">submitted</text>
+
+      <rect x="300" y="120" width="160" height="34" rx="5" class="box"/>
+      <text x="380" y="142" text-anchor="middle" class="dg-text">{{ t('caseStudies.patient.diagram.staffVerification') }}</text>
+      <line x1="460" y1="137" x2="586" y2="137" stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#arr-patient)"/>
+      <text x="523" y="129" text-anchor="middle" class="dg-muted">patient record</text>
+
+      <rect x="578" y="120" width="160" height="34" rx="5" class="data"/>
+      <text x="658" y="142" text-anchor="middle" class="dg-on-purple">{{ t('caseStudies.patient.diagram.patientData') }}</text>
+
+      <rect x="300" y="182" width="160" height="34" rx="5" class="box"/>
+      <text x="380" y="204" text-anchor="middle" class="dg-text">{{ t('caseStudies.patient.diagram.queueStatus') }}</text>
+      <line x1="300" y1="199" x2="194" y2="199" stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#arr-patient)"/>
+      <text x="247" y="191" text-anchor="middle" class="dg-muted">status visible</text>
+
+      <rect x="40" y="182" width="150" height="34" rx="5" class="box"/>
+      <text x="115" y="204" text-anchor="middle" class="dg-text">{{ t('caseStudies.patient.diagram.trackQueue') }}</text>
+
+      <line x1="460" y1="199" x2="586" y2="199" stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#arr-patient)"/>
+      <rect x="578" y="182" width="160" height="34" rx="5" class="data"/>
+      <text x="658" y="204" text-anchor="middle" class="dg-on-purple">{{ t('caseStudies.patient.diagram.scheduleData') }}</text>
+
+      <rect x="300" y="244" width="160" height="34" rx="5" class="box"/>
+      <text x="380" y="266" text-anchor="middle" class="dg-text">{{ t('caseStudies.patient.diagram.medicalRecord') }}</text>
+      <line x1="460" y1="261" x2="586" y2="261" stroke="#94a3b8" stroke-width="1.6" fill="none" marker-end="url(#arr-patient)"/>
+
+      <rect x="578" y="244" width="160" height="34" rx="5" class="data"/>
+      <text x="658" y="266" text-anchor="middle" class="dg-on-purple">{{ t('caseStudies.patient.diagram.csvExport') }}</text>
+
+      <text x="380" y="320" text-anchor="middle" class="dg-footer">Python · Flask · MongoDB · AJAX · HTML · CSS · JavaScript</text>
+    </svg>
+  </ng-template>
+
+  <!-- Task Master Reset Flow -->
+  <ng-template #taskmasterFlowSvg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" role="img" aria-label="Task Master recurring task reset flow: Cron or management command triggers reset check, daily/weekly/monthly tasks evaluated by due date, overdue tasks reset to pending, reset logged">
+      <defs>
+        <marker id="arr-taskmaster" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+        </marker>
+      </defs>
+
+      <text x="300" y="24" text-anchor="middle" class="dg-title">Task Master — Recurring Task Reset Flow</text>
+
+      <!-- Trigger -->
+      <rect x="200" y="42" width="200" height="30" rx="6" class="trigger"/>
+      <text x="300" y="61" text-anchor="middle" class="dg-muted">Cron / Management Command</text>
+
+      <line x1="300" y1="72" x2="300" y2="92" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-taskmaster)"/>
+
+      <!-- Timezone check -->
+      <rect x="170" y="92" width="260" height="30" rx="6" class="check"/>
+      <text x="300" y="111" text-anchor="middle" class="dg-on-blue">Evaluate Task Due Dates (timezone-aware)</text>
+
+      <line x1="300" y1="122" x2="300" y2="142" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-taskmaster)"/>
+
+      <!-- Type branches -->
+      <rect x="30" y="142" width="130" height="28" rx="5" class="box"/>
+      <text x="95" y="160" text-anchor="middle" class="dg-muted">Daily Tasks</text>
+
+      <rect x="235" y="142" width="130" height="28" rx="5" class="box"/>
+      <text x="300" y="160" text-anchor="middle" class="dg-muted">Weekly Tasks</text>
+
+      <rect x="440" y="142" width="130" height="28" rx="5" class="box"/>
+      <text x="505" y="160" text-anchor="middle" class="dg-muted">Monthly Tasks</text>
+
+      <!-- Branch arrows from check -->
+      <line x1="225" y1="122" x2="95" y2="142" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-taskmaster)"/>
+      <line x1="300" y1="122" x2="300" y2="142" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-taskmaster)"/>
+      <line x1="375" y1="122" x2="505" y2="142" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-taskmaster)"/>
+
+      <!-- Merge to reset -->
+      <line x1="95" y1="170" x2="95" y2="210" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="300" y1="170" x2="300" y2="210" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="505" y1="170" x2="505" y2="210" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="95" y1="210" x2="505" y2="210" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="300" y1="210" x2="300" y2="220" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-taskmaster)"/>
+
+      <!-- Reset -->
+      <rect x="180" y="220" width="240" height="30" rx="6" class="reset"/>
+      <text x="300" y="239" text-anchor="middle" class="dg-on-green">Reset Overdue Tasks &#x2192; Pending</text>
+
+      <line x1="300" y1="250" x2="300" y2="268" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-taskmaster)"/>
+
+      <!-- Log -->
+      <rect x="200" y="268" width="200" height="24" rx="4" class="log"/>
+      <text x="300" y="284" text-anchor="middle" class="dg-on-purple">Log Reset Event</text>
+
+      <!-- Stack footer -->
+      <text x="300" y="298" text-anchor="middle" class="dg-footer">Django · DRF · PostgreSQL · JWT · drf-yasg · openpyxl</text>
+    </svg>
+  </ng-template>
+
+  <!-- Portfolio Architecture -->
+  <ng-template #portfolioArchSvg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" role="img" aria-label="Portfolio website architecture showing Angular standalone components, LanguageService signal for i18n, ThemeService for dark/light themes, static prerender via Angular SSG outputting HTML per route to GitHub Pages">
+      <defs>
+        <marker id="arr-portfolio" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+        </marker>
+      </defs>
+
+      <text x="300" y="24" text-anchor="middle" class="dg-title">Portfolio Website — Architecture</text>
+
+      <!-- Services row -->
+      <text x="300" y="48" text-anchor="middle" class="dg-muted">Services</text>
+      <rect x="60" y="55" width="140" height="28" rx="5" class="service"/>
+      <text x="130" y="73" text-anchor="middle" class="dg-on-blue">LanguageService (signal)</text>
+
+      <rect x="230" y="55" width="140" height="28" rx="5" class="service"/>
+      <text x="300" y="73" text-anchor="middle" class="dg-on-blue">ThemeService</text>
+
+      <rect x="400" y="55" width="140" height="28" rx="5" class="service"/>
+      <text x="470" y="73" text-anchor="middle" class="dg-on-blue">SeoService</text>
+
+      <!-- Component row -->
+      <text x="300" y="104" text-anchor="middle" class="dg-muted">Standalone Components (Angular 20)</text>
+      <rect x="20" y="112" width="105" height="26" rx="4" class="component"/>
+      <text x="72" y="129" text-anchor="middle" class="dg-on-green">Introduction</text>
+      <rect x="135" y="112" width="105" height="26" rx="4" class="component"/>
+      <text x="187" y="129" text-anchor="middle" class="dg-on-green">Portfolio</text>
+      <rect x="250" y="112" width="105" height="26" rx="4" class="component"/>
+      <text x="302" y="129" text-anchor="middle" class="dg-on-green">ProjectDetail</text>
+      <rect x="365" y="112" width="105" height="26" rx="4" class="component"/>
+      <text x="417" y="129" text-anchor="middle" class="dg-on-green">Certifications</text>
+      <rect x="480" y="112" width="100" height="26" rx="4" class="component"/>
+      <text x="530" y="129" text-anchor="middle" class="dg-on-green">Contact</text>
+
+      <!-- Service arrows down to components -->
+      <line x1="130" y1="83" x2="130" y2="112" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-portfolio)"/>
+      <line x1="300" y1="83" x2="300" y2="112" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-portfolio)"/>
+      <line x1="470" y1="83" x2="470" y2="112" stroke="#94a3b8" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-portfolio)"/>
+
+      <!-- Data / i18n -->
+      <text x="300" y="158" text-anchor="middle" class="dg-muted">Data + i18n</text>
+      <rect x="80" y="165" width="130" height="26" rx="4" class="box"/>
+      <text x="145" y="182" text-anchor="middle" class="dg-text">projects.data.ts</text>
+      <rect x="235" y="165" width="130" height="26" rx="4" class="box"/>
+      <text x="300" y="182" text-anchor="middle" class="dg-text">en.ts / id.ts</text>
+      <rect x="390" y="165" width="130" height="26" rx="4" class="box"/>
+      <text x="455" y="182" text-anchor="middle" class="dg-text">certifications.data.ts</text>
+
+      <!-- Build -->
+      <text x="300" y="213" text-anchor="middle" class="dg-muted">Build (ng build / outputMode: static)</text>
+      <rect x="180" y="220" width="240" height="28" rx="6" class="build"/>
+      <text x="300" y="238" text-anchor="middle" class="dg-on-purple">Angular SSG — Prerender All Routes</text>
+
+      <line x1="300" y1="248" x2="300" y2="268" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arr-portfolio)"/>
+
+      <!-- Deploy -->
+      <rect x="160" y="268" width="280" height="28" rx="6" class="deploy"/>
+      <text x="300" y="286" text-anchor="middle" class="dg-muted">GitHub Pages (dist/portfolio/browser)</text>
+
+      <!-- Stack footer -->
+      <text x="300" y="314" text-anchor="middle" class="dg-footer">Angular 20 · TypeScript · Tailwind CSS v4 · SCSS · EmailJS · Karma/Jasmine</text>
+    </svg>
+  </ng-template>
+</figure>

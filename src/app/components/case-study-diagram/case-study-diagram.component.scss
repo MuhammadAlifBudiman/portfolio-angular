@@ -1,0 +1,112 @@
+// Diagram component host
+:host {
+  display: block;
+}
+
+svg {
+  font-family: ui-monospace, 'Cascadia Code', monospace;
+  min-width: 640px;
+  width: 100%;
+  display: block;
+}
+
+// Structural box classes (light mode defaults)
+.box           { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1.5; }
+.box-accent    { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; }
+.layer         { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
+.accent-blue   { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+.accent-green  { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
+.accent-purple { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
+.db            { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1.5; }
+.side          { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1; }
+.decision      { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5; }
+.reject        { fill: #fee2e2; stroke: #ef4444; stroke-width: 1; }
+.trigger       { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1.5; }
+.check         { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+.reset         { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
+.log           { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
+.skip          { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1; }
+.service       { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+.component     { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
+.build         { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
+.deploy        { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1.5; }
+.note          { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
+.anon-badge    { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
+.tier          { fill: none; stroke: #e2e8f0; stroke-width: 0; }
+.role-pasien   { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
+.role-pegawai  { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
+.data          { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
+
+// Arrows
+.arrow      { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+.arrow-dash { stroke: #94a3b8; stroke-width: 1; stroke-dasharray: 4,3; fill: none; }
+.line       { stroke: #cbd5e1; stroke-width: 1; stroke-dasharray: 4 4; }
+
+// Semantic text classes (light mode)
+.dg-text     { fill: #1e293b; font-size: 14px; }
+.dg-muted    { fill: #475569; font-size: 11px; }
+.dg-note     { fill: #64748b; font-size: 10px; font-style: italic; }
+.dg-on-blue  { fill: #1e40af; font-size: 13px; font-weight: 600; }
+.dg-on-green { fill: #14532d; font-size: 13px; font-weight: 600; }
+.dg-on-purple{ fill: #4c1d95; font-size: 13px; font-weight: 600; }
+.dg-danger   { fill: #b91c1c; font-size: 12px; }
+.dg-title    { fill: #0f172a; font-size: 14px; font-weight: 700; }
+.dg-footer   { fill: #475569; font-size: 10px; }
+
+// Dark mode overrides
+:host-context(.dark) {
+  .box           { fill: #1e293b; stroke: #334155; }
+  .box-accent    { fill: #0f172a; stroke: #475569; }
+  .layer         { fill: #1e293b; stroke: #334155; }
+  .accent-blue   { fill: #1e3a5f; stroke: #3b82f6; }
+  .accent-green  { fill: #14291a; stroke: #22c55e; }
+  .accent-purple { fill: #2e1065; stroke: #a855f7; }
+  .db            { fill: #1c1917; stroke: #78716c; }
+  .side          { fill: #1e293b; stroke: #475569; }
+  .decision      { fill: #1e293b; stroke: #475569; }
+  .reject        { fill: #450a0a; stroke: #ef4444; }
+  .trigger       { fill: #1c1917; stroke: #78716c; }
+  .check         { fill: #1e3a5f; stroke: #3b82f6; }
+  .reset         { fill: #14291a; stroke: #22c55e; }
+  .log           { fill: #2e1065; stroke: #a855f7; }
+  .skip          { fill: #1e293b; stroke: #475569; }
+  .service       { fill: #1e3a5f; stroke: #3b82f6; }
+  .component     { fill: #14291a; stroke: #22c55e; }
+  .build         { fill: #2e1065; stroke: #a855f7; }
+  .deploy        { fill: #1c1917; stroke: #78716c; }
+  .note          { fill: #1e293b; stroke: #334155; }
+  .anon-badge    { fill: #0f172a; stroke: #334155; }
+  .role-pasien   { fill: #1e3a5f; stroke: #3b82f6; }
+  .role-pegawai  { fill: #14291a; stroke: #22c55e; }
+  .data          { fill: #2e1065; stroke: #a855f7; }
+  .arrow         { stroke: #475569; }
+  .arrow-dash    { stroke: #475569; }
+  .line          { stroke: #334155; }
+
+  .dg-text      { fill: #e2e8f0; }
+  .dg-muted     { fill: #94a3b8; }
+  .dg-note      { fill: #64748b; }
+  .dg-on-blue   { fill: #bfdbfe; }
+  .dg-on-green  { fill: #bbf7d0; }
+  .dg-on-purple { fill: #ddd6fe; }
+  .dg-danger    { fill: #fca5a5; }
+  .dg-title     { fill: #f1f5f9; }
+  .dg-footer    { fill: #64748b; }
+
+  svg { background: #0f172a; }
+}
+
+// Scroll container
+.diagram-scroll {
+  border-color: color-mix(in srgb, currentColor 15%, transparent);
+  background: transparent;
+}
+
+// Full-size overlay SVG
+.diagram-overlay-inner svg {
+  min-width: unset;
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+  display: block;
+}

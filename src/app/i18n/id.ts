@@ -44,7 +44,6 @@ export const ID: PartialTranslation = {
     viewProjectsBtn: 'Lihat Proyek',
     downloadResumeBtn: 'Unduh Resume',
     photoAlt: 'Foto Muhammad Alif Budiman',
-    technologiesTitle: 'Teknologi & Alat',
   },
   portfolio: {
     eyebrow: 'Temukan karya saya',
@@ -331,6 +330,8 @@ export const ID: PartialTranslation = {
       notFound: 'Proyek tidak ditemukan.',
       comingSoon: 'Studi kasus lengkap akan segera tersedia.',
       visualEvidence: 'Bukti Visual',
+      viewFullSize: 'Lihat ukuran penuh',
+      closeFullSize: 'Tutup tampilan ukuran penuh',
     },
     sectionHeadings: {
       overview: 'Gambaran Umum',
@@ -512,6 +513,21 @@ export const ID: PartialTranslation = {
           alt: 'Arsitektur situs portofolio: sinyal LanguageService, ThemeService, SeoService, komponen Angular standalone, berkas data, build prerender statis, dideploy ke GitHub Pages',
           caption: 'Arsitektur Angular SSG: komponen, service, prerender statis, deployment GitHub Pages',
         },
+      },
+    },
+    patient: {
+      diagram: {
+        patientRole: 'Pasien',
+        staffRole: 'Pegawai',
+        patientRegistration: 'Pendaftaran Pasien',
+        staffVerification: 'Verifikasi Pegawai',
+        trackQueue: 'Lacak Antrean',
+        queueStatus: 'Status Antrean',
+        medicalRecord: 'Rekam Medis',
+        csvExport: 'Ekspor CSV',
+        clinicData: 'Data Klinik',
+        scheduleData: 'Data Jadwal',
+        patientData: 'Data Pasien / Dokter',
       },
     },
   },

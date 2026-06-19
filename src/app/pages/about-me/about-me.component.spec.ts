@@ -62,4 +62,31 @@ describe('AboutMeComponent', () => {
     expect(root.classList).toContain('section-wrapper');
     expect(root.classList).not.toContain('wrapper');
   });
+
+  it('should not render a full Technologies grid in homepage About section', () => {
+    // pageMode defaults to true
+    const techGrid = fixture.nativeElement.querySelector('[class*="grid-cols"]');
+    // The about component should have no grid (grid was removed)
+    expect(techGrid).toBeNull();
+  });
+
+  it('should not contain hardcoded "1+" stat text', () => {
+    const text = fixture.nativeElement.textContent;
+    expect(text).not.toContain('1+ Years Exp');
+    expect(text).not.toContain('10+ Projects');
+  });
+
+  it('should still render the introductory eyebrow text', () => {
+    const eyebrow = fixture.nativeElement.querySelector('#section-about');
+    expect(eyebrow).toBeTruthy();
+  });
+
+  it('should still render photo, View Projects button, and Download Resume button', () => {
+    const viewProjects = fixture.nativeElement.querySelector('a[href="/portfolio"]');
+    const downloadResume = fixture.nativeElement.querySelector('a[download]');
+    const photo = fixture.nativeElement.querySelector('img[src="my-photo.png"]');
+    expect(viewProjects).toBeTruthy();
+    expect(downloadResume).toBeTruthy();
+    expect(photo).toBeTruthy();
+  });
 });

@@ -44,7 +44,6 @@ export const EN: Translation = {
     viewProjectsBtn: 'View Projects',
     downloadResumeBtn: 'Download Resume',
     photoAlt: 'Photo of Muhammad Alif Budiman',
-    technologiesTitle: 'Technologies & Tools',
   },
   portfolio: {
     eyebrow: 'Discover my work',
@@ -331,6 +330,8 @@ export const EN: Translation = {
       notFound: 'Project not found.',
       comingSoon: 'Detailed case study coming soon.',
       visualEvidence: 'Visual Evidence',
+      viewFullSize: 'View full size',
+      closeFullSize: 'Close full size view',
     },
     sectionHeadings: {
       overview: 'Overview',
@@ -512,6 +513,21 @@ export const EN: Translation = {
           alt: 'Portfolio website architecture: LanguageService signal, ThemeService, SeoService, standalone Angular components, data files, static prerender build, deployed to GitHub Pages',
           caption: 'Angular SSG architecture: components, services, static prerender, GitHub Pages deployment',
         },
+      },
+    },
+    patient: {
+      diagram: {
+        patientRole: 'Patient',
+        staffRole: 'Staff',
+        patientRegistration: 'Patient Registration',
+        staffVerification: 'Staff Verification',
+        trackQueue: 'Track Queue',
+        queueStatus: 'Queue Status',
+        medicalRecord: 'Medical Record',
+        csvExport: 'CSV Export',
+        clinicData: 'Clinic Data',
+        scheduleData: 'Schedule Data',
+        patientData: 'Patient / Doctor Data',
       },
     },
   },
