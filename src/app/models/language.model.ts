@@ -62,7 +62,7 @@ export interface Translation {
     viewProjectsBtn: string;
     downloadResumeBtn: string;
     photoAlt: string;
-    technologiesTitle: string;
+
   };
   portfolio: {
     eyebrow: string;

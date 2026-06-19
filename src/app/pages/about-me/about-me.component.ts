@@ -22,14 +22,6 @@ export class AboutMeComponent implements OnInit {
   get buttonText(): string { return this.lang.t('about.viewProjectsBtn'); }
   get resumeButtonText(): string { return this.lang.t('about.downloadResumeBtn'); }
   get photoAlt(): string { return this.lang.t('about.photoAlt'); }
-  get technologiesTitle(): string { return this.lang.t('about.technologiesTitle'); }
-
-  readonly techCategories: { category: string; items: string[] }[] = [
-    { category: 'Backend', items: ['Go', 'Node.js', 'Express.js', 'Django', 'Django REST Framework', 'TypeScript'] },
-    { category: 'Frontend', items: ['Angular', 'React', 'TypeScript', 'Tailwind CSS', 'SCSS'] },
-    { category: 'Database', items: ['PostgreSQL', 'MySQL', 'Sequelize ORM'] },
-    { category: 'DevOps & Tools', items: ['Docker', 'GitHub Actions', 'GitHub Pages', 'Git', 'JWT', 'REST API'] },
-  ];
 
   resumeHref: string = 'resume.pdf';
   resumeDownloadName: string = 'Muhammad-Alif-Budiman-Resume.pdf';

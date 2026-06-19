@@ -44,7 +44,7 @@ export const ID: PartialTranslation = {
     viewProjectsBtn: 'Lihat Proyek',
     downloadResumeBtn: 'Unduh Resume',
     photoAlt: 'Foto Muhammad Alif Budiman',
-    technologiesTitle: 'Teknologi & Alat',
+
   },
   portfolio: {
     eyebrow: 'Temukan karya saya',

@@ -44,7 +44,7 @@ export const EN: Translation = {
     viewProjectsBtn: 'View Projects',
     downloadResumeBtn: 'Download Resume',
     photoAlt: 'Photo of Muhammad Alif Budiman',
-    technologiesTitle: 'Technologies & Tools',
+
   },
   portfolio: {
     eyebrow: 'Discover my work',
