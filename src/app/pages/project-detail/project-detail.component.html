@@ -116,6 +116,8 @@
                       class="dark:bg-dark-background-hover bg-light-background-hover dark:border-dark-border-primary border-light-border-primary dark:text-dark-text-primary text-light-text-primary overflow-x-auto rounded-lg border p-4 font-mono text-sm leading-relaxed"
                       [attr.aria-label]="t(item.altKey)"
                     ><code>{{ item.codeContent }}</code></pre>
+                  } @else if (item.type === 'architecture' || item.type === 'flow') {
+                    <app-case-study-diagram [item]="item" />
                   } @else {
                     <img
                       [src]="item.src"
@@ -146,6 +148,8 @@
                         class="dark:bg-dark-background-hover bg-light-background-hover dark:border-dark-border-primary border-light-border-primary dark:text-dark-text-primary text-light-text-primary overflow-x-auto rounded-lg border p-4 font-mono text-sm leading-relaxed"
                         [attr.aria-label]="t(item.altKey)"
                       ><code>{{ item.codeContent }}</code></pre>
+                    } @else if (item.type === 'architecture' || item.type === 'flow') {
+                      <app-case-study-diagram [item]="item" />
                     } @else {
                       <img
                         [src]="item.src"

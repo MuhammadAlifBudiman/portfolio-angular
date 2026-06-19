@@ -9,11 +9,12 @@ import { EN } from '../../i18n/en';
 import { ID } from '../../i18n/id';
 import { ButtonComponent } from '../../components/button/button.component';
 import { ProjectStatusBadgeComponent } from '../../components/project-status-badge/project-status-badge.component';
+import { CaseStudyDiagramComponent } from '../../components/case-study-diagram/case-study-diagram.component';
 import { formatProjectPeriod } from '../../utils/project-period.util';
 
 @Component({
   selector: 'app-project-detail',
-  imports: [ButtonComponent, ProjectStatusBadgeComponent],
+  imports: [ButtonComponent, ProjectStatusBadgeComponent, CaseStudyDiagramComponent],
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss',
 })
