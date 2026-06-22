@@ -217,6 +217,21 @@ describe('ProjectCardComponent', () => {
     expect(component.stackOverflowLabel(3)).toBe('+3 more');
   });
 
+  it('article uses named group/card class (not unnamed group)', () => {
+    setup();
+    const article: HTMLElement = fixture.nativeElement.querySelector('article[data-testid="project-card"]');
+    // Must use Tailwind named group to isolate hover from nested buttons
+    expect(article.className).toContain('group/card');
+    expect(article.className).not.toContain(/(^|\s)group(\s|$)/);
+  });
+
+  it('card image uses group-hover/card for scale on card hover (not unnamed group-hover)', () => {
+    setup();
+    const img: HTMLImageElement = fixture.nativeElement.querySelector('img');
+    expect(img.className).toContain('group-hover/card:scale-105');
+    expect(img.className).not.toContain('group-hover:scale-105');
+  });
+
   it('stackOverflowLabel uses count from argument', () => {
     setup();
     expect(component.stackOverflowLabel(1)).toBe('+1 more');

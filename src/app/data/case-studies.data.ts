@@ -16,32 +16,60 @@ export interface CaseStudySection {
   contentType: 'paragraph' | 'list';
 }
 
-export type CaseStudyMediaType = 'screenshot' | 'architecture' | 'flow' | 'api-example';
+/** Stable diagram IDs matching the inline SVG renderer in CaseStudyDiagramComponent. */
+export type CaseStudyDiagramId =
+  | 'bkn-arch'
+  | 'bkn-flow'
+  | 'blog-arch'
+  | 'patient-workflow'
+  | 'taskmaster-flow'
+  | 'portfolio-arch';
 
-export interface CaseStudyMedia {
-  /** Stable id — used as i18n key suffix: caseStudies.<caseStudyId>.media.<id>.alt */
+/** Diagram media rendered inline by CaseStudyDiagramComponent. Has no external src —
+ *  the inline Angular SVG template is the single source of truth. */
+export interface DiagramCaseStudyMedia {
+  /** Stable id — used as i18n key suffix for altKey / captionKey. */
   id: string;
-  type: CaseStudyMediaType;
-  src: string;
-  /** i18n key for the image alt text */
+  type: 'architecture' | 'flow';
+  /** Key into the inline SVG @switch renderer in CaseStudyDiagramComponent. */
+  diagramId: CaseStudyDiagramId;
   altKey: string;
-  /** Optional i18n key for a visible caption below the image */
   captionKey?: string;
-  /** Renders the figure immediately after the matching section instead of in the fallback visual evidence group. */
+  afterSectionId?: string;
+  minimumDisplayWidth?: number;
+}
+
+/** Screenshot or static image media item. */
+export interface ImageCaseStudyMedia {
+  id: string;
+  type: 'screenshot';
+  src: string;
+  altKey: string;
+  captionKey?: string;
   afterSectionId?: string;
   imageFit?: ProjectImageFit;
   imagePosition?: ProjectImagePosition;
-  /** Inline code content for api-example type; replaces image rendering with <pre><code> block */
-  codeContent?: string;
-  /** Language hint for code blocks, e.g. 'json' */
-  codeLanguage?: string;
-  /** Intrinsic width in px — used on <img> for CLS prevention */
   width?: number;
-  /** Intrinsic height in px — used on <img> for CLS prevention */
   height?: number;
-  /** Minimum display width in px — used to gate diagram rendering at narrow viewports */
-  minimumDisplayWidth?: number;
 }
+
+/** Inline code / API response example rendered as a &lt;pre&gt;&lt;code&gt; block. */
+export interface ApiExampleCaseStudyMedia {
+  id: string;
+  type: 'api-example';
+  src: string;
+  altKey: string;
+  captionKey?: string;
+  afterSectionId?: string;
+  codeContent?: string;
+  codeLanguage?: string;
+}
+
+/** Discriminated union of all case-study media item types. */
+export type CaseStudyMedia = DiagramCaseStudyMedia | ImageCaseStudyMedia | ApiExampleCaseStudyMedia;
+
+// Legacy union type kept for reference.
+export type CaseStudyMediaType = 'screenshot' | 'architecture' | 'flow' | 'api-example';
 
 export interface CaseStudy {
   id: string;
@@ -67,7 +95,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'bkn-arch',
         type: 'architecture',
-        src: 'projects/diagrams/bkn-architecture.svg',
+        diagramId: 'bkn-arch',
         altKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-arch.alt',
         captionKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-arch.caption',
         afterSectionId: 'architecture',
@@ -75,7 +103,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'bkn-flow',
         type: 'flow',
-        src: 'projects/diagrams/bkn-rbac-flow.svg',
+        diagramId: 'bkn-flow',
         altKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-flow.alt',
         captionKey: 'caseStudies.bkn-internal-workflow-api.media.bkn-flow.caption',
         afterSectionId: 'engineering-decisions',
@@ -106,7 +134,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'blog-arch',
         type: 'architecture',
-        src: 'projects/diagrams/blog-api-architecture.svg',
+        diagramId: 'blog-arch',
         altKey: 'caseStudies.blog-api-server.media.blog-arch.alt',
         captionKey: 'caseStudies.blog-api-server.media.blog-arch.caption',
         afterSectionId: 'architecture',
@@ -168,12 +196,10 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'patient-workflow',
         type: 'flow',
-        src: 'projects/diagrams/patient-workflow.svg',
+        diagramId: 'patient-workflow',
         altKey: 'caseStudies.patient-management-system.media.patient-workflow.alt',
         captionKey: 'caseStudies.patient-management-system.media.patient-workflow.caption',
         afterSectionId: 'technology-stack',
-        imageFit: 'contain',
-        imagePosition: 'top',
       },
     ],
     hasAccessNote: true,
@@ -199,7 +225,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'taskmaster-flow',
         type: 'flow',
-        src: 'projects/diagrams/taskmaster-reset-flow.svg',
+        diagramId: 'taskmaster-flow',
         altKey: 'caseStudies.task-master.media.taskmaster-flow.alt',
         captionKey: 'caseStudies.task-master.media.taskmaster-flow.caption',
         afterSectionId: 'architecture',
@@ -228,7 +254,7 @@ export const CASE_STUDIES: readonly CaseStudy[] = [
       {
         id: 'portfolio-arch',
         type: 'architecture',
-        src: 'projects/diagrams/portfolio-architecture.svg',
+        diagramId: 'portfolio-arch',
         altKey: 'caseStudies.portfolio-website.media.portfolio-arch.alt',
         captionKey: 'caseStudies.portfolio-website.media.portfolio-arch.caption',
         afterSectionId: 'architecture',

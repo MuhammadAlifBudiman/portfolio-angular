@@ -528,7 +528,19 @@ export const EN: Translation = {
         clinicData: 'Clinic Data',
         scheduleData: 'Schedule Data',
         patientData: 'Patient / Doctor Data',
+        // Connector-label keys (arrow labels between swim lanes in the workflow diagram)
+        submitted: 'Submitted',
+        patientRecord: 'Patient Record',
+        statusVisible: 'Status Visible',
       },
+    },
+    diagrams: {
+      'bkn-arch':         { title: 'API Architecture (Anonymized Conceptual Diagram)' },
+      'bkn-flow':         { title: 'RBAC Request Lifecycle (Anonymized)' },
+      'blog-arch':        { title: 'Blog API Server — MVC Architecture' },
+      'patient-workflow': { title: 'Patient Management — Verified Clinic Workflow' },
+      'taskmaster-flow':  { title: 'Task Master — Recurring Task Reset Flow' },
+      'portfolio-arch':   { title: 'Portfolio Website — Architecture' },
     },
   },
 };

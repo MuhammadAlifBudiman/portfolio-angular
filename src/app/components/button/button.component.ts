@@ -38,7 +38,23 @@ export class ButtonComponent {
       this.variant === 'text'
         ? 'border-transparent'
         : 'dark:border-dark-accent-hover border-light-accent-hover';
-    return `${borderClass} dark:focus-visible:outline-dark-accent-hover focus-visible:outline-light-accent-hover group relative z-0 inline-flex cursor-none items-center justify-center overflow-hidden border-2 border-solid bg-transparent text-center font-bold uppercase focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2`;
+    return `${borderClass} dark:focus-visible:outline-dark-accent-hover focus-visible:outline-light-accent-hover group/button relative z-0 inline-flex cursor-none items-center justify-center overflow-hidden border-2 border-solid bg-transparent text-center font-bold uppercase focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2`;
+  }
+
+  /**
+   * Classes for the visible label span.
+   * Text variant: accent colour only, no fill-background hover inversion
+   *   (the animated fill layer is suppressed for text variant in the template).
+   * Compact/default variants: accent colour that inverts to background-primary
+   *   when the group/button fill slides up on hover.
+   */
+  get spanClasses(): string {
+    const base =
+      'select-none dark:text-dark-accent-hover text-light-accent-hover';
+    if (this.variant === 'text') {
+      return `inline-flex items-center gap-1 ${base}`;
+    }
+    return `${base} dark:group-hover/button:text-dark-background-primary group-hover/button:text-light-background-primary`;
   }
 
   get variantClasses(): string {

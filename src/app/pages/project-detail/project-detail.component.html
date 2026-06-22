@@ -118,7 +118,7 @@
                     ><code>{{ item.codeContent }}</code></pre>
                   } @else if (item.type === 'architecture' || item.type === 'flow') {
                     <app-case-study-diagram [item]="item" />
-                  } @else {
+                  } @else if (item.type === 'screenshot') {
                     <img
                       [src]="item.src"
                       [alt]="t(item.altKey)"
@@ -150,7 +150,7 @@
                       ><code>{{ item.codeContent }}</code></pre>
                     } @else if (item.type === 'architecture' || item.type === 'flow') {
                       <app-case-study-diagram [item]="item" />
-                    } @else {
+                    } @else if (item.type === 'screenshot') {
                       <img
                         [src]="item.src"
                         [alt]="t(item.altKey)"

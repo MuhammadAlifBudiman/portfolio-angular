@@ -183,14 +183,57 @@ describe('ButtonComponent', () => {
       expect(anchor.getAttribute('target')).toBe('_blank');
     });
 
-    it('text with newTab=true: href anchor shows ↗ external link indicator', () => {
+    it('text with newTab=true: href anchor renders an inline SVG external-link icon', () => {
       component.variant = 'text';
       component.href = 'https://example.com';
       component.newTab = true;
       fixture.detectChanges();
       const anchor: HTMLAnchorElement =
         fixture.nativeElement.querySelector('a');
-      expect(anchor.textContent).toContain('↗');
+      // Raw ↗ character is replaced by an SVG for themed colour support
+      expect(anchor.textContent).not.toContain('↗');
+      const svg = anchor.querySelector('svg');
+      expect(svg).toBeTruthy();
+    });
+
+    it('text with newTab=true: external SVG icon is aria-hidden', () => {
+      component.variant = 'text';
+      component.href = 'https://example.com';
+      component.newTab = true;
+      fixture.detectChanges();
+      const svg = fixture.nativeElement.querySelector('a svg');
+      expect(svg?.getAttribute('aria-hidden')).toBe('true');
+    });
+
+    it('text with newTab=true: external SVG uses stroke-current for theme-aware colour', () => {
+      component.variant = 'text';
+      component.href = 'https://example.com';
+      component.newTab = true;
+      fixture.detectChanges();
+      const svg = fixture.nativeElement.querySelector('a svg');
+      expect(svg?.getAttribute('class')).toContain('stroke-current');
+    });
+
+    it('text variant does not render the animated fill background layer', () => {
+      component.variant = 'text';
+      fixture.detectChanges();
+      // The animated fill <div> must not be present for the text variant
+      const fillDiv = fixture.nativeElement.querySelector('button div.absolute');
+      expect(fillDiv).toBeNull();
+    });
+
+    it('compact variant retains the animated fill background layer', () => {
+      component.variant = 'compact';
+      fixture.detectChanges();
+      const fillDiv = fixture.nativeElement.querySelector('button div.absolute');
+      expect(fillDiv).toBeTruthy();
+    });
+
+    it('button host uses named group/button class', () => {
+      component.variant = 'compact';
+      fixture.detectChanges();
+      const btn = fixture.nativeElement.querySelector('button');
+      expect(btn?.className).toContain('group/button');
     });
   });
 
