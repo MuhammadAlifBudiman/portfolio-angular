@@ -1,7 +1,7 @@
 <article
   [id]="project.id"
   data-testid="project-card"
-  class="group flex h-full w-full flex-col p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-dark-accent-primary/10 rounded-xl border dark:border-dark-border-primary border-light-border-primary dark:bg-dark-background-hover/30 bg-light-background-hover/30"
+  class="group/card flex h-full w-full flex-col p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:hover:shadow-dark-accent-primary/10 rounded-xl border dark:border-dark-border-primary border-light-border-primary dark:bg-dark-background-hover/30 bg-light-background-hover/30"
 >
   <!-- IMAGE -->
   <div class="shadow-md overflow-hidden rounded-lg">
@@ -11,7 +11,7 @@
       loading="lazy"
       width="393"
       height="222"
-      [class]="projectImageClass + ' transition-transform duration-500 group-hover:scale-105'"
+      [class]="projectImageClass + ' transition-transform duration-500 group-hover/card:scale-105'"
     />
   </div>
 

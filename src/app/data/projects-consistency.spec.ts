@@ -63,9 +63,8 @@ describe('Portfolio project consistency', () => {
     }));
     expect(media).toContain(jasmine.objectContaining({
       id: 'patient-workflow',
-      src: 'projects/diagrams/patient-workflow.svg',
+      diagramId: 'patient-workflow',
       afterSectionId: 'technology-stack',
-      imageFit: 'contain',
     }));
   });
 

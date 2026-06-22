@@ -1,6 +1,71 @@
 // Diagram component host
+// Neutral technical-document palette: diagrams are self-contained document surfaces.
+// Semantic blue/green/purple are used for data/role/state distinctions and
+// intentionally do not follow the site accent-theme — they carry semantic meaning
+// inside the diagram (patient role = blue, staff role = green, data = purple, etc.).
+// Light/dark values defined once as CSS custom properties; classes consume vars.
 :host {
   display: block;
+
+  // Light-mode semantic palette
+  --diagram-surface:        #f8fafc;
+  --diagram-box:            #f1f5f9;
+  --diagram-border:         #cbd5e1;
+  --diagram-border-muted:   #94a3b8;
+  --diagram-layer-border:   #e2e8f0;
+  --diagram-db:             #fafaf9;
+  --diagram-db-border:      #a8a29e;
+  --diagram-text:           #1e293b;
+  --diagram-title:          #0f172a;
+  --diagram-muted:          #475569;
+  --diagram-note:           #64748b;
+  --diagram-footer:         #475569;
+  --diagram-arrow:          #94a3b8;
+  --diagram-divider:        #cbd5e1;
+  --diagram-danger:         #b91c1c;
+  --diagram-reject:         #fee2e2;
+  --diagram-reject-border:  #ef4444;
+  --diagram-blue:           #dbeafe;
+  --diagram-blue-border:    #2563eb;
+  --diagram-on-blue:        #1e40af;
+  --diagram-green:          #dcfce7;
+  --diagram-green-border:   #16a34a;
+  --diagram-on-green:       #14532d;
+  --diagram-purple:         #ede9fe;
+  --diagram-purple-border:  #7c3aed;
+  --diagram-on-purple:      #4c1d95;
+}
+
+// Dark-mode overrides — only the palette vars change; no class re-declarations needed
+:host-context(.dark) {
+  --diagram-surface:        #0f172a;
+  --diagram-box:            #1e293b;
+  --diagram-border:         #334155;
+  --diagram-border-muted:   #475569;
+  --diagram-layer-border:   #334155;
+  --diagram-db:             #1c1917;
+  --diagram-db-border:      #78716c;
+  --diagram-text:           #e2e8f0;
+  --diagram-title:          #f1f5f9;
+  --diagram-muted:          #94a3b8;
+  --diagram-note:           #64748b;
+  --diagram-footer:         #64748b;
+  --diagram-arrow:          #475569;
+  --diagram-divider:        #334155;
+  --diagram-danger:         #fca5a5;
+  --diagram-reject:         #450a0a;
+  --diagram-reject-border:  #ef4444;
+  --diagram-blue:           #1e3a5f;
+  --diagram-blue-border:    #3b82f6;
+  --diagram-on-blue:        #bfdbfe;
+  --diagram-green:          #14291a;
+  --diagram-green-border:   #22c55e;
+  --diagram-on-green:       #bbf7d0;
+  --diagram-purple:         #2e1065;
+  --diagram-purple-border:  #a855f7;
+  --diagram-on-purple:      #ddd6fe;
+
+  svg { background: var(--diagram-surface); }
 }
 
 svg {
@@ -10,99 +75,59 @@ svg {
   display: block;
 }
 
-// Structural box classes (light mode defaults)
-.box           { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1.5; }
-.box-accent    { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; }
-.layer         { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; }
-.accent-blue   { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
-.accent-green  { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
-.accent-purple { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
-.db            { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1.5; }
-.side          { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1; }
-.decision      { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5; }
-.reject        { fill: #fee2e2; stroke: #ef4444; stroke-width: 1; }
-.trigger       { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1.5; }
-.check         { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
-.reset         { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
-.log           { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
-.skip          { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1; }
-.service       { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
-.component     { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
-.build         { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
-.deploy        { fill: #fafaf9; stroke: #a8a29e; stroke-width: 1.5; }
-.note          { fill: #f1f5f9; stroke: #cbd5e1; stroke-width: 1; }
-.anon-badge    { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 1; }
-.tier          { fill: none; stroke: #e2e8f0; stroke-width: 0; }
-.role-pasien   { fill: #dbeafe; stroke: #2563eb; stroke-width: 1.5; }
-.role-pegawai  { fill: #dcfce7; stroke: #16a34a; stroke-width: 1.5; }
-.data          { fill: #ede9fe; stroke: #7c3aed; stroke-width: 1.5; }
+// ── Structural box classes ───────────────────────────────────────
+.box           { fill: var(--diagram-box);     stroke: var(--diagram-border);        stroke-width: 1.5; }
+.box-accent    { fill: var(--diagram-surface);  stroke: var(--diagram-border-muted);  stroke-width: 1.5; }
+.layer         { fill: var(--diagram-surface);  stroke: var(--diagram-layer-border);  stroke-width: 1; }
+.accent-blue   { fill: var(--diagram-blue);     stroke: var(--diagram-blue-border);   stroke-width: 1.5; }
+.accent-green  { fill: var(--diagram-green);    stroke: var(--diagram-green-border);  stroke-width: 1.5; }
+.accent-purple { fill: var(--diagram-purple);   stroke: var(--diagram-purple-border); stroke-width: 1.5; }
+.db            { fill: var(--diagram-db);       stroke: var(--diagram-db-border);     stroke-width: 1.5; }
+.side          { fill: var(--diagram-box);      stroke: var(--diagram-border-muted);  stroke-width: 1; }
+.decision      { fill: var(--diagram-box);      stroke: var(--diagram-border-muted);  stroke-width: 1.5; }
+.reject        { fill: var(--diagram-reject);   stroke: var(--diagram-reject-border); stroke-width: 1; }
+.trigger       { fill: var(--diagram-db);       stroke: var(--diagram-db-border);     stroke-width: 1.5; }
+.check         { fill: var(--diagram-blue);     stroke: var(--diagram-blue-border);   stroke-width: 1.5; }
+.reset         { fill: var(--diagram-green);    stroke: var(--diagram-green-border);  stroke-width: 1.5; }
+.log           { fill: var(--diagram-purple);   stroke: var(--diagram-purple-border); stroke-width: 1.5; }
+.skip          { fill: var(--diagram-box);      stroke: var(--diagram-border-muted);  stroke-width: 1; }
+.service       { fill: var(--diagram-blue);     stroke: var(--diagram-blue-border);   stroke-width: 1.5; }
+.component     { fill: var(--diagram-green);    stroke: var(--diagram-green-border);  stroke-width: 1.5; }
+.build         { fill: var(--diagram-purple);   stroke: var(--diagram-purple-border); stroke-width: 1.5; }
+.deploy        { fill: var(--diagram-db);       stroke: var(--diagram-db-border);     stroke-width: 1.5; }
+.note          { fill: var(--diagram-box);      stroke: var(--diagram-border);        stroke-width: 1; }
+.anon-badge    { fill: var(--diagram-surface);  stroke: var(--diagram-border);        stroke-width: 1; }
+.tier          { fill: none;                    stroke: var(--diagram-layer-border);  stroke-width: 0; }
+.role-pasien   { fill: var(--diagram-blue);     stroke: var(--diagram-blue-border);   stroke-width: 1.5; }
+.role-pegawai  { fill: var(--diagram-green);    stroke: var(--diagram-green-border);  stroke-width: 1.5; }
+.data          { fill: var(--diagram-purple);   stroke: var(--diagram-purple-border); stroke-width: 1.5; }
 
-// Arrows
-.arrow      { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
-.arrow-dash { stroke: #94a3b8; stroke-width: 1; stroke-dasharray: 4,3; fill: none; }
-.line       { stroke: #cbd5e1; stroke-width: 1; stroke-dasharray: 4 4; }
+// ── Arrow and connector classes ──────────────────────────────────
+.arrow          { stroke: var(--diagram-arrow);   stroke-width: 1.5; fill: none; }
+.arrow-dash     { stroke: var(--diagram-arrow);   stroke-width: 1;   stroke-dasharray: 4,3; fill: none; }
+.line           { stroke: var(--diagram-divider); stroke-width: 1;   stroke-dasharray: 4 4; }
+.connector-line { stroke: var(--diagram-divider); stroke-width: 1;   fill: none; }
+// Arrow-head marker fill — <path> inside <marker><defs>
+.dg-arrow-head  { fill: var(--diagram-arrow); }
 
-// Semantic text classes (light mode)
-.dg-text     { fill: #1e293b; font-size: 14px; }
-.dg-muted    { fill: #475569; font-size: 11px; }
-.dg-note     { fill: #64748b; font-size: 10px; font-style: italic; }
-.dg-on-blue  { fill: #1e40af; font-size: 13px; font-weight: 600; }
-.dg-on-green { fill: #14532d; font-size: 13px; font-weight: 600; }
-.dg-on-purple{ fill: #4c1d95; font-size: 13px; font-weight: 600; }
-.dg-danger   { fill: #b91c1c; font-size: 12px; }
-.dg-title    { fill: #0f172a; font-size: 14px; font-weight: 700; }
-.dg-footer   { fill: #475569; font-size: 10px; }
+// ── Semantic text classes ────────────────────────────────────────
+.dg-text      { fill: var(--diagram-text);      font-size: 14px; }
+.dg-muted     { fill: var(--diagram-muted);     font-size: 11px; }
+.dg-note      { fill: var(--diagram-note);      font-size: 10px; font-style: italic; }
+.dg-on-blue   { fill: var(--diagram-on-blue);   font-size: 13px; font-weight: 600; }
+.dg-on-green  { fill: var(--diagram-on-green);  font-size: 13px; font-weight: 600; }
+.dg-on-purple { fill: var(--diagram-on-purple); font-size: 13px; font-weight: 600; }
+.dg-danger    { fill: var(--diagram-danger);    font-size: 12px; }
+.dg-title     { fill: var(--diagram-title);     font-size: 14px; font-weight: 700; }
+.dg-footer    { fill: var(--diagram-footer);    font-size: 10px; }
 
-// Dark mode overrides
-:host-context(.dark) {
-  .box           { fill: #1e293b; stroke: #334155; }
-  .box-accent    { fill: #0f172a; stroke: #475569; }
-  .layer         { fill: #1e293b; stroke: #334155; }
-  .accent-blue   { fill: #1e3a5f; stroke: #3b82f6; }
-  .accent-green  { fill: #14291a; stroke: #22c55e; }
-  .accent-purple { fill: #2e1065; stroke: #a855f7; }
-  .db            { fill: #1c1917; stroke: #78716c; }
-  .side          { fill: #1e293b; stroke: #475569; }
-  .decision      { fill: #1e293b; stroke: #475569; }
-  .reject        { fill: #450a0a; stroke: #ef4444; }
-  .trigger       { fill: #1c1917; stroke: #78716c; }
-  .check         { fill: #1e3a5f; stroke: #3b82f6; }
-  .reset         { fill: #14291a; stroke: #22c55e; }
-  .log           { fill: #2e1065; stroke: #a855f7; }
-  .skip          { fill: #1e293b; stroke: #475569; }
-  .service       { fill: #1e3a5f; stroke: #3b82f6; }
-  .component     { fill: #14291a; stroke: #22c55e; }
-  .build         { fill: #2e1065; stroke: #a855f7; }
-  .deploy        { fill: #1c1917; stroke: #78716c; }
-  .note          { fill: #1e293b; stroke: #334155; }
-  .anon-badge    { fill: #0f172a; stroke: #334155; }
-  .role-pasien   { fill: #1e3a5f; stroke: #3b82f6; }
-  .role-pegawai  { fill: #14291a; stroke: #22c55e; }
-  .data          { fill: #2e1065; stroke: #a855f7; }
-  .arrow         { stroke: #475569; }
-  .arrow-dash    { stroke: #475569; }
-  .line          { stroke: #334155; }
-
-  .dg-text      { fill: #e2e8f0; }
-  .dg-muted     { fill: #94a3b8; }
-  .dg-note      { fill: #64748b; }
-  .dg-on-blue   { fill: #bfdbfe; }
-  .dg-on-green  { fill: #bbf7d0; }
-  .dg-on-purple { fill: #ddd6fe; }
-  .dg-danger    { fill: #fca5a5; }
-  .dg-title     { fill: #f1f5f9; }
-  .dg-footer    { fill: #64748b; }
-
-  svg { background: #0f172a; }
-}
-
-// Scroll container
+// ── Scroll container ─────────────────────────────────────────────
 .diagram-scroll {
   border-color: color-mix(in srgb, currentColor 15%, transparent);
   background: transparent;
 }
 
-// Full-size overlay SVG
+// ── Full-size overlay SVG ────────────────────────────────────────
 .diagram-overlay-inner svg {
   min-width: unset;
   width: 100%;

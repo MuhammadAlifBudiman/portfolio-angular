@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PROJECTS } from '../../data/projects.data';
-import { CASE_STUDIES, CaseStudy, CaseStudyMedia } from '../../data/case-studies.data';
+import { CASE_STUDIES, CaseStudy, CaseStudyMedia, ImageCaseStudyMedia } from '../../data/case-studies.data';
 import { Project } from '../../models/project.model';
 import { LanguageService } from '../../services/language.service';
 import { SeoService } from '../../services/seo.service';
@@ -92,10 +92,8 @@ export class ProjectDetailComponent implements OnInit {
     return [...(this.caseStudy?.media ?? [])].filter(item => !item.afterSectionId);
   }
 
-  mediaImageClass(item: CaseStudyMedia): string {
-    const fitClass = item.imageFit === 'contain' || item.type === 'architecture' || item.type === 'flow'
-      ? 'object-contain'
-      : 'object-cover';
+  mediaImageClass(item: ImageCaseStudyMedia): string {
+    const fitClass = item.imageFit === 'contain' ? 'object-contain' : 'object-cover';
     const positionClass = item.imagePosition === 'top' ? 'object-top' : 'object-center';
     return [
       'dark:border-dark-background-hover border-light-background-hover bg-light-background-hover dark:bg-dark-background-hover',

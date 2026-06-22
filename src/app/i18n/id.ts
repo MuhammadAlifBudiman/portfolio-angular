@@ -528,7 +528,19 @@ export const ID: PartialTranslation = {
         clinicData: 'Data Klinik',
         scheduleData: 'Data Jadwal',
         patientData: 'Data Pasien / Dokter',
+        // Connector-label keys (label panah antar swim lane pada diagram alur kerja)
+        submitted: 'Dikirim',
+        patientRecord: 'Data Pasien',
+        statusVisible: 'Status Terlihat',
       },
+    },
+    diagrams: {
+      'bkn-arch':         { title: 'Arsitektur API (Diagram Konseptual Anonim)' },
+      'bkn-flow':         { title: 'Siklus Permintaan RBAC (Anonim)' },
+      'blog-arch':        { title: 'Blog API Server — Arsitektur MVC' },
+      'patient-workflow': { title: 'Manajemen Pasien — Alur Kerja Klinik Terverifikasi' },
+      'taskmaster-flow':  { title: 'Task Master — Alur Reset Tugas Berulang' },
+      'portfolio-arch':   { title: 'Website Portfolio — Arsitektur' },
     },
   },
 };

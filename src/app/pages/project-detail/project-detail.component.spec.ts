@@ -243,7 +243,7 @@ describe('ProjectDetailComponent', () => {
 
   describe('diagram rendering (Task 4)', () => {
     it('renders architecture/flow media with app-case-study-diagram, not img', () => {
-      // task-master has a flow diagram (taskmaster-reset-flow.svg)
+      // task-master has a flow diagram (diagramId: 'taskmaster-flow')
       const diagrams = fixture.nativeElement.querySelectorAll('app-case-study-diagram');
       expect(diagrams.length).toBeGreaterThan(0);
     });

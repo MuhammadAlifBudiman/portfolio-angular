@@ -1,7 +1,7 @@
 import { Component, Input, signal, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { NgTemplateOutlet } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
-import { CaseStudyMedia } from '../../data/case-studies.data';
+import { CaseStudyDiagramId, DiagramCaseStudyMedia } from '../../data/case-studies.data';
 
 @Component({
   selector: 'app-case-study-diagram',
@@ -11,7 +11,7 @@ import { CaseStudyMedia } from '../../data/case-studies.data';
   styleUrl: './case-study-diagram.component.scss',
 })
 export class CaseStudyDiagramComponent {
-  @Input({ required: true }) item!: CaseStudyMedia;
+  @Input({ required: true }) item!: DiagramCaseStudyMedia;
   @ViewChild('triggerBtn') triggerBtn!: ElementRef<HTMLButtonElement>;
   @ViewChild('overlayInner') overlayInner!: ElementRef<HTMLDivElement>;
 
@@ -65,7 +65,7 @@ export class CaseStudyDiagramComponent {
     }
   }
 
-  get diagramId(): string {
-    return this.item.id;
+  get diagramId(): CaseStudyDiagramId {
+    return this.item.diagramId;
   }
 }

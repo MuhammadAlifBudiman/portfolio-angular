@@ -139,7 +139,6 @@ export const PROJECTS: readonly Project[] = [
       { type: 'github', url: 'https://github.com/MuhammadAlifBudiman/Numble' },
     ],
   },
-  // NOTE: image screenshots for password-security and crypto-charts need to be added to public/projects/
   {
     id: 'password-security',
     title: 'Password Security',
