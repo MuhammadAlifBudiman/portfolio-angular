@@ -112,6 +112,7 @@ Required repository secrets:
 - `ENV_SERVICE_ID`
 - `ENV_TEMPLATE_ID`
 - `ENV_PUBLIC_KEY`
+- `GH_TOKEN` with read access to the `cv-latex` submodule repository
 
 Do not place production credentials in tracked environment files.
 
