@@ -166,4 +166,18 @@ describe('ContactComponent — FR-F00L-2', () => {
       expect(root.classList).not.toContain('wrapper');
     });
   });
+
+  it('uses stronger tokenized border and focus contrast on form controls', () => {
+    const controls = fixture.nativeElement.querySelectorAll(
+      'input:not([type="hidden"]), textarea'
+    ) as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
+
+    expect(controls.length).toBe(4);
+    controls.forEach((control) => {
+      expect(control.className).toContain('border-2');
+      expect(control.className).toContain('border-light-text-secondary/40');
+      expect(control.className).toContain('focus-visible:border-light-accent-hover');
+      expect(control.className).toContain('dark:focus-visible:border-dark-accent-hover');
+    });
+  });
 });

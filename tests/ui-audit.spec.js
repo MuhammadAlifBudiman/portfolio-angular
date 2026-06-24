@@ -63,18 +63,18 @@ test.describe('Portfolio UI/UX audit', () => {
     });
   }
 
-  // ─── Case study: patient workflow image is NOT blurry (check it's SVG) ───
-  test('[patient] workflow diagram src is SVG', async ({ page: pw }) => {
+  // ─── Case study: patient workflow diagram is rendered inline, not as an img src ───
+  test('[patient] workflow diagram renders without img src dependency', async ({ page: pw }) => {
     await pw.goto(`${BASE}/projects/patient-management-system`, {
       waitUntil: 'networkidle',
       timeout: 30000,
     });
     await pw.waitForTimeout(2000);
 
-    const workflowImg = pw.locator('[data-media-id="patient-workflow"] img');
-    const src = await workflowImg.getAttribute('src');
-    console.log('[patient] workflow img src:', src);
-    expect(src).toContain('.svg');
+    const workflowFigure = pw.locator('[data-media-id="patient-workflow"]');
+    await expect(workflowFigure).toBeVisible();
+    await expect(workflowFigure.locator('app-case-study-diagram')).toBeVisible();
+    await expect(workflowFigure.locator(':scope > img')).toHaveCount(0);
   });
 
   // ─── Navigation: all nav links are reachable ─────────────────────────────

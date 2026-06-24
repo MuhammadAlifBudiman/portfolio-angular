@@ -115,6 +115,17 @@ Required repository secrets:
 
 Do not place production credentials in tracked environment files.
 
+### Resume Sync
+
+`public/resume.pdf` is generated from the `external/cv-latex` submodule. Run this after cloning or when the CV source changes:
+
+```bash
+git submodule update --init --recursive
+npm run resume:sync
+```
+
+The deploy workflow runs the same sync before tests and build. A separate `Sync Resume from cv-latex` workflow can be triggered manually or by a `repository_dispatch` event type of `cv-latex-updated`. See [docs/automation/CV_RESUME_SYNC.md](docs/automation/CV_RESUME_SYNC.md) for local setup, dispatch token notes, and troubleshooting.
+
 ## License
 
 Personal project — all rights reserved.

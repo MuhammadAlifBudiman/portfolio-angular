@@ -89,4 +89,12 @@ describe('AboutMeComponent', () => {
     expect(downloadResume).toBeTruthy();
     expect(photo).toBeTruthy();
   });
+
+  it('does not render Instagram as a public social link', () => {
+    const instagramLink = fixture.nativeElement.querySelector(
+      'a[href*="instagram.com"]'
+    );
+    expect(instagramLink).toBeNull();
+    expect(fixture.nativeElement.textContent).not.toContain('Instagram');
+  });
 });

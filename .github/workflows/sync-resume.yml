@@ -1,24 +1,29 @@
-name: Deploy using ng deploy
+name: Sync Resume from cv-latex
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - cv-latex-updated
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  deploy:
+  sync-resume:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
           submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Update cv-latex submodule to origin/main
+        run: |
+          git -C external/cv-latex fetch origin main
+          git -C external/cv-latex checkout origin/main
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -57,6 +62,22 @@ jobs:
       - name: Validate prerender output
         run: npm run prerender:check
 
+      - name: Commit synced resume
+        id: commit
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+          if git diff --quiet -- .gitmodules external/cv-latex public/resume.pdf; then
+            echo "committed=false" >> "$GITHUB_OUTPUT"
+            echo "No resume changes to commit."
+          else
+            git add .gitmodules external/cv-latex public/resume.pdf
+            git commit -m "chore: sync resume from cv-latex"
+            git push
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Deploy to GitHub Pages
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -70,13 +91,14 @@ jobs:
         run: |
           git fetch --depth=1 origin gh-pages
           LAST_COMMIT_MESSAGE="$(git log -1 origin/gh-pages --pretty=%B)"
+          VERIFY_SHA="$(git rev-parse HEAD)"
 
           case "$LAST_COMMIT_MESSAGE" in
-            *"$GITHUB_SHA"*)
-              echo "Verified gh-pages update for $GITHUB_SHA"
+            *"$VERIFY_SHA"*)
+              echo "Verified gh-pages update for $VERIFY_SHA"
               ;;
             *)
-              echo "::error::gh-pages was not updated for commit $GITHUB_SHA"
+              echo "::error::gh-pages was not updated for commit $VERIFY_SHA"
               echo "Latest gh-pages commit message:"
               echo "$LAST_COMMIT_MESSAGE"
               exit 1
