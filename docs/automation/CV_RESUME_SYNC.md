@@ -46,6 +46,21 @@ The sync script runs the CV `build`, `qa`, and `release` targets, copies the rel
 
 Both workflows use the repository `GH_TOKEN` secret for checkout so private `cv-latex` submodule access stays in GitHub Actions secrets instead of `.gitmodules`.
 
+### GH_TOKEN requirements
+
+- **Classic PAT:** `repo` scope (covers both `portfolio-angular` and the private `cv-latex`).
+- **Fine-grained PAT:** grant **Contents: Read** on both `portfolio-angular` and `cv-latex`.
+- PATs expire — set a calendar reminder or use a no-expiry classic PAT (if org policy allows).
+
+Rotate the secret:
+
+```bash
+gh secret set GH_TOKEN --repo MuhammadAlifBudiman/portfolio-angular
+# paste the new PAT value when prompted
+```
+
+The deploy workflow asserts `secrets.GH_TOKEN` is non-empty as its first step. An expired or blank PAT fails immediately with an actionable error message rather than an opaque git authentication failure mid-checkout.
+
 `.github/workflows/sync-resume.yml` supports:
 
 - manual `workflow_dispatch`
