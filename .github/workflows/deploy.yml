@@ -15,6 +15,15 @@ jobs:
       contents: write
 
     steps:
+      - name: Assert deploy token present
+        env:
+          GH_TOKEN_SECRET: ${{ secrets.GH_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN_SECRET" ]; then
+            echo "::error::secrets.GH_TOKEN is empty. Rotate the PAT (repo scope, access to private cv-latex) and update the GH_TOKEN secret: gh secret set GH_TOKEN --repo MuhammadAlifBudiman/portfolio-angular"
+            exit 1
+          fi
+
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
