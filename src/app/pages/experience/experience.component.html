@@ -14,7 +14,7 @@
           </h3>
           <div class="space-y-8">
             @for (exp of experiencesByGroup(professionalIds); track exp.id) {
-              <div class="dark:bg-dark-background-hover bg-light-background-hover rounded-xl p-6 shadow-md" [attr.data-testid]="'experience-card'">
+              <div class="dark:bg-dark-background-hover bg-light-background-hover dark:border-dark-accent-primary border-light-accent-primary rounded-xl border-l-4 p-6 shadow-lg" data-testid="professional-experience-card">
                 <div class="mb-1 grid grid-cols-1 gap-1 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-4">
                   <div>
                     <h4 class="dark:text-dark-text-primary text-light-text-primary text-xl font-semibold">{{ itemRole(exp.id) }}</h4>
@@ -27,7 +27,7 @@
                 </div>
                 <p class="dark:text-dark-text-secondary text-light-text-secondary mb-3 mt-2 text-base">{{ itemDescription(exp.id) }}</p>
                 <ul class="dark:text-dark-text-secondary text-light-text-secondary list-disc space-y-1 pl-5 text-sm">
-                  @for (c of itemContributions(exp.id); track c) {
+                  @for (c of itemContributions(exp.id); track $index) {
                     <li>{{ c }}</li>
                   }
                 </ul>
@@ -53,7 +53,7 @@
           </h3>
           <div class="space-y-8">
             @for (exp of experiencesByGroup(trainingIds); track exp.id) {
-              <div class="dark:bg-dark-background-hover bg-light-background-hover rounded-xl p-6 shadow-md" [attr.data-testid]="'experience-card'">
+              <div class="dark:bg-dark-background-hover bg-light-background-hover dark:border-dark-border-primary border-light-border-primary rounded-xl border p-5 shadow-sm" data-testid="training-experience-card">
                 <div class="mb-1 grid grid-cols-1 gap-1 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start sm:gap-4">
                   <div>
                     <h4 class="dark:text-dark-text-primary text-light-text-primary text-xl font-semibold">{{ itemRole(exp.id) }}</h4>
@@ -66,7 +66,7 @@
                 </div>
                 <p class="dark:text-dark-text-secondary text-light-text-secondary mb-3 mt-2 text-base">{{ itemDescription(exp.id) }}</p>
                 <ul class="dark:text-dark-text-secondary text-light-text-secondary list-disc space-y-1 pl-5 text-sm">
-                  @for (c of itemContributions(exp.id); track c) {
+                  @for (c of itemContributions(exp.id); track $index) {
                     <li>{{ c }}</li>
                   }
                 </ul>

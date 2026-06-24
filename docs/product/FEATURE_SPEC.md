@@ -47,6 +47,7 @@
 - FR-F001-3: Display file metadata (size, update date) when available.
 - FR-F001-4: Do not ship private phone/address data unless intentionally public.
 - FR-F001-5: Control is keyboard-operable with visible focus.
+- FR-F001-6: `public/resume.pdf` is synchronized from the `external/cv-latex` submodule through `npm run resume:sync`; CI deploys must regenerate it before build.
 
 ## F002 — Multilanguage / i18n (planned · issue #10)
 **Goal:** Site supports English and Indonesian.

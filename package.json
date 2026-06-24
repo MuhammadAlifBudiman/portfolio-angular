@@ -11,6 +11,8 @@
     "test:ui": "playwright test",
     "prerender:check": "node scripts/check-prerender.js",
     "images:check": "node scripts/check-project-images.js",
+    "resume:sync": "bash scripts/sync-resume-from-cv-latex.sh",
+    "resume:check": "test -s public/resume.pdf",
     "setup:env": "cp src/environments/example.environment.ts src/environments/environment.ts && node -e \"require('fs').writeFileSync('src/environments/environment.prod.ts', 'export const environment = { production: true, emailService: { serviceId: \\'\\', templateId: \\'\\', publicKey: \\'\\'} };')\" && echo 'Local env files created. Set real EmailJS values in environment.prod.ts for a local prod build.'",
     "prepare": "husky"
   },
@@ -57,7 +59,9 @@
     "typescript": "~5.9.3"
   },
   "overrides": {
-    "webpack-dev-server": "5.2.4",
+    "webpack-dev-server": "5.2.5",
+    "http-proxy-middleware": "4.1.1",
+    "piscina": "5.2.0",
     "sockjs": {
       "uuid": "11.1.1"
     },

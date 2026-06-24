@@ -20,7 +20,7 @@
             </h3>
 
             <div class="flex flex-wrap gap-1.5">
-              @for (tech of primaryItems(group); track tech) {
+              @for (tech of primaryItems(group); track $index) {
                 <span
                   class="dark:bg-dark-background-primary bg-light-background-primary dark:text-dark-text-primary text-light-text-primary rounded-full px-2.5 py-1 font-mono text-xs"
                 >
@@ -31,7 +31,7 @@
 
             @if (additionalItems(group).length > 0) {
               <div class="flex flex-wrap gap-1.5 pt-1 border-t dark:border-dark-border-primary border-light-border-primary/50">
-                @for (tech of additionalItems(group); track tech) {
+                @for (tech of additionalItems(group); track $index) {
                   <span
                     class="dark:text-dark-text-secondary text-light-text-secondary rounded-full px-2.5 py-1 font-mono text-xs opacity-75"
                   >

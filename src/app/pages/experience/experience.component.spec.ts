@@ -10,7 +10,9 @@ describe('ExperienceComponent', () => {
   let component: ExperienceComponent;
 
   function cards(): NodeListOf<HTMLElement> {
-    return fixture.nativeElement.querySelectorAll('[data-testid="experience-card"]');
+    return fixture.nativeElement.querySelectorAll(
+      '[data-testid="professional-experience-card"], [data-testid="training-experience-card"]'
+    );
   }
 
   beforeEach(async () => {
@@ -58,6 +60,20 @@ describe('ExperienceComponent', () => {
   it('injects the real LanguageService and defaults to English', () => {
     const lang = TestBed.inject(LanguageService);
     expect(lang.t('experience.title')).toBe('Experience');
+  });
+
+  it('renders professional experience with stronger hierarchy than training cards', () => {
+    const professionalCard: HTMLElement | null =
+      fixture.nativeElement.querySelector('[data-testid="professional-experience-card"]');
+    const trainingCard: HTMLElement | null =
+      fixture.nativeElement.querySelector('[data-testid="training-experience-card"]');
+
+    expect(professionalCard).withContext('professional card should be marked').not.toBeNull();
+    expect(trainingCard).withContext('training card should be marked').not.toBeNull();
+    expect(professionalCard?.className).toContain('shadow-lg');
+    expect(professionalCard?.className).toContain('border-l-4');
+    expect(trainingCard?.className).toContain('shadow-sm');
+    expect(trainingCard?.className).not.toContain('opacity-');
   });
 
   describe('BKN period i18n (B2)', () => {
