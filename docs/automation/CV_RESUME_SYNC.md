@@ -44,6 +44,8 @@ The sync script runs the CV `build`, `qa`, and `release` targets, copies the rel
 
 `.github/workflows/deploy.yml` checks out submodules and runs `npm run resume:sync` before tests and build on every `main` deploy.
 
+Both workflows use the repository `GH_TOKEN` secret for checkout so private `cv-latex` submodule access stays in GitHub Actions secrets instead of `.gitmodules`.
+
 `.github/workflows/sync-resume.yml` supports:
 
 - manual `workflow_dispatch`
